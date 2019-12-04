@@ -1,0 +1,162 @@
+﻿<Window x:Class="MilkTeaManager.Views.Dialog.MaterialReport"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MilkTeaManager.Views.Dialog"
+        mc:Ignorable="d"
+        Title="MaterialReport"         ResizeMode="NoResize"
+         Height="800" Width="600"
+        WindowStartupLocation="CenterScreen">
+    <FlowDocument Background="White" 
+                  PageHeight="850"
+                  PageWidth="auto">
+        <FlowDocument.Resources>
+            <Style TargetType="{x:Type Label}" BasedOn="{StaticResource BelowMediumLabelStyle}" x:Key="ValueLabelStyle">
+                <Setter Property="FontWeight" Value="Normal"/>
+                <Setter Property="HorizontalContentAlignment" Value="Right"/>
+            </Style>
+            <Style TargetType="{x:Type Label}" BasedOn="{StaticResource MediumLabelStyle}">
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Setter Property="Width" Value="auto"/>
+            </Style>
+            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource UIProjectPrintTextBoxStyle}"></Style>
+        </FlowDocument.Resources>
+        <Section Name="GeneralInfo">
+            <BlockUIContainer>
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="Thương hiệu trà sữa TQKK"/>
+                    <TextBlock Text="Uy tín - Chất lượng - An toàn"/>
+                    <TextBlock Text="Địa chỉ: Khu phố 6 - Linh Trung - Thủ Đức - TP Hồ Chí Minh"/>
+                </StackPanel>
+            </BlockUIContainer>
+        </Section>
+        <Paragraph Margin="0"
+                   TextAlignment="Center">=================================================</Paragraph>
+        <Paragraph TextAlignment="Center"
+                   FontWeight="Bold">Bảng báo cáo nguyên liệu</Paragraph>
+        <Section Name="MaterialInfo">
+            <BlockUIContainer>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Style="{StaticResource MediumLabelStyle}"
+                           HorizontalAlignment="Left"
+                           Content="Người lập  : "/>
+                    <Label Style="{StaticResource MediumLabelStyle}"
+                           HorizontalAlignment="Left" 
+                           Grid.Row="1"
+                           Content="Ngày lập  : "/>
+                    <Label Grid.Column="1"
+                           Style="{StaticResource MediumLabelStyle}"
+                           FontWeight="Bold"
+                           HorizontalAlignment="Left"
+                           Content="{Binding NguoiLapBaoCao}"/>
+                    <Label Grid.Column="1" Grid.Row="1"
+                           Style="{StaticResource MediumLabelStyle}"
+                           FontWeight="Bold"
+                           HorizontalAlignment="Left"
+                           Content="{Binding ThoiGianBaoCao}"/>
+                </Grid>
+            </BlockUIContainer>
+        </Section>
+        <Paragraph TextAlignment="Center">==========================================</Paragraph>
+       
+        <Table x:Name="dataTable">
+            <Table.Resources>
+                <Style TargetType="{x:Type Table}">
+                    <Setter Property="BorderThickness" Value="1"/>
+                    <Setter Property="BorderBrush" Value="Gray"/>
+                    <Setter Property="FontSize" Value="13"/>
+                    <Setter Property="FontFamily" Value="Arial"/>
+                    <Setter Property="CellSpacing" Value="0"/>
+                </Style>
+                <Style TargetType="{x:Type TableCell}">
+                    <Setter Property="BorderBrush" Value="Gray"/>
+                    <Setter Property="Padding" Value="7"/>
+                    <Setter Property="TextAlignment" Value="{Binding}"/>
+                </Style>
+            </Table.Resources>
+            <Table.Columns>
+                <TableColumn/>
+                <TableColumn Width="120"/>
+                <TableColumn/>
+                <TableColumn/>
+                <TableColumn/>
+            </Table.Columns>
+            <TableRowGroup>
+                <TableRow>
+                    <TableRow.Resources>
+                        <Style TargetType="TableCell">
+                            <Setter Property="BorderThickness" Value="1"/>
+                            <Setter Property="BorderBrush" Value="Gray"/>
+                            <Setter Property="Padding" Value="7"/>
+                            <Setter Property="TextAlignment" Value="{Binding}"/>
+                        </Style>
+                    </TableRow.Resources>
+                    <TableCell TextAlignment="Center">
+                        <Paragraph>STT</Paragraph>
+                    </TableCell>
+                    <TableCell TextAlignment="Center">
+                        <Paragraph>Tên nguyên liệu</Paragraph>
+                    </TableCell>
+                    <TableCell TextAlignment="Center">
+                        <Paragraph>Loại NL</Paragraph>
+                    </TableCell>
+                    <TableCell TextAlignment="Right">
+                        <Paragraph>SL đang có</Paragraph>
+                    </TableCell>
+                    <TableCell TextAlignment="Center">
+                        <Paragraph>Nhà cc</Paragraph>
+                    </TableCell>
+                    <TableCell TextAlignment="Center">
+                        <Paragraph>Giá bán</Paragraph>
+                    </TableCell>
+                </TableRow>
+            </TableRowGroup>
+        </Table>
+        <Paragraph TextAlignment="Center">===============================================</Paragraph>
+        <Section Name="Summary">
+            <BlockUIContainer>
+                <StackPanel Orientation="Vertical">
+                    <StackPanel.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="BorderBrush" Value="Black"/>
+                            <Setter Property="BorderThickness" Value="0 0 0 1"/>
+                        </Style>
+                        <Style TargetType="{x:Type Label}" BasedOn="{StaticResource BelowMediumLabelStyle}">
+                        </Style>
+                    </StackPanel.Resources>
+                    <Border>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0">
+                                <Label Content="Số lượng:"/>
+                                <Label Content="Ghi chú:"/>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1">
+                                <StackPanel.Resources>
+                                    <Style TargetType="{x:Type Label}" BasedOn="{StaticResource ValueLabelStyle}">
+                                        <Setter Property="FontWeight" Value="Bold"/>
+                                    </Style>
+                                </StackPanel.Resources>
+                                <Label Content="{Binding TongSoLuongTonKho}"/>
+
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </StackPanel>
+            </BlockUIContainer>
+        </Section>
+        <Paragraph TextAlignment="Center">======================== Hết =========================</Paragraph>
+    </FlowDocument>
+</Window>
