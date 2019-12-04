@@ -1,0 +1,39 @@
+﻿<Window x:Class="MilkTeaManager.Views.ShellView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:dragablz="clr-namespace:Dragablz;assembly=Dragablz"
+        xmlns:local="clr-namespace:MilkTeaManager.Views"
+        mc:Ignorable="d"
+        Title="" Height="600" Width="1080" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <Grid>
+        <Grid Height="60" VerticalAlignment="Top" Background="#00B2BF">
+            <TextBlock Text="Quản lí tà tữa" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36" FontFamily="Segoe UI Semibold" />
+        </Grid>
+        <Grid Margin="0 60 0 0">
+            <dragablz:TabablzControl>
+                <dragablz:TabablzControl.InterTabController>
+                    <dragablz:InterTabController/>
+                </dragablz:TabablzControl.InterTabController>
+                <!--order+thanh toán+xuất hóa đơn-->
+                <TabItem Header="Bán trà sữa">
+                </TabItem>
+                
+                <!--Thống kê thu chi-->
+                <TabItem Header="Thống kê">
+                </TabItem>
+
+                <!--Quản lý cửa hàng-->
+                <TabItem Header="Quản lý cửa hàng">
+                </TabItem>
+
+                <!--Lập phiếu báo cáo-->
+                <TabItem Header="Lập báo cáo">
+                </TabItem>
+                
+            </dragablz:TabablzControl>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,231 @@
+﻿<Window x:Class="MilkTeaManager.Views.Dialog.EditProduct"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:MilkTeaManager.Views.Dialog"
+        mc:Ignorable="d"
+        ResizeMode="CanResize"
+        Title="EditProduct" Height="650" Width="500"
+        WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+       
+        <Style x:Key="CustomDefinedLabelStyle" TargetType="Label" BasedOn="{StaticResource BelowMediumLabelStyle}">
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+        </Style>
+
+        <Style x:Key="CustomTextBoxStyle" TargetType="TextBox" >
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="FontSize" Value="13"/>
+        </Style>
+
+        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource UIProjectLightButtonStyle}">
+            <Setter Property="Margin" Value="0 20 0 10"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Height" Value="auto"/>
+            <Setter Property="Width" Value="100"/>
+        </Style>
+    </Window.Resources>
+    <Border CornerRadius="15"
+            Background="White"
+            BorderBrush="LightGray"
+            BorderThickness="1">
+        <Grid>
+            <Grid Margin="20 10 20 30">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" 
+                       Margin="0 50 0 0"
+                       Style="{StaticResource LargeLabelStyle}"
+                       HorizontalAlignment="Left"
+                       Content="Chỉnh sửa thông tin sản phẩm"/>
+                <Separator Grid.Row="1" Grid.ColumnSpan="2"
+                           Margin="10 30 10 10"
+                           BorderThickness="3"
+                           BorderBrush="Black"/>
+                <Grid Grid.Row="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Vertical"
+                                Margin="10">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="300"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Row="0" Grid.Column="0"
+                                   Style="{StaticResource CustomDefinedLabelStyle}"
+                                   Content="Tên sản phẩm"/>
+                            <Label Grid.Row="1" Grid.Column="0"
+                                   Style="{StaticResource CustomDefinedLabelStyle}"
+                                   Content="Loại sản phẩm"/>
+                            <Label Grid.Row="2" Grid.Column="0"
+                                   Style="{StaticResource CustomDefinedLabelStyle}"
+                                   Content="Size"/>
+                            <TextBox Grid.Row="0" Grid.Column="1"
+                                     Style="{StaticResource CustomTextBoxStyle}"
+                                     Text="{Binding Data.TenSP, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            <ComboBox x:Name="CbbLoaiSanPham"
+                                      Grid.Row="1" Grid.Column="1"
+                                      HorizontalAlignment="Stretch"
+                                      Margin="10"                                    
+                                      Height="30"
+                                      ItemsSource="{Binding AdditionData[0], Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                                      DisplayMemberPath="TenLoaiSP"
+                                      />
+                            <ComboBox 
+                                      Grid.Row="2" Grid.Column="1"
+                                      HorizontalAlignment="Stretch"
+                                      Margin="10"                                    
+                                      Height="30"
+                                      ItemsSource="{Binding AdditionData[0], Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                                      DisplayMemberPath="TenLoaiSP"
+                                      />
+                        </Grid>
+                    </StackPanel>
+                </Grid>
+                <Separator Grid.Row="3" Grid.ColumnSpan="2"
+                           Margin="10 30 10 10"
+                           BorderThickness="3"
+                           BorderBrush="Black"/>
+                <Grid Grid.Row="4" Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="180"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0"
+                                   Style="{StaticResource CustomDefinedLabelStyle}"
+                                   Content="Danh sách nguyên liệu"/>
+
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="8*"/>
+                                <ColumnDefinition Width="3*"/>
+                            </Grid.ColumnDefinitions>
+                            <ComboBox 
+                                      Grid.Column="0"
+                                      HorizontalAlignment="Stretch"
+                                      Margin="3"                                    
+                                      Height="30"
+                                        materialDesign:HintAssist.Hint="Nguyên liệu"
+                                      />
+
+
+                        </Grid>
+                        <Grid Grid.Row="1">
+
+                            <StackPanel Orientation="Horizontal">
+                                <Button Grid.Column="1" Margin="2"
+                                    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                    Width="80"
+                                    Content="Thêm"
+                                    ToolTip="Resource name: MaterialDesignRaisedLightDarkButton">
+
+
+                                </Button>
+                                <Button Grid.Column="1" Margin="2"
+                                    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                    Background="Red"
+                                    Content="Xóa"
+                                    Width="80"
+                                    ToolTip="Resource name: MaterialDesignRaisedLightDarkButton">
+
+                                </Button>
+                            </StackPanel>
+
+                        </Grid>
+                        <DataGrid 
+                                Margin="3"
+                                Grid.Row="2"
+                                CanUserSortColumns="True"
+                                CanUserAddRows="False"
+                                CanUserResizeColumns="False"
+                                CanUserResizeRows="False"
+                                AutoGenerateColumns="False"
+                                materialDesign:DataGridAssist.CellPadding="8"
+                                materialDesign:DataGridAssist.ColumnHeaderPadding="8"
+                                SelectionUnit="FullRow" Panel.ZIndex="-1" >
+                            <DataGrid.Columns>
+                                <DataGridTextColumn 
+                                                    TextBlock.TextAlignment="Right"
+                                                    Header="Danh sách Nguyên liệu"
+                                                    IsReadOnly="True"
+                                                    CanUserSort="False"
+                                                    HeaderStyle="{StaticResource CenteredDataGridHeader}"
+                                                    CellStyle="{StaticResource CenteredDataGridCell}"/>
+
+                                <DataGridTemplateColumn Width="30"
+                                                        HeaderStyle="{StaticResource CenteredDataGridHeader}"
+                                                        CellStyle="{StaticResource ButtonDataGridCellStyle}">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Style="{StaticResource UIProjectIconButtonStyle}"
+                                                        ToolTip="Xóa sản phẩm khỏi đơn hàng"
+                                                        VerticalAlignment="Center"
+                                                        HorizontalAlignment="Center"
+                                                        Background="Transparent"
+                                                        Foreground="Black"
+                                                        Width="30"
+                                                        Height="30"
+                                                        >
+                                                <materialDesign:PackIcon Kind="RemoveCircle"
+                                                                             Height="auto"
+                                                                             Width="auto"/>
+                                            </Button>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0"
+                            x:Name="btnSubmit"
+                            Click="update_click"
+                            Margin="0 50 0 0"
+                            VerticalAlignment="Bottom"
+                            Style="{StaticResource UIProjectAcceptButtonStyle}"
+                            Content="Cập nhật"
+                            Command="{Binding UpdateCommand}"
+                            CommandParameter="{Binding ElementName=editProductWnd}"/>
+                    <Button Grid.Column="1"
+                            x:Name="btnCancel"
+                            Click="exit_click"
+                            VerticalAlignment="Bottom"
+                            Style="{StaticResource UIProjectCancelButtonStyle}"
+                            Content="Hủy"
+                            Command="{Binding CancelCommand}"
+                            CommandParameter="{Binding ElementName=editProductWnd}"/>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

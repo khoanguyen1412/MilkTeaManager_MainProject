@@ -1,0 +1,378 @@
+﻿<Page x:Class="MilkTeaManager.Views.Pages.RevenueStatistic"
+              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MilkTeaManager.Views.Pages"
+      mc:Ignorable="d"
+      Title="RevenueStatistic">
+
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Grid.ColumnSpan="2">
+            
+            <Label Style="{StaticResource HeaderLabelStyle}"
+                   Margin="10,10,0,10"
+                   Content="Thống kê thu"
+                   HorizontalAlignment="Left" Grid.ColumnSpan="2"/>
+
+        </Grid>
+        <Separator Grid.Row="1"
+                   Margin="5" Grid.Column="1"/>
+        <Grid Grid.Row="2"
+              Margin="0,2,10,4" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="4*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition />
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Horizontal" Margin="5" Grid.ColumnSpan="2">
+                <Label Grid.Row="0"
+                               Style="{StaticResource MediumLabelStyle}"
+                               Content="Từ ngày:" Margin="0"/>
+                <DatePicker
+                             Width="130"
+                             Margin="10 0 0 0"
+                            FontSize="20"
+                             materialDesign:HintAssist.Hint="Chọn ngày">
+                    <DatePicker.SelectedDate>
+                        <Binding
+                                        Path="FutureValidatingDate"
+                                        UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </DatePicker.SelectedDate>
+                </DatePicker>
+                <Label Grid.Row="0" Grid.Column="0"
+                               Style="{StaticResource MediumLabelStyle}"
+                               Content="Đến ngày:"
+                       
+                        Margin="50 0 0 0"/>
+                <DatePicker
+                             Width="130"
+                             Margin="10 0 0 0"
+                            FontSize="20"
+                             materialDesign:HintAssist.Hint="Chọn ngày">
+                    <DatePicker.SelectedDate>
+                        <Binding
+                                        Path="FutureValidatingDate"
+                                        UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </DatePicker.SelectedDate>
+                </DatePicker>
+            </StackPanel>
+
+            <!--Bảng danh sách khách hàng-->
+            <materialDesign:Card Grid.Row="1" Grid.Column="0"
+                                     x:Name="PART_HoaDonList"
+                                     Style="{StaticResource UIProjectMaterialDesignCardStyle}" Margin="5"
+                                     >
+                <DataGrid 
+                           
+                        CanUserSortColumns="True"
+                        CanUserAddRows="False"
+                        CanUserResizeColumns="False"
+                        CanUserResizeRows="False"
+                        AutoGenerateColumns="False"
+                        materialDesign:DataGridAssist.CellPadding="8"
+                        materialDesign:DataGridAssist.ColumnHeaderPadding="8" 
+                       >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Width="60"
+                                                Header="STT"
+                                                IsReadOnly="True"
+                                                CanUserSort="False"
+                                                HeaderStyle="{StaticResource CenteredDataGridHeader}"
+                                                CellStyle="{StaticResource CenteredDataGridCell}"/>
+                        <DataGridTextColumn Width="90"
+                                                IsReadOnly="True"
+                                                Header="Mã hóa đơn"
+                                                HeaderStyle="{StaticResource CenteredDataGridHeader}"
+                                                CellStyle="{StaticResource CenteredDataGridCell}"
+                                                />
+                        <DataGridTextColumn Width="150"
+                                                CanUserSort="False"
+                                                Header="Ngày lập"                                           
+                                                IsReadOnly="True"
+                                                HeaderStyle="{StaticResource CenteredDataGridHeader}"
+                                                CellStyle="{StaticResource CenteredDataGridCell}"/>
+                        <DataGridTextColumn Width="150"
+                                                CanUserSort="False"
+                                                Header="Mã Khách hàng "
+                                                TextBlock.TextAlignment="Left"
+                                                IsReadOnly="True"
+                                                HeaderStyle="{StaticResource CenteredDataGridHeader}"
+                                                CellStyle="{StaticResource CenteredDataGridCell}"/>
+                        <DataGridTextColumn Width="150"
+                                                CanUserSort="False"
+                                                Header="Tổng tiền "
+                                                TextBlock.TextAlignment="Left"
+                                                IsReadOnly="True"
+                                                HeaderStyle="{StaticResource CenteredDataGridHeader}"
+                                                CellStyle="{StaticResource CenteredDataGridCell}"/>
+
+                        <DataGridTemplateColumn Width="30"
+                                                    HeaderStyle="{StaticResource CenteredDataGridHeader}"
+                                                    CellStyle="{StaticResource ButtonDataGridCellStyle}">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Style="{StaticResource UIProjectIconButtonStyle}"
+                                                    ToolTip="Xóa sản phẩm khỏi đơn hàng"
+                                                    VerticalAlignment="Center"
+                                                    HorizontalAlignment="Center"
+                                                    Background="Transparent"
+                                                    Foreground="Black"
+                                                    Width="30"
+                                                    Height="30"
+                                                    >
+                                        <materialDesign:PackIcon Kind="RemoveCircle"
+                                                                         Height="auto"
+                                                                         Width="auto"/>
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </materialDesign:Card>
+            <!--Bảng thông tin hoa don-->
+            <materialDesign:Card Grid.Column="1"
+                                     Style="{StaticResource UIProjectMaterialDesignCardStyle}"
+                                     Margin="5" Grid.Row="1">
+                <DockPanel VerticalAlignment="Top">
+                    <DockPanel.Resources>
+                        <Style TargetType="Label" BasedOn="{StaticResource MediumLabelStyle}" x:Key="ValueLabelStyle">
+                            <Setter Property="HorizontalAlignment" Value="Right"/>
+                            <Setter Property="Margin" Value="10"/>
+                        </Style>
+                        <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource UIProjectMediumTextBlockStyle}">
+                            <Setter Property="HorizontalAlignment" Value="Right"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="Margin" Value="0 10 10 10"/>
+                        </Style>
+                        <Style TargetType="{x:Type Label}" BasedOn="{StaticResource MediumLabelStyle}">
+                            <Setter Property="HorizontalAlignment" Value="Left"/>
+                            <Setter Property="Margin" Value="15 10 10 10"/>
+                            <Setter Property="Foreground" Value="Gray"/>
+                        </Style>
+
+                    </DockPanel.Resources>
+                    <StackPanel DockPanel.Dock="Bottom">
+                        <Label Content="Chi tiết hóa đơn"
+                                   Margin="10 10 5 5"
+                                   FontWeight="Bold"/>
+                        <Grid x:Name="gridCTHD"
+                                  DataContext="{Binding Content.SelectedItem, ElementName=PART_CustomerList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="164">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Row="0" Grid.Column="0"
+                                       Content="Khách hàng:" Margin="15 5 5 5" />
+                            <Label Grid.Row="1" Grid.Column="0"
+                                       Content="Số lượng: " Margin="15 5 5 5" />
+                            <Label Grid.Row="2" Grid.Column="0"
+                                       Content="Tổng tiền:" Margin="15 5 5 5" />
+                            <TextBlock Grid.Row="0" Grid.Column="1"
+                                           Text="{Binding Model.KhachHang, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" />
+                            <TextBlock Grid.Row="1" Grid.Column="1"
+                                           Margin="5"
+                                           Text="{Binding Model.Soluong, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            <TextBlock Grid.Row="2" Grid.Column="1"
+                                           Text="{Binding Model.TongTien, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" />
+                           
+
+                        </Grid>
+                        <materialDesign:Card
+                                     Style="{StaticResource UIProjectMaterialDesignCardStyle}"
+                                    
+                                   x:Name="PART_CTHDList"
+                                       >
+                            <DataGrid 
+                                    Margin="5 0 5 0"
+                                    CanUserSortColumns="True"
+                                    CanUserAddRows="False"
+                                    CanUserResizeColumns="False"
+                                    CanUserResizeRows="False"
+                                    AutoGenerateColumns="False"
+                                    materialDesign:DataGridAssist.CellPadding="8"
+                                    materialDesign:DataGridAssist.ColumnHeaderPadding="8"
+                                    SelectionUnit="FullRow" Panel.ZIndex="-1" RenderTransformOrigin="0.498,0.579">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn 
+                                            Width="40"
+                                            Header="STT"
+                                            IsReadOnly="True"
+                                            CanUserSort="False"
+                                            HeaderStyle="{StaticResource CenteredDataGridHeader}"
+                                            CellStyle="{StaticResource CenteredDataGridCell}"/>
+                                    <DataGridTextColumn 
+                                            Width="90"
+                                              IsReadOnly="True"
+                                                Header="Sản phẩm"
+                                                HeaderStyle="{StaticResource CenteredDataGridHeader}"
+                                                CellStyle="{StaticResource CenteredDataGridCell}"
+                                                                        />
+                                    <DataGridTextColumn 
+                                            Width="50"
+                                            CanUserSort="False"
+                                            Header="Size"                                           
+                                            IsReadOnly="True"
+                                            HeaderStyle="{StaticResource CenteredDataGridHeader}"
+                                            CellStyle="{StaticResource CenteredDataGridCell}"/>
+                                    <DataGridTextColumn 
+                                            Width="80"
+                                            CanUserSort="False"
+                                            Header="Đơn giá "
+                                            TextBlock.TextAlignment="Left"
+                                            IsReadOnly="True"
+                                            HeaderStyle="{StaticResource CenteredDataGridHeader}"
+                                            CellStyle="{StaticResource CenteredDataGridCell}"/>
+                                    <DataGridTextColumn 
+                                            Width="80"
+                                            CanUserSort="False"
+                                            Header="Số lượng "
+                                            TextBlock.TextAlignment="Left"
+                                            IsReadOnly="True"
+                                            HeaderStyle="{StaticResource CenteredDataGridHeader}"
+                                            CellStyle="{StaticResource CenteredDataGridCell}"/>
+                                    <DataGridTextColumn 
+                                            Width="auto"
+                                            CanUserSort="False"
+                                            Header="Thành tiền "
+                                            TextBlock.TextAlignment="Left"
+                                            IsReadOnly="True"
+                                            HeaderStyle="{StaticResource CenteredDataGridHeader}"
+                                            CellStyle="{StaticResource CenteredDataGridCell}"/>
+
+                                    <DataGridTemplateColumn 
+                                                Width="30"
+                                            HeaderStyle="{StaticResource CenteredDataGridHeader}"
+                                            CellStyle="{StaticResource ButtonDataGridCellStyle}">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Button Style="{StaticResource UIProjectIconButtonStyle}"
+                                    ToolTip="Xóa sản phẩm khỏi đơn hàng"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"
+                                    Background="Transparent"
+                                    Foreground="Black"
+                                    Width="30"
+                                    Height="30"
+                                                    >
+                                                    <materialDesign:PackIcon Kind="RemoveCircle"
+                                        Height="auto"
+                                        Width="auto"/>
+                                                </Button>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+
+                        </materialDesign:Card>
+
+                    </StackPanel>
+                    <StackPanel DockPanel.Dock="Right"/>
+                </DockPanel>
+            </materialDesign:Card>
+            
+            <materialDesign:Card
+                Style="{StaticResource UIProjectMaterialDesignCardStyle}"
+                Margin="5"
+                Height="auto"  Grid.Row="3" Grid.Column="0">
+                <DockPanel VerticalAlignment="Top">
+                    <DockPanel.Resources>
+                        <Style TargetType="{x:Type Label}" BasedOn="{StaticResource MediumLabelStyle}" x:Key="ValueLabelStyle">
+                            <Setter Property="HorizontalAlignment" Value="Right"/>
+                            <Setter Property="Margin" Value="10"/>
+                        </Style>
+                        <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource UIProjectMediumTextBlockStyle}">
+                            <Setter Property="HorizontalAlignment" Value="Right"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="Margin" Value="0 10 10 10"/>
+                        </Style>
+                        <Style TargetType="{x:Type Label}" BasedOn="{StaticResource MediumLabelStyle}">
+                            <Setter Property="HorizontalAlignment" Value="Left"/>
+                            <Setter Property="Margin" Value="15 10 10 10"/>
+                            <Setter Property="Foreground" Value="Gray"/>
+                        </Style>
+
+                    </DockPanel.Resources>
+                    <StackPanel DockPanel.Dock="Bottom">
+                        <Grid x:Name="gridCTThu"
+                            >
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Row="0" Grid.Column="0"
+                                Content="Tổng thu gốc:" Margin="5" />
+                            <Label Grid.Row="1" Grid.Column="0"
+                                Content="Tổng thu lãi: " Margin="5" />
+
+                            <TextBlock Grid.Row="0" Grid.Column="1"
+                                Text="{Binding Model.TongThuGoc, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" />
+                            <TextBlock Grid.Row="1" Grid.Column="1"
+                                Margin="5"
+                                Text="{Binding Model.TongThuLai, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                        </Grid>
+                        <Grid Margin="10 30 10 15">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                        </Grid>
+
+                    </StackPanel>
+                    <StackPanel DockPanel.Dock="Right"/>
+                </DockPanel>
+            </materialDesign:Card>
+            <Grid Grid.Column="1" Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition   />
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="btnTaiThongKeThu"
+                Height="auto"
+                Margin="5"
+                Style="{StaticResource UIProjectDarkButtonStyle}"
+                Content="Tải báo cáo"  Grid.Column="0" />
+                <Button x:Name="btnInThongKeThu"
+                Height="auto"
+                Margin="5"
+                Style="{StaticResource UIProjectDarkButtonStyle}"
+                Content="In báo cáo"  Grid.Column="1" />
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

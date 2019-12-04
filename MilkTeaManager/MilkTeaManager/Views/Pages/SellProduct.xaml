@@ -1,0 +1,540 @@
+﻿<Page x:Class="MilkTeaManager.Views.Pages.SellProduct"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MilkTeaManager.Views.Pages"
+      mc:Ignorable="d" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:customControls="clr-namespace:MilkTeaManager.Views.CustomControls"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="SellProduct"
+      Background="#F2F2F2">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <!--Tab đặt món-->
+        <materialDesign:Card  Grid.Column="0" Margin="5" VerticalAlignment="Stretch" Style="{StaticResource UIProjectMaterialDesignCardStyle}">
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <!--<TextBlock Grid.Row="0" 
+                           Text="ĐẶT MÓN" 
+                           FontWeight="Bold" 
+                           FontSize="30" Margin="3"
+                           Height="40">
+                </TextBlock>-->
+
+                <Label Grid.Row="0" Style="{StaticResource HeaderLabelStyle}"
+                   Margin="0 10 0 0 "
+                   Content="Đặt món"
+                       FontSize="45"
+                   HorizontalAlignment="Left"/>
+                <!--chọn trà sữa, size, topping-->
+                <Grid Grid.Row="1" Height="200">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <!--chọn trà sữa, size-->
+                    <Grid Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <materialDesign:Card Grid.Row="0" Margin="5"
+                                             Style="{StaticResource UIProjectMaterialDesignCardStyle}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+
+
+                                <TextBlock
+                                    Style="{StaticResource MaterialDesignTitleTextBlock}" FontSize="20" Margin="3" Text="Trà sữa"/>
+
+
+                                <ComboBox Grid.Row="1" VerticalAlignment="Top" Margin="3"></ComboBox>
+                            </Grid>
+
+                        </materialDesign:Card>
+
+                        <materialDesign:Card Grid.Row="1" Margin="5" Style="{StaticResource UIProjectMaterialDesignCardStyle}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <TextBlock
+                                    Style="{StaticResource MaterialDesignTitleTextBlock}" FontSize="20" Margin="3" Text="Size"/>
+
+
+                                <ComboBox Grid.Row="1" VerticalAlignment="Top" Margin="3"></ComboBox>
+                            </Grid>
+
+                        </materialDesign:Card>
+
+                        <materialDesign:Card Grid.Row="2" Margin="5" Style="{StaticResource UIProjectMaterialDesignCardStyle}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <TextBlock
+                                    Style="{StaticResource MaterialDesignTitleTextBlock}" Height="30" FontSize="20" Margin="3" Text="Số lượng" VerticalAlignment="Center" />
+
+
+                                <ComboBox Grid.Row="1" VerticalAlignment="Top" Margin="3"></ComboBox>
+                            </Grid>
+
+                        </materialDesign:Card>
+                    </Grid>
+
+                    <!--chọn topping-->
+                    <materialDesign:Card
+                        Style="{StaticResource UIProjectMaterialDesignCardStyle}"
+                        Grid.Column="1" Margin="3 3 5 3" >
+                        <Grid >
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock
+                                    Style="{StaticResource MaterialDesignTitleTextBlock}" FontSize="20" Margin="3" Text="Topping"/>
+
+                            <ComboBox Grid.Row="1" VerticalAlignment="Top" Margin="3" ></ComboBox>
+                            <Grid Grid.Row="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Button Grid.Column="0"
+                                    Style="{StaticResource MaterialDesignRaisedButton}"
+                                    Width="100"
+                                    ToolTip="Resource name: MaterialDesignRaisedButton"
+                                    Content="Thêm"
+                                    Margin="10,0,0,0"
+                                    >
+                                </Button>
+                                <Button Grid.Column="1"
+                                    Style="{StaticResource MaterialDesignRaisedButton}"
+                                    Width="100"
+                                    ToolTip="Resource name: MaterialDesignRaisedButton"
+                                    Content="Xóa"
+                                    Margin="10,0,0,0"
+                                >
+                                </Button>
+                            </Grid>
+                            <DataGrid 
+                                Margin="3"
+                                Grid.Row="3"
+                                CanUserSortColumns="True"
+                                CanUserAddRows="False"
+                                CanUserResizeColumns="False"
+                                CanUserResizeRows="False"
+                                AutoGenerateColumns="False"
+                                materialDesign:DataGridAssist.CellPadding="8"
+                                materialDesign:DataGridAssist.ColumnHeaderPadding="8"
+                                SelectionUnit="FullRow" Panel.ZIndex="-1" >
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn 
+                                                    TextBlock.TextAlignment="Right"
+                                                    Header="Danh sách topping"
+                                                    IsReadOnly="True"
+                                                    CanUserSort="False"
+                                                    HeaderStyle="{StaticResource CenteredDataGridHeader}"
+                                                    CellStyle="{StaticResource CenteredDataGridCell}"/>
+
+                                    <DataGridTemplateColumn Width="30"
+                                                        HeaderStyle="{StaticResource CenteredDataGridHeader}"
+                                                        CellStyle="{StaticResource ButtonDataGridCellStyle}">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Button Style="{StaticResource UIProjectIconButtonStyle}"
+                                                        ToolTip="Xóa sản phẩm khỏi đơn hàng"
+                                                        VerticalAlignment="Center"
+                                                        HorizontalAlignment="Center"
+                                                        Background="Transparent"
+                                                        Foreground="Black"
+                                                        Width="30"
+                                                        Height="30"
+                                                        >
+                                                    <materialDesign:PackIcon Kind="RemoveCircle"
+                                                                             Height="auto"
+                                                                             Width="auto"/>
+                                                </Button>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </materialDesign:Card>
+
+                </Grid>
+
+
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button Grid.Column="0"
+                        Style="{StaticResource MaterialDesignRaisedButton}"
+                        Width="100"
+                        ToolTip="Resource name: MaterialDesignRaisedButton"
+                        Content="Thêm món"
+                            Margin="5 3 3 3">
+                    </Button>
+                    <Button Grid.Column="1"
+                        Style="{StaticResource MaterialDesignRaisedButton}"
+                        Width="100"
+                        ToolTip="Resource name: MaterialDesignRaisedButton"
+                        Content="Xóa món"
+                        Margin="10 3 3 3"
+                    >
+                    </Button>
+                </Grid>
+                <Grid Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="173*"/>
+                        <ColumnDefinition Width="473*"/>
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:Card Margin="5" Grid.ColumnSpan="2">
+                        <DataGrid 
+                            Margin="3"
+                        CanUserSortColumns="True"
+                        CanUserAddRows="False"
+                        CanUserResizeColumns="False"
+                        CanUserResizeRows="False"
+                        AutoGenerateColumns="False"
+                        materialDesign:DataGridAssist.CellPadding="8"
+                        materialDesign:DataGridAssist.ColumnHeaderPadding="8"
+                        SelectionUnit="FullRow" Panel.ZIndex="-1" Grid.RowSpan="2">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Width="55"
+                                                Header="STT"
+                                                IsReadOnly="True"
+                                                CanUserSort="False"
+                                                HeaderStyle="{StaticResource CenteredDataGridHeader}"
+                                                CellStyle="{StaticResource CenteredDataGridCell}"/>
+                                <DataGridTextColumn Width="100"
+                                                IsReadOnly="True"
+                                                Header="Tên sản phẩm"
+                                                HeaderStyle="{StaticResource CenteredDataGridHeader}"
+                                                CellStyle="{StaticResource CenteredDataGridCell}"
+                                                />
+                                <DataGridTextColumn Width="55"
+                                                CanUserSort="False"
+                                                Header="Size"                                           
+                                                IsReadOnly="True"
+                                                HeaderStyle="{StaticResource CenteredDataGridHeader}"
+                                                CellStyle="{StaticResource CenteredDataGridCell}"/>
+                                <DataGridTextColumn Width="90"
+                                                CanUserSort="False"
+                                                Header="Topping"
+                                                TextBlock.TextAlignment="Center"
+                                                IsReadOnly="True"
+                                                HeaderStyle="{StaticResource CenteredDataGridHeader}"
+                                                CellStyle="{StaticResource CenteredDataGridCell}"/>
+                                <DataGridTextColumn Width="80"
+                                                Header="Đơn giá"
+                                                HeaderStyle="{StaticResource RightDataGridHeader}"
+                                                CellStyle="{StaticResource RightDataGridCell}"
+                                                EditingElementStyle="{StaticResource CustomEditingTextColumnElementStyle}"
+                                                IsReadOnly="False"/>
+                                <DataGridTextColumn Width="80"
+                                                Header="Số lượng"
+                                                TextBlock.TextAlignment="Right"
+                                                IsReadOnly="True"
+                                                HeaderStyle="{StaticResource RightDataGridHeader}"
+                                                CellStyle="{StaticResource RightDataGridCell}"/>
+                                <DataGridTextColumn Width="150"
+                                                Header="Thành tiền"
+                                                TextBlock.TextAlignment="Right"
+                                                IsReadOnly="True"
+                                                CanUserSort="False"                                           
+                                                HeaderStyle="{StaticResource RightDataGridHeader}"
+                                                CellStyle="{StaticResource RightDataGridCell}"
+                                                EditingElementStyle="{StaticResource CustomEditingTextColumnElementStyle}"/>
+                                <DataGridTemplateColumn Width="30"
+                                                    HeaderStyle="{StaticResource CenteredDataGridHeader}"
+                                                    CellStyle="{StaticResource ButtonDataGridCellStyle}">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Style="{StaticResource UIProjectIconButtonStyle}"
+                                                    ToolTip="Xóa sản phẩm khỏi đơn hàng"
+                                                    VerticalAlignment="Center"
+                                                    HorizontalAlignment="Center"
+                                                    Background="Transparent"
+                                                    Foreground="Black"
+                                                    Width="30"
+                                                    Height="30"
+                                                    >
+                                                <materialDesign:PackIcon Kind="RemoveCircle"
+                                                                         Height="auto"
+                                                                         Width="auto"/>
+                                            </Button>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </materialDesign:Card>
+
+                </Grid>
+            </Grid>
+        </materialDesign:Card>
+
+        <!--Tab khách hàng+thanh toán-->
+        <Grid Grid.Column="1">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="3*"/>
+            </Grid.RowDefinitions>
+
+            <materialDesign:Card Style="{StaticResource UIProjectMaterialDesignCardStyle}"
+                                 
+                                 Margin="5">
+                <TabControl HorizontalAlignment="Stretch" 
+                            Style="{StaticResource CustomTabControlStyle}"
+                            Background="{Binding Path=Background, ElementName=ThanhToanCard}">
+                    <TabItem x:Name="TabKhachHang"
+                             Header="Khách hàng" FontSize="20">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0"
+                                  HorizontalAlignment="Stretch"
+                                  Panel.ZIndex="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition  Width="auto"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <StackPanel Orientation="Horizontal">
+                                        <customControls:SearchTextBox  Grid.Column="0" Margin="3 0 0 0"
+                                              HorizontalAlignment="Right"
+                                              VerticalContentAlignment="Bottom"
+                                              FontSize="30"
+                                              Width="200"
+                                                       Height="40"
+                                                               BorderThickness="1"
+                                                               BorderBrush="Black"/>
+                                        <Grid>
+                                            <Label HorizontalAlignment="Center" Width="40" Height="40" Background="#669BBF">
+                                                <Image  HorizontalAlignment="Center"  Width="30" Height="30" Source="C:\Users\User\Source\Repos\MilkTeaManager\MilkTeaManager\Views\Images\SearchIcon.png"/>
+                                            </Label>
+
+                                            <Button 
+                                        HorizontalAlignment="Left"
+                                        Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                        Height="40"
+                                        Width="40"
+                                        ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
+                                        Background="Transparent"
+                                        >
+
+                                            </Button>
+                                        </Grid>
+
+                                    </StackPanel>
+                                </Grid>
+                                <Button x:Name="btnAddCustomer"
+                                        Grid.Column="1"
+                                        HorizontalAlignment="Left"
+                                        Margin="7 10 5 10"
+                                        Style="{DynamicResource UIProjectDarkIconButtonStyle}"
+                                        ToolTip="Thêm khách hàng mới"
+                                        Width="50"
+                                        Height="50"
+                                        Click="addCustomer_click"
+                                       >
+                                    <materialDesign:PackIcon Kind="PersonAdd"
+                                                             Height="auto"
+                                                             Width="auto"
+                                                             Foreground="White"/>
+                                </Button>
+                            </Grid>
+                            <Grid Grid.Row="1" Grid.ColumnSpan="2"
+                                  DataContext="{Binding HoaDonVM.KhachHang, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Row="0" Grid.Column="0"
+                                       Content="Họ tên"/>
+                                <Label Grid.Row="1" Grid.Column="0"
+                                       Content="Điện thoại"/>
+                                <Label Grid.Row="2" Grid.Column="0"
+                                       Content="Địa chỉ"/>
+                                <Label Grid.Row="0" Grid.Column="1"
+                                       x:Name="Ten"
+                                       Content="{Binding TenKH}"/>
+                                <Label Grid.Row="1" Grid.Column="1"
+                                   Content="{Binding SDT}"/>
+                                <Label Grid.Row="2" Grid.Column="1"
+                                   Content="{Binding DiaChi}"/>
+                            </Grid>
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="Tùy chọn" FontSize="20">
+                        <Grid>
+                            <Grid.Resources>
+                                <Style TargetType="{x:Type TextBox}" >
+                                    <Setter Property="Margin" Value="7"/>
+                                </Style>
+                            </Grid.Resources>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="1" Grid.Column="0"
+                                   VerticalAlignment="Top"
+                                   Margin="5 10 5 5"
+                                   Content="Ghi chú"/>
+                            <TextBox Grid.Row="0" Grid.Column="1"
+                                     Text="{Binding TenNhanVien}"
+                                     IsEnabled="False"/>
+                            <TextBox Grid.Row="1" Grid.Column="1"
+                                     Style="{StaticResource UIProjectMultipleLineTextBoxStyle}"
+                                     Margin="7"
+                                     Height="auto"
+                                     VerticalAlignment="Stretch"
+                                     Text="{Binding HoaDonVM.PhieuBan.GhiChu, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"/>
+                        </Grid>
+                    </TabItem>
+                </TabControl>
+            </materialDesign:Card>
+
+            <materialDesign:Card x:Name="ThanhToanCard" Grid.Row="1" Margin="5" Style="{StaticResource UIProjectMaterialDesignCardStyle}">
+                <Grid>
+                    <Grid.Resources>
+                        <Style TargetType="{x:Type Label}" BasedOn="{StaticResource SmallDefinedLabelStyle}">
+                            <Setter Property="Panel.ZIndex" Value="1"/>
+                            <Setter Property="Margin" Value="5"/>
+                        </Style>
+                    </Grid.Resources>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="50"/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0"
+                                       Content="VAT (%)" FontSize="15"/>
+                        <Label Grid.Row="1" Grid.Column="0"
+                                       Content="Chiết khấu (%)" FontSize="15"/>
+
+                        <DockPanel Grid.Row="2" Grid.ColumnSpan="2">
+                            <Label Grid.Row="2" Grid.Column="0"
+                                           DockPanel.Dock="Left"
+                                           Content="Tổng tiền" FontSize="15"/>
+                            <Label Grid.Row="2" Grid.Column="1"
+                                           HorizontalContentAlignment="Right"
+                                           Style="{StaticResource MediumLabelStyle}"
+                                           FontWeight="Normal"
+                                           />
+                        </DockPanel>
+
+                        <TextBox Grid.Row="0" Grid.Column="1" FontSize="15"
+                                         HorizontalAlignment="Stretch"
+                                         TextAlignment="Left"
+                                         materialDesign:HintAssist.Hint="Thuế"
+                                         Margin="5"
+                                         />
+                        <TextBox Grid.Row="1" Grid.Column="1" FontSize="15"
+                                         HorizontalAlignment="Stretch"
+                                         TextAlignment="Left"
+                                         materialDesign:HintAssist.Hint="Chiết khấu"
+                                         Margin="5"
+                                         />
+
+                    </Grid>
+                    <Grid Grid.Row="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="2*"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                        </Grid>
+                        <TextBox Grid.Row="0" FontSize="15"
+                                         VerticalAlignment="Center"
+                                         Margin="10 5 10 5"
+                                         materialDesign:HintAssist.Hint="Tiền khách đưa:"
+                                          />
+                        <Grid Grid.Row="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" FontSize="15"
+                                           Margin="10 10 0 0"
+                                           Content="Tiền thừa:"
+                                           VerticalAlignment="Center"/>
+                            <Label Grid.Row="1"
+                                           Margin="10"
+                                           HorizontalAlignment="Left"
+                                           Style="{StaticResource MediumLabelStyle}"
+                                           FontWeight="Normal"
+                                           />
+                        </Grid>
+                        <Button Grid.Row="2"
+                                        x:Name="btnThanhToan"
+                                        Content="Thanh toán"
+                                        Height="60"
+                                        FontSize="20"
+                                        Margin="10 0 10 5"
+                                Click="ThanhToan_click"
+                                        Style="{StaticResource UIProjectDarkShadowButtonStyle}"
+                                        VerticalAlignment="Bottom"
+                                />
+
+                    </Grid>
+                </Grid>
+            </materialDesign:Card>
+        </Grid>
+    </Grid>
+</Page>

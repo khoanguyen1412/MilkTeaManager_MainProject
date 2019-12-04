@@ -1,0 +1,249 @@
+﻿<Window x:Class="MilkTeaManager.Views.ManageFunction.ManageProduct"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MilkTeaManager.Views.ManageFunction"
+        xmlns:customControls="clr-namespace:MilkTeaManager.Views.CustomControls"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="ManageProduct" Height="700" Width="1200"
+        Background="#F2F2F2">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label Style="{StaticResource HeaderLabelStyle}"
+                   Margin="10"
+                   Content="Sản phẩm"
+                   HorizontalAlignment="Left"/>
+        </Grid>
+        <Separator Grid.Row="1"
+                   Margin="10"/>
+        <Grid Grid.Row="2"
+              Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="41*"/>
+                <ColumnDefinition Width="25*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0"
+                            Margin="0 20 10 20" Grid.ColumnSpan="2"
+                            Orientation="Horizontal"
+                            VerticalAlignment="Center">
+
+                <Grid>
+                    <StackPanel Orientation="Horizontal">
+                        <customControls:SearchTextBox  Grid.Column="0" Margin="3 0 0 0"
+                                              HorizontalAlignment="Right"
+                                              VerticalContentAlignment="Bottom"
+                                              FontSize="40"
+                                              Width="350"/>
+                        <Grid>
+                            <Label HorizontalAlignment="Center" Width="50" Height="50" Background="#669BBF">
+                                <Image  HorizontalAlignment="Center"  Width="40" Height="40" Source="C:\Users\User\Source\Repos\MilkTeaManager\MilkTeaManager\Views\Images\SearchIcon.png"/>
+                            </Label>
+
+                            <Button 
+                        HorizontalAlignment="Left"
+                        Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                        Height="50"
+                        Width="50"
+                        ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
+                        Background="Transparent"
+                        >
+
+                            </Button>
+                        </Grid>
+
+                    </StackPanel>
+                </Grid>
+                <ComboBox VerticalAlignment="Stretch"
+                            DataContext="{Binding LocNhaCungCapVM}"
+                            Margin="20 5 10 5"
+                            Width="150"
+                            FontSize="15"
+                            materialDesign:HintAssist.Hint="Loại sản phẩm"
+                            ItemsSource="{Binding Collection.Items, UpdateSourceTrigger=PropertyChanged}"
+                            DisplayMemberPath="Model.TenNCC"
+                            SelectedItem="{Binding Collection.SelectedItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            </StackPanel>
+            <Grid Grid.Row="1" Grid.ColumnSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="65*"/>
+                    <ColumnDefinition Width="35*"/>
+                </Grid.ColumnDefinitions>
+                <materialDesign:Card Grid.Row="1" Grid.Column="0"
+                                     Style="{StaticResource UIProjectMaterialDesignCardStyle}">
+                    <Grid>
+                        <DataGrid 
+                            Margin="3"
+                        CanUserSortColumns="True"
+                        CanUserAddRows="False"
+                        CanUserResizeColumns="False"
+                        CanUserResizeRows="False"
+                        AutoGenerateColumns="False"
+                        materialDesign:DataGridAssist.CellPadding="8"
+                        materialDesign:DataGridAssist.ColumnHeaderPadding="8"
+                        SelectionUnit="FullRow" Panel.ZIndex="-1" Grid.RowSpan="2">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Width="60"
+                                                Header="STT"
+                                                IsReadOnly="True"
+                                                CanUserSort="False"
+                                                HeaderStyle="{StaticResource CenteredDataGridHeader}"
+                                                CellStyle="{StaticResource CenteredDataGridCell}"/>
+                                <DataGridTextColumn Width="90"
+                                                IsReadOnly="True"
+                                                Header="Mã SP"
+                                                HeaderStyle="{StaticResource CenteredDataGridHeader}"
+                                                CellStyle="{StaticResource CenteredDataGridCell}"
+                                                />
+                                <DataGridTextColumn Width="200"
+                                                CanUserSort="False"
+                                                Header="Tên SP"                                           
+                                                IsReadOnly="True"
+                                                TextBlock.TextAlignment="Left"
+                                                HeaderStyle="{StaticResource CenteredDataGridHeader}"
+                                                CellStyle="{StaticResource CenteredDataGridCell}"/>
+                                <DataGridTextColumn Width="80"
+                                                CanUserSort="False"
+                                                Header="Mã loại SP"
+                                                TextBlock.TextAlignment="Center"
+                                                IsReadOnly="True"
+                                                HeaderStyle="{StaticResource CenteredDataGridHeader}"
+                                                CellStyle="{StaticResource CenteredDataGridCell}"/>
+                                <DataGridTextColumn Width="150"
+                                                Header="Giá"
+                                                HeaderStyle="{StaticResource CenteredDataGridHeader}"
+                                                CellStyle="{StaticResource RightDataGridCell}"
+                                                EditingElementStyle="{StaticResource CustomEditingTextColumnElementStyle}"
+                                                IsReadOnly="False"/>
+                                <DataGridTextColumn Width="90"
+                                                Header="Mã CTNL"
+                                                IsReadOnly="True"
+                                                HeaderStyle="{StaticResource CenteredDataGridHeader}"
+                                                CellStyle="{StaticResource RightDataGridCell}"/>
+
+                                <DataGridTemplateColumn Width="30"
+                                                    HeaderStyle="{StaticResource CenteredDataGridHeader}"
+                                                    CellStyle="{StaticResource ButtonDataGridCellStyle}">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Style="{StaticResource UIProjectIconButtonStyle}"
+                                                    ToolTip="Xóa sản phẩm khỏi đơn hàng"
+                                                    VerticalAlignment="Center"
+                                                    HorizontalAlignment="Center"
+                                                    Background="Transparent"
+                                                    Foreground="Black"
+                                                    Width="30"
+                                                    Height="30"
+                                                    >
+                                                <materialDesign:PackIcon Kind="RemoveCircle"
+                                                                         Height="auto"
+                                                                         Width="auto"/>
+                                            </Button>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </materialDesign:Card>
+
+                <materialDesign:Card Grid.Column="1"
+                                     Margin="10 0 0 0"
+                                     Padding="10 0 10 20"
+                                     Style="{StaticResource UIProjectMaterialDesignCardStyle}"
+                                     VerticalAlignment="Stretch">
+                    <StackPanel Orientation="Vertical"
+                                Margin="0 5 0 0">
+                        <Grid>
+                            <Grid.Resources>
+                                <Style TargetType="{x:Type Label}" BasedOn="{StaticResource MediumLabelStyle}">
+                                    <Setter Property="Margin" Value="10"/>
+
+                                </Style>
+                            </Grid.Resources>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Row="0" Grid.Column="0"
+                                   Content="Kết quả tìm thấy"/>
+                            <Label Grid.Row="1" Grid.Column="0"                                   
+                                   Content="Số lượng"/>
+                            <Label Grid.Row="0" Grid.Column="1"                                  
+                                   Content="{Binding DanhSachSanPhamVM.DisplayItems.Count, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            <Label Grid.Row="1" Grid.Column="1"
+                                   Content="{Binding DanhSachSanPhamVM.Items.Count, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        </Grid>
+                        <Separator Margin="0 20 0 20"/>
+                        <Label Style="{StaticResource LargeLabelStyle}"
+                               Margin="10"
+                               Content="Hộp chức năng"/>
+                        <Grid
+                              Margin="10 20 10 10"
+                              VerticalAlignment="Top">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.Resources>
+                                <Style TargetType="{x:Type Button}" BasedOn="{StaticResource UIProjectDarkIconButtonStyle}">
+                                    <Setter Property="Margin" Value="5"/>
+                                </Style>
+                            </Grid.Resources>
+                            <Button Grid.Column="0"
+                                    x:Name="btnAddProduct"
+                                    ToolTip="Thêm sản phẩm mới"
+                                    Width="50"
+                                    Height="50">
+                                <materialDesign:PackIcon Kind="Add"
+                                                         Height="auto"
+                                                         Width="auto"/>
+                            </Button>
+                            <Button Grid.Column="1"
+                                        x:Name="btnEditProductInfo"
+                                        ToolTip="Chỉnh sửa thông tin sản phẩm"
+                                    Width="50"
+                                    Height="50">
+                                <materialDesign:PackIcon Kind="TableEdit"
+                                                             Height="auto"
+                                                             Width="auto"/>
+                            </Button>
+                            <Button Grid.Column="2"
+                                    x:Name="btnDeleteProduct"
+                                    ToolTip="Xóa sản phẩm khỏi cửa hàng"
+                                    Background="Red"
+                                    Width="50"
+                                    Height="50">
+                                <materialDesign:PackIcon Kind="DeleteForever" 
+                                                         Width="auto"
+                                                         Height="auto"
+                                                         />
+                            </Button>
+                        </Grid>
+                        
+                    </StackPanel>
+                </materialDesign:Card>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

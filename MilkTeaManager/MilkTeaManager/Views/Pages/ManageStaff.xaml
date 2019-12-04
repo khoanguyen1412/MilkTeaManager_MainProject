@@ -1,0 +1,323 @@
+﻿<Page x:Class="MilkTeaManager.Views.Pages.ManageStaff"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MilkTeaManager.Views.Pages"
+      mc:Ignorable="d" 
+       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:customControls="clr-namespace:MilkTeaManager.Views.CustomControls"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ManageStaff" 
+        Background="#F2F2F2">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal">
+                <Label Style="{StaticResource HeaderLabelStyle}"
+                   Margin="10"
+                   Content="Nhân viên"
+                   HorizontalAlignment="Left"/>
+                <Image DockPanel.Dock="Left"
+                               Grid.ColumnSpan="2"
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Center"
+                               Source="/Views/Images/staff2_icon.png"
+                               Margin="10 0 20 10"
+                               
+                               Height="80"/>
+            </StackPanel>
+
+
+            <Button
+                Grid.Column="1"
+                Style="{StaticResource MaterialDesignFloatingActionDarkButton}"
+                HorizontalAlignment="Right"
+                ToolTip="Thêm nhân viên mới"
+                Margin="10 10 20 10"
+                Height="60"
+                Width="60" Click="addStaff_click">
+                <materialDesign:PackIcon
+                Kind="PersonAdd"
+                Height="24"
+                Width="24" 
+                    />
+            </Button>
+
+        </Grid>
+        <Separator Grid.Row="1"
+                   Margin="5"/>
+        <Grid Grid.Row="2"
+              >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="45*"/>
+                <ColumnDefinition Width="20*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Horizontal" Margin="5 0 0 0">
+                <customControls:SearchTextBox  Grid.Column="0" 
+                                              HorizontalAlignment="Right"
+                                              VerticalContentAlignment="Bottom"
+                                              FontSize="40"
+                                              Width="350"/>
+                <Grid>
+                    <Label Width="50" Height="50" Background="#669BBF"/>
+                    <Image  Margin="5"
+                        Source="C:\Users\User\Source\Repos\MilkTeaManager\MilkTeaManager\Views\Images\SearchIcon.png">
+
+                    </Image>
+                    <Button 
+                        HorizontalAlignment="Left"
+                        Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                        Height="50"
+                        Width="50"
+                        ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
+                        Background="Transparent"
+                        >
+
+                    </Button>
+                </Grid>
+
+            </StackPanel>
+
+            <!--Bảng danh sách khách hàng-->
+            <materialDesign:Card Grid.Row="1" 
+                                 Margin="5"
+                                     x:Name="PART_CustomerList"
+                                     Style="{StaticResource UIProjectMaterialDesignCardStyle}"
+                                     >
+                <DataGrid 
+                            
+                        CanUserSortColumns="True"
+                        CanUserAddRows="False"
+                        CanUserResizeColumns="False"
+                        CanUserResizeRows="False"
+                        AutoGenerateColumns="False"
+                        materialDesign:DataGridAssist.CellPadding="8"
+                        materialDesign:DataGridAssist.ColumnHeaderPadding="8"
+                        SelectionUnit="FullRow" Panel.ZIndex="-1" Grid.RowSpan="2">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Width="50"
+                                                Header="STT"
+                                                IsReadOnly="True"
+                                                CanUserSort="False"
+                                                HeaderStyle="{StaticResource CenteredDataGridHeader}"
+                                                CellStyle="{StaticResource CenteredDataGridCell}"/>
+                        <DataGridTextColumn Width="60"
+                                                IsReadOnly="True"
+                                                Header="Mã NV"
+                                                HeaderStyle="{StaticResource CenteredDataGridHeader}"
+                                                CellStyle="{StaticResource CenteredDataGridCell}"
+                                                />
+                        <DataGridTextColumn Width="120"
+                                                CanUserSort="False"
+                                                Header="Tên nhân viên"                                           
+                                                IsReadOnly="True"
+                                                HeaderStyle="{StaticResource CenteredDataGridHeader}"
+                                                CellStyle="{StaticResource CenteredDataGridCell}"/>
+                        <DataGridTextColumn Width="100"
+                                                CanUserSort="False"
+                                                Header="Ngày sinh"                                           
+                                                IsReadOnly="True"
+                                                HeaderStyle="{StaticResource CenteredDataGridHeader}"
+                                                CellStyle="{StaticResource CenteredDataGridCell}"/>
+                        <DataGridTextColumn Width="180"
+                                                CanUserSort="False"
+                                                Header="Địa chỉ"
+                                                TextBlock.TextAlignment="Left"
+                                                IsReadOnly="True"
+                                                HeaderStyle="{StaticResource CenteredDataGridHeader}"
+                                                CellStyle="{StaticResource CenteredDataGridCell}"/>
+                        <DataGridTextColumn Width="100"
+                                                Header="Số đt"
+                                                HeaderStyle="{StaticResource RightDataGridHeader}"
+                                                CellStyle="{StaticResource RightDataGridCell}"
+                                                EditingElementStyle="{StaticResource CustomEditingTextColumnElementStyle}"
+                                                IsReadOnly="False"/>
+                        <DataGridTextColumn Width="130"
+                                                Header="Email"
+                                                TextBlock.TextAlignment="Right"
+                                                IsReadOnly="True"
+                                                HeaderStyle="{StaticResource RightDataGridHeader}"
+                                                CellStyle="{StaticResource RightDataGridCell}"/>
+                        <DataGridTextColumn Width="100"
+                                                Header="Quyền"
+                                                TextBlock.TextAlignment="Right"
+                                                IsReadOnly="True"
+                                                HeaderStyle="{StaticResource RightDataGridHeader}"
+                                                CellStyle="{StaticResource RightDataGridCell}"/>
+                        <DataGridTextColumn Width="120"
+                                                Header="Lương"
+                                                TextBlock.TextAlignment="Center"
+                                                IsReadOnly="True"
+                                                HeaderStyle="{StaticResource CenteredDataGridHeader}"
+                                                CellStyle="{StaticResource RightDataGridCell}"/>
+                        <DataGridTemplateColumn Width="30"
+                                                    HeaderStyle="{StaticResource CenteredDataGridHeader}"
+                                                    CellStyle="{StaticResource ButtonDataGridCellStyle}">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Style="{StaticResource UIProjectIconButtonStyle}"
+                                                    ToolTip="Xóa sản phẩm khỏi đơn hàng"
+                                                    VerticalAlignment="Center"
+                                                    HorizontalAlignment="Center"
+                                                    Background="Transparent"
+                                                    Foreground="Black"
+                                                    Width="30"
+                                                    Height="30"
+                                                    >
+                                        <materialDesign:PackIcon Kind="RemoveCircle"
+                                                                         Height="auto"
+                                                                         Width="auto"/>
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </materialDesign:Card>
+            <!--Bảng thông tin khách hàng-->
+            <materialDesign:Card Grid.Row="1" Grid.Column="1"
+                                     Style="{StaticResource UIProjectMaterialDesignCardStyle}"
+                                     Margin="5"
+                                     Padding="10">
+                <DockPanel VerticalAlignment="Top">
+                    <DockPanel.Resources>
+                        <Style TargetType="Label" BasedOn="{StaticResource MediumLabelStyle}" x:Key="ValueLabelStyle">
+                            <Setter Property="HorizontalAlignment" Value="Right"/>
+                            <Setter Property="Margin" Value="10"/>
+                        </Style>
+                        <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource UIProjectMediumTextBlockStyle}">
+                            <Setter Property="HorizontalAlignment" Value="Right"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="Margin" Value="0 10 10 10"/>
+                        </Style>
+                        <Style TargetType="{x:Type Label}" BasedOn="{StaticResource MediumLabelStyle}">
+                            <Setter Property="HorizontalAlignment" Value="Left"/>
+                            <Setter Property="Margin" Value="15 10 10 10"/>
+                            <Setter Property="Foreground" Value="Gray"/>
+                        </Style>
+
+                    </DockPanel.Resources>
+                    <StackPanel DockPanel.Dock="Bottom">
+                        <Label Content="THÔNG TIN NHÂN VIÊN"
+                                   Margin="0"
+                                   FontWeight="Bold"/>
+                        <Grid x:Name="gridCustomerInfo"
+                                  DataContext="{Binding Content.SelectedItem, ElementName=PART_CustomerList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Row="0" Grid.Column="0"
+                                   FontSize="15"
+                                       Content="Tên" Margin="15,10,0,10"/>
+                            <Label Grid.Row="1" Grid.Column="0" FontSize="15"
+                                       Content="SĐT" Margin="15,10,0,10"/>
+                            <Label Grid.Row="2" Grid.Column="0" FontSize="15"
+                                       Content="Địa chỉ" Margin="15,10,0,10"/>
+                            <Label Grid.Row="3" Grid.Column="0" FontSize="15"
+                                       Content="Khu vực" Margin="15,10,0,10"/>
+                            <Label Grid.Row="4" Grid.Column="0" FontSize="15"
+                                       Content="Email" Margin="15,10,0,10"/>
+                            <Label Grid.Row="5" Grid.Column="0" FontSize="15"
+                                       Content="Lương" Margin="15,10,0,10"/>
+                            <Label Grid.Row="6" Grid.Column="0" FontSize="15"
+                                       Content="Quyền" Margin="15,10,0,10"/>
+
+                            <TextBlock Grid.Row="0" Grid.Column="1" FontSize="15"
+                                          />
+                            <TextBlock Grid.Row="1" Grid.Column="1" FontSize="15"
+                                           Margin="0,10,10,10"
+                                           />
+                            <TextBlock Grid.Row="2" Grid.Column="1" FontSize="15"
+                                           />
+                            <TextBlock Grid.Row="3" Grid.Column="1" FontSize="15"
+                                           />
+                            <TextBlock Grid.Row="4" Grid.Column="1" FontSize="15"
+                                           />
+                            <TextBlock Grid.Row="5" Grid.Column="1" FontSize="15"
+                                           />
+                            <TextBlock Grid.Row="6" Grid.Column="1" FontSize="15"
+                                           />
+                        </Grid>
+                        <Grid Margin="10 30 10 15">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Button
+                                Grid.Column="0"
+                                Click="editStaff_click"
+                                  Style="{StaticResource MaterialDesignFloatingActionDarkButton}"
+                                  ToolTip="MaterialDesignFloatingActionDarkButton">
+                                <materialDesign:PackIcon Kind="Edit"
+                                                             
+                                                             Height="24"
+                                                             Width="24"/>
+
+                            </Button>
+                            <Button Grid.Column="1"
+                              Style="{StaticResource MaterialDesignFloatingActionDarkButton}"
+                              ToolTip="MaterialDesignFloatingActionDarkButton"
+                                    Background="Red">
+                                <materialDesign:PackIcon
+                                Kind="DeleteEmpty"
+                                Height="24"
+                                Width="24" />
+                            </Button>
+                        </Grid>
+
+                    </StackPanel>
+                    <Separator DockPanel.Dock="Bottom"
+                                   Margin="5 10 10 15"
+                                   Background="LightGray"/>
+                    <Image DockPanel.Dock="Left"
+                               Grid.ColumnSpan="2"
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Center"
+                               Source="/Views/Images/staff1_icon.png"
+                               
+                               Width="80"
+                               Height="80"/>
+                    <StackPanel DockPanel.Dock="Right">
+                        <DockPanel>
+                            <Label DockPanel.Dock="Bottom"
+                                       Style="{StaticResource MediumLabelStyle}"
+                                       Content="Mã Nhân viên: "/>
+                            <Label Margin="10"
+                                       Content="{Binding Content.SelectedItem.Model.MaKH, ElementName=PART_CustomerList, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                                       HorizontalContentAlignment="Right"/>
+                        </DockPanel>
+
+                    </StackPanel>
+
+
+                </DockPanel>
+            </materialDesign:Card>
+        </Grid>
+    </Grid>
+</Page>
