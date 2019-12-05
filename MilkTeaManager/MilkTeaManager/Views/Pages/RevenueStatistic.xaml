@@ -368,6 +368,7 @@
                 Style="{StaticResource UIProjectDarkButtonStyle}"
                 Content="Tải báo cáo"  Grid.Column="0" />
                 <Button x:Name="btnInThongKeThu"
+                        Click="print_click"
                 Height="auto"
                 Margin="5"
                 Style="{StaticResource UIProjectDarkButtonStyle}"

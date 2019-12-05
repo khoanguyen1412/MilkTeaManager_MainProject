@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using MilkTeaManager.Views.Dialog;
 namespace MilkTeaManager.Views.Pages
 {
     /// <summary>
@@ -23,6 +23,12 @@ namespace MilkTeaManager.Views.Pages
         public ExpenditureStatistic()
         {
             InitializeComponent();
+        }
+
+        private void print_click(object sender, RoutedEventArgs e)
+        {
+            ExpenditureForm x = new ExpenditureForm();
+            x.ShowDialog();
         }
     }
 }

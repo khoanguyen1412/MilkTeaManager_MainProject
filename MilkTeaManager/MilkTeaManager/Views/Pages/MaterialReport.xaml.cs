@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MilkTeaManager.Views.Dialog;
 
 namespace MilkTeaManager.Views.Pages
 {
@@ -23,6 +24,11 @@ namespace MilkTeaManager.Views.Pages
         public MaterialReport()
         {
             InitializeComponent();
+        }
+        private void print_click(object sender, RoutedEventArgs e)
+        {
+            MilkTeaManager.Views.Dialog.MaterialReport x = new MilkTeaManager.Views.Dialog.MaterialReport();
+            x.ShowDialog();
         }
     }
 }

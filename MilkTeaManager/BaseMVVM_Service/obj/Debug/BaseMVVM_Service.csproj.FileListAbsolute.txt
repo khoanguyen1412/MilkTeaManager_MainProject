@@ -41,3 +41,14 @@ D:\New folder (3)\New folder\MilkTeaManager\BaseMVVM_Service\obj\Debug\BaseMVVM_
 D:\New folder (3)\New folder\MilkTeaManager\BaseMVVM_Service\obj\Debug\BaseMVVM_Service.exe
 D:\New folder (3)\New folder\MilkTeaManager\BaseMVVM_Service\obj\Debug\BaseMVVM_Service.pdb
 C:\Users\Admin\Documents\GitHub\MilkTeaManager\BaseMVVM_Service\obj\Debug\BaseMVVM_Service.csprojAssemblyReference.cache
+E:\OOD PROJECT 5_12\MilkTeaManager_MainProject\MilkTeaManager\BaseMVVM_Service\bin\Debug\BaseMVVM_Service.exe.config
+E:\OOD PROJECT 5_12\MilkTeaManager_MainProject\MilkTeaManager\BaseMVVM_Service\bin\Debug\BaseMVVM_Service.exe
+E:\OOD PROJECT 5_12\MilkTeaManager_MainProject\MilkTeaManager\BaseMVVM_Service\bin\Debug\BaseMVVM_Service.pdb
+E:\OOD PROJECT 5_12\MilkTeaManager_MainProject\MilkTeaManager\BaseMVVM_Service\bin\Debug\DocumentFormat.OpenXml.dll
+E:\OOD PROJECT 5_12\MilkTeaManager_MainProject\MilkTeaManager\BaseMVVM_Service\bin\Debug\System.IO.Packaging.dll
+E:\OOD PROJECT 5_12\MilkTeaManager_MainProject\MilkTeaManager\BaseMVVM_Service\bin\Debug\DocumentFormat.OpenXml.xml
+E:\OOD PROJECT 5_12\MilkTeaManager_MainProject\MilkTeaManager\BaseMVVM_Service\obj\Debug\BaseMVVM_Service.csproj.CoreCompileInputs.cache
+E:\OOD PROJECT 5_12\MilkTeaManager_MainProject\MilkTeaManager\BaseMVVM_Service\obj\Debug\BaseMVVM_Service.csproj.CopyComplete
+E:\OOD PROJECT 5_12\MilkTeaManager_MainProject\MilkTeaManager\BaseMVVM_Service\obj\Debug\BaseMVVM_Service.exe
+E:\OOD PROJECT 5_12\MilkTeaManager_MainProject\MilkTeaManager\BaseMVVM_Service\obj\Debug\BaseMVVM_Service.pdb
+E:\OOD PROJECT 5_12\MilkTeaManager_MainProject\MilkTeaManager\BaseMVVM_Service\obj\Debug\BaseMVVM_Service.csprojAssemblyReference.cache

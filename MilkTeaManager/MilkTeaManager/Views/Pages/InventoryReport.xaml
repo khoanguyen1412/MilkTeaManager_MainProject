@@ -235,6 +235,7 @@
                     Content="Tải báo cáo"  Grid.Column="0" />
                 <Button x:Name="btnInThongKeThu"
                     Margin="5"
+                        Click="print_click"
                     Style="{StaticResource UIProjectDarkButtonStyle}"
                     Content="In báo cáo"  Grid.Column="1" 
                         Width="{Binding Path=Width,ElementName=btnTaiThongKeThu}"/>

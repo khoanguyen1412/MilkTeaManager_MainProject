@@ -116,8 +116,20 @@
     <Compile Include="Views\Dialog\EditSupplier.xaml.cs">
       <DependentUpon>EditSupplier.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Dialog\ExpenditureForm.xaml.cs">
+      <DependentUpon>ExpenditureForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialog\InventoryReportForm.xaml.cs">
+      <DependentUpon>InventoryReportForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialog\MaterialReport.xaml.cs">
+      <DependentUpon>MaterialReport.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Dialog\OrderForm.xaml.cs">
       <DependentUpon>OrderForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialog\RevenueForm.xaml.cs">
+      <DependentUpon>RevenueForm.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainHomepage.xaml.cs">
       <DependentUpon>MainHomepage.xaml</DependentUpon>
@@ -234,9 +246,25 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Dialog\ExpenditureForm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Dialog\InventoryReportForm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Dialog\MaterialReport.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\Dialog\OrderForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialog\RevenueForm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\MainHomepage.xaml">
       <SubType>Designer</SubType>
