@@ -48,6 +48,12 @@
     <Reference Include="Dragablz, Version=0.0.3.203, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dragablz.0.0.3.203\lib\net45\Dragablz.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="MaterialDesignColors, Version=1.2.0.325, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignColors.1.2.0\lib\net45\MaterialDesignColors.dll</HintPath>
     </Reference>
@@ -55,7 +61,10 @@
       <HintPath>..\packages\MaterialDesignThemes.2.6.0\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Caliburn.Micro.3.2.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
     </Reference>
@@ -78,6 +87,55 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Models\CHITIETHOADON.cs">
+      <DependentUpon>MilkTeaDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CHITIETNGUYENLIEU.cs">
+      <DependentUpon>MilkTeaDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataAccess.cs" />
+    <Compile Include="Models\DONVITINH.cs">
+      <DependentUpon>MilkTeaDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HOADON.cs">
+      <DependentUpon>MilkTeaDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\KHACHHANG.cs">
+      <DependentUpon>MilkTeaDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LOAINHANVIEN.cs">
+      <DependentUpon>MilkTeaDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LOAISANPHAM.cs">
+      <DependentUpon>MilkTeaDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MilkTeaDb.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MilkTeaDb.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MilkTeaDb.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MilkTeaDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MilkTeaDb.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MilkTeaDb.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NGUYENLIEU.cs">
+      <DependentUpon>MilkTeaDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NHACUNGCAP.cs">
+      <DependentUpon>MilkTeaDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NHANVIEN.cs">
+      <DependentUpon>MilkTeaDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SANPHAM.cs">
+      <DependentUpon>MilkTeaDb.tt</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\LayoutViewModels\ContentViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="Views\CustomControls\InfoCardLabel.xaml.cs">
@@ -433,6 +491,13 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="Models\MilkTeaDb.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MilkTeaDb.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\MilkTeaDb.edmx.diagram">
+      <DependentUpon>MilkTeaDb.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -442,9 +507,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Views\Images\customeravatar.jpg" />
   </ItemGroup>
@@ -492,6 +555,21 @@
   <ItemGroup>
     <Resource Include="Views\Images\tongquan_khachhangmoi.png" />
     <Resource Include="Views\Images\tongquan_thunhap.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\MilkTeaDb.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>MilkTeaDb.Context.cs</LastGenOutput>
+      <DependentUpon>MilkTeaDb.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\MilkTeaDb.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MilkTeaDb.edmx</DependentUpon>
+      <LastGenOutput>MilkTeaDb.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -493,3 +493,8 @@ C:\Users\thang\OneDrive\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManag
 C:\Users\thang\OneDrive\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\obj\Release\MilkTeaManager.csproj.CopyComplete
 C:\Users\thang\OneDrive\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\obj\Release\MilkTeaManager.exe
 C:\Users\thang\OneDrive\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\obj\Release\MilkTeaManager.pdb
+C:\Users\thang\OneDrive\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\bin\Release\EntityFramework.dll
+C:\Users\thang\OneDrive\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\thang\OneDrive\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\bin\Release\EntityFramework.xml
+C:\Users\thang\OneDrive\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\thang\OneDrive\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\obj\Release\MilkTeaManager_Content.g.cs
