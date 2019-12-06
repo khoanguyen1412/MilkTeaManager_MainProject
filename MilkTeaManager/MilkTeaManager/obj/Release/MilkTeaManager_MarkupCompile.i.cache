@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\thang\OneDrive\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\obj\Release\
+C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\obj\Release\
 MilkTeaManager
 none
 false
 TRACE
-C:\Users\thang\OneDrive\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\App.xaml
-541100934384
+C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\App.xaml
+551020348414
 2-388167365
-61-246557927
-1301101903041
-Views\CustomControls\InfoCardLabel.xaml;Views\CustomControls\SearchTextBox.xaml;Views\Dialog\AddCustomer.xaml;Views\Dialog\AddMaterial.xaml;Views\Dialog\AddProduct.xaml;Views\Dialog\AddStaff.xaml;Views\Dialog\AddSupplier.xaml;Views\Dialog\EditCustomer.xaml;Views\Dialog\EditImportBill.xaml;Views\Dialog\EditProduct.xaml;Views\Dialog\EditStaff.xaml;Views\Dialog\EditSupplier.xaml;Views\Dialog\ExpenditureForm.xaml;Views\Dialog\InventoryReportForm.xaml;Views\Dialog\MaterialReport.xaml;Views\Dialog\OrderForm.xaml;Views\Dialog\RevenueForm.xaml;Views\MainHomepage.xaml;Views\ManageFunction\ImportMaterial.xaml;Views\ManageFunction\ListImportBill.xaml;Views\ManageFunction\ManageCustomer.xaml;Views\ManageFunction\ManageProduct.xaml;Views\ManageFunction\ManageStaff.xaml;Views\ManageFunction\ManageSupplier.xaml;Views\Pages\ExpenditureStatistic.xaml;Views\Pages\HomePage.xaml;Views\Pages\ImportMaterial.xaml;Views\Pages\InventoryReport.xaml;Views\Pages\ListImportBill.xaml;Views\Pages\ManageCustomer.xaml;Views\Pages\ManageProduct.xaml;Views\Pages\ManageStaff.xaml;Views\Pages\ManageSupplier.xaml;Views\Pages\MaterialReport.xaml;Views\Pages\RevenueStatistic.xaml;Views\Pages\SellProduct.xaml;Views\SellProduct.xaml;Views\ShellView.xaml;Views\Styles\BorderStyle.xaml;Views\Styles\ButtonStyle.xaml;Views\Styles\CustomWindowStyle.xaml;Views\Styles\DataGridStyle.xaml;Views\Styles\DatePickerStyle.xaml;Views\Styles\ExpanderStyle.xaml;Views\Styles\ImageStyle.xaml;Views\Styles\InfoCardStyle.xaml;Views\Styles\LabelStyle.xaml;Views\Styles\ListBoxStyle.xaml;Views\Styles\MaterialDesignCardStyle.xaml;Views\Styles\TabButtonStyle.xaml;Views\Styles\TabControlStyle.xaml;Views\Styles\TextBlockStyle.xaml;Views\Styles\TextBoxStyle.xaml;Views\Templates\CustomControlTemplates\TabItemControlTemplate.xaml;
+63-657268567
+130-191502763
+Views\CustomControls\InfoCardLabel.xaml;Views\CustomControls\SearchTextBox.xaml;Views\Dialog\AddCustomer.xaml;Views\Dialog\AddMaterial.xaml;Views\Dialog\AddProduct.xaml;Views\Dialog\AddStaff.xaml;Views\Dialog\AddSupplier.xaml;Views\Dialog\EditCustomer.xaml;Views\Dialog\EditImportBill.xaml;Views\Dialog\EditProduct.xaml;Views\Dialog\EditStaff.xaml;Views\Dialog\EditSupplier.xaml;Views\Dialog\ExpenditureForm.xaml;Views\Dialog\InventoryReportForm.xaml;Views\Dialog\MaterialReport.xaml;Views\Dialog\OrderForm.xaml;Views\Dialog\RevenueForm.xaml;Views\MainHomepage.xaml;Views\MainHomepageView.xaml;Views\ManageFunction\ImportMaterial.xaml;Views\ManageFunction\ListImportBill.xaml;Views\ManageFunction\ManageCustomer.xaml;Views\ManageFunction\ManageProduct.xaml;Views\ManageFunction\ManageStaff.xaml;Views\ManageFunction\ManageSupplier.xaml;Views\Pages\ExpenditureStatistic.xaml;Views\Pages\HomePage.xaml;Views\Pages\ImportMaterial.xaml;Views\Pages\InventoryReport.xaml;Views\Pages\ListImportBill.xaml;Views\Pages\ManageCustomer.xaml;Views\Pages\ManageProduct.xaml;Views\Pages\ManageStaff.xaml;Views\Pages\ManageSupplier.xaml;Views\Pages\MaterialReport.xaml;Views\Pages\RevenueStatistic.xaml;Views\Pages\SellProduct.xaml;Views\SellProduct.xaml;Views\ShellView.xaml;Views\Styles\BorderStyle.xaml;Views\Styles\ButtonStyle.xaml;Views\Styles\CustomWindowStyle.xaml;Views\Styles\DataGridStyle.xaml;Views\Styles\DatePickerStyle.xaml;Views\Styles\ExpanderStyle.xaml;Views\Styles\ImageStyle.xaml;Views\Styles\InfoCardStyle.xaml;Views\Styles\LabelStyle.xaml;Views\Styles\ListBoxStyle.xaml;Views\Styles\MaterialDesignCardStyle.xaml;Views\Styles\TabButtonStyle.xaml;Views\Styles\TabControlStyle.xaml;Views\Styles\TextBlockStyle.xaml;Views\Styles\TextBoxStyle.xaml;Views\Templates\CustomControlTemplates\TabItemControlTemplate.xaml;
 
 False
 

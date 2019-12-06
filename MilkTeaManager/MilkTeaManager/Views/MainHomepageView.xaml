@@ -1,0 +1,167 @@
+﻿<Window x:Class="MilkTeaManager.Views.MainHomepageView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vms="clr-namespace:MilkTeaManager.ViewModels.LayoutViewModels"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="HomepageWindow" 
+        Height="700"
+        SizeToContent="Manual"
+        WindowState="Maximized"
+        WindowStartupLocation="Manual"
+       
+        Opacity="1" Width="1200">
+    <Window.Resources>
+        <ResourceDictionary>
+            <vms:ContentViewModel Content=" Home" IconSource="/Views/Images/home.png" x:Key="TAB_TongQuan"/>
+            <vms:ContentViewModel Content=" Bán hàng" IconSource="/Views/Images/cart.png" x:Key="TAB_BanHang"/>
+
+            <vms:ContentViewModel Content="Quản lý" IconSource="/Views/Images/manage.png" x:Key="EXP_QuanLy"/>
+            <vms:ContentViewModel Content="Sản phẩm" IconSource="/Views/Images/product.png" x:Key="TAB_SanPham"/>
+            <vms:ContentViewModel Content="Khách hàng" IconSource="/Views/Images/customer.png" x:Key="TAB_KhachHang"/>
+            <vms:ContentViewModel Content="Nhà cung cấp" IconSource="/Views/Images/supplier.png" x:Key="TAB_NCC"/>
+            <vms:ContentViewModel Content="Nhân viên" IconSource="/Views/Images/staff.png" x:Key="TAB_NhanVien"/>
+            <vms:ContentViewModel Content="Phiếu nhập hàng" IconSource="/Views/Images/bill.png" x:Key="TAB_PhieuNhap"/>
+            <vms:ContentViewModel Content="Danh sách phiếu nhập" IconSource="/Views/Images/listbill.png" x:Key="TAB_DSPhieuNhap"/>
+
+
+
+            <vms:ContentViewModel Content="Thống kê" IconSource="/Views/Images/thongke.png" x:Key="EXP_ThongKeThuChi"/>
+            <vms:ContentViewModel Content="Thống kê thu" IconSource="/Views/Images/thu.png" x:Key="TAB_Thu"/>
+            <vms:ContentViewModel Content="Thống kê chi" IconSource="/Views/Images/chi.png" x:Key="TAB_Chi"/>
+            <vms:ContentViewModel Content="Báo cáo nguyên liệu" IconSource="/Views/Images/material.png" x:Key="TAB_BCNguyenLieu"/>
+            <vms:ContentViewModel Content="Báo cáo tồn kho" IconSource="/Views/Images/tonkho.png" x:Key="TAB_BCTonKho"/>
+            <!-- Contents of Expander -->
+            <vms:ContentViewModel Content="Tạo phiếu" IconSource="/Images/banhang.png" x:Key="Exp_TaoPhieu"/>
+            <vms:ContentViewModel Content="Danh sách" IconSource="/Images/product.png" x:Key="Exp_DanhSach"/>
+            <vms:ContentViewModel Content="Thống kê" IconSource="/Images/product.png" x:Key="Exp_ThongKe"/>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid Background="WhiteSmoke">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Grid Margin="5 5 5 5">
+            <StackPanel 
+                            x:Name="TabsContainer"
+                            Background="#4D5AAB" >
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type Separator}">
+                        <Setter Property="Margin" Value="10"/>
+                        <Setter Property="Background" Value="Black"/>
+                    </Style>
+                </StackPanel.Resources>
+
+                <Grid Margin="5 20 0 0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <RadioButton x:Name="homeButton" Style="{StaticResource MenuTabRadioButtonStyle}"
+                                     Content="{StaticResource TAB_TongQuan}" 
+                                         Grid.Column="1"
+                                         Height="60"
+                                         Click="Home_Click"
+                                         />
+
+                    <RadioButton x:Name="banHang" Style="{StaticResource MenuTabRadioButtonStyle}"
+                                     Content="{StaticResource TAB_BanHang}"
+                                     Click="BanHang_Click"
+                                     Height="60"
+                                 Grid.Row="1" Grid.Column="1"/>
+
+                    <Expander Style="{StaticResource UIProjectMenuExpanderStyle}"
+                                  Header="{StaticResource EXP_QuanLy}"
+                                  Background="#4D5AAB" 
+                              Grid.Row="2" Grid.Column="1"
+                                  
+                              >
+
+                        <StackPanel Orientation="Vertical">
+                            <RadioButton Style="{StaticResource SubMenuTabRadioButtonStyle}"
+                                             Content="{StaticResource TAB_SanPham}"
+                                             Click="SanPham_Click"
+                                             />
+                            <RadioButton Style="{StaticResource SubMenuTabRadioButtonStyle}"
+                                             Content="{StaticResource TAB_KhachHang}"
+                                             Click="KhachHang_Click"
+                                            
+                                             />
+                            <RadioButton Style="{StaticResource SubMenuTabRadioButtonStyle}"
+                                             Content="{StaticResource TAB_NCC}"
+                                             Click="NCC_Click"
+                                            
+                                             />
+                            <RadioButton Style="{StaticResource SubMenuTabRadioButtonStyle}"
+                                             Content="{StaticResource TAB_NhanVien}"
+                                             Click="NhanVien_Click"
+                                             
+                                             />
+                            <RadioButton Style="{StaticResource SubMenuTabRadioButtonStyle}"
+                                             Content="{StaticResource TAB_PhieuNhap}"
+                                             Click="PhieuNhap_Click"
+                                            
+                                             />
+                            <RadioButton Style="{StaticResource SubMenuTabRadioButtonStyle}"
+                                             Content="{StaticResource TAB_DSPhieuNhap}"
+                                             Click="DanhSachPhieuNhap_Click"
+                                            
+                                             />
+                        </StackPanel>
+                    </Expander>
+                    <Expander Style="{StaticResource UIProjectMenuExpanderStyle}"
+                                  Header="{StaticResource EXP_ThongKeThuChi}" Background="#4D5AAB"
+                              Grid.Row="3" Grid.Column="1"    
+                              >
+                        <StackPanel Orientation="Vertical">
+                            <RadioButton Style="{StaticResource SubMenuTabRadioButtonStyle}"
+                                             Content="{StaticResource TAB_Thu}"
+                                             Click="ThongKeThu_Click"/>
+                            <RadioButton Style="{StaticResource SubMenuTabRadioButtonStyle}"
+                                             Content="{StaticResource TAB_Chi}"
+                                             Click="ThongKeChi_Click" />
+                            <RadioButton Style="{StaticResource SubMenuTabRadioButtonStyle}"
+                                             Content="{StaticResource TAB_BCNguyenLieu}"
+                                             Click="BCNguyenLieu_Click"/>
+                            <RadioButton Style="{StaticResource SubMenuTabRadioButtonStyle}"
+                                             Content="{StaticResource TAB_BCTonKho}"
+                                             Click="BCTonKho_Click" />
+                        </StackPanel>
+                    </Expander>
+
+
+                </Grid>
+
+
+
+
+
+            </StackPanel>
+        </Grid>
+
+
+        <Grid
+              Margin="0" Grid.Column="1">
+
+            <!-- Display the page content -->
+            <Frame x:Name="PAGE_CONTENT"
+                   VerticalAlignment="Stretch"
+                   HorizontalAlignment="Stretch"
+                   VerticalContentAlignment="Stretch"
+                   HorizontalContentAlignment="Stretch"
+                   NavigationUIVisibility="Hidden"
+                   Navigating="MainFrame_OnNavigating"
+             />
+        </Grid>
+    </Grid>
+</Window>

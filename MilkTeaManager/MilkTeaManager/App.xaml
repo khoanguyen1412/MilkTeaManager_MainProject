@@ -3,13 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:dragablz="clr-namespace:Dragablz;assembly=Dragablz"
              xmlns:local="clr-namespace:MilkTeaManager"
-             StartupUri="Views/MainHomepage.xaml">
+             >
     <!--StartupUri="Views/SellProduct.xaml"-->
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary>
-                    <!--<local:Bootstrapper x:Key="Bootstrapper"/>-->
+                    <local:Bootstrapper x:Key="Bootstrapper"/>
                 </ResourceDictionary>
 
                 

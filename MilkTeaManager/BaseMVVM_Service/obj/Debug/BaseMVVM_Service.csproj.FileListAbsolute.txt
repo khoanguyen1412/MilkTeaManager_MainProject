@@ -62,3 +62,14 @@ C:\Users\thang\OneDrive\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManag
 C:\Users\thang\OneDrive\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\BaseMVVM_Service\obj\Debug\BaseMVVM_Service.csproj.CopyComplete
 C:\Users\thang\OneDrive\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\BaseMVVM_Service\obj\Debug\BaseMVVM_Service.exe
 C:\Users\thang\OneDrive\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\BaseMVVM_Service\obj\Debug\BaseMVVM_Service.pdb
+C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\BaseMVVM_Service\bin\Debug\BaseMVVM_Service.exe.config
+C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\BaseMVVM_Service\bin\Debug\BaseMVVM_Service.exe
+C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\BaseMVVM_Service\bin\Debug\BaseMVVM_Service.pdb
+C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\BaseMVVM_Service\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\BaseMVVM_Service\bin\Debug\System.IO.Packaging.dll
+C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\BaseMVVM_Service\bin\Debug\DocumentFormat.OpenXml.xml
+C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\BaseMVVM_Service\obj\Debug\BaseMVVM_Service.csprojAssemblyReference.cache
+C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\BaseMVVM_Service\obj\Debug\BaseMVVM_Service.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\BaseMVVM_Service\obj\Debug\BaseMVVM_Service.csproj.CopyComplete
+C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\BaseMVVM_Service\obj\Debug\BaseMVVM_Service.exe
+C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\BaseMVVM_Service\obj\Debug\BaseMVVM_Service.pdb

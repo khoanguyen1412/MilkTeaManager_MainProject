@@ -137,6 +137,7 @@
       <DependentUpon>MilkTeaDb.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\LayoutViewModels\ContentViewModel.cs" />
+    <Compile Include="ViewModels\MainHomepageViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="Views\CustomControls\InfoCardLabel.xaml.cs">
       <DependentUpon>InfoCardLabel.xaml</DependentUpon>
@@ -191,6 +192,9 @@
     </Compile>
     <Compile Include="Views\MainHomepage.xaml.cs">
       <DependentUpon>MainHomepage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainHomepageView.xaml.cs">
+      <DependentUpon>MainHomepageView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ManageFunction\ImportMaterial.xaml.cs">
       <DependentUpon>ImportMaterial.xaml</DependentUpon>
@@ -325,6 +329,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\MainHomepage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainHomepageView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
