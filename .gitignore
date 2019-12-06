@@ -1,0 +1,11 @@
+MilkTeaManager/.vs
+MilkTeaManager/bin/Debug/*
+MilkTeaManager/bin/Release/*
+MilkTeaManager/obj/Debug/*
+MilkTeaManager/obj/Release/*
+MilkTeaManager/BaseMVVM_Service/bin/Debug/*
+MilkTeaManager/BaseMVVM_Service/obj/Debug/*
+MilkTeaManager/DataTesting/bin/Debug/*
+MilkTeaManager/DataTesting/obj/Debug/*
+
+
