@@ -1,8 +1,8 @@
 MilkTeaManager/.vs
-MilkTeaManager/bin/Debug/*
-MilkTeaManager/bin/Release/*
-MilkTeaManager/obj/Debug/*
-MilkTeaManager/obj/Release/*
+MilkTeaManager/MilkTeaManager/bin/Debug/*
+MilkTeaManager/MilkTeaManager/bin/Release/*
+MilkTeaManager/MilkTeaManager/obj/Debug/*
+MilkTeaManager/MilkTeaManager/obj/Release/*
 MilkTeaManager/BaseMVVM_Service/bin/Debug/*
 MilkTeaManager/BaseMVVM_Service/obj/Debug/*
 MilkTeaManager/DataTesting/bin/Debug/*
