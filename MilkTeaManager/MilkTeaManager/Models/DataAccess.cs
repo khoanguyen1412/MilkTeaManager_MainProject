@@ -208,6 +208,20 @@ namespace MilkTeaManager.Models
 
 		#region Get_List_Object
 
+        public static List<SANPHAM> GetTopping()
+        {
+            using (var db=GetEntities1())
+            {
+                try
+                {
+                    return db.SANPHAMs.Where(x => x.LOAISANPHAM.ToString() == "loaisp02").ToList();
+                }
+                catch (DataException)
+                {
+                    return new List<SANPHAM>();
+                }
+            }
+        }
 		public static List<CHITIETHOADON> GetChitiethoadonsByMaHD(string maHd)
 		{
 			using (var db = GetEntities1())

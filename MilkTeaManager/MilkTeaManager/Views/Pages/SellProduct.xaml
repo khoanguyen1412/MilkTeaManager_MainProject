@@ -4,14 +4,17 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MilkTeaManager.Views.Pages"
+        xmlns:viewmodel="clr-namespace:MilkTeaManager.ViewModels"
       mc:Ignorable="d" 
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:customControls="clr-namespace:MilkTeaManager.Views.CustomControls"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="SellProduct"
       Background="#F2F2F2">
-
-    <Grid>
+    <Page.Resources>
+        <viewmodel:SellProductViewModel x:Key="vm"></viewmodel:SellProductViewModel>
+    </Page.Resources>
+    <Grid DataContext="{Binding Source={StaticResource vm}}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="7*"/>
             <ColumnDefinition Width="3*"/>
@@ -67,7 +70,10 @@
                                     Style="{StaticResource MaterialDesignTitleTextBlock}" FontSize="20" Margin="3" Text="Trà sữa"/>
 
 
-                                <ComboBox Grid.Row="1" VerticalAlignment="Top" Margin="3"></ComboBox>
+                                <ComboBox Grid.Row="1" VerticalAlignment="Top" Margin="3"
+                                           ItemsSource="{Binding Path=SanPhams, Mode=OneWay}"  
+                                          SelectedItem="{Binding Path=SSanPham, Mode=TwoWay}"
+                                          DisplayMemberPath="TENSP"/>
                             </Grid>
 
                         </materialDesign:Card>
@@ -218,7 +224,7 @@
                         <ColumnDefinition Width="473*"/>
                     </Grid.ColumnDefinitions>
                     <materialDesign:Card Margin="5" Grid.ColumnSpan="2">
-                        <DataGrid 
+                        <DataGrid Name="dataGrid"
                             Margin="3"
                         CanUserSortColumns="True"
                         CanUserAddRows="False"
@@ -227,14 +233,17 @@
                         AutoGenerateColumns="False"
                         materialDesign:DataGridAssist.CellPadding="8"
                         materialDesign:DataGridAssist.ColumnHeaderPadding="8"
-                        SelectionUnit="FullRow" Panel.ZIndex="-1" Grid.RowSpan="2">
+                        SelectionUnit="FullRow" Panel.ZIndex="-1" Grid.RowSpan="2"
+                        ItemsSource="{Binding Path=getChiTiet, Mode=OneWay}">
+                        
                             <DataGrid.Columns>
                                 <DataGridTextColumn Width="55"
                                                 Header="STT"
                                                 IsReadOnly="True"
                                                 CanUserSort="False"
                                                 HeaderStyle="{StaticResource CenteredDataGridHeader}"
-                                                CellStyle="{StaticResource CenteredDataGridCell}"/>
+                                                CellStyle="{StaticResource CenteredDataGridCell}"
+                                                Binding="{Binding MAHD}"/>
                                 <DataGridTextColumn Width="100"
                                                 IsReadOnly="True"
                                                 Header="Tên sản phẩm"
@@ -244,13 +253,6 @@
                                 <DataGridTextColumn Width="55"
                                                 CanUserSort="False"
                                                 Header="Size"                                           
-                                                IsReadOnly="True"
-                                                HeaderStyle="{StaticResource CenteredDataGridHeader}"
-                                                CellStyle="{StaticResource CenteredDataGridCell}"/>
-                                <DataGridTextColumn Width="90"
-                                                CanUserSort="False"
-                                                Header="Topping"
-                                                TextBlock.TextAlignment="Center"
                                                 IsReadOnly="True"
                                                 HeaderStyle="{StaticResource CenteredDataGridHeader}"
                                                 CellStyle="{StaticResource CenteredDataGridCell}"/>

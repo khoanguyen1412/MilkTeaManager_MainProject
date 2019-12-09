@@ -8,5 +8,18 @@ namespace MilkTeaManager.ViewModels
 {
     class MainHomepageViewModel
     {
+        private string _string = "Khaidepzai";
+
+        public string khaiDepZai {
+            get
+            {
+                return _string;
+
+            }
+            set
+            {
+                _string = value;
+            }
+        }
     }
 }
