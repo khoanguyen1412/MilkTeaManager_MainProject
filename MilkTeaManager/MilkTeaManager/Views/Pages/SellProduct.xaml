@@ -9,13 +9,13 @@
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:customControls="clr-namespace:MilkTeaManager.Views.CustomControls"
       xmlns:val="clr-namespace:MilkTeaManager.Rules"
+      DataContext="{StaticResource SellProductVM}"
+      x:Name="SellProductWD"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="SellProduct"
       Background="#F2F2F2">
-    <Page.Resources>
-        <viewmodel:SellProductViewModel x:Key="vm"></viewmodel:SellProductViewModel>
-    </Page.Resources>
-    <Grid DataContext="{Binding Source={StaticResource vm}}">
+
+    <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="7*"/>
             <ColumnDefinition Width="3*"/>
@@ -413,7 +413,7 @@
                                 </Button>
                             </Grid>
                             <Grid Grid.Row="1" Grid.ColumnSpan="2"
-                                  DataContext="{Binding HoaDonVM.KhachHang, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                  >
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="1*"/>
                                     <ColumnDefinition Width="2*"/>
@@ -432,11 +432,11 @@
                                        Content="Địa chỉ"/>
                                 <Label Grid.Row="0" Grid.Column="1"
                                        x:Name="Ten"
-                                       Content="{Binding TenKH}"/>
+                                       Content="{Binding STenKH, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                                 <Label Grid.Row="1" Grid.Column="1"
-                                   Content="{Binding SDT}"/>
+                                   Content="{Binding SSDT,  Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                                 <Label Grid.Row="2" Grid.Column="1"
-                                   Content="{Binding DiaChi}"/>
+                                   Content="{Binding SDiaChi ,  Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                             </Grid>
                         </Grid>
                     </TabItem>

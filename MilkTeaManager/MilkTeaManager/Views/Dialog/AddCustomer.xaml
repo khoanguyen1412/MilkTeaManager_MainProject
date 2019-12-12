@@ -4,13 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MilkTeaManager.Views.Dialog"
-        xmlns:viewmodel="clr-namespace:MilkTeaManager.ViewModels"
         mc:Ignorable="d"
+        DataContext="{StaticResource AddCustomerVM}"
+        x:Name="AddCustomerWD"
         ResizeMode="NoResize"
         Title="CustomerAdding" Height="550" Width="500"
         WindowStartupLocation="CenterScreen">
     <Window.Resources>
-        <viewmodel:AddCustomerViewModel x:Key="vm"></viewmodel:AddCustomerViewModel>
+        
         <Style x:Key="CustomDefinedLabelStyle" TargetType="Label" BasedOn="{StaticResource BelowMediumLabelStyle}">
             <Setter Property="Margin" Value="10"/>
             <Setter Property="Foreground" Value="Black"/>
@@ -34,7 +35,7 @@
             Background="White"
             BorderBrush="Gray"
             BorderThickness="2">
-        <Grid  DataContext="{Binding Source={StaticResource vm}}">
+        <Grid  >
             <Grid Margin="20 10 20 30">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
@@ -89,19 +90,19 @@
                                    Content="Email"/>
                             <TextBox Grid.Row="0" Grid.Column="1"
                                      Style="{StaticResource CustomTextBoxStyle}"
-                                     Text="{Binding TENKH, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                                     Text="{Binding STenKH, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                                      />
                             <TextBox Grid.Row="1" Grid.Column="1"
                                      Style="{StaticResource CustomTextBoxStyle}"
-                                     Text="{Binding KhachHang.SDT}"
+                                    Text="{Binding SSDT, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                                      />
                             <TextBox Grid.Row="2" Grid.Column="1"
                                      Style="{StaticResource CustomTextBoxStyle}"
-                                     Text="{Binding KhachHang.DIACHI}"
+                                     Text="{Binding SDiaChi, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                                      />
                             <TextBox Grid.Row="4" Grid.Column="1"
                                      Style="{StaticResource CustomTextBoxStyle}"
-                                     Text="{Binding KhachHang.EMAIL}"
+                                     Text="{Binding SEmail, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                                      />
                         </Grid>
                     </StackPanel>

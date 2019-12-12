@@ -15,7 +15,15 @@ namespace MilkTeaManager.ViewModels
 
         private SANPHAM _ssanpham;
         private LOAISANPHAM _sloaisp;
+        private int _ketquatimthay;
 
+        public int KQTT
+        {
+            get { return _ketquatimthay; }
+            set { _ketquatimthay = value;
+                OnPropertyChanged();
+            }
+        }
         public SANPHAM SSanPham
         {
             get { return _ssanpham; }
@@ -32,6 +40,8 @@ namespace MilkTeaManager.ViewModels
             {
                 _sloaisp = value;
                 OnPropertyChanged();
+                SanPhams = new ObservableCollection<SANPHAM>(DataAccess.GetSanphambyMaMaLoaiSP(SLoaiSP.MALOAISP));
+                KQTT = SanPhams.Count();
             }
         }
         public ObservableCollection<SANPHAM> SanPhams
@@ -54,7 +64,7 @@ namespace MilkTeaManager.ViewModels
         }
         public ManageProductViewModel()
         {
-            SanPhams = new ObservableCollection<SANPHAM>(DataAccess.GetSanphams());
+           
             LoaiSPs = new ObservableCollection<LOAISANPHAM>(DataAccess.GetLoaisanphams());
         }
     }

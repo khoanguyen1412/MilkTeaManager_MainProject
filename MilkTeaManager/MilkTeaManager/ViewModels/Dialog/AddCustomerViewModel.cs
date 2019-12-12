@@ -10,19 +10,53 @@ namespace MilkTeaManager.ViewModels
 {
     class AddCustomerViewModel:BaseVM
     {
-        //private KHACHHANG _khachhang;
-        //public KHACHHANG KhachHang
-        //{
-        //    get { return _khachhang; }
-        //    set { _khachhang = value;
-        //        OnPropertyChanged();
-        //    }
-        //}
-        private string _tenkh;
-        public string TENKH
+        private KHACHHANG _khachhang;
+
+        public KHACHHANG KhachHang
         {
-            get { return _tenkh; }
-            set { _tenkh = value;
+            get { return _khachhang; }
+            set
+            {
+                _khachhang = value;
+                OnPropertyChanged();
+            }
+        }
+        private string _stenkh;
+        private string _sdiachi;
+        private string _ssdt;
+        private string _semail;
+        
+        public string SEmail
+        {
+            get { return _semail; }
+            set
+            {
+                _semail = value;
+                OnPropertyChanged();
+            }
+        }
+        public string SSDT
+        {
+            get { return _ssdt; }
+            set
+            {
+                _ssdt = value;
+                OnPropertyChanged();
+            }
+        }
+        public string SDiaChi
+        {
+            get { return _sdiachi; }
+            set
+            {
+                _sdiachi = value;
+                OnPropertyChanged();
+            }
+        }
+        public string STenKH
+        {
+            get { return _stenkh; }
+            set { _stenkh = value;
                 OnPropertyChanged();
             }
         }
@@ -33,14 +67,16 @@ namespace MilkTeaManager.ViewModels
 
             SaveCommand = new RelayCommand<object>((p) =>
             {
-                if (TENKH == null)
+                if (string.IsNullOrEmpty(STenKH) || string.IsNullOrEmpty(SSDT))
                     return false;
 
                 return true;
 
             }, (p) =>
             {
-                
+
+              KhachHang = new KHACHHANG() { TENKH = STenKH, DIACHI = SDiaChi, SDT = SSDT, EMAIL = SEmail };
+              DataAccess.SaveKhachHang(KhachHang);
             });
         }
     }

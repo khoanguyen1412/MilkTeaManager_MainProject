@@ -46,8 +46,23 @@ namespace MilkTeaManager.Models
 
 			}
 		}
+        public static List<SANPHAM> GetSanphambyMaMaLoaiSP(string maLoaiSP)
+        {
 
-		public static LOAISANPHAM GetLoaisanphambyMaLSP(string maLsp)
+            {
+                try
+                {
+                    var result = db.SANPHAMs.Where(x => x.MALOAISP == maLoaiSP).ToList();
+                    return result;
+                }
+                catch (DataException)
+                {
+                    return db.SANPHAMs.ToList<SANPHAM>();
+                }
+
+            }
+        }
+        public static LOAISANPHAM GetLoaisanphambyMaLSP(string maLsp)
 		{
 			 
 			{

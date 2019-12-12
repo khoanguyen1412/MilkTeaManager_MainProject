@@ -4,17 +4,14 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MilkTeaManager.Views.Pages"
-      xmlns:viewmodel="clr-namespace:MilkTeaManager.ViewModels"
+      DataContext="{StaticResource ManageProductVM}"
       mc:Ignorable="d" 
       xmlns:customControls="clr-namespace:MilkTeaManager.Views.CustomControls"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ManageProduct"
         Background="#F2F2F2">
-    <Page.Resources>
-        <viewmodel:ManageProductViewModel x:Key="vm"></viewmodel:ManageProductViewModel>
-    </Page.Resources>
-    <Grid DataContext="{Binding Source={StaticResource vm}}">
+    <Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
@@ -197,7 +194,7 @@
                             <Label Grid.Row="1" Grid.Column="0"                                   
                                    Content="Số lượng"/>
                             <Label Grid.Row="0" Grid.Column="1"                                  
-                                   Content="{Binding DanhSachSanPhamVM.DisplayItems.Count, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                   Content="{Binding KQTT, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
                             <Label Grid.Row="1" Grid.Column="1"
                                    Content="{Binding DanhSachSanPhamVM.Items.Count, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
                         </Grid>

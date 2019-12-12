@@ -12,10 +12,46 @@ namespace MilkTeaManager.ViewModels
     {
         private ObservableCollection<NHACUNGCAP> _nhacungcaps;
 
-
+        private string _sdt;
+        private string _diachi;
+        private string _email;
+        private string _mancc;
         private NHACUNGCAP _snhacungcap;
 
-
+        public string MaNCC
+        {
+            get { return _mancc; }
+            set { _mancc = value;
+                OnPropertyChanged();
+            }
+        }
+        public string SDT
+        {
+            get { return _sdt; }
+            set
+            {
+                _sdt = value;
+                OnPropertyChanged();
+            }
+        }
+        public string Email
+        {
+            get { return _email; }
+            set
+            {
+                _email = value;
+                OnPropertyChanged();
+            }
+        }
+        public string DiaChi
+        {
+            get { return _diachi; }
+            set
+            {
+                _diachi = value;
+                OnPropertyChanged();
+            }
+        }
         public NHACUNGCAP SNhaCungCap
         {
             get { return _snhacungcap; }
@@ -23,6 +59,9 @@ namespace MilkTeaManager.ViewModels
             {
                 _snhacungcap = value;
                 OnPropertyChanged();
+                DiaChi = SNhaCungCap.DIACHINCC;
+                SDT = SNhaCungCap.SDTNCC;
+                MaNCC = SNhaCungCap.MANCC;   
             }
         }
 

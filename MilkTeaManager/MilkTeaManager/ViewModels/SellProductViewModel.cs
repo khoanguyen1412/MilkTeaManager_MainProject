@@ -19,12 +19,42 @@ namespace MilkTeaManager.ViewModels
         private ObservableCollection<SIZE> _sizes;
         private ObservableCollection<CHITIETHOADON> _cthds;
 
+        private string _sdiachi;
+        private string _ssdt;
+        private string _stenkh;
         private int _soluong;
         private SANPHAM _ssanpham;
         private CHITIETHOADON _scthd;
         private SANPHAM _stopping;
         private SIZE _ssize;
 
+        public string STenKH
+        {
+            get { return _stenkh; }
+            set
+            {
+                _stenkh = value;
+                OnPropertyChanged();
+            }
+        }
+        public string SSDT
+        {
+            get { return _ssdt; }
+            set
+            {
+                _ssdt = value;
+                OnPropertyChanged();
+            }
+        }
+        public string SDiaChi
+        {
+            get { return _sdiachi; }
+            set
+            {
+                _sdiachi = value;
+                OnPropertyChanged();
+            }
+        }
         public int SoLuong
         {
             get { return _soluong; }
@@ -120,7 +150,7 @@ namespace MilkTeaManager.ViewModels
             Sizes = new ObservableCollection<SIZE>(DataAccess.GetSizes());
             AddSanPhamCommand = new RelayCommand<object>((p) =>
             {
-                if (SSanPham == null || SSize == null || SoLuong <= 0 || SCTHD != null)
+                if (SSanPham == null || SSize == null || SoLuong <= 0 || SCTHD != null || string.IsNullOrEmpty(SoLuong.ToString()))
                     return false;
 
                 return true;
@@ -165,7 +195,18 @@ namespace MilkTeaManager.ViewModels
                 DataAccess.SaveChiTietHoaDon(cthd);
                 CTHDs.Add(cthd);
             });
-            LoadKhachHangCommand = new RelayCommand<object>((p) => { return true; }, (p) => { AddCustomer wd = new AddCustomer(); wd.ShowDialog(); });
+            LoadKhachHangCommand = new RelayCommand<object>((p) => { return true; }, (p) => {
+                AddCustomer wd = new AddCustomer();
+                wd.ShowDialog();
+                var addVM = wd.DataContext as AddCustomerViewModel;
+                if (addVM.KhachHang!=null)
+                {
+                    STenKH = addVM.KhachHang.TENKH;
+                    SSDT = addVM.KhachHang.SDT;
+                    SDiaChi = addVM.KhachHang.DIACHI;
+                }
+                MessageBox.Show(STenKH);
+            });
         }
         public List<HOADON> getChiTiet
         {
