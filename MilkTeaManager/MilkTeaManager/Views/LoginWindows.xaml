@@ -1,0 +1,136 @@
+﻿<Window x:Class="MilkTeaManager.Views.LoginWindows"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MilkTeaManager.Views"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        WindowStartupLocation="CenterScreen"
+        Title="Login" Height="550" Width="800" AllowsTransparency="True" WindowStyle="None" ResizeMode="NoResize" MouseLeftButtonDown="dragme">
+    <materialDesign:DialogHost DialogOpened="openCB" DialogClosing="closingCB">
+        <materialDesign:DialogHost.DialogContent>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBlock Margin="10" Text="Chờ xíu!!!!" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                <ProgressBar Margin="10" Style="{StaticResource MaterialDesignCircularProgressBar}" IsIndeterminate="True" Grid.Row="1" HorizontalAlignment="Center"></ProgressBar>
+                <Button Style="{StaticResource MaterialDesignRaisedButton}" Content="Cancel" Grid.Row="2" VerticalAlignment="Center" Margin="0,10,0,0"
+                        Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"></Button>
+            </Grid>
+        </materialDesign:DialogHost.DialogContent>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <materialDesign:Card Grid.Column="1"
+                             HorizontalAlignment="Stretch"
+                             VerticalAlignment="Stretch">
+            <Image Source="Images/5c022cc54d1530000.jpg" Stretch="UniformToFill"></Image>
+            
+        </materialDesign:Card>
+        <Grid Grid.Column="0" VerticalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0"
+                       Style="{StaticResource MaterialDesignDisplay1TextBlock}" 
+                       HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,-90,0,0">
+                Bán Tà Tữa
+            </TextBlock>
+                <TextBlock x:Name="LoginStatus" 
+                           Grid.Row="0" 
+                           HorizontalAlignment="Center" 
+                           VerticalAlignment="Center" >
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Text" Value="Login Status"></Setter>
+                            <Setter Property="Foreground" Value="Black"></Setter>
+                            <Setter Property="Visibility" Value="Collapsed"></Setter>
+                            <Style.Triggers>
+                                <MultiDataTrigger>
+                                    <MultiDataTrigger.Conditions>
+                                        <Condition Binding="{Binding Path=IsJustStarted, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}
+                                    ,UpdateSourceTrigger=PropertyChanged}" Value="False"></Condition>
+                                        <Condition Binding="{Binding Path=IsLoggedIn, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}
+                                    ,UpdateSourceTrigger=PropertyChanged}" Value="True"></Condition>
+                                        
+                                    </MultiDataTrigger.Conditions>
+                                    <Setter Property="Text" Value="Đăng nhập thành công"></Setter>
+                                    <Setter Property="Foreground" Value="Green"></Setter>
+                                    <Setter Property="Visibility" Value="Visible"></Setter>
+                                </MultiDataTrigger>
+                                <MultiDataTrigger>
+                                    <MultiDataTrigger.Conditions>
+                                        <Condition Binding="{Binding Path=IsJustStarted, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}
+                                    ,UpdateSourceTrigger=PropertyChanged}" Value="False"></Condition>
+                                        <Condition Binding="{Binding Path=IsLoggedIn, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}
+                                    ,UpdateSourceTrigger=PropertyChanged}" Value="False"></Condition>
+
+                                    </MultiDataTrigger.Conditions>
+                                    <Setter Property="Text" Value="Đăng nhập thất bại"></Setter>
+                                    <Setter Property="Foreground" Value="Red"></Setter>
+                                    <Setter Property="Visibility" Value="Visible"></Setter>
+                                </MultiDataTrigger>
+                                <!--<DataTrigger Binding="{Binding Path=IsLoggedIn, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}
+                                    ,UpdateSourceTrigger=PropertyChanged}" Value="True">
+                                    <Setter Property="Text" Value="ĐĂNG NHẬP THÀNH CÔNG!!!"></Setter>
+                                    <Setter Property="Foreground" Value="Green"></Setter>
+                                    <Setter Property="Visibility" Value="Visible"></Setter>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=IsLoggedIn, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}
+                                    ,UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                    <Setter Property="Text" Value="ĐĂNG NHẬP THẤT BẠI"></Setter>
+                                    <Setter Property="Foreground" Value="Red"></Setter>
+                                    <Setter Property="Visibility" Value="Visible"></Setter>
+                                </DataTrigger>-->
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+            <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0,20,0,0" HorizontalAlignment="Center">
+                <materialDesign:PackIcon Kind="Account"
+                                         Foreground="{Binding ElementName=NameTextBox, Path=BorderBrush}" Margin="0,5,10,0" VerticalAlignment="Center"/>
+                <TextBox 
+                    x:Name="NameTextBox"
+                    materialDesign:HintAssist.Hint="Tài Khoản"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Width="140">
+                    
+                </TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center"
+                        >
+                <materialDesign:PackIcon Kind="Key" 
+                                         Foreground="{Binding ElementName=passwordBox, Path=BorderBrush}"
+                                         HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5,10,0"></materialDesign:PackIcon>
+                <PasswordBox materialDesign:HintAssist.Hint="Mật khẩu"
+                         materialDesign:HintAssist.Foreground="Green"
+                         materialDesign:TextFieldAssist.UnderlineBrush="Green"
+                         Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
+                         x:Name="passwordBox"
+                         Width="140">
+                         
+                </PasswordBox>
+            </StackPanel>
+            <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="90,0,0,0">
+                <CheckBox Content="Ghi Nhớ Tài Khoản" Margin="0"></CheckBox>
+                <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                        Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
+                        materialDesign:ButtonAssist.CornerRadius="25"
+                        Height="40"
+                        Width="105" Content="Đăng nhập" RenderTransformOrigin="0.912,0.643" Margin="20,20,0,0" HorizontalAlignment="Center" Background="#FF52931D"/>
+
+            </StackPanel>
+        </Grid>
+    </Grid>
+    </materialDesign:DialogHost>
+</Window>
