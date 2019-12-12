@@ -129,8 +129,20 @@
     <Compile Include="Models\SANPHAM.cs">
       <DependentUpon>MilkTeaDb.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\SIZE.cs">
+      <DependentUpon>MilkTeaDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Rules\OnlyDigitsValidationRule.cs" />
+    <Compile Include="ViewModels\Dialog\AddCustomerViewModel.cs" />
+    <Compile Include="ViewModels\BaseVM.cs" />
+    <Compile Include="ViewModels\ImportMaterialViewModel.cs" />
     <Compile Include="ViewModels\LayoutViewModels\ContentViewModel.cs" />
     <Compile Include="ViewModels\MainHomepageViewModel.cs" />
+    <Compile Include="ViewModels\ManageCustomerViewModel.cs" />
+    <Compile Include="ViewModels\ManageProductViewModel.cs" />
+    <Compile Include="ViewModels\ManageStaffViewModel.cs" />
+    <Compile Include="ViewModels\ManageSupplierViewModel.cs" />
+    <Compile Include="ViewModels\RevenueStatisticViewModel.cs" />
     <Compile Include="ViewModels\SellProductViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="Views\CustomControls\InfoCardLabel.xaml.cs">
@@ -504,8 +516,18 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>MilkTeaDb.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="Models\MilkTeaDb.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MilkTeaDb.edmx</DependentUpon>
+      <LastGenOutput>MilkTeaDb.Context.cs</LastGenOutput>
+    </None>
     <None Include="Models\MilkTeaDb.edmx.diagram">
       <DependentUpon>MilkTeaDb.edmx</DependentUpon>
+    </None>
+    <None Include="Models\MilkTeaDb.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MilkTeaDb.edmx</DependentUpon>
+      <LastGenOutput>MilkTeaDb.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -564,18 +586,6 @@
   <ItemGroup>
     <Resource Include="Views\Images\tongquan_khachhangmoi.png" />
     <Resource Include="Views\Images\tongquan_thunhap.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Models\MilkTeaDb.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>MilkTeaDb.Context.cs</LastGenOutput>
-      <DependentUpon>MilkTeaDb.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\MilkTeaDb.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MilkTeaDb.edmx</DependentUpon>
-      <LastGenOutput>MilkTeaDb.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

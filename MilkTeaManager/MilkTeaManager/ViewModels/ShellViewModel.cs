@@ -11,5 +11,6 @@ namespace MilkTeaManager.ViewModels
     
     public class ShellViewModel
     {
+        
     }
 }

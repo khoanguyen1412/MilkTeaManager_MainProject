@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MilkTeaManager.ViewModels
 {
-    class MainHomepageViewModel
+    class RevenueStatisticViewModel
     {
     }
 }

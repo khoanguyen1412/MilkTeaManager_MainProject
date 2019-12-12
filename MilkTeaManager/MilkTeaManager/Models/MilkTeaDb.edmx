@@ -14,6 +14,8 @@
           <Property Name="SOLUONG" Type="int" />
           <Property Name="DONGIA" Type="int" />
           <Property Name="MAHD" Type="nvarchar" MaxLength="50" />
+          <Property Name="MASIZE" Type="int" />
+          <Property Name="THANHTIEN" Type="int" StoreGeneratedPattern="Computed" />
         </EntityType>
         <EntityType Name="CHITIETNGUYENLIEU">
           <Key>
@@ -104,6 +106,25 @@
           <Property Name="MALOAISP" Type="nvarchar" MaxLength="50" />
           <Property Name="GIABAN" Type="int" />
         </EntityType>
+        <EntityType Name="SIZE">
+          <Key>
+            <PropertyRef Name="MASIZE" />
+          </Key>
+          <Property Name="MASIZE" Type="int" Nullable="false" />
+          <Property Name="SIZE" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <Association Name="FK__CHITIETHO__MASIZ__06CD04F7">
+          <End Role="SIZE" Type="Self.SIZE" Multiplicity="0..1" />
+          <End Role="CHITIETHOADON" Type="Self.CHITIETHOADON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SIZE">
+              <PropertyRef Name="MASIZE" />
+            </Principal>
+            <Dependent Role="CHITIETHOADON">
+              <PropertyRef Name="MASIZE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__CHITIETHOA__MAHD__6C190EBB">
           <End Role="HOADON" Type="Self.HOADON" Multiplicity="0..1" />
           <End Role="CHITIETHOADON" Type="Self.CHITIETHOADON" Multiplicity="*" />
@@ -236,6 +257,11 @@
           <EntitySet Name="NHACUNGCAP" EntityType="Self.NHACUNGCAP" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NHANVIEN" EntityType="Self.NHANVIEN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SANPHAM" EntityType="Self.SANPHAM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SIZE" EntityType="Self.SIZE" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__CHITIETHO__MASIZ__06CD04F7" Association="Self.FK__CHITIETHO__MASIZ__06CD04F7">
+            <End Role="SIZE" EntitySet="SIZE" />
+            <End Role="CHITIETHOADON" EntitySet="CHITIETHOADON" />
+          </AssociationSet>
           <AssociationSet Name="FK__CHITIETHOA__MAHD__6C190EBB" Association="Self.FK__CHITIETHOA__MAHD__6C190EBB">
             <End Role="HOADON" EntitySet="HOADON" />
             <End Role="CHITIETHOADON" EntitySet="CHITIETHOADON" />
@@ -291,6 +317,9 @@
           <Property Name="SOLUONG" Type="Int32" />
           <Property Name="DONGIA" Type="Int32" />
           <Property Name="MAHD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MASIZE" Type="Int32" />
+          <Property Name="THANHTIEN" Type="Int32" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="SIZE" Relationship="Self.FK__CHITIETHO__MASIZ__06CD04F7" FromRole="CHITIETHOADON" ToRole="SIZE" />
           <NavigationProperty Name="HOADON" Relationship="Self.FK__CHITIETHOA__MAHD__6C190EBB" FromRole="CHITIETHOADON" ToRole="HOADON" />
           <NavigationProperty Name="SANPHAM" Relationship="Self.FK__CHITIETHOA__MASP__68487DD7" FromRole="CHITIETHOADON" ToRole="SANPHAM" />
         </EntityType>
@@ -401,6 +430,26 @@
           <NavigationProperty Name="CHITIETNGUYENLIEUx" Relationship="Self.FK__CHITIETNGU__MASP__6FE99F9F" FromRole="SANPHAM" ToRole="CHITIETNGUYENLIEU" />
           <NavigationProperty Name="LOAISANPHAM" Relationship="Self.FK__SANPHAM__MALOAIS__5EBF139D" FromRole="SANPHAM" ToRole="LOAISANPHAM" />
         </EntityType>
+        <EntityType Name="SIZE">
+          <Key>
+            <PropertyRef Name="MASIZE" />
+          </Key>
+          <Property Name="MASIZE" Type="Int32" Nullable="false" />
+          <Property Name="SIZE1" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="CHITIETHOADONs" Relationship="Self.FK__CHITIETHO__MASIZ__06CD04F7" FromRole="SIZE" ToRole="CHITIETHOADON" />
+        </EntityType>
+        <Association Name="FK__CHITIETHO__MASIZ__06CD04F7">
+          <End Role="SIZE" Type="Self.SIZE" Multiplicity="0..1" />
+          <End Role="CHITIETHOADON" Type="Self.CHITIETHOADON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SIZE">
+              <PropertyRef Name="MASIZE" />
+            </Principal>
+            <Dependent Role="CHITIETHOADON">
+              <PropertyRef Name="MASIZE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__CHITIETHOA__MAHD__6C190EBB">
           <End Role="HOADON" Type="Self.HOADON" Multiplicity="0..1" />
           <End Role="CHITIETHOADON" Type="Self.CHITIETHOADON" Multiplicity="*" />
@@ -521,7 +570,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="TRASUAEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="TRASUAEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CHITIETHOADONs" EntityType="Self.CHITIETHOADON" />
           <EntitySet Name="CHITIETNGUYENLIEUx" EntityType="Self.CHITIETNGUYENLIEU" />
           <EntitySet Name="DONVITINHs" EntityType="Self.DONVITINH" />
@@ -533,6 +582,11 @@
           <EntitySet Name="NHACUNGCAPs" EntityType="Self.NHACUNGCAP" />
           <EntitySet Name="NHANVIENs" EntityType="Self.NHANVIEN" />
           <EntitySet Name="SANPHAMs" EntityType="Self.SANPHAM" />
+          <EntitySet Name="SIZEs" EntityType="Self.SIZE" />
+          <AssociationSet Name="FK__CHITIETHO__MASIZ__06CD04F7" Association="Self.FK__CHITIETHO__MASIZ__06CD04F7">
+            <End Role="SIZE" EntitySet="SIZEs" />
+            <End Role="CHITIETHOADON" EntitySet="CHITIETHOADONs" />
+          </AssociationSet>
           <AssociationSet Name="FK__CHITIETHOA__MAHD__6C190EBB" Association="Self.FK__CHITIETHOA__MAHD__6C190EBB">
             <End Role="HOADON" EntitySet="HOADONs" />
             <End Role="CHITIETHOADON" EntitySet="CHITIETHOADONs" />
@@ -579,7 +633,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="TRASUAModelStoreContainer" CdmEntityContainer="TRASUAEntities">
+        <EntityContainerMapping StorageEntityContainer="TRASUAModelStoreContainer" CdmEntityContainer="TRASUAEntities1">
           <EntitySetMapping Name="CHITIETHOADONs">
             <EntityTypeMapping TypeName="TRASUAModel.CHITIETHOADON">
               <MappingFragment StoreEntitySet="CHITIETHOADON">
@@ -588,6 +642,8 @@
                 <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
                 <ScalarProperty Name="DONGIA" ColumnName="DONGIA" />
                 <ScalarProperty Name="MAHD" ColumnName="MAHD" />
+                <ScalarProperty Name="MASIZE" ColumnName="MASIZE" />
+                <ScalarProperty Name="THANHTIEN" ColumnName="THANHTIEN" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -687,6 +743,14 @@
                 <ScalarProperty Name="TENSP" ColumnName="TENSP" />
                 <ScalarProperty Name="MALOAISP" ColumnName="MALOAISP" />
                 <ScalarProperty Name="GIABAN" ColumnName="GIABAN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SIZEs">
+            <EntityTypeMapping TypeName="TRASUAModel.SIZE">
+              <MappingFragment StoreEntitySet="SIZE">
+                <ScalarProperty Name="MASIZE" ColumnName="MASIZE" />
+                <ScalarProperty Name="SIZE1" ColumnName="SIZE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

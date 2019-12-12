@@ -4,14 +4,17 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MilkTeaManager.Views.Pages"
+      xmlns:viewmodel="clr-namespace:MilkTeaManager.ViewModels"
       mc:Ignorable="d" 
       xmlns:customControls="clr-namespace:MilkTeaManager.Views.CustomControls"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ManageProduct"
         Background="#F2F2F2">
-
-    <Grid>
+    <Page.Resources>
+        <viewmodel:ManageProductViewModel x:Key="vm"></viewmodel:ManageProductViewModel>
+    </Page.Resources>
+    <Grid DataContext="{Binding Source={StaticResource vm}}">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
@@ -68,14 +71,15 @@
                     </StackPanel>
                 </Grid>
                 <ComboBox VerticalAlignment="Stretch"
-                            DataContext="{Binding LocNhaCungCapVM}"
+
                             Margin="20 5 10 5"
                             Width="150"
                             FontSize="15"
                             materialDesign:HintAssist.Hint="Loại sản phẩm"
-                            ItemsSource="{Binding Collection.Items, UpdateSourceTrigger=PropertyChanged}"
-                            DisplayMemberPath="Model.TenNCC"
-                            SelectedItem="{Binding Collection.SelectedItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                            ItemsSource="{Binding Path=LoaiSPs}"  
+                            SelectedItem="{Binding Path=SLoaiSP, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}"
+                            DisplayMemberPath="TENLOAISP"/>
             </StackPanel>
             <Grid Grid.Row="1" >
                 <Grid.ColumnDefinitions>
@@ -86,7 +90,8 @@
                                      Style="{StaticResource UIProjectMaterialDesignCardStyle}">
                     <Grid>
                         <DataGrid 
-                           
+                           ItemsSource="{Binding Path=SanPhams}"
+                        SelectedItem="{Binding Path=SSanPham, Mode=OneWayToSource}"
                         CanUserSortColumns="True"
                         CanUserAddRows="False"
                         CanUserResizeColumns="False"
@@ -107,6 +112,7 @@
                                                 Header="Mã SP"
                                                 HeaderStyle="{StaticResource CenteredDataGridHeader}"
                                                 CellStyle="{StaticResource CenteredDataGridCell}"
+                                                    Binding="{Binding MASP}"
                                                 />
                                 <DataGridTextColumn Width="200"
                                                 CanUserSort="False"
@@ -114,25 +120,29 @@
                                                 IsReadOnly="True"
                                                 TextBlock.TextAlignment="Left"
                                                 HeaderStyle="{StaticResource CenteredDataGridHeader}"
-                                                CellStyle="{StaticResource CenteredDataGridCell}"/>
+                                                CellStyle="{StaticResource CenteredDataGridCell}"
+                                                Binding="{Binding TENSP}"/>
                                 <DataGridTextColumn Width="80"
                                                 CanUserSort="False"
                                                 Header="Mã loại SP"
                                                 TextBlock.TextAlignment="Center"
                                                 IsReadOnly="True"
                                                 HeaderStyle="{StaticResource CenteredDataGridHeader}"
-                                                CellStyle="{StaticResource CenteredDataGridCell}"/>
+                                                CellStyle="{StaticResource CenteredDataGridCell}"
+                                                Binding="{Binding LOAISANPHAM.MALOAISP}"/>
                                 <DataGridTextColumn Width="150"
                                                 Header="Giá"
                                                 HeaderStyle="{StaticResource CenteredDataGridHeader}"
                                                 CellStyle="{StaticResource RightDataGridCell}"
                                                 EditingElementStyle="{StaticResource CustomEditingTextColumnElementStyle}"
-                                                IsReadOnly="False"/>
+                                                IsReadOnly="False"
+                                                Binding="{Binding GIABAN}"/>
                                 <DataGridTextColumn Width="90"
                                                 Header="Mã CTNL"
                                                 IsReadOnly="True"
                                                 HeaderStyle="{StaticResource CenteredDataGridHeader}"
-                                                CellStyle="{StaticResource RightDataGridCell}"/>
+                                                CellStyle="{StaticResource RightDataGridCell}"
+                                                Binding="{Binding CHITIETNGUYENLIEUx.MACTNL}"    />
 
                                 <DataGridTemplateColumn Width="30"
                                                     HeaderStyle="{StaticResource CenteredDataGridHeader}"

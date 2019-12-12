@@ -8,6 +8,7 @@
       mc:Ignorable="d" 
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:customControls="clr-namespace:MilkTeaManager.Views.CustomControls"
+      xmlns:val="clr-namespace:MilkTeaManager.Rules"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="SellProduct"
       Background="#F2F2F2">
@@ -71,8 +72,8 @@
 
 
                                 <ComboBox Grid.Row="1" VerticalAlignment="Top" Margin="3"
-                                           ItemsSource="{Binding Path=SanPhams, Mode=OneWay}"  
-                                          SelectedItem="{Binding Path=SSanPham, Mode=TwoWay}"
+                                           ItemsSource="{Binding Path=SanPhams}"  
+                                          SelectedItem="{Binding Path=SSanPham, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}"
                                           DisplayMemberPath="TENSP"/>
                             </Grid>
 
@@ -80,15 +81,22 @@
 
                         <materialDesign:Card Grid.Row="1" Margin="5" Style="{StaticResource UIProjectMaterialDesignCardStyle}">
                             <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="247*"/>
+                                    <ColumnDefinition Width="18*"/>
+                                </Grid.ColumnDefinitions>
                                 <Grid.RowDefinitions>
                                     <RowDefinition/>
                                     <RowDefinition/>
                                 </Grid.RowDefinitions>
                                 <TextBlock
-                                    Style="{StaticResource MaterialDesignTitleTextBlock}" FontSize="20" Margin="3" Text="Size"/>
+                                    Style="{StaticResource MaterialDesignTitleTextBlock}" FontSize="20" Margin="3" Text="Size" Grid.ColumnSpan="2"/>
 
 
-                                <ComboBox Grid.Row="1" VerticalAlignment="Top" Margin="3"></ComboBox>
+                                <ComboBox Grid.Row="1" VerticalAlignment="Top" Margin="3,3,3,0"
+                                    ItemsSource="{Binding Path=Sizes, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}"  
+                                    SelectedItem="{Binding Path=SSize, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}"
+                                    DisplayMemberPath="SIZE1" Grid.ColumnSpan="2"      ></ComboBox>
                             </Grid>
 
                         </materialDesign:Card>
@@ -102,8 +110,18 @@
                                 <TextBlock
                                     Style="{StaticResource MaterialDesignTitleTextBlock}" Height="30" FontSize="20" Margin="3" Text="Số lượng" VerticalAlignment="Center" />
 
-
-                                <ComboBox Grid.Row="1" VerticalAlignment="Top" Margin="3"></ComboBox>
+                                <TextBox Grid.Row="1" FontSize="15"
+                                         VerticalAlignment="Center"
+                                       PreviewTextInput="NumberValidationTextBox"
+                                          >
+                                    <TextBox.Text>
+                                        <Binding Path="SoLuong" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                                            <Binding.ValidationRules>
+                                                <val:OnlyDigitsValidationRule />
+                                            </Binding.ValidationRules>
+                                        </Binding>
+                                    </TextBox.Text>
+                                </TextBox>
                             </Grid>
 
                         </materialDesign:Card>
@@ -124,7 +142,10 @@
                             <TextBlock
                                     Style="{StaticResource MaterialDesignTitleTextBlock}" FontSize="20" Margin="3" Text="Topping"/>
 
-                            <ComboBox Grid.Row="1" VerticalAlignment="Top" Margin="3" ></ComboBox>
+                            <ComboBox Grid.Row="1" VerticalAlignment="Top" Margin="3"  
+                                      ItemsSource="{Binding Path=Toppings}"  
+                                      SelectedItem="{Binding Path=STopping, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}"
+                                      DisplayMemberPath="TENSP"></ComboBox>
                             <Grid Grid.Row="2">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="auto"/>
@@ -136,6 +157,7 @@
                                     ToolTip="Resource name: MaterialDesignRaisedButton"
                                     Content="Thêm"
                                     Margin="10,0,0,0"
+                                    Command="{Binding AddToppingCommand}"
                                     >
                                 </Button>
                                 <Button Grid.Column="1"
@@ -203,9 +225,9 @@
                     </Grid.ColumnDefinitions>
 
                     <Button Grid.Column="0"
-                        Style="{StaticResource MaterialDesignRaisedButton}"
+                        Command="{Binding AddSanPhamCommand}"
+  
                         Width="100"
-                        ToolTip="Resource name: MaterialDesignRaisedButton"
                         Content="Thêm món"
                             Margin="5 3 3 3">
                     </Button>
@@ -213,8 +235,9 @@
                         Style="{StaticResource MaterialDesignRaisedButton}"
                         Width="100"
                         ToolTip="Resource name: MaterialDesignRaisedButton"
-                        Content="Xóa món"
+                        Content="Sửa"
                         Margin="10 3 3 3"
+                        Command="{Binding EditSanPhamCommand}"
                     >
                     </Button>
                 </Grid>
@@ -234,8 +257,10 @@
                         materialDesign:DataGridAssist.CellPadding="8"
                         materialDesign:DataGridAssist.ColumnHeaderPadding="8"
                         SelectionUnit="FullRow" Panel.ZIndex="-1" Grid.RowSpan="2"
-                        ItemsSource="{Binding Path=getChiTiet, Mode=OneWay}">
-                        
+                        ItemsSource="{Binding Path=CTHDs}"
+                        SelectedItem="{Binding Path=SCTHD, Mode=OneWayToSource}"
+                                  >
+
                             <DataGrid.Columns>
                                 <DataGridTextColumn Width="55"
                                                 Header="STT"
@@ -243,31 +268,38 @@
                                                 CanUserSort="False"
                                                 HeaderStyle="{StaticResource CenteredDataGridHeader}"
                                                 CellStyle="{StaticResource CenteredDataGridCell}"
-                                                Binding="{Binding MAHD}"/>
+                                                  
+                                                />
                                 <DataGridTextColumn Width="100"
                                                 IsReadOnly="True"
                                                 Header="Tên sản phẩm"
+                                                   
                                                 HeaderStyle="{StaticResource CenteredDataGridHeader}"
                                                 CellStyle="{StaticResource CenteredDataGridCell}"
+                                                Binding="{Binding SANPHAM.TENSP,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                    
                                                 />
                                 <DataGridTextColumn Width="55"
                                                 CanUserSort="False"
                                                 Header="Size"                                           
                                                 IsReadOnly="True"
                                                 HeaderStyle="{StaticResource CenteredDataGridHeader}"
-                                                CellStyle="{StaticResource CenteredDataGridCell}"/>
+                                                CellStyle="{StaticResource CenteredDataGridCell}"
+                                                Binding="{Binding SIZE.SIZE1}"/>
                                 <DataGridTextColumn Width="80"
                                                 Header="Đơn giá"
                                                 HeaderStyle="{StaticResource RightDataGridHeader}"
                                                 CellStyle="{StaticResource RightDataGridCell}"
                                                 EditingElementStyle="{StaticResource CustomEditingTextColumnElementStyle}"
-                                                IsReadOnly="False"/>
+                                                IsReadOnly="False"
+                                                     Binding="{Binding SANPHAM.GIABAN}"/>
                                 <DataGridTextColumn Width="80"
                                                 Header="Số lượng"
                                                 TextBlock.TextAlignment="Right"
                                                 IsReadOnly="True"
                                                 HeaderStyle="{StaticResource RightDataGridHeader}"
-                                                CellStyle="{StaticResource RightDataGridCell}"/>
+                                                CellStyle="{StaticResource RightDataGridCell}"
+                                                    Binding="{Binding SOLUONG}"/>
                                 <DataGridTextColumn Width="150"
                                                 Header="Thành tiền"
                                                 TextBlock.TextAlignment="Right"
@@ -275,7 +307,8 @@
                                                 CanUserSort="False"                                           
                                                 HeaderStyle="{StaticResource RightDataGridHeader}"
                                                 CellStyle="{StaticResource RightDataGridCell}"
-                                                EditingElementStyle="{StaticResource CustomEditingTextColumnElementStyle}"/>
+                                                EditingElementStyle="{StaticResource CustomEditingTextColumnElementStyle}"
+                                                    Binding="{Binding THANHTIEN}"/>
                                 <DataGridTemplateColumn Width="30"
                                                     HeaderStyle="{StaticResource CenteredDataGridHeader}"
                                                     CellStyle="{StaticResource ButtonDataGridCellStyle}">
@@ -370,12 +403,13 @@
                                         ToolTip="Thêm khách hàng mới"
                                         Width="50"
                                         Height="50"
-                                        Click="addCustomer_click"
+                                       Command="{Binding LoadKhachHangCommand}"
                                        >
                                     <materialDesign:PackIcon Kind="PersonAdd"
                                                              Height="auto"
                                                              Width="auto"
-                                                             Foreground="White"/>
+                                                             Foreground="White"
+                                                             />
                                 </Button>
                             </Grid>
                             <Grid Grid.Row="1" Grid.ColumnSpan="2"
@@ -487,6 +521,7 @@
                                          TextAlignment="Left"
                                          materialDesign:HintAssist.Hint="Chiết khấu"
                                          Margin="5"
+                                    
                                          />
 
                     </Grid>
@@ -529,7 +564,7 @@
                                         Height="60"
                                         FontSize="20"
                                         Margin="10 0 10 5"
-                                Click="ThanhToan_click"
+
                                         Style="{StaticResource UIProjectDarkShadowButtonStyle}"
                                         VerticalAlignment="Bottom"
                                 />

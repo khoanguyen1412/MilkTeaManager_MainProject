@@ -4,18 +4,20 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="f3631a60979443dc9c73673737b00a6e" Name="Diagram1">
-        <EntityTypeShape EntityType="TRASUAModel.CHITIETHOADON" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
+      <Diagram DiagramId="86f6a4918ede4a6c87e9b651f2a94c02" Name="Diagram1">
+        <EntityTypeShape EntityType="TRASUAModel.CHITIETHOADON" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
         <EntityTypeShape EntityType="TRASUAModel.CHITIETNGUYENLIEU" Width="1.5" PointX="8.25" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TRASUAModel.DONVITINH" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TRASUAModel.HOADON" Width="1.5" PointX="3" PointY="9.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="TRASUAModel.KHACHHANG" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="TRASUAModel.LOAINHANVIEN" Width="1.5" PointX="1.5" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRASUAModel.HOADON" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRASUAModel.KHACHHANG" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRASUAModel.LOAINHANVIEN" Width="1.5" PointX="1.5" PointY="14.5" IsExpanded="true" />
         <EntityTypeShape EntityType="TRASUAModel.LOAISANPHAM" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
         <EntityTypeShape EntityType="TRASUAModel.NGUYENLIEU" Width="1.5" PointX="6" PointY="13.125" IsExpanded="true" />
         <EntityTypeShape EntityType="TRASUAModel.NHACUNGCAP" Width="1.5" PointX="3.75" PointY="13.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="TRASUAModel.NHANVIEN" Width="1.5" PointX="0.75" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRASUAModel.NHANVIEN" Width="1.5" PointX="0.75" PointY="11.125" IsExpanded="true" />
         <EntityTypeShape EntityType="TRASUAModel.SANPHAM" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRASUAModel.SIZE" Width="1.5" PointX="3" PointY="17.25" IsExpanded="true" />
+        <AssociationConnector Association="TRASUAModel.FK__CHITIETHO__MASIZ__06CD04F7" ManuallyRouted="false" />
         <AssociationConnector Association="TRASUAModel.FK__CHITIETHOA__MAHD__6C190EBB" ManuallyRouted="false" />
         <AssociationConnector Association="TRASUAModel.FK__CHITIETHOA__MASP__68487DD7" ManuallyRouted="false" />
         <AssociationConnector Association="TRASUAModel.FK__CHITIETNG__MADVT__6E01572D" ManuallyRouted="false" />

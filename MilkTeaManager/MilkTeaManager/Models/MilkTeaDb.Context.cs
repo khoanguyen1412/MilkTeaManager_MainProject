@@ -13,10 +13,10 @@ namespace MilkTeaManager.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class TRASUAEntities : DbContext
+    public partial class TRASUAEntities1 : DbContext
     {
-        public TRASUAEntities()
-            : base("name=TRASUAEntities")
+        public TRASUAEntities1()
+            : base("name=TRASUAEntities1")
         {
         }
     
@@ -36,5 +36,6 @@ namespace MilkTeaManager.Models
         public virtual DbSet<NHACUNGCAP> NHACUNGCAPs { get; set; }
         public virtual DbSet<NHANVIEN> NHANVIENs { get; set; }
         public virtual DbSet<SANPHAM> SANPHAMs { get; set; }
+        public virtual DbSet<SIZE> SIZEs { get; set; }
     }
 }

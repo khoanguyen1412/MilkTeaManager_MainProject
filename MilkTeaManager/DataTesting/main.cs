@@ -12,9 +12,9 @@ namespace DataTesting
 		static void Main()
 		{
 			Console.OutputEncoding = Encoding.UTF8;
-			foreach (var item in DataAccess.GetLoaisanphams())
+			foreach (var item in DataAccess.GetSanphams())
 			{
-				Console.WriteLine(item.TENLOAISP);
+	
 			}
 
 			Console.Read();

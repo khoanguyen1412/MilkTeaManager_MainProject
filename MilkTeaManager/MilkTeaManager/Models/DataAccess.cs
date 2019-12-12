@@ -23,16 +23,16 @@ namespace MilkTeaManager.Models
 	public class DataAccess
 	{
 
-		public static TRASUAEntities GetEntities1()
+		public static TRASUAEntities1 GetEntities1()
 		{
-			return new TRASUAEntities();
+			return new TRASUAEntities1();
 		}
 
-
+        public static TRASUAEntities1 db = GetEntities1();
 		#region Get_Object_By_Id
 		public static SANPHAM GetSanphambyMaSP(string maSp)
 		{
-			using (var db = GetEntities1())
+			 
 			{
 				try
 				{
@@ -49,7 +49,7 @@ namespace MilkTeaManager.Models
 
 		public static LOAISANPHAM GetLoaisanphambyMaLSP(string maLsp)
 		{
-			using (var db = GetEntities1())
+			 
 			{
 				try
 				{
@@ -65,7 +65,7 @@ namespace MilkTeaManager.Models
 
 		public static NHANVIEN GetNhanvienByMaNV(string maNv)
 		{
-			using (var db = GetEntities1())
+			 
 			{
 				try
 				{
@@ -81,7 +81,7 @@ namespace MilkTeaManager.Models
 
 		public static LOAINHANVIEN GetLoainhanvienbyMaLoaiNV(string maLnv)
 		{
-			using (var db = GetEntities1())
+			 
 			{
 				try
 				{
@@ -97,7 +97,7 @@ namespace MilkTeaManager.Models
 
 		public static KHACHHANG GetKhachhangbyMaKH(string maKh)
 		{
-			using (var db = GetEntities1())
+			 
 			{
 				try
 				{
@@ -113,7 +113,7 @@ namespace MilkTeaManager.Models
 
 		public static NHACUNGCAP GetNhacungcapByMaNCC(string maNcc)
 		{
-			using (var db = GetEntities1())
+			 
 			{
 				try
 				{
@@ -129,7 +129,7 @@ namespace MilkTeaManager.Models
 
 		public HOADON GetHoadonByMaHD(string maHd)
 		{
-			using (var db = GetEntities1())
+			 
 			{
 				try
 				{
@@ -145,7 +145,7 @@ namespace MilkTeaManager.Models
 
 		public CHITIETHOADON GetChitiethoadonByMaCTHD(string maCthd)
 		{
-			using (var db = GetEntities1())
+			 
 			{
 				try
 				{
@@ -161,7 +161,7 @@ namespace MilkTeaManager.Models
 
 		public CHITIETNGUYENLIEU GetChoChitietnguyenlieuByMaCTNL(string maCtnl)
 		{
-			using (var db = GetEntities1())
+			 
 			{
 				try
 				{
@@ -176,7 +176,7 @@ namespace MilkTeaManager.Models
 
 		public DONVITINH GetDonvitinhbByMaDVT(string maDvt)
 		{
-			using (var db = GetEntities1())
+			 
 			{
 				try
 				{
@@ -191,7 +191,7 @@ namespace MilkTeaManager.Models
 
 		public NGUYENLIEU GetNguyenlieuByMaNL(string maNl)
 		{
-			using (var db = GetEntities1())
+			 
 			{
 				try
 				{
@@ -214,7 +214,7 @@ namespace MilkTeaManager.Models
             {
                 try
                 {
-                    return db.SANPHAMs.Where(x => x.LOAISANPHAM.ToString() == "loaisp02").ToList();
+                    return db.SANPHAMs.Where(x => x.LOAISANPHAM.MALOAISP.ToString() == "loaisp02").ToList();
                 }
                 catch (DataException)
                 {
@@ -222,9 +222,10 @@ namespace MilkTeaManager.Models
                 }
             }
         }
+        
 		public static List<CHITIETHOADON> GetChitiethoadonsByMaHD(string maHd)
 		{
-			using (var db = GetEntities1())
+			 
 			{
 				try
 				{
@@ -232,6 +233,7 @@ namespace MilkTeaManager.Models
 				}
 				catch (DataException)
 				{
+                   
 					return new List<CHITIETHOADON>();
 				}
 			}
@@ -239,7 +241,7 @@ namespace MilkTeaManager.Models
 
 		public static List<CHITIETNGUYENLIEU> GetChitietnguyenlieusByMaSp(string maSp)
 		{
-			using (var db = GetEntities1())
+			 
 			{
 				try
 				{
@@ -254,7 +256,7 @@ namespace MilkTeaManager.Models
 
 		public static List<DONVITINH> GetDonvitinhs()
 		{
-			using (var db = GetEntities1())
+			 
 			{
 				try
 				{
@@ -269,7 +271,7 @@ namespace MilkTeaManager.Models
 
 		public static List<HOADON> GetHoadons()
 		{
-			using (var db = GetEntities1())
+			 
 			{
 				try
 				{
@@ -284,7 +286,7 @@ namespace MilkTeaManager.Models
 
 		public static List<KHACHHANG> GetKhachhangs()
 		{
-			using (var db = GetEntities1())
+			 
 			{
 				try
 				{
@@ -299,7 +301,7 @@ namespace MilkTeaManager.Models
 
 		public static List<LOAINHANVIEN> GetLoainhanviens()
 		{
-			using (var db = GetEntities1())
+			 
 			{
 				try
 				{
@@ -314,7 +316,7 @@ namespace MilkTeaManager.Models
 
 		public static List<LOAISANPHAM> GetLoaisanphams()
 		{
-			using (var db = GetEntities1())
+			 
 			{
 				try
 				{
@@ -329,7 +331,7 @@ namespace MilkTeaManager.Models
 
 		public static List<NGUYENLIEU> GetNguyenlieus()
 		{
-			using (var db = GetEntities1())
+			 
 			{
 				try
 				{
@@ -345,7 +347,7 @@ namespace MilkTeaManager.Models
 
 		public static List<NHACUNGCAP> GetNhacungcaps()
 		{
-			using (var db = GetEntities1())
+			 
 			{
 				try
 				{
@@ -360,7 +362,7 @@ namespace MilkTeaManager.Models
 
 		public static List<NHANVIEN> GetNhanviens()
 		{
-			using (var db = GetEntities1())
+			 
 			{
 				try
 				{
@@ -375,7 +377,7 @@ namespace MilkTeaManager.Models
 
 		public static List<SANPHAM> GetSanphams()
 		{
-			using (var db = GetEntities1())
+			 
 			{
 				try
 				{
@@ -387,13 +389,27 @@ namespace MilkTeaManager.Models
 				}
 			}
 		}
-		#endregion
+        public static List<SIZE> GetSizes()
+        {
 
-		#region Add_Or_Update  //Không chắc xài được
+            {
+                try
+                {
+                    return db.SIZEs.ToList();
+                }
+                catch (DataException)
+                {
+                    return new List<SIZE>();
+                }
+            }
+        }
+        #endregion
 
-		public static void SaveChiTietHoaDon(CHITIETHOADON cthd)
+        #region Add_Or_Update  //Không chắc xài được
+
+        public static void SaveChiTietHoaDon(CHITIETHOADON cthd)
 		{
-			using (var db = GetEntities1())
+			 
 			{
 				try
 				{
@@ -410,7 +426,7 @@ namespace MilkTeaManager.Models
 
 		public static void SaveChiTietNguyenLieu(CHITIETNGUYENLIEU ctnl)
 		{
-			using (var db = GetEntities1())
+			 
 			{
 				try
 				{
@@ -426,7 +442,7 @@ namespace MilkTeaManager.Models
 
 		public static void SaveDonViTinh(DONVITINH dvt)
 		{
-			using (var db = GetEntities1())
+			 
 			{
 				db.DONVITINHs.AddOrUpdate(dvt);
 				db.SaveChanges();
@@ -436,7 +452,7 @@ namespace MilkTeaManager.Models
 
 		public static void SaveHoaDon(HOADON hd)
 		{
-			using (var db = GetEntities1())
+			 
 			{
 				try
 				{
@@ -452,7 +468,7 @@ namespace MilkTeaManager.Models
 
 		public static void SaveKhachHang(KHACHHANG kh)
 		{
-			using (var db = GetEntities1())
+			 
 			{
 				try
 				{
@@ -468,7 +484,7 @@ namespace MilkTeaManager.Models
 
 		public static void SaveLoaiNhanVien(LOAINHANVIEN lnv)
 		{
-			using (var db = GetEntities1())
+			 
 			{
 				try
 				{
@@ -484,7 +500,7 @@ namespace MilkTeaManager.Models
 
 		public static void SaveLoaiSanPham(LOAISANPHAM lsp)
 		{
-			using (var db = GetEntities1())
+			 
 			{
 				try
 				{
@@ -500,7 +516,7 @@ namespace MilkTeaManager.Models
 
 		public static void SaveNguyenLieu(NGUYENLIEU nl)
 		{
-			using (var db = GetEntities1())
+			 
 			{
 				try
 				{
@@ -516,7 +532,7 @@ namespace MilkTeaManager.Models
 
 		public static void SaveNhaCungCap(NHACUNGCAP ncc)
 		{
-			using (var db = GetEntities1())
+			 
 			{
 				try
 				{
@@ -532,7 +548,7 @@ namespace MilkTeaManager.Models
 
 		public static void SaveNhanVien(NHANVIEN nv)
 		{
-			using (var db = GetEntities1())
+			 
 			{
 				try
 				{
@@ -548,7 +564,7 @@ namespace MilkTeaManager.Models
 
 		public static void SaveSanPham(SANPHAM sp)
 		{
-			using (var db = GetEntities1())
+			 
 			{
 				try
 				{
@@ -568,7 +584,7 @@ namespace MilkTeaManager.Models
 
 		public static List<SANPHAM> FilterSanPhamByTenSP(string tenSp)
 		{
-			using (var db = GetEntities1())
+			 
 			{
 				try
 				{
@@ -584,7 +600,7 @@ namespace MilkTeaManager.Models
 
 		public static List<KHACHHANG> FilterKhachhangByTenKH(string tenKh)
 		{
-			using (var db = GetEntities1())
+			 
 			{
 				try
 				{
@@ -601,7 +617,7 @@ namespace MilkTeaManager.Models
 
 		public static List<NHANVIEN> FilterNhanvienByTenNV(string tenNv)
 		{
-			using (var db = GetEntities1())
+			 
 			{
 				try
 				{
@@ -621,7 +637,7 @@ namespace MilkTeaManager.Models
 
 		public static List<CHITIETHOADON> FilterChitiethoadonsByID(string maCthd)
 		{
-			using (var db = GetEntities1())
+			 
 			{
 				try
 				{
@@ -637,7 +653,7 @@ namespace MilkTeaManager.Models
 
 		public static List<NHANVIEN> FilterNhanvienByMaNV(string maNv)
 		{
-			using (var db = GetEntities1())
+			 
 			{
 				try
 				{
@@ -653,7 +669,7 @@ namespace MilkTeaManager.Models
 
 		public static List<NGUYENLIEU> FilterNguyenlieuByMaNL(string maNl)
 		{
-			using (var db = GetEntities1())
+			 
 			{
 				try
 				{

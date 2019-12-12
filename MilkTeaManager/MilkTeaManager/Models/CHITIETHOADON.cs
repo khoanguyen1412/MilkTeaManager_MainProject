@@ -6,21 +6,30 @@
 //     Manual changes to this file will be overwritten if the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
+using MilkTeaManager.ViewModels;
 namespace MilkTeaManager.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class CHITIETHOADON
+    public partial class CHITIETHOADON:BaseVM
     {
+
+        private Nullable<int> _soluong;
+        private SIZE _size;
+        private SANPHAM _sanpham;
+
         public string MACTHD { get; set; }
         public string MASP { get; set; }
-        public Nullable<int> SOLUONG { get; set; }
+        public Nullable<int> SOLUONG { get {return _soluong; } set { _soluong = value; OnPropertyChanged(); } }
         public Nullable<int> DONGIA { get; set; }
         public string MAHD { get; set; }
+        
+        public Nullable<int> MASIZE { get; set; }
+        public Nullable<int> THANHTIEN { get; set; }
     
+        public virtual SIZE SIZE { get { return _size; } set { _size = value; OnPropertyChanged(); } }
         public virtual HOADON HOADON { get; set; }
-        public virtual SANPHAM SANPHAM { get; set; }
+        public virtual SANPHAM SANPHAM { get { return _sanpham; } set { _sanpham = value; OnPropertyChanged(); } }
     }
 }
