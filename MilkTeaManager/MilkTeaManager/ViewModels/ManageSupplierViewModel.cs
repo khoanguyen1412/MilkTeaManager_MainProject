@@ -16,6 +16,7 @@ namespace MilkTeaManager.ViewModels
         private string _diachi;
         private string _email;
         private string _mancc;
+        private string _date;
         private NHACUNGCAP _snhacungcap;
 
         public string MaNCC
@@ -52,6 +53,7 @@ namespace MilkTeaManager.ViewModels
                 OnPropertyChanged();
             }
         }
+
         public NHACUNGCAP SNhaCungCap
         {
             get { return _snhacungcap; }
@@ -61,7 +63,9 @@ namespace MilkTeaManager.ViewModels
                 OnPropertyChanged();
                 DiaChi = SNhaCungCap.DIACHINCC;
                 SDT = SNhaCungCap.SDTNCC;
-                MaNCC = SNhaCungCap.MANCC;   
+                MaNCC = SNhaCungCap.MANCC;
+                Email = SNhaCungCap.EMAILNCC;
+                Date = Convert.ToString(SNhaCungCap.NGAYHTNCC).Split(' ')[0];
             }
         }
 
@@ -71,6 +75,15 @@ namespace MilkTeaManager.ViewModels
             set
             {
                 _nhacungcaps = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string Date {
+            get => _date;
+            set
+            {
+                _date = value;
                 OnPropertyChanged();
             }
         }

@@ -86,6 +86,8 @@
           <Property Name="TENNCC" Type="nvarchar" MaxLength="50" />
           <Property Name="DIACHINCC" Type="nvarchar" MaxLength="50" />
           <Property Name="SDTNCC" Type="nvarchar" MaxLength="50" />
+          <Property Name="EMAILNCC" Type="varchar" MaxLength="50" />
+          <Property Name="NGAYHTNCC" Type="date" />
         </EntityType>
         <EntityType Name="NHANVIEN">
           <Key>
@@ -404,6 +406,8 @@
           <Property Name="DIACHINCC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="SDTNCC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="NGUYENLIEUx" Relationship="Self.FK__NGUYENLIE__MANCC__5CD6CB2B" FromRole="NHACUNGCAP" ToRole="NGUYENLIEU" />
+          <Property Name="EMAILNCC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NGAYHTNCC" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="NHANVIEN">
           <Key>
@@ -717,6 +721,8 @@
           <EntitySetMapping Name="NHACUNGCAPs">
             <EntityTypeMapping TypeName="TRASUAModel.NHACUNGCAP">
               <MappingFragment StoreEntitySet="NHACUNGCAP">
+                <ScalarProperty Name="NGAYHTNCC" ColumnName="NGAYHTNCC" />
+                <ScalarProperty Name="EMAILNCC" ColumnName="EMAILNCC" />
                 <ScalarProperty Name="MANCC" ColumnName="MANCC" />
                 <ScalarProperty Name="TENNCC" ColumnName="TENNCC" />
                 <ScalarProperty Name="DIACHINCC" ColumnName="DIACHINCC" />

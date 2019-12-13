@@ -12,7 +12,7 @@ namespace MilkTeaManager.ViewModels
     {
         private ObservableCollection<NHANVIEN> _nhanviens;
 
-
+        private string _nsinh;
         private NHANVIEN _snhanvien;
 
 
@@ -23,6 +23,8 @@ namespace MilkTeaManager.ViewModels
             {
                 _snhanvien = value;
                 OnPropertyChanged();
+                Nsinh = Convert.ToString(SNhanVien.NGAYSINH).Split(' ')[0];
+                
             }
         }
 
@@ -32,6 +34,16 @@ namespace MilkTeaManager.ViewModels
             set
             {
                 _nhanviens = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string Nsinh {
+            get  { return _nsinh; }
+
+            set
+            {
+                _nsinh = value;
                 OnPropertyChanged();
             }
         }

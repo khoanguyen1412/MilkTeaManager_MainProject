@@ -128,16 +128,22 @@
                                                 CanUserSort="False"
                                                 Header="Tên nhân viên"                                           
                                                 IsReadOnly="True"
-                                                 Binding="{Binding HOTEN}"
+                                                Binding="{Binding HOTEN}"
                                                 HeaderStyle="{StaticResource CenteredDataGridHeader}"
                                                 CellStyle="{StaticResource CenteredDataGridCell}"/>
                         <DataGridTextColumn Width="100"
                                                 CanUserSort="False"
                                                 Header="Ngày sinh"                                           
                                                 IsReadOnly="True"
-                                                Binding="{Binding NGAYSINH}"
+                                                Binding="{Binding NGAYSINH, StringFormat={}{0:dd/MM/yyyy}}"
                                                 HeaderStyle="{StaticResource CenteredDataGridHeader}"
-                                                CellStyle="{StaticResource CenteredDataGridCell}"/>
+                                                CellStyle="{StaticResource CenteredDataGridCell}"
+                                                />
+
+
+
+
+
                         <DataGridTextColumn Width="180"
                                                 CanUserSort="False"
                                                 Header="Địa chỉ"
@@ -226,7 +232,7 @@
                                    Margin="0"
                                    FontWeight="Bold"/>
                         <Grid x:Name="gridCustomerInfo"
-                                  DataContext="{Binding Content.SelectedItem, ElementName=PART_CustomerList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                  >
                             <Grid.RowDefinitions>
                                 <RowDefinition/>
                                 <RowDefinition/>
@@ -257,6 +263,7 @@
                                        Content="Quyền" Margin="15,10,0,10"/>
 
                             <TextBlock Grid.Row="0" Grid.Column="1" FontSize="15"
+                                       
                                           />
                             <TextBlock Grid.Row="1" Grid.Column="1" FontSize="15"
                                            Margin="0,10,10,10"

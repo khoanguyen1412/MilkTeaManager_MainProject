@@ -92,7 +92,7 @@
                                      Style="{StaticResource UIProjectMaterialDesignCardStyle}"
                                      >
                 <DataGrid 
-                           ItemsSource="{Binding Path=NhaCungCaps}"
+                        ItemsSource="{Binding Path=NhaCungCaps}"
                         SelectedItem="{Binding Path=SNhaCungCap, Mode=OneWayToSource}"
                         CanUserSortColumns="True"
                         CanUserAddRows="False"
@@ -101,7 +101,9 @@
                         AutoGenerateColumns="False"
                         materialDesign:DataGridAssist.CellPadding="8"
                         materialDesign:DataGridAssist.ColumnHeaderPadding="8"
-                        SelectionUnit="FullRow" Panel.ZIndex="-1" Grid.RowSpan="2">
+                        SelectionUnit="FullRow" Panel.ZIndex="-1" Grid.RowSpan="2"
+                        HorizontalAlignment="Stretch">
+                    
                     <DataGrid.Columns>
                         <DataGridTextColumn Width="60"
                                                 Header="STT"
@@ -109,21 +111,21 @@
                                                 CanUserSort="False"
                                                 HeaderStyle="{StaticResource CenteredDataGridHeader}"
                                                 CellStyle="{StaticResource CenteredDataGridCell}"/>
-                        <DataGridTextColumn Width="80"
+                        <DataGridTextColumn Width="150"
                                                 IsReadOnly="True"
                                                 Header="Mã NCC"
                                                 HeaderStyle="{StaticResource CenteredDataGridHeader}"
                                                 CellStyle="{StaticResource CenteredDataGridCell}"
                                                 Binding="{Binding MANCC}"
                                                 />
-                        <DataGridTextColumn Width="120"
+                        <DataGridTextColumn Width="200"
                                                 CanUserSort="False"
                                                 Header="Tên nhà cung cấp"                                           
                                                 IsReadOnly="True"
                                                 Binding="{Binding TENNCC}"
                                                 HeaderStyle="{StaticResource CenteredDataGridHeader}"
                                                 CellStyle="{StaticResource CenteredDataGridCell}"/>
-                        <DataGridTextColumn Width="180"
+                        <DataGridTextColumn Width="200"
                                                 CanUserSort="False"
                                                 Header="Địa chỉ"
                                                 TextBlock.TextAlignment="Left"
@@ -138,7 +140,7 @@
                                             Binding="{Binding SDTNCC}"
                                                 EditingElementStyle="{StaticResource CustomEditingTextColumnElementStyle}"
                                                 IsReadOnly="False"/>
-                        <DataGridTextColumn Width="120"
+                        <!--<DataGridTextColumn Width="120"
                                                 Header="Email"
                                                 TextBlock.TextAlignment="Right"
                                                 IsReadOnly="True"
@@ -151,7 +153,7 @@
                                                 IsReadOnly="True"
                                             Binding="{Binding NGAYHOPTAC}"
                                                 HeaderStyle="{StaticResource CenteredDataGridHeader}"
-                                                CellStyle="{StaticResource CenteredDataGridCell}"/>
+                                                CellStyle="{StaticResource CenteredDataGridCell}"/>-->
                         <DataGridTemplateColumn Width="30"
                                                     HeaderStyle="{StaticResource CenteredDataGridHeader}"
                                                     CellStyle="{StaticResource ButtonDataGridCellStyle}">
@@ -231,7 +233,7 @@
                             <TextBlock Grid.Row="2" Grid.Column="1"
                                            Text="{Binding Email, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
                             <TextBlock Grid.Row="3" Grid.Column="1"
-                                           Text="{Binding NgayHopTac, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                           Text="{Binding Date, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
                         </Grid>
                         <Grid Margin="10 30 10 15">
                             <Grid.ColumnDefinitions>
@@ -281,7 +283,8 @@
                                        TextWrapping="Wrap"
                                        Text="{Binding Content.SelectedItem.Model.TenKH, ElementName=PART_CustomerList, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
                         <DockPanel>
-                            <Label DockPanel.Dock="Left"
+                            <Label     
+                                       DockPanel.Dock="Left"
                                        Style="{StaticResource MediumLabelStyle}"
                                        Content="Mã NCC: "/>
                             <TextBlock 
