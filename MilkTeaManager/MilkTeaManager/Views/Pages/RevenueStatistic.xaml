@@ -1,6 +1,8 @@
 ﻿<Page x:Class="MilkTeaManager.Views.Pages.RevenueStatistic"
               xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      DataContext="{StaticResource RevenueStatisticVM}"
+      xmlns:cv="clr-namespace:MilkTeaManager.Converters"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
@@ -87,7 +89,8 @@
                                      Style="{StaticResource UIProjectMaterialDesignCardStyle}" Margin="5"
                                      >
                 <DataGrid 
-                           
+                             ItemsSource="{Binding Path=HoaDons}"
+                        SelectedItem="{Binding Path=SHoaDon, Mode=OneWayToSource}"
                         CanUserSortColumns="True"
                         CanUserAddRows="False"
                         CanUserResizeColumns="False"
@@ -102,31 +105,37 @@
                                                 IsReadOnly="True"
                                                 CanUserSort="False"
                                                 HeaderStyle="{StaticResource CenteredDataGridHeader}"
-                                                CellStyle="{StaticResource CenteredDataGridCell}"/>
+                                                CellStyle="{StaticResource CenteredDataGridCell}"
+                                             Binding="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}, Converter={cv:RowToIndexConverter}}"/>
                         <DataGridTextColumn Width="90"
                                                 IsReadOnly="True"
                                                 Header="Mã hóa đơn"
                                                 HeaderStyle="{StaticResource CenteredDataGridHeader}"
                                                 CellStyle="{StaticResource CenteredDataGridCell}"
+                                                Binding="{Binding MAHD}"
                                                 />
                         <DataGridTextColumn Width="150"
                                                 CanUserSort="False"
                                                 Header="Ngày lập"                                           
                                                 IsReadOnly="True"
                                                 HeaderStyle="{StaticResource CenteredDataGridHeader}"
-                                                CellStyle="{StaticResource CenteredDataGridCell}"/>
+                                                CellStyle="{StaticResource CenteredDataGridCell}"
+                                                Binding="{Binding NGAYLAP, StringFormat={}{0:dd/MM/yyyy}}"    
+                                            />
                         <DataGridTextColumn Width="150"
                                                 CanUserSort="False"
                                                 Header="Mã Khách hàng "
                                                 TextBlock.TextAlignment="Left"
                                                 IsReadOnly="True"
                                                 HeaderStyle="{StaticResource CenteredDataGridHeader}"
-                                                CellStyle="{StaticResource CenteredDataGridCell}"/>
+                                                CellStyle="{StaticResource CenteredDataGridCell}"
+                                                Binding="{Binding MAKH}"/>
                         <DataGridTextColumn Width="150"
                                                 CanUserSort="False"
                                                 Header="Tổng tiền "
                                                 TextBlock.TextAlignment="Left"
                                                 IsReadOnly="True"
+                                                Binding="{Binding TONGTIEN}"
                                                 HeaderStyle="{StaticResource CenteredDataGridHeader}"
                                                 CellStyle="{StaticResource CenteredDataGridCell}"/>
 
@@ -181,7 +190,7 @@
                                    Margin="10 10 5 5"
                                    FontWeight="Bold"/>
                         <Grid x:Name="gridCTHD"
-                                  DataContext="{Binding Content.SelectedItem, ElementName=PART_CustomerList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="164">
+                                 >
                             <Grid.RowDefinitions>
                                 <RowDefinition/>
                                 <RowDefinition/>
@@ -198,12 +207,12 @@
                             <Label Grid.Row="2" Grid.Column="0"
                                        Content="Tổng tiền:" Margin="15 5 5 5" />
                             <TextBlock Grid.Row="0" Grid.Column="1"
-                                           Text="{Binding Model.KhachHang, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" />
+                                           Text="{Binding TenKH, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" />
                             <TextBlock Grid.Row="1" Grid.Column="1"
                                            Margin="5"
-                                           Text="{Binding Model.Soluong, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                           Text="{Binding Soluong, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
                             <TextBlock Grid.Row="2" Grid.Column="1"
-                                           Text="{Binding Model.TongTien, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" />
+                                           Text="{Binding TongTien, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" />
                            
 
                         </Grid>
@@ -213,6 +222,8 @@
                                    x:Name="PART_CTHDList"
                                        >
                             <DataGrid 
+                                   ItemsSource="{Binding Path=CTHDs}"
+                                   
                                     Margin="5 0 5 0"
                                     CanUserSortColumns="True"
                                     CanUserAddRows="False"
@@ -229,21 +240,23 @@
                                             IsReadOnly="True"
                                             CanUserSort="False"
                                             HeaderStyle="{StaticResource CenteredDataGridHeader}"
-                                            CellStyle="{StaticResource CenteredDataGridCell}"/>
+                                            CellStyle="{StaticResource CenteredDataGridCell}"
+                                        Binding="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}, Converter={cv:RowToIndexConverter}}"/>
                                     <DataGridTextColumn 
                                             Width="90"
                                               IsReadOnly="True"
                                                 Header="Sản phẩm"
                                                 HeaderStyle="{StaticResource CenteredDataGridHeader}"
                                                 CellStyle="{StaticResource CenteredDataGridCell}"
-                                                                        />
+                                                Binding="{Binding SANPHAM.TENSP}"                        />
                                     <DataGridTextColumn 
                                             Width="50"
                                             CanUserSort="False"
                                             Header="Size"                                           
                                             IsReadOnly="True"
                                             HeaderStyle="{StaticResource CenteredDataGridHeader}"
-                                            CellStyle="{StaticResource CenteredDataGridCell}"/>
+                                            CellStyle="{StaticResource CenteredDataGridCell}"
+                                        Binding="{Binding SIZE.SIZE1}"/>
                                     <DataGridTextColumn 
                                             Width="80"
                                             CanUserSort="False"
@@ -251,7 +264,8 @@
                                             TextBlock.TextAlignment="Left"
                                             IsReadOnly="True"
                                             HeaderStyle="{StaticResource CenteredDataGridHeader}"
-                                            CellStyle="{StaticResource CenteredDataGridCell}"/>
+                                            CellStyle="{StaticResource CenteredDataGridCell}"
+                                        Binding="{Binding SANPHAM.GIABAN}"/>
                                     <DataGridTextColumn 
                                             Width="80"
                                             CanUserSort="False"
@@ -259,7 +273,8 @@
                                             TextBlock.TextAlignment="Left"
                                             IsReadOnly="True"
                                             HeaderStyle="{StaticResource CenteredDataGridHeader}"
-                                            CellStyle="{StaticResource CenteredDataGridCell}"/>
+                                            CellStyle="{StaticResource CenteredDataGridCell}"
+                                            Binding="{Binding SOLUONG}"/>
                                     <DataGridTextColumn 
                                             Width="auto"
                                             CanUserSort="False"
@@ -267,7 +282,8 @@
                                             TextBlock.TextAlignment="Left"
                                             IsReadOnly="True"
                                             HeaderStyle="{StaticResource CenteredDataGridHeader}"
-                                            CellStyle="{StaticResource CenteredDataGridCell}"/>
+                                            CellStyle="{StaticResource CenteredDataGridCell}"
+                                        Binding="{Binding THANHTIEN}"/>
 
                                     <DataGridTemplateColumn 
                                                 Width="30"

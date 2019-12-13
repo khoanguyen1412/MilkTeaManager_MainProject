@@ -143,6 +143,7 @@
     <Compile Include="ViewModels\ManageProductViewModel.cs" />
     <Compile Include="ViewModels\ManageStaffViewModel.cs" />
     <Compile Include="ViewModels\ManageSupplierViewModel.cs" />
+    <Compile Include="ViewModels\MaterialReportViewModel.cs" />
     <Compile Include="ViewModels\RevenueStatisticViewModel.cs" />
     <Compile Include="ViewModels\SellProductViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />

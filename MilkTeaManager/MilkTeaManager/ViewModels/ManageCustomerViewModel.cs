@@ -16,6 +16,7 @@ namespace MilkTeaManager.ViewModels
         private string _sdt;
         private string _diachi;
         private string _email;
+        private string _tenkh;
         private KHACHHANG _skhachhang;
 
       
@@ -26,17 +27,29 @@ namespace MilkTeaManager.ViewModels
                 OnPropertyChanged();
             }
         }
-       public string SDT
+        public string TenKH
         {
-            get { return _sdt; }
-            set { _sdt = value;
+            get { return _tenkh; }
+            set
+            {
+                _tenkh = value;
                 OnPropertyChanged();
             }
         }
+       
         public string Email
         {
             get { return _email; }
             set { _email = value;
+                OnPropertyChanged();
+            }
+        }
+        public string SDT
+        {
+            get { return _sdt; }
+            set
+            {
+                _sdt = value;
                 OnPropertyChanged();
             }
         }
@@ -60,6 +73,7 @@ namespace MilkTeaManager.ViewModels
                     SDT = SKhachHang.SDT;
                     DiaChi = SKhachHang.DIACHI;
                     Email = SKhachHang.EMAIL;
+                    TenKH = SKhachHang.TENKH;
                 }
             }
         }

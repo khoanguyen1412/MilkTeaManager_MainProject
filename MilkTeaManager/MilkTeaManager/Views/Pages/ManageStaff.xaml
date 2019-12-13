@@ -142,25 +142,6 @@
                                                 CellStyle="{StaticResource CenteredDataGridCell}"
                                                 />
 
-
-
-
-
-                        <DataGridTextColumn Width="180"
-                                                CanUserSort="False"
-                                                Header="Địa chỉ"
-                                                TextBlock.TextAlignment="Left"
-                                                IsReadOnly="True"
-                                            Binding="{Binding DIACHI}"
-                                                HeaderStyle="{StaticResource CenteredDataGridHeader}"
-                                                CellStyle="{StaticResource CenteredDataGridCell}"/>
-                        <DataGridTextColumn Width="100"
-                                                Header="Số đt"
-                                                HeaderStyle="{StaticResource RightDataGridHeader}"
-                                                CellStyle="{StaticResource RightDataGridCell}"
-                                            Binding="{Binding SDT}"
-                                                EditingElementStyle="{StaticResource CustomEditingTextColumnElementStyle}"
-                                                IsReadOnly="False"/>
                         <DataGridTextColumn Width="130"
                                                 Header="Email"
                                                 TextBlock.TextAlignment="Right"
@@ -169,7 +150,7 @@
                                                 HeaderStyle="{StaticResource RightDataGridHeader}"
                                                 CellStyle="{StaticResource RightDataGridCell}"/>
                         <DataGridTextColumn Width="100"
-                                                Header="Quyền"
+                                                Header="Chức vụ"
                                                 TextBlock.TextAlignment="Right"
                                                 IsReadOnly="True"
                                             Binding="{Binding LOAINHANVIEN.TENLOAINV}"
@@ -255,31 +236,26 @@
                                        Content="SĐT" Margin="15,10,0,10"/>
                             <Label Grid.Row="2" Grid.Column="0" FontSize="15"
                                        Content="Địa chỉ" Margin="15,10,0,10"/>
-                            <Label Grid.Row="3" Grid.Column="0" FontSize="15"
-                                       Content="Khu vực" Margin="15,10,0,10"/>
+                           
+                            
                             <Label Grid.Row="4" Grid.Column="0" FontSize="15"
-                                       Content="Email" Margin="15,10,0,10"/>
-                            <Label Grid.Row="5" Grid.Column="0" FontSize="15"
                                        Content="Lương" Margin="15,10,0,10"/>
-                            <Label Grid.Row="6" Grid.Column="0" FontSize="15"
-                                       Content="Quyền" Margin="15,10,0,10"/>
+                            <Label Grid.Row="3" Grid.Column="0" FontSize="15"
+                                       Content="Chức vụ" Margin="15,10,0,10"/>
 
                             <TextBlock Grid.Row="0" Grid.Column="1" FontSize="15"
                                        
-                                          />
+                                          Text="{Binding TenNV, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
                             <TextBlock Grid.Row="1" Grid.Column="1" FontSize="15"
                                            Margin="0,10,10,10"
-                                           />
+                                            Text="{Binding SDT, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
                             <TextBlock Grid.Row="2" Grid.Column="1" FontSize="15"
-                                           />
+                                            Text="{Binding DiaChi, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
                             <TextBlock Grid.Row="3" Grid.Column="1" FontSize="15"
-                                           />
+                                            Text="{Binding ChucVu, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
                             <TextBlock Grid.Row="4" Grid.Column="1" FontSize="15"
-                                           />
-                            <TextBlock Grid.Row="5" Grid.Column="1" FontSize="15"
-                                           />
-                            <TextBlock Grid.Row="6" Grid.Column="1" FontSize="15"
-                                           />
+                                            Text="{Binding Luong, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
+
                         </Grid>
                         <Grid Margin="10 30 10 15">
                             <Grid.ColumnDefinitions>

@@ -12,10 +12,60 @@ namespace MilkTeaManager.ViewModels
     {
         private ObservableCollection<NHANVIEN> _nhanviens;
 
-        private string _nsinh;
+        private DateTime _nsinh;
+        private string _sdt;
+        private string _diachi;
+        private string _tennv;
+        private string _luong;
+        private string _chucvu;
         private NHANVIEN _snhanvien;
 
-
+        public DateTime NgaySinh
+        {
+            get { return _nsinh; }
+            set { _nsinh = value;
+                OnPropertyChanged();
+            }
+        }
+        public string TenNV
+        {
+            get { return _tennv; }
+            set { _tennv = value;
+                OnPropertyChanged();
+            }
+        }
+        public string Luong
+        {
+            get { return _luong; }
+            set { _luong = value;
+                OnPropertyChanged();
+            }
+        }
+        public string ChucVu
+        {
+            get { return _chucvu;  }
+            set { _chucvu = value;
+                OnPropertyChanged();
+            }
+        }
+        public string SDT
+        {
+            get { return _sdt; }
+            set
+            {
+                _sdt = value;
+                OnPropertyChanged();
+            }
+        }
+        public string DiaChi
+        {
+            get { return _diachi; }
+            set
+            {
+                _diachi = value;
+                OnPropertyChanged();
+            }
+        }
         public NHANVIEN SNhanVien
         {
             get { return _snhanvien; }
@@ -23,8 +73,14 @@ namespace MilkTeaManager.ViewModels
             {
                 _snhanvien = value;
                 OnPropertyChanged();
-                Nsinh = Convert.ToString(SNhanVien.NGAYSINH).Split(' ')[0];
-                
+               
+                if(SNhanVien != null)
+                {
+                    TenNV = SNhanVien.HOTEN;
+                    SDT = SNhanVien.SDT;
+                    ChucVu = SNhanVien.LOAINHANVIEN.TENLOAINV;
+                    NgaySinh =(DateTime) SNhanVien.NGAYSINH;
+                }
             }
         }
 
@@ -38,15 +94,7 @@ namespace MilkTeaManager.ViewModels
             }
         }
 
-        public string Nsinh {
-            get  { return _nsinh; }
 
-            set
-            {
-                _nsinh = value;
-                OnPropertyChanged();
-            }
-        }
 
         public ManageStaffViewModel()
         {

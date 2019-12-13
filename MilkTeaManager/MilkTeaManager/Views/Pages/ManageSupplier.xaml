@@ -135,10 +135,10 @@
                                                 HeaderStyle="{StaticResource CenteredDataGridHeader}"
                                                 CellStyle="{StaticResource CenteredDataGridCell}"/>
                         <DataGridTextColumn Width="100"
-                                                Header="Số ĐT"
+                                                Header="Ngày hợp tác"
                                                 HeaderStyle="{StaticResource CenteredDataGridHeader}"
                                                 CellStyle="{StaticResource CenteredDataGridCell}"
-                                            Binding="{Binding SDTNCC}"
+                                            Binding="{Binding NGAYHTNCC,  StringFormat={}{0:dd/MM/yyyy}}"
                                                 EditingElementStyle="{StaticResource CustomEditingTextColumnElementStyle}"
                                                 IsReadOnly="False"/>
                         <!--<DataGridTextColumn Width="120"
@@ -234,7 +234,7 @@
                             <TextBlock Grid.Row="2" Grid.Column="1"
                                            Text="{Binding Email, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
                             <TextBlock Grid.Row="3" Grid.Column="1"
-                                           Text="{Binding Date, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                           Text="{Binding Date, StringFormat={}{0:dd/MM/yyyy}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
                         </Grid>
                         <Grid Margin="10 30 10 15">
                             <Grid.ColumnDefinitions>
