@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MilkTeaManager.Views.Pages"
+      xmlns:cv="clr-namespace:MilkTeaManager.Converters"
         xmlns:viewmodel="clr-namespace:MilkTeaManager.ViewModels"
       mc:Ignorable="d" 
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
@@ -268,7 +269,7 @@
                                                 CanUserSort="False"
                                                 HeaderStyle="{StaticResource CenteredDataGridHeader}"
                                                 CellStyle="{StaticResource CenteredDataGridCell}"
-                                                  
+                                                  Binding="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}, Converter={cv:RowToIndexConverter}}"
                                                 />
                                 <DataGridTextColumn Width="100"
                                                 IsReadOnly="True"

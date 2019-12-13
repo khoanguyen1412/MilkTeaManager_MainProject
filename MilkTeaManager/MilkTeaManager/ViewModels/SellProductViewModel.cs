@@ -22,7 +22,7 @@ namespace MilkTeaManager.ViewModels
         private string _sdiachi;
         private string _ssdt;
         private string _stenkh;
-        private int _soluong;
+        private string _soluong;
         private SANPHAM _ssanpham;
         private CHITIETHOADON _scthd;
         private SANPHAM _stopping;
@@ -55,7 +55,7 @@ namespace MilkTeaManager.ViewModels
                 OnPropertyChanged();
             }
         }
-        public int SoLuong
+        public string SoLuong
         {
             get { return _soluong; }
             set { _soluong = value;
@@ -78,7 +78,7 @@ namespace MilkTeaManager.ViewModels
                 OnPropertyChanged();
                 if (SCTHD != null)
                 {
-                    SoLuong = (int)SCTHD.SOLUONG;
+                    SoLuong = SCTHD.SOLUONG.ToString();
                     SSanPham = SCTHD.SANPHAM;
                     SSize = SCTHD.SIZE;
                 }
@@ -143,14 +143,16 @@ namespace MilkTeaManager.ViewModels
 
         public SellProductViewModel()
         {
-            SoLuong = 1;
+            SoLuong = "1";
             SanPhams = new ObservableCollection<SANPHAM>(DataAccess.GetSanphams());
             Toppings = new ObservableCollection<SANPHAM>(DataAccess.GetTopping());
             CTHDs = new ObservableCollection<CHITIETHOADON>(DataAccess.GetChitiethoadonsByMaHD("hd01"));
             Sizes = new ObservableCollection<SIZE>(DataAccess.GetSizes());
             AddSanPhamCommand = new RelayCommand<object>((p) =>
             {
-                if (SSanPham == null || SSize == null || SoLuong <= 0 || SCTHD != null || string.IsNullOrEmpty(SoLuong.ToString()))
+                if (SSanPham == null || SSize == null || string.IsNullOrEmpty(SoLuong) || SCTHD != null)
+                    return false;
+                if (int.Parse(SoLuong) <= 0 || int.Parse(SoLuong) > 99)
                     return false;
 
                 return true;
@@ -158,7 +160,7 @@ namespace MilkTeaManager.ViewModels
             }, (p) =>
             {
                
-                var cthd = new CHITIETHOADON() { MASP = SSanPham.MASP, MASIZE = SSize.MASIZE,DONGIA=SSanPham.GIABAN, SOLUONG = SoLuong };
+                var cthd = new CHITIETHOADON() { MASP = SSanPham.MASP, MASIZE = SSize.MASIZE,DONGIA=SSanPham.GIABAN, SOLUONG = int.Parse(SoLuong) };
                 DataAccess.SaveChiTietHoaDon(cthd);
                 CTHDs.Add(cthd);
             });
@@ -173,11 +175,11 @@ namespace MilkTeaManager.ViewModels
             }, (p) =>
             {
                
-                var cthd = new CHITIETHOADON() { MACTHD = "00002", MASP = SSanPham.MASP, MASIZE = SSize.MASIZE, DONGIA = SSanPham.GIABAN, SOLUONG = SoLuong };
+                var cthd = new CHITIETHOADON() { MACTHD = "00002", MASP = SSanPham.MASP, MASIZE = SSize.MASIZE, DONGIA = SSanPham.GIABAN, SOLUONG = int.Parse(SoLuong) };
                 DataAccess.SaveChiTietHoaDon(cthd);
                 SCTHD.MASP = SSanPham.MASP;
                 SCTHD.MASIZE = SSize.MASIZE;
-                SCTHD.SOLUONG = SoLuong;
+                SCTHD.SOLUONG = int.Parse(SoLuong);
             });
            
             AddToppingCommand = new RelayCommand<object>((p) =>

@@ -5,6 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MilkTeaManager.Views.Pages"
       DataContext="{StaticResource ManageProductVM}"
+      xmlns:cv="clr-namespace:MilkTeaManager.Converters"
       mc:Ignorable="d" 
       xmlns:customControls="clr-namespace:MilkTeaManager.Views.CustomControls"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
@@ -102,6 +103,7 @@
                                                 Header="STT"
                                                 IsReadOnly="True"
                                                 CanUserSort="False"
+                                                    Binding="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}, Converter={cv:RowToIndexConverter}}"
                                                 HeaderStyle="{StaticResource CenteredDataGridHeader}"
                                                 CellStyle="{StaticResource CenteredDataGridCell}"/>
                                 <DataGridTextColumn Width="90"
