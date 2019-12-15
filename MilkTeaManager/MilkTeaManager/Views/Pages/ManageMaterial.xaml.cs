@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -14,27 +13,28 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MilkTeaManager.Views.Dialog;
+
 namespace MilkTeaManager.Views.Pages
 {
     /// <summary>
-    /// Interaction logic for SellProduct.xaml
+    /// Interaction logic for ManageMaterial.xaml
     /// </summary>
-    public partial class SellProduct : Page
+    public partial class ManageMaterial : Page
     {
-        public SellProduct()
+        public ManageMaterial()
         {
             InitializeComponent();
         }
-        //addCustomer_click
-        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+
+        private void addMaterial_click(object sender, RoutedEventArgs e)
         {
-            Regex regex = new Regex("[^0-9]+");
-            e.Handled = regex.IsMatch(e.Text);
+            AddNewMaterial x = new AddNewMaterial();
+            x.ShowDialog();
         }
 
-        private void pay_click(object sender, RoutedEventArgs e)
+        private void editMaterial_click(object sender, RoutedEventArgs e)
         {
-            OrderForm x = new OrderForm();
+            EditMaterial x = new EditMaterial();
             x.ShowDialog();
         }
     }

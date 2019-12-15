@@ -127,6 +127,10 @@ namespace MilkTeaManager.Views
             this.PAGE_CONTENT.NavigationService.Navigate(new Uri("Views/Pages/ManageCustomer.xaml", UriKind.RelativeOrAbsolute));
 
         }
+        private void NguyenLieu_Click(object sender, RoutedEventArgs e)
+        {
+            this.PAGE_CONTENT.NavigationService.Navigate(new Uri("Views/Pages/ManageMaterial.xaml", UriKind.RelativeOrAbsolute));
+        }
         private void NCC_Click(object sender, RoutedEventArgs e)
         {
             this.PAGE_CONTENT.NavigationService.Navigate(new Uri("Views/Pages/ManageSupplier.xaml", UriKind.RelativeOrAbsolute));

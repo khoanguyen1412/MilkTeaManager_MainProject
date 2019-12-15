@@ -162,6 +162,9 @@
     <Compile Include="Views\Dialog\AddMaterial.xaml.cs">
       <DependentUpon>AddMaterial.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Dialog\AddNewMaterial.xaml.cs">
+      <DependentUpon>AddNewMaterial.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Dialog\AddProduct.xaml.cs">
       <DependentUpon>AddProduct.xaml</DependentUpon>
     </Compile>
@@ -176,6 +179,9 @@
     </Compile>
     <Compile Include="Views\Dialog\EditImportBill.xaml.cs">
       <DependentUpon>EditImportBill.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialog\EditMaterial.xaml.cs">
+      <DependentUpon>EditMaterial.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Dialog\EditProduct.xaml.cs">
       <DependentUpon>EditProduct.xaml</DependentUpon>
@@ -246,6 +252,9 @@
     <Compile Include="Views\Pages\ManageCustomer.xaml.cs">
       <DependentUpon>ManageCustomer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Pages\ManageMaterial.xaml.cs">
+      <DependentUpon>ManageMaterial.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Pages\ManageProduct.xaml.cs">
       <DependentUpon>ManageProduct.xaml</DependentUpon>
     </Compile>
@@ -297,6 +306,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Dialog\AddNewMaterial.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Dialog\AddProduct.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -314,6 +327,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Dialog\EditImportBill.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialog\EditMaterial.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -406,6 +423,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Pages\ManageCustomer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\ManageMaterial.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -608,6 +629,8 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Views\Images\materials.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

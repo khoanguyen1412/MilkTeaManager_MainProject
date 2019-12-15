@@ -38,5 +38,11 @@ namespace MilkTeaManager.Views.Pages
             x.ShowDialog();
         }
 
+        private void addSupplier_click(object sender, RoutedEventArgs e)
+        {
+            AddSupplier x = new AddSupplier();
+            x.ShowDialog();
+        }
+
     }
 }

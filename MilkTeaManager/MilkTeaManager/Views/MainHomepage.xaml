@@ -22,6 +22,7 @@
             <vms:ContentViewModel Content="Quản lý" IconSource="/Views/Images/manage.png" x:Key="EXP_QuanLy"/>
             <vms:ContentViewModel Content="Sản phẩm" IconSource="/Views/Images/product.png" x:Key="TAB_SanPham"/>
             <vms:ContentViewModel Content="Khách hàng" IconSource="/Views/Images/customer.png" x:Key="TAB_KhachHang"/>
+            <vms:ContentViewModel Content="Nguyên liệu" IconSource="/Views/Images/materials.png" x:Key="TAB_NguyenLieu"/>
             <vms:ContentViewModel Content="Nhà cung cấp" IconSource="/Views/Images/supplier.png" x:Key="TAB_NCC"/>
             <vms:ContentViewModel Content="Nhân viên" IconSource="/Views/Images/staff.png" x:Key="TAB_NhanVien"/>
             <vms:ContentViewModel Content="Phiếu nhập hàng" IconSource="/Views/Images/bill.png" x:Key="TAB_PhieuNhap"/>
@@ -101,6 +102,11 @@
                                             
                                              />
                             </StackPanel>
+                            <RadioButton Style="{StaticResource SubMenuTabRadioButtonStyle}"
+                                             Content="{StaticResource TAB_NguyenLieu}"
+                                             Click="NguyenLieu_Click"
+                                            
+                                             />
                             <RadioButton Style="{StaticResource SubMenuTabRadioButtonStyle}"
                                              Content="{StaticResource TAB_NCC}"
                                              Click="NCC_Click"
