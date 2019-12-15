@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="MACTHD" />
           </Key>
-          <Property Name="MACTHD" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MACTHD" Type="nvarchar" MaxLength="50" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="MASP" Type="nvarchar" MaxLength="50" />
           <Property Name="SOLUONG" Type="int" />
           <Property Name="DONGIA" Type="int" />
@@ -22,7 +22,7 @@
             <PropertyRef Name="MACTNL" />
           </Key>
           <Property Name="MANL" Type="nvarchar" MaxLength="50" />
-          <Property Name="MACTNL" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MACTNL" Type="nvarchar" MaxLength="50" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="SOLUONG" Type="int" />
           <Property Name="GIABAN" Type="int" />
           <Property Name="MADVT" Type="nvarchar" MaxLength="50" />
@@ -39,7 +39,7 @@
           <Key>
             <PropertyRef Name="MAHD" />
           </Key>
-          <Property Name="MAHD" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MAHD" Type="nvarchar" MaxLength="50" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="MAKH" Type="nvarchar" MaxLength="50" />
           <Property Name="MANV" Type="nvarchar" MaxLength="50" />
           <Property Name="NGAYLAP" Type="smalldatetime" />
@@ -48,7 +48,7 @@
           <Key>
             <PropertyRef Name="MAKH" />
           </Key>
-          <Property Name="MAKH" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MAKH" Type="nvarchar" MaxLength="50" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="TENKH" Type="nvarchar" MaxLength="50" />
           <Property Name="SDT" Type="nvarchar" MaxLength="50" />
           <Property Name="DIACHI" Type="nvarchar" MaxLength="50" />
@@ -58,31 +58,31 @@
           <Key>
             <PropertyRef Name="MALOAINV" />
           </Key>
-          <Property Name="MALOAINV" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MALOAINV" Type="nvarchar" MaxLength="50" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="TENLOAINV" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="LOAISANPHAM">
           <Key>
             <PropertyRef Name="MALOAISP" />
           </Key>
-          <Property Name="MALOAISP" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MALOAISP" Type="nvarchar" MaxLength="50" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="TENLOAISP" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="NGUYENLIEU">
           <Key>
             <PropertyRef Name="MANL" />
           </Key>
-          <Property Name="MANL" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MANL" Type="nvarchar" MaxLength="50" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="TENNL" Type="nvarchar" MaxLength="50" />
           <Property Name="GIANHAP" Type="int" />
           <Property Name="GIAXUAT" Type="int" />
-          <Property Name="MANCC" Type="nvarchar" MaxLength="50" StoreGeneratedPattern="Computed" />
+          <Property Name="MANCC" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="NHACUNGCAP">
           <Key>
             <PropertyRef Name="MANCC" />
           </Key>
-          <Property Name="MANCC" Type="nvarchar" MaxLength="50" Nullable="false" StoreGeneratedPattern="Computed" />
+          <Property Name="MANCC" Type="nvarchar" MaxLength="50" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="TENNCC" Type="nvarchar" MaxLength="50" />
           <Property Name="DIACHINCC" Type="nvarchar" MaxLength="50" />
           <Property Name="SDTNCC" Type="nvarchar" MaxLength="50" />
@@ -95,13 +95,13 @@
           <Property Name="NGAYSINH" Type="date" />
           <Property Name="SDT" Type="nvarchar" MaxLength="50" />
           <Property Name="MALOAINV" Type="nvarchar" MaxLength="50" />
-          <Property Name="MANV" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MANV" Type="nvarchar" MaxLength="50" Nullable="false" StoreGeneratedPattern="Identity" />
         </EntityType>
         <EntityType Name="SANPHAM">
           <Key>
             <PropertyRef Name="MASP" />
           </Key>
-          <Property Name="MASP" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MASP" Type="nvarchar" MaxLength="50" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="TENSP" Type="nvarchar" MaxLength="50" />
           <Property Name="MALOAISP" Type="nvarchar" MaxLength="50" />
           <Property Name="GIABAN" Type="int" />
@@ -311,7 +311,7 @@
           <Key>
             <PropertyRef Name="MACTHD" />
           </Key>
-          <Property Name="MACTHD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MACTHD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MASP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="SOLUONG" Type="Int32" />
           <Property Name="DONGIA" Type="Int32" />
@@ -327,7 +327,7 @@
             <PropertyRef Name="MACTNL" />
           </Key>
           <Property Name="MANL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MACTNL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MACTNL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="SOLUONG" Type="Int32" />
           <Property Name="GIABAN" Type="Int32" />
           <Property Name="MADVT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -348,7 +348,7 @@
           <Key>
             <PropertyRef Name="MAHD" />
           </Key>
-          <Property Name="MAHD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MAHD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MAKH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="MANV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="NGAYLAP" Type="DateTime" Precision="0" />
@@ -360,7 +360,7 @@
           <Key>
             <PropertyRef Name="MAKH" />
           </Key>
-          <Property Name="MAKH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MAKH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TENKH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="SDT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="DIACHI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -371,7 +371,7 @@
           <Key>
             <PropertyRef Name="MALOAINV" />
           </Key>
-          <Property Name="MALOAINV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MALOAINV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TENLOAINV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="NHANVIENs" Relationship="Self.FK_NHANVIEN_LOAINHANVIEN" FromRole="LOAINHANVIEN" ToRole="NHANVIEN" />
         </EntityType>
@@ -379,7 +379,7 @@
           <Key>
             <PropertyRef Name="MALOAISP" />
           </Key>
-          <Property Name="MALOAISP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MALOAISP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TENLOAISP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="SANPHAMs" Relationship="Self.FK_SANPHAM_LOAISANPHAM" FromRole="LOAISANPHAM" ToRole="SANPHAM" />
         </EntityType>
@@ -387,11 +387,11 @@
           <Key>
             <PropertyRef Name="MANL" />
           </Key>
-          <Property Name="MANL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MANL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TENNL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="GIANHAP" Type="Int32" />
           <Property Name="GIAXUAT" Type="Int32" />
-          <Property Name="MANCC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="MANCC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="None" />
           <NavigationProperty Name="CHITIETNGUYENLIEUx" Relationship="Self.FK__CHITIETNGU__MANL__6D0D32F4" FromRole="NGUYENLIEU" ToRole="CHITIETNGUYENLIEU" />
           <NavigationProperty Name="NHACUNGCAP" Relationship="Self.fk_mancc_nl" FromRole="NGUYENLIEU" ToRole="NHACUNGCAP" />
         </EntityType>
@@ -399,7 +399,7 @@
           <Key>
             <PropertyRef Name="MANCC" />
           </Key>
-          <Property Name="MANCC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="MANCC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TENNCC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="DIACHINCC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="SDTNCC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -413,7 +413,7 @@
           <Property Name="NGAYSINH" Type="DateTime" Precision="0" />
           <Property Name="SDT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="MALOAINV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MANV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MANV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="HOADONs" Relationship="Self.FK_HOADON_NHANVIEN" FromRole="NHANVIEN" ToRole="HOADON" />
           <NavigationProperty Name="LOAINHANVIEN" Relationship="Self.FK_NHANVIEN_LOAINHANVIEN" FromRole="NHANVIEN" ToRole="LOAINHANVIEN" />
         </EntityType>
@@ -421,7 +421,7 @@
           <Key>
             <PropertyRef Name="MASP" />
           </Key>
-          <Property Name="MASP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MASP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TENSP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="MALOAISP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="GIABAN" Type="Int32" />

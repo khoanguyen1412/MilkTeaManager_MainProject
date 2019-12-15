@@ -16,8 +16,9 @@ namespace DataTesting
             {
                 Console.WriteLine(item.TENSP);
             }
-            NHACUNGCAP ncc = new NHACUNGCAP() { TENNCC = "ncc", DIACHINCC = "diachi" ,SDTNCC="012"};
-            DataAccess.AddNCC(ncc);
+            NHACUNGCAP ncc = new NHACUNGCAP() { TENNCC = "ncc", DIACHINCC = "diachi" ,SDTNCC="012"
+            };
+            DataAccess.SaveNhaCungCap(ncc);
             Console.Read();
 		}
 	}

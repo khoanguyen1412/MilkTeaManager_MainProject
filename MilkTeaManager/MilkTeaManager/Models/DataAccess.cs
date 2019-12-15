@@ -29,6 +29,8 @@ namespace MilkTeaManager.Models
 		}
 
         public static TRASUAEntities db = GetEntities1();
+
+
 		#region Get_Object_By_Id
 		public static SANPHAM GetSanphambyMaSP(string maSp)
 		{
@@ -553,7 +555,7 @@ namespace MilkTeaManager.Models
 			{
 				try
 				{
-					db.NHACUNGCAPs.AddOrUpdate(ncc);
+					db.NHACUNGCAPs.Add(ncc);
 					db.SaveChanges();
 				}
 				catch (DataException)
@@ -709,8 +711,7 @@ namespace MilkTeaManager.Models
             {
                 try
                 {
-                    db.NHACUNGCAPs.SqlQuery("insert into NHACUNGCAP values (DEFAULT,@id, @val2,@val3)", new SqlParameter("id", ncc.TENNCC), new SqlParameter("val2", ncc.DIACHINCC), new SqlParameter("val3",ncc.DIACHINCC));
-
+                    db.NHACUNGCAPs.SqlQuery("insert into NHACUNGCAP values ('@id', '@val2','@val3')", new SqlParameter("id", ncc.TENNCC), new SqlParameter("val2", ncc.DIACHINCC), new SqlParameter("val3",ncc.DIACHINCC));
                 }
                 catch (DataException)
                 {
