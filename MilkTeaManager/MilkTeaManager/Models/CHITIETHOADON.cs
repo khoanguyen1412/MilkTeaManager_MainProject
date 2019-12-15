@@ -22,8 +22,8 @@ namespace MilkTeaManager.Models
         public Nullable<int> MASIZE { get; set; }
         public Nullable<int> THANHTIEN { get; set; }
     
-        public virtual SIZE SIZE { get; set; }
         public virtual HOADON HOADON { get; set; }
         public virtual SANPHAM SANPHAM { get; set; }
+        public virtual SIZE SIZE { get; set; }
     }
 }

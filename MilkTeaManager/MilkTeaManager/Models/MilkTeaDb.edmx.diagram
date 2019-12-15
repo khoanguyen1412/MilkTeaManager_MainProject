@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="86f6a4918ede4a6c87e9b651f2a94c02" Name="Diagram1" ZoomLevel="74">
+      <Diagram DiagramId="9404e8b4e5d647098d3054a8349fddfb" Name="Diagram1">
         <EntityTypeShape EntityType="TRASUAModel.CHITIETHOADON" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
         <EntityTypeShape EntityType="TRASUAModel.CHITIETNGUYENLIEU" Width="1.5" PointX="8.25" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TRASUAModel.DONVITINH" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
@@ -17,17 +17,17 @@
         <EntityTypeShape EntityType="TRASUAModel.NHANVIEN" Width="1.5" PointX="0.75" PointY="11.125" IsExpanded="true" />
         <EntityTypeShape EntityType="TRASUAModel.SANPHAM" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="TRASUAModel.SIZE" Width="1.5" PointX="3" PointY="17.25" IsExpanded="true" />
-        <AssociationConnector Association="TRASUAModel.FK__CHITIETHO__MASIZ__06CD04F7" ManuallyRouted="false" />
-        <AssociationConnector Association="TRASUAModel.FK__CHITIETHOA__MAHD__6C190EBB" ManuallyRouted="false" />
-        <AssociationConnector Association="TRASUAModel.FK__CHITIETHOA__MASP__68487DD7" ManuallyRouted="false" />
-        <AssociationConnector Association="TRASUAModel.FK__CHITIETNG__MADVT__6E01572D" ManuallyRouted="false" />
+        <AssociationConnector Association="TRASUAModel.FK_CHITIETHOADON_HOADON" ManuallyRouted="false" />
+        <AssociationConnector Association="TRASUAModel.FK_CHITIETHOADON_SANPHAM" ManuallyRouted="false" />
+        <AssociationConnector Association="TRASUAModel.FK_CHITIETHOADON_SIZE" ManuallyRouted="false" />
         <AssociationConnector Association="TRASUAModel.FK__CHITIETNGU__MANL__6D0D32F4" ManuallyRouted="false" />
-        <AssociationConnector Association="TRASUAModel.FK__CHITIETNGU__MASP__6FE99F9F" ManuallyRouted="false" />
-        <AssociationConnector Association="TRASUAModel.FK__HOADON__MAKH__693CA210" ManuallyRouted="false" />
-        <AssociationConnector Association="TRASUAModel.FK__HOADON__MANV__6A30C649" ManuallyRouted="false" />
-        <AssociationConnector Association="TRASUAModel.FK__NHANVIEN__MALOAI__6B24EA82" ManuallyRouted="false" />
-        <AssociationConnector Association="TRASUAModel.FK__SANPHAM__MALOAIS__5EBF139D" ManuallyRouted="false" />
-        <AssociationConnector Association="TRASUAModel.FK__NGUYENLIE__MANCC__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="TRASUAModel.FK_CHITIETNGUYENLIEU_DONVITINH" ManuallyRouted="false" />
+        <AssociationConnector Association="TRASUAModel.FK_CHITIETNGUYENLIEU_SANPHAM" ManuallyRouted="false" />
+        <AssociationConnector Association="TRASUAModel.FK_HOADON_KHACHHANG" ManuallyRouted="false" />
+        <AssociationConnector Association="TRASUAModel.FK_HOADON_NHANVIEN" ManuallyRouted="false" />
+        <AssociationConnector Association="TRASUAModel.FK_NHANVIEN_LOAINHANVIEN" ManuallyRouted="false" />
+        <AssociationConnector Association="TRASUAModel.FK_SANPHAM_LOAISANPHAM" ManuallyRouted="false" />
+        <AssociationConnector Association="TRASUAModel.fk_mancc_nl" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

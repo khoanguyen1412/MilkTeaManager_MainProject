@@ -23,12 +23,12 @@ namespace MilkTeaManager.Models
 	public class DataAccess
 	{
 
-		public static TRASUAEntities1 GetEntities1()
+		public static TRASUAEntities GetEntities1()
 		{
-			return new TRASUAEntities1();
+			return new TRASUAEntities();
 		}
 
-        public static TRASUAEntities1 db = GetEntities1();
+        public static TRASUAEntities db = GetEntities1();
 		#region Get_Object_By_Id
 		public static SANPHAM GetSanphambyMaSP(string maSp)
 		{
@@ -229,7 +229,7 @@ namespace MilkTeaManager.Models
             {
                 try
                 {
-                    return db.SANPHAMs.Where(x => x.LOAISANPHAM.MALOAISP.ToString() == "loaisp02").ToList();
+                    return db.SANPHAMs.Where(x => x.LOAISANPHAM.MALOAISP.ToString() == "LSP001").ToList();
                 }
                 catch (DataException)
                 {
@@ -394,15 +394,17 @@ namespace MilkTeaManager.Models
 		{
 			 
 			{
-				try
-				{
-					return db.SANPHAMs.ToList();
-				}
-				catch (DataException)
-				{
-					return new List<SANPHAM>();
-				}
-			}
+                try
+                {
+                    return db.SANPHAMs.Where(x => x.LOAISANPHAM.MALOAISP.ToString() != "LSP001").ToList();
+                   // return db.SANPHAMs.SqlQuery("select * from SANPHAM where MALOAISP=@malsp", new SqlParameter("malsp", "LSP001")).ToList<SANPHAM>();
+                    
+                }
+                catch (DataException)
+                {
+                    return new List<SANPHAM>();
+                }
+            }
 		}
         public static List<SIZE> GetSizes()
         {
@@ -699,7 +701,24 @@ namespace MilkTeaManager.Models
 		}
 
 
-		#endregion
+        #endregion
+        #region insert
+        public static void AddNCC(NHACUNGCAP ncc)
+        {
 
-	}
+            {
+                try
+                {
+                    db.NHACUNGCAPs.SqlQuery("insert into NHACUNGCAP values (DEFAULT,@id, @val2,@val3)", new SqlParameter("id", ncc.TENNCC), new SqlParameter("val2", ncc.DIACHINCC), new SqlParameter("val3",ncc.DIACHINCC));
+
+                }
+                catch (DataException)
+                {
+                    return;
+                }
+            }
+        }
+        #endregion
+
+    }
 }

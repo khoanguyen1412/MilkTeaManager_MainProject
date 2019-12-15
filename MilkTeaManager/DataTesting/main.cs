@@ -11,13 +11,15 @@ namespace DataTesting
 
 		static void Main()
 		{
-			Console.OutputEncoding = Encoding.UTF8;
-			foreach (var item in DataAccess.GetSanphams())
-			{
-	
-			}
-
-			Console.Read();
+            Console.OutputEncoding = Encoding.UTF8;
+            foreach (var item in DataAccess.GetSanphams())
+            {
+                Console.WriteLine(item.TENSP);
+            }
+            NHACUNGCAP ncc = new NHACUNGCAP() { TENNCC = "ncc", DIACHINCC = "diachi" ,SDTNCC="012"};
+            DataAccess.AddNCC(ncc);
+            Console.Read();
 		}
 	}
 }
+    

@@ -146,7 +146,7 @@ namespace MilkTeaManager.ViewModels
             SoLuong = "1";
             SanPhams = new ObservableCollection<SANPHAM>(DataAccess.GetSanphams());
             Toppings = new ObservableCollection<SANPHAM>(DataAccess.GetTopping());
-            CTHDs = new ObservableCollection<CHITIETHOADON>(DataAccess.GetChitiethoadonsByMaHD("hd01"));
+            CTHDs = new ObservableCollection<CHITIETHOADON>(DataAccess.GetChitiethoadonsByMaHD("HD001"));
             Sizes = new ObservableCollection<SIZE>(DataAccess.GetSizes());
             AddSanPhamCommand = new RelayCommand<object>((p) =>
             {
@@ -160,7 +160,7 @@ namespace MilkTeaManager.ViewModels
             }, (p) =>
             {
                
-                var cthd = new CHITIETHOADON() { MASP = SSanPham.MASP, MASIZE = SSize.MASIZE,DONGIA=SSanPham.GIABAN, SOLUONG = int.Parse(SoLuong) };
+                var cthd = new CHITIETHOADON() { MASP = SSanPham.MASP, MASIZE = SSize.MASIZE,DONGIA=SSanPham.GIABAN, SOLUONG = int.Parse(SoLuong)};
                 DataAccess.SaveChiTietHoaDon(cthd);
                 CTHDs.Add(cthd);
             });

@@ -21,8 +21,8 @@ namespace MilkTeaManager.Models
         public string MADVT { get; set; }
         public string MASP { get; set; }
     
-        public virtual DONVITINH DONVITINH { get; set; }
         public virtual NGUYENLIEU NGUYENLIEU { get; set; }
+        public virtual DONVITINH DONVITINH { get; set; }
         public virtual SANPHAM SANPHAM { get; set; }
     }
 }

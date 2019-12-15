@@ -75,7 +75,7 @@ namespace MilkTeaManager.ViewModels
             }, (p) =>
             {
 
-              KhachHang = new KHACHHANG() { TENKH = STenKH, DIACHI = SDiaChi, SDT = SSDT, EMAIL = SEmail };
+              KhachHang = new KHACHHANG() { TENKH ="new", DIACHI = SDiaChi, SDT = SSDT, EMAIL = SEmail };
               DataAccess.SaveKhachHang(KhachHang);
             });
         }
