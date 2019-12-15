@@ -166,7 +166,7 @@ namespace MilkTeaManager.ViewModels
             });
             EditSanPhamCommand = new RelayCommand<object>((p) =>
             {
-
+ 
                 if (SSanPham == null || SSize == null || SCTHD == null)
                     return false;
 

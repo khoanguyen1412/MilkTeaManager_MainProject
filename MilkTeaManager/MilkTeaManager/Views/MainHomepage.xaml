@@ -93,11 +93,14 @@
                                              Content="{StaticResource TAB_SanPham}"
                                              Click="SanPham_Click"
                                              />
-                            <RadioButton Style="{StaticResource SubMenuTabRadioButtonStyle}"
+                            <StackPanel DataContext="{StaticResource ManageCustomerVM}">
+
+                                <RadioButton Style="{StaticResource SubMenuTabRadioButtonStyle}"
                                              Content="{StaticResource TAB_KhachHang}"
                                              Click="KhachHang_Click"
                                             
                                              />
+                            </StackPanel>
                             <RadioButton Style="{StaticResource SubMenuTabRadioButtonStyle}"
                                              Content="{StaticResource TAB_NCC}"
                                              Click="NCC_Click"

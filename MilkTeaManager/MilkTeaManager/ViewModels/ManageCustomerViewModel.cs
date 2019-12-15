@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using MilkTeaManager.Models;
 
 namespace MilkTeaManager.ViewModels
@@ -20,7 +21,7 @@ namespace MilkTeaManager.ViewModels
         private string _tenkh;
         private KHACHHANG _skhachhang;
 
-      
+        public ICommand GetDatabaseCommand { get; set; }
        public string MaKH
         {
             get { return _makh; }
@@ -93,6 +94,16 @@ namespace MilkTeaManager.ViewModels
         {
             KhachHangs = new ObservableCollection<KHACHHANG>(DataAccess.GetKhachhangs());
             _mhk = new ObservableCollection<string>(DataAccess.GetMaKh());
+            GetDatabaseCommand = new RelayCommand<object>((p) =>
+            {
+               
+                return true;
+
+            }, (p) =>
+            {
+
+                KhachHangs = new ObservableCollection<KHACHHANG>(DataAccess.GetKhachhangs());
+            });
         }
     }
 }

@@ -125,6 +125,7 @@ namespace MilkTeaManager.Views
         private void KhachHang_Click(object sender, RoutedEventArgs e)
         {
             this.PAGE_CONTENT.NavigationService.Navigate(new Uri("Views/Pages/ManageCustomer.xaml", UriKind.RelativeOrAbsolute));
+
         }
         private void NCC_Click(object sender, RoutedEventArgs e)
         {

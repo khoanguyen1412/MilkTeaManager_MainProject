@@ -92,6 +92,7 @@
                                      Style="{StaticResource UIProjectMaterialDesignCardStyle}"
                                      Margin="5 3 5 5">
                 <DataGrid 
+                    x:Name="GridKH"
                     ItemsSource="{Binding Path=KhachHangs}"
                         SelectedItem="{Binding Path=SKhachHang, Mode=OneWayToSource}"
                             Margin="3"

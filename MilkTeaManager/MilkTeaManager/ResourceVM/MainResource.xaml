@@ -11,4 +11,5 @@
     <viewmodel:ManageSupplierViewModel x:Key="ManageSupplierVM"></viewmodel:ManageSupplierViewModel>
     <viewmodel:RevenueStatisticViewModel x:Key="RevenueStatisticVM"></viewmodel:RevenueStatisticViewModel>
     <viewmodel:MaterialReportViewModel x:Key="MaterialReportVM" ></viewmodel:MaterialReportViewModel>
+    <viewmodel:MainHomepageViewModel x:Key="MainHomepageVM"></viewmodel:MainHomepageViewModel>
 </ResourceDictionary>

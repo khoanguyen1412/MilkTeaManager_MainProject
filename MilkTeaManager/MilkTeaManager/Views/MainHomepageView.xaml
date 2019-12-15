@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        DataContext="{StaticResource MainHomepageVM}"
         xmlns:vms="clr-namespace:MilkTeaManager.ViewModels.LayoutViewModels"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
@@ -92,11 +93,14 @@
                                              Content="{StaticResource TAB_SanPham}"
                                              Click="SanPham_Click"
                                              />
-                            <RadioButton Style="{StaticResource SubMenuTabRadioButtonStyle}"
+                            <StackPanel DataContext="{StaticResource ManageCustomerVM}">
+
+                                <RadioButton Style="{StaticResource SubMenuTabRadioButtonStyle}"
                                              Content="{StaticResource TAB_KhachHang}"
                                              Click="KhachHang_Click"
-                                            
+                                                Command="{Binding  GetDatabaseCommand}"
                                              />
+                            </StackPanel>
                             <RadioButton Style="{StaticResource SubMenuTabRadioButtonStyle}"
                                              Content="{StaticResource TAB_NCC}"
                                              Click="NCC_Click"
