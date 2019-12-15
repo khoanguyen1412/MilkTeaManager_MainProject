@@ -46,7 +46,7 @@
                        Margin="0 50 0 0"
                        Style="{StaticResource LargeLabelStyle}"
                        HorizontalAlignment="Left"
-                       Content="Thêm nguyên liệu"/>
+                       Content="Lập phiếu nhập"/>
                 <Separator Grid.Row="1" Grid.ColumnSpan="2"
                            Margin="10 30 10 10"
                            BorderThickness="3"
@@ -86,13 +86,15 @@
                             <Label Grid.Row="3" Grid.Column="0"
                                    Style="{StaticResource CustomDefinedLabelStyle}"
                                    Content="Số lượng"/>
-                            <Label Grid.Row="4" Grid.Column="0"
-                                   Style="{StaticResource CustomDefinedLabelStyle}"
-                                   Content="Nhà cung cấp"/>
 
-                            <TextBox Grid.Row="0" Grid.Column="1"
-                                     Style="{StaticResource CustomTextBoxStyle}"
-                                     Text="{Binding Data.TenSP, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                            <ComboBox 
+                                      Grid.Column="1"
+                                      HorizontalAlignment="Stretch"
+                                          Margin="10"                               
+                                      Height="30"
+                                        materialDesign:HintAssist.Hint="Tên Nguyên liệu"
+                                      />
                             <TextBox Grid.Row="1" Grid.Column="1"
                                      Style="{StaticResource CustomTextBoxStyle}"
                                      Text="{Binding Data.TenSP, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
@@ -102,13 +104,7 @@
                             <TextBox Grid.Row="3" Grid.Column="1"
                                      Style="{StaticResource CustomTextBoxStyle}"
                                      Text="{Binding Data.TenSP, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                            <ComboBox 
-                                      Grid.Row="4" Grid.Column="1"
-                                      HorizontalAlignment="Stretch"
-                                      Margin="10"                                    
-                                      Height="30"
-                                      DisplayMemberPath="TenKhuVuc"
-                                      />
+
                         </Grid>
                     </StackPanel>
                 </Grid>

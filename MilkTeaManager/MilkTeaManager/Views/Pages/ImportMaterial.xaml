@@ -113,13 +113,13 @@
                         materialDesign:DataGridAssist.ColumnHeaderPadding="8"
                         SelectionUnit="FullRow" Panel.ZIndex="-1" Grid.RowSpan="2">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Width="50"
+                    <DataGridTextColumn Width="40"
                                                 Header="STT"
                                                 IsReadOnly="True"
                                                 CanUserSort="False"
                                                 HeaderStyle="{StaticResource CenteredDataGridHeader}"
                                                 CellStyle="{StaticResource CenteredDataGridCell}"/>
-                    <DataGridTextColumn Width="80"
+                    <DataGridTextColumn Width="70"
                                                 IsReadOnly="True"
                                                 Header="Mã NL"
                                                 HeaderStyle="{StaticResource CenteredDataGridHeader}"
@@ -132,7 +132,7 @@
                                                 TextBlock.TextAlignment="Left"
                                                 HeaderStyle="{StaticResource CenteredDataGridHeader}"
                                                 CellStyle="{StaticResource CenteredDataGridCell}"/>
-                    <DataGridTextColumn Width="150"
+                    <DataGridTextColumn Width="100"
                                                 Header="Nhà cung cấp"
                                                 HeaderStyle="{StaticResource CenteredDataGridHeader}"
                                                 CellStyle="{StaticResource RightDataGridCell}"
@@ -152,6 +152,12 @@
                                                 IsReadOnly="False"/>
                     <DataGridTextColumn Width="80"
                                                 Header="Số lượng"
+                                                HeaderStyle="{StaticResource CenteredDataGridHeader}"
+                                                CellStyle="{StaticResource CenteredDataGridCell}"
+                                                EditingElementStyle="{StaticResource CustomEditingTextColumnElementStyle}"
+                                                IsReadOnly="False"/>
+                    <DataGridTextColumn Width="100"
+                                                Header="Thành tiền"
                                                 HeaderStyle="{StaticResource CenteredDataGridHeader}"
                                                 CellStyle="{StaticResource CenteredDataGridCell}"
                                                 EditingElementStyle="{StaticResource CustomEditingTextColumnElementStyle}"
