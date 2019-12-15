@@ -632,5 +632,26 @@
   <ItemGroup>
     <Resource Include="Views\Images\materials.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\importGoods.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\customer1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\cup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\supplierIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\inventory.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -15,11 +15,17 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
+            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Margin="10">
+                <Label Style="{StaticResource HeaderLabelStyle}"
+                  
+                   Content="Báo cáo tồn kho"
+                   />
+                <Image 
+                    Margin="15 -5 0 0"
+                    Source="/Views/Images/inventory.png"
+                    Height="75"/>
+            </StackPanel>
             
-            <Label Style="{StaticResource HeaderLabelStyle}"
-                   Margin="10,10,0,10"
-                   Content="Thống kê thu"
-                   HorizontalAlignment="Left" />
 
         </Grid>
         <Separator Grid.Row="1"

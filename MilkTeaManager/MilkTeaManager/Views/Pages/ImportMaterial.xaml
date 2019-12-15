@@ -45,11 +45,18 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Label Grid.Row="0" Grid.ColumnSpan="2"
+            <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="10" HorizontalAlignment="Left">
+                <Label  
                    Style="{StaticResource HeaderLabelStyle}"
-                   Margin="10"
+                   
                    Content="Nhập hàng"
-                   HorizontalAlignment="Left"/>
+                   />
+                <Image 
+                    Margin="10 -5 0 0"
+                    Source="/Views/Images/importGoods.png"
+                    Height="70"/>
+            </StackPanel>
+            
             <StackPanel Grid.Column="1"
                         Orientation="Horizontal"
                         HorizontalAlignment="Right"

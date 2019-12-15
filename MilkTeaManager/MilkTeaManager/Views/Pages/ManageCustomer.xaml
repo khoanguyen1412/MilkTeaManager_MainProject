@@ -23,10 +23,17 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Label Style="{StaticResource HeaderLabelStyle}"
-                   Margin="10"
+            <StackPanel Orientation="Horizontal"  Margin="10"  HorizontalAlignment="Left">
+                <Label Style="{StaticResource HeaderLabelStyle}"
+                  
                    Content="Khách hàng"
-                   HorizontalAlignment="Left"/>
+                   />
+                <Image 
+                    Margin="15 0 0 0"
+                    Source="/Views/Images/customer1.png"
+                    Height="70"/>
+            </StackPanel>
+            
 
             <Button
                 Grid.Column="1"

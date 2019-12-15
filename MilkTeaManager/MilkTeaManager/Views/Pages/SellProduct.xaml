@@ -33,18 +33,19 @@
                     <RowDefinition />
                 </Grid.RowDefinitions>
 
-                <!--<TextBlock Grid.Row="0" 
-                           Text="ĐẶT MÓN" 
-                           FontWeight="Bold" 
-                           FontSize="30" Margin="3"
-                           Height="40">
-                </TextBlock>-->
 
-                <Label Grid.Row="0" Style="{StaticResource HeaderLabelStyle}"
+                <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left">
+                    <Label Grid.Row="0" Style="{StaticResource HeaderLabelStyle}"
                    Margin="0 10 0 0 "
                    Content="Đặt món"
                        FontSize="45"
-                   HorizontalAlignment="Left"/>
+                   />
+                    <Image 
+                    Margin="15 0 0 0"
+                    Source="/Views/Images/menu.png"
+                    Height="60"/>
+                </StackPanel>
+                
                 <!--chọn trà sữa, size, topping-->
                 <Grid Grid.Row="1" Height="200">
                     <Grid.ColumnDefinitions>

@@ -21,11 +21,17 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" Grid.ColumnSpan="2">
-            
-            <Label Style="{StaticResource HeaderLabelStyle}"
-                   Margin="10,10,0,10"
+            <StackPanel Margin="10" HorizontalAlignment="Left" Grid.ColumnSpan="2" Orientation="Horizontal">
+                <Label Style="{StaticResource HeaderLabelStyle}"
+                   
                    Content="Thống kê thu"
-                   HorizontalAlignment="Left" Grid.ColumnSpan="2"/>
+                   />
+                <Image 
+                    Margin="15 -5 0 0"
+                    Source="/Views/Images/thu.png"
+                    Height="60"/>
+            </StackPanel>
+            
 
         </Grid>
         <Separator Grid.Row="1"

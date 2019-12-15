@@ -29,10 +29,16 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Label Style="{StaticResource HeaderLabelStyle}"
-                   Margin="10"
+            <StackPanel Margin="10" HorizontalAlignment="Left" Orientation="Horizontal">
+                <Label Style="{StaticResource HeaderLabelStyle}"
+                   Margin="0 0 0 -5"
                    Content="Sản phẩm"
-                   HorizontalAlignment="Left"/>
+                   />
+                <Image 
+                    Source="/Views/Images/cup.png"
+                    Height="60"/>
+            </StackPanel>
+           
             <Button Grid.Column="1"
                     HorizontalAlignment="Right"
                     Margin="10"
