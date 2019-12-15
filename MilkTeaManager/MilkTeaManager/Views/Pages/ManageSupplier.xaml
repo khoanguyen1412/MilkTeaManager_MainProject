@@ -4,6 +4,7 @@
       xmlns:cv="clr-namespace:MilkTeaManager.Converters"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:behaviors="clr-namespace:WPFTextBoxAutoComplete;assembly=WPFTextBoxAutoComplete"
       xmlns:local="clr-namespace:MilkTeaManager.Views.Pages"
       mc:Ignorable="d" 
       DataContext="{StaticResource ManageSupplierVM}"
@@ -60,11 +61,13 @@
             </Grid.RowDefinitions>
 
             <StackPanel Orientation="Horizontal" Margin="5 5 5 0">
-                <customControls:SearchTextBox  Grid.Column="0" 
+                <TextBox  Grid.Column="0" 
                                               HorizontalAlignment="Right"
                                               VerticalContentAlignment="Bottom"
-                                              FontSize="40"
-                                              Width="350"/>
+                                              FontSize="20"
+                          Background="White"
+                                              Width="350"
+                          behaviors:AutoCompleteBehavior.AutoCompleteItemsSource="{Binding _manc}"/>
                 <Grid>
                     <Label Width="50" Height="50" Background="#669BBF"/>
                     <Image  Margin="5"

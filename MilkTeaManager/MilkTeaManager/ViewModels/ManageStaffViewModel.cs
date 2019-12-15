@@ -11,6 +11,7 @@ namespace MilkTeaManager.ViewModels
     class ManageStaffViewModel : BaseVM
     {
         private ObservableCollection<NHANVIEN> _nhanviens;
+        public ObservableCollection<string> _mnv { get; set; }
 
         private DateTime _nsinh;
         private string _sdt;
@@ -99,6 +100,7 @@ namespace MilkTeaManager.ViewModels
         public ManageStaffViewModel()
         {
             NhanViens = new ObservableCollection<NHANVIEN>(DataAccess.GetNhanviens());
+            _mnv = new ObservableCollection<string>(DataAccess.GetMaNV());
 
         }
     }

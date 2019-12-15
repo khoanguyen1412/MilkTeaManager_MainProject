@@ -422,6 +422,40 @@ namespace MilkTeaManager.Models
                 }
             }
         }
+
+        public static List<string> GetMaKh()
+        {
+
+
+            var result = from productlist in db.KHACHHANGs
+                         select productlist.MAKH;
+
+            return result.ToList();
+
+        }
+
+        public static List<string> GetMaNV()
+        {
+
+
+            var result = from productlist in db.NHANVIENs
+                         select productlist.MANV;
+
+            return result.ToList();
+
+        }
+
+        public static List<string> GetMaNCC()
+        {
+
+
+            var result = from productlist in db.NHACUNGCAPs
+                         select productlist.MANCC;
+
+            return result.ToList();
+
+        }
+
         #endregion
 
         #region Add_Or_Update  //Không chắc xài được

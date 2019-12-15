@@ -2,6 +2,7 @@
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+       xmlns:behaviors="clr-namespace:WPFTextBoxAutoComplete;assembly=WPFTextBoxAutoComplete"
         DataContext="{StaticResource ManageCustomerVM}"
       xmlns:cv="clr-namespace:MilkTeaManager.Converters"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
@@ -58,11 +59,13 @@
             </Grid.RowDefinitions>
 
             <StackPanel Orientation="Horizontal" Margin="5 5 0 0">
-                <customControls:SearchTextBox  Grid.Column="0" Margin="3 0 0 0"
+                <TextBox  Grid.Column="0" Margin="3 0 0 0"
                                               HorizontalAlignment="Right"
                                               VerticalContentAlignment="Bottom"
-                                              FontSize="40"
-                                              Width="350"/>
+                                              FontSize="20"
+                                              Width="350"
+                                              Background="White"
+                                              behaviors:AutoCompleteBehavior.AutoCompleteItemsSource="{Binding _mhk}"/>
                 <Grid>
                     <Label Width="50" Height="50" Background="#669BBF"/>
                     <Image  Margin="5"
