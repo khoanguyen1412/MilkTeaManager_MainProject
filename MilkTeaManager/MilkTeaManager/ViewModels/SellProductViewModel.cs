@@ -130,6 +130,7 @@ namespace MilkTeaManager.ViewModels
             {
                 _cthds = value;
                 OnPropertyChanged();
+               
             }
         }
 
@@ -175,7 +176,7 @@ namespace MilkTeaManager.ViewModels
             }, (p) =>
             {
                
-                var cthd = new CHITIETHOADON() { MACTHD = "00002", MASP = SSanPham.MASP, MASIZE = SSize.MASIZE, DONGIA = SSanPham.GIABAN, SOLUONG = int.Parse(SoLuong) };
+                var cthd = new CHITIETHOADON() { MACTHD = SCTHD.MACTHD, MASP = SSanPham.MASP, MASIZE = SSize.MASIZE, DONGIA = SSanPham.GIABAN, SOLUONG = int.Parse(SoLuong) };
                 DataAccess.SaveChiTietHoaDon(cthd);
                 SCTHD.MASP = SSanPham.MASP;
                 SCTHD.MASIZE = SSize.MASIZE;
