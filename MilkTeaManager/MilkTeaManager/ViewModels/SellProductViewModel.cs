@@ -207,7 +207,6 @@ namespace MilkTeaManager.ViewModels
                     SSDT = addVM.KhachHang.SDT;
                     SDiaChi = addVM.KhachHang.DIACHI;
                 }
-                MessageBox.Show(STenKH);
             });
         }
         public List<HOADON> getChiTiet
