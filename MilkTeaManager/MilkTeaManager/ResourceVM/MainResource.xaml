@@ -5,7 +5,7 @@
                     xmlns:local="clr-namespace:MilkTeaManager.ResourceVM">
     <viewmodel:SellProductViewModel x:Key="SellProductVM"></viewmodel:SellProductViewModel>
     <viewmodel:ManageCustomerViewModel x:Key="ManageCustomerVM"></viewmodel:ManageCustomerViewModel>
-    <viewmodel:ManageImportMaterialViewModel x:Key="ManageImportVM"></viewmodel:ManageImportMaterialViewModel>
+    <viewmodel:ImportMaterialViewModel x:Key="ImportMaterialVM"></viewmodel:ImportMaterialViewModel>
     <viewmodel:ManageProductViewModel x:Key="ManageProductVM"></viewmodel:ManageProductViewModel>
     <viewmodel:ManageStaffViewModel x:Key="ManageStaffVM"></viewmodel:ManageStaffViewModel>
     <viewmodel:ManageSupplierViewModel x:Key="ManageSupplierVM"></viewmodel:ManageSupplierViewModel>
@@ -15,5 +15,7 @@
     <viewmodelDialog:AddCustomerViewModel x:Key="AddCustomerVM"></viewmodelDialog:AddCustomerViewModel>
     <viewmodelDialog:OrderFormViewModel x:Key="OrderFormVM"></viewmodelDialog:OrderFormViewModel>
     <viewmodel:LoginWindowsViewModel x:Key="LoginVM"></viewmodel:LoginWindowsViewModel>
-
-</ResourceDictionary>
+    <viewmodel:ManageMaterialViewModel x:Key="ManageMaterialVM"></viewmodel:ManageMaterialViewModel>
+    <viewmodel:ListImportBillViewModel x:Key="ListImportBillVM"></viewmodel:ListImportBillViewModel>
+    <viewmodelDialog:RevenueFormViewModel x:Key="RevenueFormVM"></viewmodelDialog:RevenueFormViewModel>
+</ResourceDictionary> 

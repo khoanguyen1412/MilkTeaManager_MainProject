@@ -1,5 +1,6 @@
 ﻿<Window x:Class="MilkTeaManager.Views.Dialog.RevenueForm"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        DataContext="{StaticResource RevenueFormVM}"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -38,7 +39,7 @@
                    FontWeight="Bold">Bảng thống kê thu</Paragraph>
         <Section Name="RevenueInfo">
             <BlockUIContainer>
-                <Grid>
+                <Grid  DataContext="{StaticResource RevenueFormVM}">
                     <Grid.RowDefinitions>
                         <RowDefinition />
                         <RowDefinition />
@@ -58,12 +59,12 @@
                            Style="{StaticResource MediumLabelStyle}"
                            FontWeight="Bold"
                            HorizontalAlignment="Left"
-                           Content="{Binding NguoiLapBaoCao}"/>
+                           Content="{Binding NguoiLap}"/>
                     <Label Grid.Column="1" Grid.Row="1"
                            Style="{StaticResource MediumLabelStyle}"
                            FontWeight="Bold"
                            HorizontalAlignment="Left"
-                           Content="{Binding ThoiGianBaoCao}"/>
+                           Content="{Binding NgayLap}"/>
                 </Grid>
             </BlockUIContainer>
         </Section>
@@ -104,17 +105,17 @@
             </BlockUIContainer>
         </Section>
         <BlockUIContainer>
-            <StackPanel Orientation="Vertical">
+            <StackPanel  DataContext="{StaticResource RevenueFormVM}" Orientation="Vertical">
 
 
                 <ListView >
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="STT"></GridViewColumn>
-                            <GridViewColumn Header="Mã hóa đơn" ></GridViewColumn>
-                            <GridViewColumn Header="Ngày lập" ></GridViewColumn>
-                            <GridViewColumn Header="Mã khách hàng" ></GridViewColumn>
-                            <GridViewColumn Header="Tổng tiền" ></GridViewColumn>
+                            <GridViewColumn Header="STT" DisplayMemberBinding="{Binding RelativeSource={RelativeSource AncestorType=ListViewItem}, Converter={StaticResource ConverterIndexListView}}"></GridViewColumn>
+                            <GridViewColumn Header="Mã hóa đơn" DisplayMemberBinding="{Binding MAHD}"></GridViewColumn>
+                            <GridViewColumn Header="Ngày lập" DisplayMemberBinding="{Binding NGAYLAP}" ></GridViewColumn>
+                            <GridViewColumn Header="Mã khách hàng" DisplayMemberBinding="{Binding MAKH}"></GridViewColumn>
+                            <GridViewColumn Header="Tổng tiền" DisplayMemberBinding="{Binding TONGTIEN}"></GridViewColumn>
 
                         </GridView>
                     </ListView.View>

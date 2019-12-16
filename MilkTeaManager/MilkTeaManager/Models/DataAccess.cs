@@ -239,8 +239,34 @@ namespace MilkTeaManager.Models
                 }
             }
         }
-        
-		public static List<CHITIETHOADON> GetChitiethoadonsByMaHD(string maHd)
+        public static List<PHIEUNHAP> GetPhieuNhaps()
+        {
+            try
+            {
+                return db.PHIEUNHAPs.ToList();
+            }
+            catch (DataException)
+            {
+                return new List<PHIEUNHAP>();
+            }
+        }
+
+        public static List<CHITIETPHIEUNHAP> GetChitietPHIEUNHAPsByMaPN(string ma)
+        {
+
+            {
+                try
+                {
+                    return db.CHITIETPHIEUNHAPs.Where(x => x.MAPN == ma).ToList();
+                }
+                catch (DataException)
+                {
+
+                    return new List<CHITIETPHIEUNHAP>();
+                }
+            }
+        }
+        public static List<CHITIETHOADON> GetChitiethoadonsByMaHD(string maHd)
 		{
 			 
 			{
@@ -255,8 +281,22 @@ namespace MilkTeaManager.Models
 				}
 			}
 		}
+        public static List<NGUYENLIEU> GetNguyenLieuByMaNCC(string mancc)
+        {
 
-		public static List<CHITIETNGUYENLIEU> GetChitietnguyenlieusByMaSp(string maSp)
+            {
+                try
+                {
+                    return db.NGUYENLIEUx.Where(x => x.MANCC == mancc).ToList();
+                }
+                catch (DataException)
+                {
+
+                    return new List<NGUYENLIEU>();
+                }
+            }
+        }
+        public static List<CHITIETNGUYENLIEU> GetChitietnguyenlieusByMaSp(string maSp)
 		{
 			 
 			{

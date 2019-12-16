@@ -26,12 +26,13 @@ namespace MilkTeaManager.ViewModels
         private string _sdiachi;
         private string _ssdt;
         private string _stenkh;
-        private string _soluong;
+
         private SANPHAM _ssanpham;
         private CHITIETHOADON _scthd;
         private SANPHAM _stopping;
         private SIZE _ssize;
         private int _tongtien;
+        private string _soluong;
         private int _tienkhachdua;
         private int _tienthua;
         public int TienThua

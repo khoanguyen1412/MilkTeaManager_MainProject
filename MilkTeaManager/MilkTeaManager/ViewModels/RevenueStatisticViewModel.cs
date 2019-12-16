@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using MilkTeaManager.Models;
 namespace MilkTeaManager.ViewModels
 {
@@ -14,7 +15,7 @@ namespace MilkTeaManager.ViewModels
         private HOADON _shoadon;
         private string _tenkh;
         private string _soluong;
-        private string _tongtien;
+        private int _tongtien;
         private string _mahd;
 
         public string MaHD
@@ -44,7 +45,7 @@ namespace MilkTeaManager.ViewModels
                 OnPropertyChanged();
             }
         }
-        public string TongTien
+        public int TongTien
         {
             get { return _tongtien; }
             set { _tongtien = value;
@@ -64,7 +65,8 @@ namespace MilkTeaManager.ViewModels
                     CTHDs = new ObservableCollection<CHITIETHOADON>(DataAccess.GetChitiethoadonsByMaHD(MaHD));
                    
                     TenKH = SHoaDon.KHACHHANG.TENKH;
-                    SoLuong = CTHDs.Count.ToString();
+                    SoLuong = CTHDs.Count().ToString();
+                    TongTien = (int)SHoaDon.TONGTIEN;
 
                 }
             }

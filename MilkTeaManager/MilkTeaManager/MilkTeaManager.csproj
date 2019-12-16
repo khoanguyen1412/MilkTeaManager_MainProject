@@ -132,8 +132,6 @@
     <Compile Include="Models\NHANVIEN.cs">
       <DependentUpon>MilkTeaDb.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Person.cs" />
-    <Compile Include="Models\PersonModel.cs" />
     <Compile Include="Models\PHIEUNHAP.cs">
       <DependentUpon>MilkTeaDb.tt</DependentUpon>
     </Compile>
@@ -147,11 +145,14 @@
     <Compile Include="ViewModels\Dialog\AddCustomerViewModel.cs" />
     <Compile Include="ViewModels\BaseVM.cs" />
     <Compile Include="ViewModels\Dialog\OrderFormViewModel.cs" />
+    <Compile Include="ViewModels\Dialog\RevenueFormViewModel.cs" />
     <Compile Include="ViewModels\ImportMaterialViewModel.cs" />
     <Compile Include="ViewModels\LayoutViewModels\ContentViewModel.cs" />
+    <Compile Include="ViewModels\ListImportBillViewModel.cs" />
     <Compile Include="ViewModels\LoginWindowsViewModel.cs" />
     <Compile Include="ViewModels\MainHomepageViewModel.cs" />
     <Compile Include="ViewModels\ManageCustomerViewModel.cs" />
+    <Compile Include="ViewModels\ManageMaterialViewModel.cs" />
     <Compile Include="ViewModels\ManageProductViewModel.cs" />
     <Compile Include="ViewModels\ManageStaffViewModel.cs" />
     <Compile Include="ViewModels\ManageSupplierViewModel.cs" />

@@ -216,7 +216,7 @@
                                            Text="{Binding TenKH, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" />
                             <TextBlock Grid.Row="1" Grid.Column="1"
                                            Margin="5"
-                                           Text="{Binding Soluong, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                           Text="{Binding SoLuong, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
                             <TextBlock Grid.Row="2" Grid.Column="1"
                                            Text="{Binding TongTien, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" />
                            

@@ -1,61 +1,90 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 using MilkTeaManager.Models;
+using System.Windows.Input;
 
 namespace MilkTeaManager.ViewModels
 {
-    class ManageImportMaterialViewModel : BaseVM
+    class ImportMaterialViewModel : BaseVM
     {
-        private ObservableCollection<SANPHAM> _sanphams;
-        private ObservableCollection<LOAISANPHAM> _loaisps;
+        private ObservableCollection<NHACUNGCAP> _nccs;
+        private ObservableCollection<CHITIETPHIEUNHAP> _ctpns;
 
-        private SANPHAM _ssanpham;
-        private LOAISANPHAM _sloaisp;
+        private CHITIETPHIEUNHAP _sctpn;
+        private NHACUNGCAP _sncc;
+        private int _soluong;
+        private int _tienhang;
+        private string _ghichu;
 
-        public SANPHAM SSanPham
+        public ICommand ThemCTPNCommand { get; set; }
+        public ICommand SuaCTPNCommand { get; set; }
+        public ICommand XoaCTPNCommand { get; set; }
+        public ICommand LuuPhieuNhapCommand { get; set; }
+        public ICommand ThemNCC { get; set; }
+        public ObservableCollection<CHITIETPHIEUNHAP> CTPNs
         {
-            get { return _ssanpham; }
-            set
-            {
-                _ssanpham = value;
+            get { return _ctpns; }
+            set { _ctpns = value;
                 OnPropertyChanged();
             }
         }
-        public LOAISANPHAM SLoaiSP
+        public CHITIETPHIEUNHAP SCTPN
         {
-            get { return _sloaisp; }
-            set
-            {
-                _sloaisp = value;
+            get { return _sctpn; }
+            set { _sctpn = value;
                 OnPropertyChanged();
             }
         }
-        public ObservableCollection<SANPHAM> SanPhams
+        public int TienHang
         {
-            get { return _sanphams; }
-            set
-            {
-                _sanphams = value;
+            get { return _tienhang; }
+            set { _tienhang = value;
                 OnPropertyChanged();
             }
         }
-        public ObservableCollection<LOAISANPHAM> LoaiSPs
+        public int SoLuong
         {
-            get { return _loaisps; }
-            set
-            {
-                _loaisps = value;
+            get { return _tienhang; }
+            set { _tienhang = value;
                 OnPropertyChanged();
             }
         }
-        public ManageImportMaterialViewModel()
+        public string GhiChu
         {
-            SanPhams = new ObservableCollection<SANPHAM>(DataAccess.GetSanphams());
-            LoaiSPs = new ObservableCollection<LOAISANPHAM>(DataAccess.GetLoaisanphams());
+            get { return _ghichu; }
+            set { _ghichu = value;
+                OnPropertyChanged();
+            }
+        }
+        public ObservableCollection<NHACUNGCAP> NCCs
+        {
+            get { return _nccs; }
+            set
+            {
+                _nccs = value;
+                OnPropertyChanged();
+            }
+        }
+        public NHACUNGCAP SNCC
+        {
+            get { return _sncc; }
+            set
+            {
+                _sncc = value;
+                OnPropertyChanged();           
+
+            }
+        }
+        public ImportMaterialViewModel()
+        {
+            NCCs = new ObservableCollection<NHACUNGCAP>(DataAccess.GetNhacungcaps());
+            SoLuong = 0;
+            TienHang = 0;
+            GhiChu = "Ghi chus";
         }
     }
 }
