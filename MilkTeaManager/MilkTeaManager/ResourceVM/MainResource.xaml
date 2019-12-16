@@ -14,4 +14,6 @@
     <viewmodel:MainHomepageViewModel x:Key="MainHomepageVM"></viewmodel:MainHomepageViewModel>
     <viewmodelDialog:AddCustomerViewModel x:Key="AddCustomerVM"></viewmodelDialog:AddCustomerViewModel>
     <viewmodelDialog:OrderFormViewModel x:Key="OrderFormVM"></viewmodelDialog:OrderFormViewModel>
+    <viewmodel:LoginWindowsViewModel x:Key="LoginVM"></viewmodel:LoginWindowsViewModel>
+
 </ResourceDictionary>

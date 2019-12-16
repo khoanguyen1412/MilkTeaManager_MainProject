@@ -149,6 +149,7 @@
     <Compile Include="ViewModels\Dialog\OrderFormViewModel.cs" />
     <Compile Include="ViewModels\ImportMaterialViewModel.cs" />
     <Compile Include="ViewModels\LayoutViewModels\ContentViewModel.cs" />
+    <Compile Include="ViewModels\LoginWindowsViewModel.cs" />
     <Compile Include="ViewModels\MainHomepageViewModel.cs" />
     <Compile Include="ViewModels\ManageCustomerViewModel.cs" />
     <Compile Include="ViewModels\ManageProductViewModel.cs" />
