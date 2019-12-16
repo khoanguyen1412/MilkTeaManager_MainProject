@@ -76,7 +76,8 @@ DataContext="{StaticResource ManageMaterialVM}"
                                               FontSize="20"
                           Background="White"
                                               Width="250"
-                          behaviors:AutoCompleteBehavior.AutoCompleteItemsSource="{Binding _mnv}"
+                          Text="{Binding Text}"
+                          behaviors:AutoCompleteBehavior.AutoCompleteItemsSource="{Binding _mnl}"
                            behaviors:AutoCompleteBehavior.AutoCompleteStringComparison="InvariantCultureIgnoreCase"
                           />
                 <Grid>
@@ -92,8 +93,9 @@ DataContext="{StaticResource ManageMaterialVM}"
                         Width="50"
                         ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
                         Background="Transparent"
+                       Command="{Binding SearchClick}"
                         >
-
+                        <materialDesign:PackIcon Kind="AccountSearch"></materialDesign:PackIcon>
                     </Button>
                 </Grid>
 

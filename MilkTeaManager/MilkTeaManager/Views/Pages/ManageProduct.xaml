@@ -76,6 +76,7 @@
                                               FontSize="20"
                                               Width="350"
                                   Background="White"
+                                  Text="{Binding Text}"
                                   behaviors:AutoCompleteBehavior.AutoCompleteItemsSource="{Binding _msp}"
                           behaviors:AutoCompleteBehavior.AutoCompleteStringComparison="InvariantCultureIgnoreCase"
                          />
@@ -91,8 +92,9 @@
                         Width="50"
                         ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
                         Background="Transparent"
+                                  Command="{Binding SearchClick}"
                         >
-
+                                <materialDesign:PackIcon Kind="AccountSearch"></materialDesign:PackIcon>
                             </Button>
                         </Grid>
 

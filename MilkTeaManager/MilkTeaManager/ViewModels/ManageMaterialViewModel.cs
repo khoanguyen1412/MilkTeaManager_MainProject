@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using MilkTeaManager.Models;
 
 namespace MilkTeaManager.ViewModels
@@ -13,6 +14,9 @@ namespace MilkTeaManager.ViewModels
         private ObservableCollection<NHACUNGCAP> _nccs;
         private ObservableCollection<NGUYENLIEU> _nguyenlieus;
 
+        public ObservableCollection<string> _mnl { get; set; }
+        public ICommand SearchClick { get; set; }
+
         private NGUYENLIEU _snguyenlieu;
         private NHACUNGCAP _sncc;
         private string _tennl;
@@ -21,6 +25,7 @@ namespace MilkTeaManager.ViewModels
         private int _ketquatimthay;
         private int soluong;
         private string _tenncc;
+        private string _text;
         public string TenNCC
         {
             get { return _tenncc; }
@@ -104,12 +109,35 @@ namespace MilkTeaManager.ViewModels
                 OnPropertyChanged();
             }
         }
+
+        public string Text { get => _text;
+            set {
+                _text = value;
+                OnPropertyChanged();
+            }
+        }
+
         public ManageMaterialViewModel()
         {
             NCCs = new ObservableCollection<NHACUNGCAP>(DataAccess.GetNhacungcaps().ToList());
             NguyenLieus = new ObservableCollection<NGUYENLIEU>(DataAccess.GetNguyenlieus().ToList());
             SoLuong = NguyenLieus.Count();
             KQTT = SoLuong;
+            _mnl = new ObservableCollection<string>(DataAccess.GetTenNL());
+            SearchClick = new RelayCommand<object>((p) =>
+            {
+                return true;
+
+            }, (p) =>
+            {
+                if (Text == "")
+                {
+                    NguyenLieus = new ObservableCollection<NGUYENLIEU>(DataAccess.GetNguyenlieus().ToList());
+                }
+                else
+                    NguyenLieus = new ObservableCollection<NGUYENLIEU>(DataAccess.FilterNguyenlieuByTenNL(Text));
+            });
         }
     }
+    
 }

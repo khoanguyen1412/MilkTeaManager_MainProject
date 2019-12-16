@@ -142,10 +142,10 @@ namespace MilkTeaManager.ViewModels
             {
                 if (Text == "")
                 {
-                    LoaiSPs = new ObservableCollection<LOAISANPHAM>(DataAccess.GetLoaisanphams());
+                    SanPhams = new ObservableCollection<SANPHAM>(DataAccess.GetSanphams());
                 }
-                //else
-                    //LoaiSPs = new ObservableCollection<LOAISANPHAM>(DataAccess.(Text));
+                else
+                    SanPhams = new ObservableCollection<SANPHAM>(DataAccess.FilterSanPhamByTenSP(Text));
             });
         }
     }

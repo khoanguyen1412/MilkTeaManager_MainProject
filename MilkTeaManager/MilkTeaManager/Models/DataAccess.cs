@@ -524,6 +524,16 @@ namespace MilkTeaManager.Models
 
         }
 
+        public static List<string> GetTenNL()
+        {
+
+
+            var result = from productlist in db.NGUYENLIEUx
+                         select productlist.TENNL;
+
+            return result.ToList();
+
+        }
         #endregion
 
         #region Add_Or_Update  //Không chắc xài được
@@ -819,6 +829,22 @@ namespace MilkTeaManager.Models
 				}
 			}
 		}
+
+        public static List<NGUYENLIEU> FilterNguyenlieuByTenNL(string tenNl)
+        {
+
+            {
+                try
+                {
+                    var matches = from m in db.NGUYENLIEUx where m.TENNL.ToLower().Contains(tenNl.ToLower()) select m;
+                    return matches.ToList();
+                }
+                catch (DataException)
+                {
+                    return new List<NGUYENLIEU>();
+                }
+            }
+        }
 
 
         #endregion

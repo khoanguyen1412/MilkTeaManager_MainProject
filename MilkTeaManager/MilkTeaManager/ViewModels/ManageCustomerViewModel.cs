@@ -15,6 +15,7 @@ namespace MilkTeaManager.ViewModels
         public ObservableCollection<string> _mhk { get; set; }
 
 
+
         private string _makh;
         private string _sdt;
         private string _diachi;
