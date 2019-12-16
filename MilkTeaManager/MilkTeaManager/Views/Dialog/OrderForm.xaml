@@ -105,62 +105,31 @@
             <Paragraph TextAlignment="Center"
                    FontWeight="Bold">Chi tiết hóa đơn</Paragraph>
             <Paragraph TextAlignment="Center">==========================================</Paragraph>
-            <Table x:Name="dataTable">
-                <Table.Resources>
-                    <Style TargetType="{x:Type Table}">
-                        <Setter Property="BorderThickness" Value="1"/>
-                        <Setter Property="BorderBrush" Value="Gray"/>
-                        <Setter Property="FontSize" Value="13"/>
-                        <Setter Property="FontFamily" Value="Arial"/>
-                        <Setter Property="CellSpacing" Value="0"/>
-                    </Style>
-                    <Style TargetType="{x:Type TableCell}">
-                        <Setter Property="BorderBrush" Value="Gray"/>
-                        <Setter Property="Padding" Value="7"/>
-                        <Setter Property="TextAlignment" Value="{Binding}"/>
-                    </Style>
-                </Table.Resources>
-                <Table.Columns>
-                    <TableColumn Width="50"/>
-                    <TableColumn Width="120"/>
-                <TableColumn Width="50"/>
-                <TableColumn/>
-                    <TableColumn Width="50"/>
-                    <TableColumn/>
-                    
-                </Table.Columns>
-                <TableRowGroup>
-                    <TableRow>
-                        <TableRow.Resources>
-                            <Style TargetType="TableCell">
-                                <Setter Property="BorderThickness" Value="1"/>
-                                <Setter Property="BorderBrush" Value="Gray"/>
-                                <Setter Property="Padding" Value="7"/>
-                                <Setter Property="TextAlignment" Value="{Binding}"/>
-                            </Style>
-                        </TableRow.Resources>
-                        <TableCell TextAlignment="Center">
-                            <Paragraph>STT</Paragraph>
-                        </TableCell>
-                        <TableCell TextAlignment="Left">
-                            <Paragraph>Sản phẩm</Paragraph>
-                        </TableCell>
-                        <TableCell TextAlignment="Left">
-                            <Paragraph>Size</Paragraph>
-                        </TableCell>
-                    <TableCell TextAlignment="Center">
-                            <Paragraph>Đơn giá</Paragraph>
-                        </TableCell>
-                        <TableCell TextAlignment="Center">
-                            <Paragraph>SL</Paragraph>
-                        </TableCell>
-                        <TableCell TextAlignment="Center">
-                            <Paragraph>Thành tiền</Paragraph>
-                        </TableCell>
-                    </TableRow>
-                </TableRowGroup>
-            </Table>
-            <Paragraph TextAlignment="Center">==========================================</Paragraph>
+        <BlockUIContainer>
+            <StackPanel Orientation="Vertical">
+               
+               
+                    <ListView >
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="STT"></GridViewColumn>
+                                <GridViewColumn Header="Sản phẩm" ></GridViewColumn>
+                                <GridViewColumn Header="Size" ></GridViewColumn>
+                                <GridViewColumn Header="Số lượng" ></GridViewColumn>
+                                <GridViewColumn Header="Email" ></GridViewColumn>
+                                <GridViewColumn Header="Đơn giá" ></GridViewColumn>
+                                <GridViewColumn Header="Thành tiền" ></GridViewColumn>
+
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+               
+               
+            </StackPanel>
+        </BlockUIContainer>
+
+
+        <Paragraph TextAlignment="Center">==========================================</Paragraph>
             <Section Name="Summary">
                 <BlockUIContainer>
                     <StackPanel Orientation="Vertical">

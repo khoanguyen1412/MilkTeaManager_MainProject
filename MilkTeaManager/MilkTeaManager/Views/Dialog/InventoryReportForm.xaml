@@ -101,60 +101,26 @@
                 </Grid>
             </BlockUIContainer>
         </Section>
-        <Table x:Name="dataTable">
-            <Table.Resources>
-                <Style TargetType="{x:Type Table}">
-                    <Setter Property="BorderThickness" Value="1"/>
-                    <Setter Property="BorderBrush" Value="Gray"/>
-                    <Setter Property="FontSize" Value="13"/>
-                    <Setter Property="FontFamily" Value="Arial"/>
-                    <Setter Property="CellSpacing" Value="0"/>
-                </Style>
-                <Style TargetType="{x:Type TableCell}">
-                    <Setter Property="BorderBrush" Value="Gray"/>
-                    <Setter Property="Padding" Value="7"/>
-                    <Setter Property="TextAlignment" Value="{Binding}"/>
-                </Style>
-            </Table.Resources>
-            <Table.Columns>
-                <TableColumn/>
-                <TableColumn Width="120"/>
-                <TableColumn/>
-                <TableColumn/>
-                <TableColumn/>
-                <TableColumn/>
-            </Table.Columns>
-            <TableRowGroup>
-                <TableRow>
-                    <TableRow.Resources>
-                        <Style TargetType="TableCell">
-                            <Setter Property="BorderThickness" Value="1"/>
-                            <Setter Property="BorderBrush" Value="Gray"/>
-                            <Setter Property="Padding" Value="7"/>
-                            <Setter Property="TextAlignment" Value="{Binding}"/>
-                        </Style>
-                    </TableRow.Resources>
-                    <TableCell TextAlignment="Center">
-                        <Paragraph>STT</Paragraph>
-                    </TableCell>
-                    <TableCell TextAlignment="Left">
-                        <Paragraph>Tên nguyên liệu</Paragraph>
-                    </TableCell>
-                    <TableCell TextAlignment="Left">
-                        <Paragraph>Số lượng tồn đầu</Paragraph>
-                    </TableCell>
-                    <TableCell TextAlignment="Right">
-                        <Paragraph>Số lượng nhập</Paragraph>
-                    </TableCell>
-                    <TableCell TextAlignment="Right">
-                        <Paragraph>Số lượng xuất</Paragraph>
-                    </TableCell>
-                    <TableCell TextAlignment="Right">
-                        <Paragraph>Số lượng tồn cuối</Paragraph>
-                    </TableCell>
-                </TableRow>
-            </TableRowGroup>
-        </Table>
+        <BlockUIContainer>
+            <StackPanel Orientation="Vertical">
+
+
+                <ListView >
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="STT"></GridViewColumn>
+                            <GridViewColumn Header="Tên &#x0a;nguyên liệu"></GridViewColumn>
+                            <GridViewColumn Header="Số lượng &#x0a;tồn đầu" ></GridViewColumn>
+                            <GridViewColumn Header="Số lượng &#x0a;nhập" ></GridViewColumn>
+                            <GridViewColumn Header="Số lượng &#x0a;xuất" ></GridViewColumn>
+                            <GridViewColumn Header="Số lượng &#x0a;tồn cuối" ></GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+
+
+            </StackPanel>
+        </BlockUIContainer>
         <Paragraph TextAlignment="Center">===============================================</Paragraph>
         <Section Name="Summary">
             <BlockUIContainer>

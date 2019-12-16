@@ -102,57 +102,26 @@
                 </Grid>
             </BlockUIContainer>
         </Section>
-        <Table x:Name="dataTable">
-            <Table.Resources>
-                <Style TargetType="{x:Type Table}">
-                    <Setter Property="BorderThickness" Value="1"/>
-                    <Setter Property="BorderBrush" Value="Gray"/>
-                    <Setter Property="FontSize" Value="13"/>
-                    <Setter Property="FontFamily" Value="Arial"/>
-                    <Setter Property="CellSpacing" Value="0"/>
-                </Style>
-                <Style TargetType="{x:Type TableCell}">
-                    <Setter Property="BorderBrush" Value="Gray"/>
-                    <Setter Property="Padding" Value="7"/>
-                    <Setter Property="TextAlignment" Value="{Binding}"/>
-                </Style>
-            </Table.Resources>
-            <Table.Columns>
-                <TableColumn/>
-                <TableColumn Width="120"/>
-                <TableColumn/>
-                <TableColumn/>
-                <TableColumn/>
-            </Table.Columns>
-            <TableRowGroup>
-                <TableRow>
-                    <TableRow.Resources>
-                        <Style TargetType="TableCell">
-                            <Setter Property="BorderThickness" Value="1"/>
-                            <Setter Property="BorderBrush" Value="Gray"/>
-                            <Setter Property="Padding" Value="7"/>
-                            <Setter Property="TextAlignment" Value="{Binding}"/>
-                        </Style>
-                    </TableRow.Resources>
-                    <TableCell TextAlignment="Center">
-                        <Paragraph>STT</Paragraph>
-                    </TableCell>
-                    <TableCell TextAlignment="Left">
-                        <Paragraph>Mã phiếu chi</Paragraph>
-                    </TableCell>
-                    <TableCell TextAlignment="Left">
-                        <Paragraph>Ngày lập</Paragraph>
-                    </TableCell>
-                    <TableCell TextAlignment="Right">
-                        <Paragraph>Mã phiếu nhập</Paragraph>
-                    </TableCell>
-                    <TableCell TextAlignment="Right">
-                        <Paragraph>Tổng tiền</Paragraph>
-                    </TableCell>
+        <BlockUIContainer>
+            <StackPanel Orientation="Vertical">
 
-                </TableRow>
-            </TableRowGroup>
-        </Table>
+
+                <ListView >
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="STT"></GridViewColumn>
+                            <GridViewColumn Header="Mã Phiếu chi" Width="120"></GridViewColumn>
+                            <GridViewColumn Header="Ngày lập" ></GridViewColumn>
+                            <GridViewColumn Header="Mã phiếu nhập" ></GridViewColumn>
+                            <GridViewColumn Header="Tổng tiền" ></GridViewColumn>
+
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+
+
+            </StackPanel>
+        </BlockUIContainer>
         <Paragraph TextAlignment="Center">===============================================</Paragraph>
         <Section Name="Summary">
             <BlockUIContainer>

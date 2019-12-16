@@ -67,60 +67,27 @@
             </BlockUIContainer>
         </Section>
         <Paragraph TextAlignment="Center">==========================================</Paragraph>
-       
-        <Table x:Name="dataTable">
-            <Table.Resources>
-                <Style TargetType="{x:Type Table}">
-                    <Setter Property="BorderThickness" Value="1"/>
-                    <Setter Property="BorderBrush" Value="Gray"/>
-                    <Setter Property="FontSize" Value="13"/>
-                    <Setter Property="FontFamily" Value="Arial"/>
-                    <Setter Property="CellSpacing" Value="0"/>
-                </Style>
-                <Style TargetType="{x:Type TableCell}">
-                    <Setter Property="BorderBrush" Value="Gray"/>
-                    <Setter Property="Padding" Value="7"/>
-                    <Setter Property="TextAlignment" Value="{Binding}"/>
-                </Style>
-            </Table.Resources>
-            <Table.Columns>
-                <TableColumn/>
-                <TableColumn Width="120"/>
-                <TableColumn/>
-                <TableColumn/>
-                <TableColumn/>
-            </Table.Columns>
-            <TableRowGroup>
-                <TableRow>
-                    <TableRow.Resources>
-                        <Style TargetType="TableCell">
-                            <Setter Property="BorderThickness" Value="1"/>
-                            <Setter Property="BorderBrush" Value="Gray"/>
-                            <Setter Property="Padding" Value="7"/>
-                            <Setter Property="TextAlignment" Value="{Binding}"/>
-                        </Style>
-                    </TableRow.Resources>
-                    <TableCell TextAlignment="Center">
-                        <Paragraph>STT</Paragraph>
-                    </TableCell>
-                    <TableCell TextAlignment="Center">
-                        <Paragraph>Tên nguyên liệu</Paragraph>
-                    </TableCell>
-                    <TableCell TextAlignment="Center">
-                        <Paragraph>Loại NL</Paragraph>
-                    </TableCell>
-                    <TableCell TextAlignment="Right">
-                        <Paragraph>SL đang có</Paragraph>
-                    </TableCell>
-                    <TableCell TextAlignment="Center">
-                        <Paragraph>Nhà cc</Paragraph>
-                    </TableCell>
-                    <TableCell TextAlignment="Center">
-                        <Paragraph>Giá bán</Paragraph>
-                    </TableCell>
-                </TableRow>
-            </TableRowGroup>
-        </Table>
+
+        <BlockUIContainer>
+            <StackPanel Orientation="Vertical">
+
+
+                <ListView >
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="STT"></GridViewColumn>
+                            <GridViewColumn Header="Tên &#x0a;nguyên liệu"></GridViewColumn>
+                            <GridViewColumn Header="Loại &#x0a;nguyên liệu" Width="100" ></GridViewColumn>
+                            <GridViewColumn Header="Số lượng &#x0a;đang có" Width="100"></GridViewColumn>
+                            <GridViewColumn Header="NCC" Width="80"></GridViewColumn>
+                            <GridViewColumn Header="Giá bán" Width="100" ></GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+
+
+            </StackPanel>
+        </BlockUIContainer>
         <Paragraph TextAlignment="Center">===============================================</Paragraph>
         <Section Name="Summary">
             <BlockUIContainer>
