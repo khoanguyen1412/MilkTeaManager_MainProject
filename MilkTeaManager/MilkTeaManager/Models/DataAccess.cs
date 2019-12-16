@@ -440,34 +440,45 @@ namespace MilkTeaManager.Models
             }
         }
 
-        public static List<string> GetMaKh()
+        public static List<string> GetTenKH()
         {
 
 
             var result = from productlist in db.KHACHHANGs
-                         select productlist.MAKH;
+                         select productlist.TENKH;
 
             return result.ToList();
 
         }
 
-        public static List<string> GetMaNV()
+        public static List<string> GetTenNV()
         {
 
 
             var result = from productlist in db.NHANVIENs
-                         select productlist.MANV;
+                         select productlist.HOTEN;
 
             return result.ToList();
 
         }
 
-        public static List<string> GetMaNCC()
+        public static List<string> GetTenNCC()
         {
 
 
             var result = from productlist in db.NHACUNGCAPs
-                         select productlist.MANCC;
+                         select productlist.TENNCC;
+
+            return result.ToList();
+
+        }
+
+        public static List<string> GetTenSP()
+        {
+
+
+            var result = from productlist in db.SANPHAMs
+                         select productlist.TENSP;
 
             return result.ToList();
 
@@ -668,7 +679,23 @@ namespace MilkTeaManager.Models
 			}
 		}
 
-		public static List<KHACHHANG> FilterKhachhangByTenKH(string tenKh)
+        public static List<NHACUNGCAP> FilterNhaCungCapByTenNCC(string tenNCC)
+        {
+
+            {
+                try
+                {
+                    var matches = from m in db.NHACUNGCAPs where m.TENNCC.ToLower().Contains(tenNCC.ToLower()) select m;
+                    return matches.ToList();
+                }
+                catch (DataException)
+                {
+                    return new List<NHACUNGCAP>();
+                }
+            }
+        }
+
+        public static List<KHACHHANG> FilterKhachhangByTenKH(string tenKh)
 		{
 			 
 			{

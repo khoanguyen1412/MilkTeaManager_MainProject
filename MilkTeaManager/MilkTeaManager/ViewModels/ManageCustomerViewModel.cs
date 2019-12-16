@@ -12,6 +12,7 @@ namespace MilkTeaManager.ViewModels
     class ManageCustomerViewModel : BaseVM
     {
         private ObservableCollection<KHACHHANG> _khachhangs;
+        public ObservableCollection<string> _mhk { get; set; }
 
 
         private string _makh;
@@ -20,9 +21,12 @@ namespace MilkTeaManager.ViewModels
         private string _email;
         private string _tenkh;
         private KHACHHANG _skhachhang;
+        private string _text;
 
         public ICommand GetDatabaseCommand { get; set; }
-       public string MaKH
+        public ICommand SearchClick { get; set; }
+
+        public string MaKH
         {
             get { return _makh; }
             set { _makh = value;
@@ -89,7 +93,17 @@ namespace MilkTeaManager.ViewModels
                 OnPropertyChanged();
             }
         }
-       
+
+        public string Text
+        {
+            get => _text;
+            set
+            {
+                _text = value;
+                OnPropertyChanged();
+            }
+        }
+
         public ManageCustomerViewModel()
         {
             KhachHangs = new ObservableCollection<KHACHHANG>(DataAccess.GetKhachhangs());
@@ -103,6 +117,22 @@ namespace MilkTeaManager.ViewModels
             {
 
                 KhachHangs = new ObservableCollection<KHACHHANG>(DataAccess.GetKhachhangs());
+            });
+
+            _mhk = new ObservableCollection<string>(DataAccess.GetTenKH());
+
+            SearchClick = new RelayCommand<object>((p) =>
+            {
+                return true;
+
+            }, (p) =>
+            {
+                if (Text == "")
+                {
+                    KhachHangs = new ObservableCollection<KHACHHANG>(DataAccess.GetKhachhangs());
+                }
+                else
+                KhachHangs = new ObservableCollection<KHACHHANG>(DataAccess.FilterKhachhangByTenKH(Text));
             });
         }
     }

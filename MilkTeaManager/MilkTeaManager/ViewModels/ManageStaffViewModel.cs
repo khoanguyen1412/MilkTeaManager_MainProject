@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using MilkTeaManager.Models;
 
 namespace MilkTeaManager.ViewModels
@@ -11,10 +12,15 @@ namespace MilkTeaManager.ViewModels
     class ManageStaffViewModel : BaseVM
     {
         private ObservableCollection<NHANVIEN> _nhanviens;
+<<<<<<< HEAD
         private ObservableCollection<LOAINHANVIEN> _loainhanviens;
         private LOAINHANVIEN _sloainv;
         private int _ketquatimthay;
         private int soluong;
+=======
+        public ObservableCollection<string> _mnv { get; set; }
+
+>>>>>>> 9fb626847e6efe4f278439f429660f54cbfbc7a2
         private DateTime _nsinh;
         private string _sdt;
         private string _email;
@@ -22,6 +28,7 @@ namespace MilkTeaManager.ViewModels
         private string _luong;
         private string _chucvu;
         private NHANVIEN _snhanvien;
+<<<<<<< HEAD
         
         private string _manv;
 
@@ -60,6 +67,11 @@ namespace MilkTeaManager.ViewModels
             set { _manv = value;
             OnPropertyChanged();}
         }
+=======
+        private string _text;
+
+        public ICommand SearchClick { get; set; }
+>>>>>>> 9fb626847e6efe4f278439f429660f54cbfbc7a2
 
         public DateTime NgaySinh
         {
@@ -143,14 +155,42 @@ namespace MilkTeaManager.ViewModels
             }
         }
 
+        public string Text
+        {
+            get => _text;
+            set
+            {
+                _text = value;
+                OnPropertyChanged();
+            }
+        }
 
 
         public ManageStaffViewModel()
         {
             NhanViens = new ObservableCollection<NHANVIEN>(DataAccess.GetNhanviens());
+<<<<<<< HEAD
             LoaiNVs = new ObservableCollection<LOAINHANVIEN>(DataAccess.GetLoainhanviens());
             SoLuong = NhanViens.Count();
             KQTT = SoLuong;
+=======
+            _mnv = new ObservableCollection<string>(DataAccess.GetTenNV());
+
+            SearchClick = new RelayCommand<object>((p) =>
+            {
+                return true;
+
+            }, (p) =>
+            {
+                if (Text == "")
+                {
+                    NhanViens = new ObservableCollection<NHANVIEN>(DataAccess.GetNhanviens());
+                }
+                else
+                    NhanViens = new ObservableCollection<NHANVIEN>(DataAccess.FilterNhanvienByTenNV(Text));
+            });
+
+>>>>>>> 9fb626847e6efe4f278439f429660f54cbfbc7a2
         }
     }
 }

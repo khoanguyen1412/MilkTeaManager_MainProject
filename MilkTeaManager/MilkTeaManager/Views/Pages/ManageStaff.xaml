@@ -76,9 +76,11 @@
                                               HorizontalAlignment="Right"
                                               VerticalContentAlignment="Bottom"
                                               FontSize="20"
-                          Background="White"
+                                              Background="White"
                                               Width="250"
+                          Text="{Binding Text}"
                           behaviors:AutoCompleteBehavior.AutoCompleteItemsSource="{Binding _mnv}"
+                          behaviors:AutoCompleteBehavior.AutoCompleteStringComparison="InvariantCultureIgnoreCase"
                           />
                 <Grid>
                     <Label Width="50" Height="50" Background="#669BBF"/>
@@ -93,8 +95,9 @@
                         Width="50"
                         ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
                         Background="Transparent"
+                        Command="{Binding SearchClick}"
                         >
-
+                        <materialDesign:PackIcon Kind="AccountSearch"></materialDesign:PackIcon>
                     </Button>
                 </Grid>
 
