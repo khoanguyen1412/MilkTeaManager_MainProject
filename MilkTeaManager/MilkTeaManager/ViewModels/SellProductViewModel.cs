@@ -9,20 +9,20 @@ using System.Threading.Tasks;
 using MilkTeaManager.Models;
 using System.Windows;
 using MilkTeaManager.Views.Dialog;
+using MilkTeaManager.ViewModels.Dialog;
 
 namespace MilkTeaManager.ViewModels
 {
     public class SellProductViewModel : BaseVM
     {
 
-        private readonly SellProductViewModel m_ViewModel;
         private ObservableCollection<SANPHAM> _sanphams;
         private ObservableCollection<SANPHAM> _toppings;
         private ObservableCollection<SIZE> _sizes;
         private ObservableCollection<CHITIETHOADON> _cthds;
         private HOADON _hoadon;
 
-
+       
         private string _sdiachi;
         private string _ssdt;
         private string _stenkh;
@@ -33,7 +33,14 @@ namespace MilkTeaManager.ViewModels
         private SIZE _ssize;
         private int _tongtien;
         private int _tienkhachdua;
-
+        private int _tienthua;
+        public int TienThua
+        {
+            get { return _tienthua; }
+            set { _tienthua = value;
+                OnPropertyChanged();
+            }
+        }
 
         public int TongTien
         {
@@ -51,6 +58,7 @@ namespace MilkTeaManager.ViewModels
             {
                 _tienkhachdua = value;
                 OnPropertyChanged();
+                TienThua = TienKhachDua - TongTien;
             }
         }
 
@@ -182,7 +190,7 @@ namespace MilkTeaManager.ViewModels
             {
                 tong += (int)item.THANHTIEN;
             }
-            MessageBox.Show(tong.ToString());
+
             TongTien = tong;
         }
         #region command
@@ -198,8 +206,16 @@ namespace MilkTeaManager.ViewModels
 
         public SellProductViewModel()
         {
-            _tongtien = 0;
+            //int indexOfLastHD = DataAccess.db.HOADONs.Count();
+            //if (DataAccess.db.HOADONs.ElementAt(indexOfLastHD).TONGTIEN == null)
+            //{
+            //    _hoadon = DataAccess.db.HOADONs.ElementAt(indexOfLastHD);
+            //    _hoadon.NGAYLAP = DateTime.Now;
+            //}
+            //else
             _hoadon = new HOADON() { MANV = "NV001", NGAYLAP = DateTime.Now };
+            _tongtien = 0;
+
 
             DataAccess.SaveHoaDon(_hoadon);
             SoLuong = "1";
@@ -229,7 +245,7 @@ namespace MilkTeaManager.ViewModels
             EditSanPhamCommand = new RelayCommand<object>((p) =>
             {
 
-                if (SSanPham == null || SSize == null || SCTHD == null)
+                if (SSanPham == null || SSize == null || SCTHD == null || SCTHD.SANPHAM.MALOAISP =="LSP001")
                     return false;
                 if (int.Parse(SoLuong) <= 0 || int.Parse(SoLuong) > 99)
                     return false;
@@ -264,7 +280,7 @@ namespace MilkTeaManager.ViewModels
                 DataAccess.SaveChiTietHoaDon(cthd);
                 CTHDs.Add(cthd);
                 TinhTong();
-                MessageBox.Show(cthd.SIZE.SIZE1);
+      
             });
             DeleteSanPhamCommand = new RelayCommand<object>((p) =>
             {
@@ -278,9 +294,35 @@ namespace MilkTeaManager.ViewModels
 
                 var cthd = DataAccess.db.CHITIETHOADONs.Where(x => x.MACTHD == SCTHD.MACTHD).ToList().ElementAt(0);
 
-               // DataAccess.DeleteChiTietHoaDon(cthd);
+                DataAccess.DeleteChiTietHoaDon(cthd);
                 CTHDs.Remove(SCTHD);
                 TinhTong();
+            });
+
+           ThanhToanCommand = new RelayCommand<object>((p) =>
+            {
+
+                if (TongTien == 0 || TienKhachDua < TongTien)
+                    return false;
+                return true;
+
+            }, (p) =>
+            {
+                _hoadon.TONGTIEN = TongTien;
+                DataAccess.SaveHoaDon(_hoadon);
+                OrderForm orderWD = new OrderForm();
+                //var addVM2 = orderWD.DataContext as OrderFormViewModel;
+                //addVM2.TongTien = _tongtien;
+                orderWD.Show();
+                //reset page
+                _hoadon = new HOADON { MANV = "NV001", NGAYLAP = DateTime.Now };
+                DataAccess.SaveHoaDon(_hoadon);
+                TongTien = 0;
+                TienKhachDua = 0;
+                TienThua = 0;
+                CTHDs.Clear();
+                SCTHD = new CHITIETHOADON();
+
             });
             LoadKhachHangCommand = new RelayCommand<object>((p) => { return true; }, (p) => {
                 AddCustomer wd = new AddCustomer();

@@ -145,6 +145,7 @@
     <Compile Include="Rules\OnlyDigitsValidationRule.cs" />
     <Compile Include="ViewModels\Dialog\AddCustomerViewModel.cs" />
     <Compile Include="ViewModels\BaseVM.cs" />
+    <Compile Include="ViewModels\Dialog\OrderFormViewModel.cs" />
     <Compile Include="ViewModels\ImportMaterialViewModel.cs" />
     <Compile Include="ViewModels\LayoutViewModels\ContentViewModel.cs" />
     <Compile Include="ViewModels\MainHomepageViewModel.cs" />

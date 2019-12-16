@@ -15,7 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
-
+using MilkTeaManager.Models;
 namespace MilkTeaManager.Views
 {
     /// <summary>
@@ -23,6 +23,7 @@ namespace MilkTeaManager.Views
     /// </summary>
     public partial class MainHomepageView : Window
     {
+        private Boolean flag = false;
         public MainHomepageView()
         {
             InitializeComponent();
@@ -116,6 +117,7 @@ namespace MilkTeaManager.Views
         }
         private void BanHang_Click(object sender, RoutedEventArgs e)
         {
+            flag = true;
             this.PAGE_CONTENT.NavigationService.Navigate(new Uri("Views/Pages/SellProduct.xaml", UriKind.RelativeOrAbsolute));
         }
         private void SanPham_Click(object sender, RoutedEventArgs e)
@@ -163,8 +165,20 @@ namespace MilkTeaManager.Views
         {
             this.PAGE_CONTENT.NavigationService.Navigate(new Uri("Views/Pages/InventoryReport.xaml", UriKind.RelativeOrAbsolute));
         }
+
         #endregion
 
-
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (flag)
+            {
+                int index = DataAccess.db.HOADONs.Count() - 1;
+                HOADON a = DataAccess.db.HOADONs.ToList().ElementAt(index);
+                DataAccess.DeleteHoaDonByKey(a.MAHD);
+            }
+            //int index = DataAccess.db.HOADONs.Count() - 1;
+            //HOADON a = DataAccess.db.HOADONs.ToList().ElementAt(index);
+            //DataAccess.DeleteHoaDonByKey(a.MAHD);
+        }
     }
 }

@@ -13,7 +13,7 @@
         WindowState="Maximized"
         WindowStartupLocation="Manual"
        
-        Opacity="1" Width="1200">
+        Opacity="1" Width="1200" Closing="Window_Closing">
     <Window.Resources>
         <ResourceDictionary>
             <vms:ContentViewModel Content=" Home" IconSource="/Views/Images/home.png" x:Key="TAB_TongQuan"/>

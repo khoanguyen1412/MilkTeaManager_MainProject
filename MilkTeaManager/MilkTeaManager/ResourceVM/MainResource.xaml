@@ -1,9 +1,10 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:viewmodel="clr-namespace:MilkTeaManager.ViewModels"
+                    xmlns:viewmodelDialog="clr-namespace:MilkTeaManager.ViewModels.Dialog"
                     xmlns:local="clr-namespace:MilkTeaManager.ResourceVM">
     <viewmodel:SellProductViewModel x:Key="SellProductVM"></viewmodel:SellProductViewModel>
-    <viewmodel:AddCustomerViewModel x:Key="AddCustomerVM"></viewmodel:AddCustomerViewModel>
+    <viewmodelDialog:AddCustomerViewModel x:Key="AddCustomerVM"></viewmodelDialog:AddCustomerViewModel>
     <viewmodel:ManageCustomerViewModel x:Key="ManageCustomerVM"></viewmodel:ManageCustomerViewModel>
     <viewmodel:ManageImportMaterialViewModel x:Key="ManageImportVM"></viewmodel:ManageImportMaterialViewModel>
     <viewmodel:ManageProductViewModel x:Key="ManageProductVM"></viewmodel:ManageProductViewModel>
@@ -12,4 +13,5 @@
     <viewmodel:RevenueStatisticViewModel x:Key="RevenueStatisticVM"></viewmodel:RevenueStatisticViewModel>
     <viewmodel:MaterialReportViewModel x:Key="MaterialReportVM" ></viewmodel:MaterialReportViewModel>
     <viewmodel:MainHomepageViewModel x:Key="MainHomepageVM"></viewmodel:MainHomepageViewModel>
+    <viewmodelDialog:OrderFormViewModel x:Key="OrderFormVM"></viewmodelDialog:OrderFormViewModel>
 </ResourceDictionary>

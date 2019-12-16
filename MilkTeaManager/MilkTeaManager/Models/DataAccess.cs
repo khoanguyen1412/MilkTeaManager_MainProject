@@ -227,7 +227,7 @@ namespace MilkTeaManager.Models
 
         public static List<SANPHAM> GetTopping()
         {
-            using (var db=GetEntities1())
+           
             {
                 try
                 {
@@ -754,6 +754,23 @@ namespace MilkTeaManager.Models
             }
         }
         #endregion
+        public static void DeleteChiTietHoaDon(CHITIETHOADON cthd)
+        {
+            db.CHITIETHOADONs.Remove(cthd);
+            db.SaveChanges();
+        }
+        public static void DeleteHoaDonByKey(string maHd)
+        {
+            var cthds = GetChitiethoadonsByMaHD(maHd);
+            foreach (var cthd in cthds)
+            {
+                db.CHITIETHOADONs.Remove(cthd);
+                db.SaveChanges();
+            }
 
+            var hoadon = db.HOADONs.Where(x => x.MAHD == maHd).ToList().ElementAt(0);
+            db.HOADONs.Remove(hoadon);
+            db.SaveChanges();
+        }
     }
 }

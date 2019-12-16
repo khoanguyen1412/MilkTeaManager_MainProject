@@ -14,7 +14,7 @@
       x:Name="SellProductWD"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="SellProduct"
-      Background="#F2F2F2">
+      Background="#F2F2F2" ContextMenuClosing="SellProductWD_ContextMenuClosing">
 
     <Grid >
         <Grid.ColumnDefinitions>
@@ -162,7 +162,7 @@
                                     Command="{Binding AddToppingCommand}"
                                     >
                                 </Button>
-                                <StackPanel  Grid.Column="1" Margin="10,0,0,0" DataContext="{StaticResource MainHomepageVM}">
+                                <StackPanel  Grid.Column="1" Margin="10,0,0,0">
 
                                     <Button
                                     Style="{StaticResource MaterialDesignRaisedButton}"
@@ -170,55 +170,13 @@
                                     ToolTip="Resource name: MaterialDesignRaisedButton"
                                     Content="Xóa"
                                     
-                                            Command="{Binding LoadKhachHangPageCommand}"
+                                            Command="{Binding DeleteSanPhamCommand}"
                          
                                 >
                                     </Button>
                                 </StackPanel>
                             </Grid>
-                            <DataGrid 
-                                Margin="3"
-                                Grid.Row="3"
-                                CanUserSortColumns="True"
-                                CanUserAddRows="False"
-                                CanUserResizeColumns="False"
-                                CanUserResizeRows="False"
-                                AutoGenerateColumns="False"
-                                materialDesign:DataGridAssist.CellPadding="8"
-                                materialDesign:DataGridAssist.ColumnHeaderPadding="8"
-                                SelectionUnit="FullRow" Panel.ZIndex="-1" >
-                                <DataGrid.Columns>
-                                    <DataGridTextColumn 
-                                                    TextBlock.TextAlignment="Right"
-                                                    Header="Danh sách topping"
-                                                    IsReadOnly="True"
-                                                    CanUserSort="False"
-                                                    HeaderStyle="{StaticResource CenteredDataGridHeader}"
-                                                    CellStyle="{StaticResource CenteredDataGridCell}"/>
-
-                                    <DataGridTemplateColumn Width="30"
-                                                        HeaderStyle="{StaticResource CenteredDataGridHeader}"
-                                                        CellStyle="{StaticResource ButtonDataGridCellStyle}">
-                                        <DataGridTemplateColumn.CellTemplate>
-                                            <DataTemplate>
-                                                <Button Style="{StaticResource UIProjectIconButtonStyle}"
-                                                        ToolTip="Xóa sản phẩm khỏi đơn hàng"
-                                                        VerticalAlignment="Center"
-                                                        HorizontalAlignment="Center"
-                                                        Background="Transparent"
-                                                        Foreground="Black"
-                                                        Width="30"
-                                                        Height="30"
-                                                        >
-                                                    <materialDesign:PackIcon Kind="RemoveCircle"
-                                                                             Height="auto"
-                                                                             Width="auto"/>
-                                                </Button>
-                                            </DataTemplate>
-                                        </DataGridTemplateColumn.CellTemplate>
-                                    </DataGridTemplateColumn>
-                                </DataGrid.Columns>
-                            </DataGrid>
+                            
                         </Grid>
                     </materialDesign:Card>
 
@@ -316,27 +274,8 @@
                                                 CellStyle="{StaticResource RightDataGridCell}"
                                                 EditingElementStyle="{StaticResource CustomEditingTextColumnElementStyle}"
                                                     Binding="{Binding THANHTIEN}"/>
-                                <DataGridTemplateColumn Width="30"
-                                                    HeaderStyle="{StaticResource CenteredDataGridHeader}"
-                                                    CellStyle="{StaticResource ButtonDataGridCellStyle}">
-                                    <DataGridTemplateColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <Button Style="{StaticResource UIProjectIconButtonStyle}"
-                                                    ToolTip="Xóa sản phẩm khỏi đơn hàng"
-                                                    VerticalAlignment="Center"
-                                                    HorizontalAlignment="Center"
-                                                    Background="Transparent"
-                                                    Foreground="Black"
-                                                    Width="30"
-                                                    Height="30"
-                                                    >
-                                                <materialDesign:PackIcon Kind="RemoveCircle"
-                                                                         Height="auto"
-                                                                         Width="auto"/>
-                                            </Button>
-                                        </DataTemplate>
-                                    </DataGridTemplateColumn.CellTemplate>
-                                </DataGridTemplateColumn>
+                               
+                                   
                             </DataGrid.Columns>
                         </DataGrid>
                     </materialDesign:Card>
@@ -514,6 +453,7 @@
                                            HorizontalContentAlignment="Right"
                                            Style="{StaticResource MediumLabelStyle}"
                                            FontWeight="Normal"
+                                            Content="{Binding TongTien}"
                                            />
                         </DockPanel>
 
@@ -547,7 +487,9 @@
                         <TextBox Grid.Row="0" FontSize="15"
                                          VerticalAlignment="Center"
                                          Margin="10 5 10 5"
+                                  PreviewTextInput="NumberValidationTextBox"
                                          materialDesign:HintAssist.Hint="Tiền khách đưa:"
+                                 Text="{Binding TienKhachDua, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                           />
                         <Grid Grid.Row="1">
                             <Grid.RowDefinitions>
@@ -563,6 +505,7 @@
                                            HorizontalAlignment="Left"
                                            Style="{StaticResource MediumLabelStyle}"
                                            FontWeight="Normal"
+                                            Content="{Binding TienThua}"
                                            />
                         </Grid>
                         <Button Grid.Row="2"
@@ -574,6 +517,7 @@
                                         Click="pay_click"
                                         Style="{StaticResource UIProjectDarkShadowButtonStyle}"
                                         VerticalAlignment="Bottom"
+                                Command="{Binding ThanhToanCommand}"
                                 />
 
                     </Grid>

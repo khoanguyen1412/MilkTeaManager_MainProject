@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MilkTeaManager.Models;
 using MilkTeaManager.Views.Dialog;
 namespace MilkTeaManager.Views.Pages
 {
@@ -34,8 +35,12 @@ namespace MilkTeaManager.Views.Pages
 
         private void pay_click(object sender, RoutedEventArgs e)
         {
-            OrderForm x = new OrderForm();
-            x.ShowDialog();
+
+        }
+
+        private void SellProductWD_ContextMenuClosing(object sender, ContextMenuEventArgs e)
+        {
+
         }
     }
 }
