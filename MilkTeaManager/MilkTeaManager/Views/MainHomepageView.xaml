@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         DataContext="{StaticResource MainHomepageVM}"
         xmlns:vms="clr-namespace:MilkTeaManager.ViewModels.LayoutViewModels"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
@@ -12,8 +13,15 @@
         SizeToContent="Manual"
         WindowState="Maximized"
         WindowStartupLocation="Manual"
-       
+       Name="mainWindow"
         Opacity="1" Width="1200" Closing="Window_Closing">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedWindowsCommnad}" CommandParameter="{Binding ElementName=mainWindow}">
+
+            </i:InvokeCommandAction>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
     <Window.Resources>
         <ResourceDictionary>
             <vms:ContentViewModel Content=" Home" IconSource="/Views/Images/home.png" x:Key="TAB_TongQuan"/>
