@@ -82,18 +82,21 @@
                                          Grid.Column="1"
                                          Height="60"
                                          Click="Home_Click"
+                                         
                                          />
 
                     <RadioButton x:Name="banHang" Style="{StaticResource MenuTabRadioButtonStyle}"
                                      Content="{StaticResource TAB_BanHang}"
                                      Click="BanHang_Click"
                                      Height="60"
-                                 Grid.Row="1" Grid.Column="1"/>
+                                 Grid.Row="1" Grid.Column="1"
+                                 IsEnabled="{Binding DisableBH}"/>
 
                     <Expander Style="{StaticResource UIProjectMenuExpanderStyle}"
                                   Header="{StaticResource EXP_QuanLy}"
                                   Background="#4D5AAB" 
                               Grid.Row="2" Grid.Column="1"
+                             IsEnabled="{Binding DisableQL}"
                                   
                               >
 
@@ -139,7 +142,8 @@
                     </Expander>
                     <Expander Style="{StaticResource UIProjectMenuExpanderStyle}"
                                   Header="{StaticResource EXP_ThongKeThuChi}" Background="#4D5AAB"
-                              Grid.Row="3" Grid.Column="1"    
+                              Grid.Row="3" Grid.Column="1"
+                              IsEnabled="{Binding DisableTK}"
                               >
                         <StackPanel Orientation="Vertical">
                             <RadioButton Style="{StaticResource SubMenuTabRadioButtonStyle}"
