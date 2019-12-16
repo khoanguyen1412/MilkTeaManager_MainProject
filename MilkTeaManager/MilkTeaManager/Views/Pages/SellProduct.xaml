@@ -16,7 +16,7 @@
       Title="SellProduct"
       Background="#F2F2F2" ContextMenuClosing="SellProductWD_ContextMenuClosing">
 
-    <Grid >
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="7*"/>
             <ColumnDefinition Width="3*"/>

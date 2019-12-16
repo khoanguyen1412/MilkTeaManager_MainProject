@@ -81,6 +81,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Converters\IndexConverterListView.cs" />
     <Compile Include="Converters\RowToIndexConverter.cs" />
     <Compile Include="Models\CHITIETHOADON.cs">
       <DependentUpon>MilkTeaDb.tt</DependentUpon>

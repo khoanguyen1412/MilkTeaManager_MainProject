@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:dragablz="clr-namespace:Dragablz;assembly=Dragablz"
              xmlns:local="clr-namespace:MilkTeaManager"
+             xmlns:cv="clr-namespace:MilkTeaManager.Converters"
              StartupUri="Views/MainHomepageView.xaml"
              >
     <!--StartupUri="Views/SellProduct.xaml"-->
@@ -10,6 +11,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary>
+                    <cv:IndexConverterListView x:Key="ConverterIndexListView" />
                     <!--<local:Bootstrapper x:Key="Bootstrapper"/>-->
                 </ResourceDictionary>
 

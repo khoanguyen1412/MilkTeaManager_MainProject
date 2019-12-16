@@ -315,13 +315,13 @@ namespace MilkTeaManager.ViewModels
                 //addVM2.TongTien = _tongtien;
                 orderWD.Show();
                 //reset page
-                _hoadon = new HOADON { MANV = "NV001", NGAYLAP = DateTime.Now };
-                DataAccess.SaveHoaDon(_hoadon);
-                TongTien = 0;
-                TienKhachDua = 0;
-                TienThua = 0;
-                CTHDs.Clear();
-                SCTHD = new CHITIETHOADON();
+                //_hoadon = new HOADON { MANV = "NV001", NGAYLAP = DateTime.Now };
+                //DataAccess.SaveHoaDon(_hoadon);
+                //TongTien = 0;
+                //TienKhachDua = 0;
+                //TienThua = 0;
+                //CTHDs.Clear();
+                //SCTHD = new CHITIETHOADON();
 
             });
             LoadKhachHangCommand = new RelayCommand<object>((p) => { return true; }, (p) => {
