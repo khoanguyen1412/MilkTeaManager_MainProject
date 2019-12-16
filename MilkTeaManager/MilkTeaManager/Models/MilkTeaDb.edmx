@@ -4,12 +4,12 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="TRASUAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="TRASUAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CHITIETHOADON">
           <Key>
             <PropertyRef Name="MACTHD" />
           </Key>
-          <Property Name="MACTHD" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MACTHD" Type="nvarchar" MaxLength="50" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="MASP" Type="nvarchar" MaxLength="50" />
           <Property Name="SOLUONG" Type="int" />
           <Property Name="DONGIA" Type="int" />
@@ -22,7 +22,7 @@
             <PropertyRef Name="MACTNL" />
           </Key>
           <Property Name="MANL" Type="nvarchar" MaxLength="50" />
-          <Property Name="MACTNL" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MACTNL" Type="nvarchar" MaxLength="50" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="SOLUONG" Type="int" />
           <Property Name="GIABAN" Type="int" />
           <Property Name="MADVT" Type="nvarchar" MaxLength="50" />
@@ -32,7 +32,7 @@
           <Key>
             <PropertyRef Name="MACTPN" />
           </Key>
-          <Property Name="MACTPN" Type="nvarchar" MaxLength="7" Nullable="false" />
+          <Property Name="MACTPN" Type="nvarchar" MaxLength="7" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="MAPN" Type="nvarchar" MaxLength="5" />
           <Property Name="MANL" Type="nvarchar" MaxLength="50" />
           <Property Name="DINHLUONG" Type="int" />
@@ -51,7 +51,7 @@
           <Key>
             <PropertyRef Name="MAHD" />
           </Key>
-          <Property Name="MAHD" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MAHD" Type="nvarchar" MaxLength="50" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="MAKH" Type="nvarchar" MaxLength="50" />
           <Property Name="MANV" Type="nvarchar" MaxLength="50" />
           <Property Name="NGAYLAP" Type="smalldatetime" />
@@ -61,7 +61,7 @@
           <Key>
             <PropertyRef Name="MAKH" />
           </Key>
-          <Property Name="MAKH" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MAKH" Type="nvarchar" MaxLength="50" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="TENKH" Type="nvarchar" MaxLength="50" />
           <Property Name="SDT" Type="nvarchar" MaxLength="50" />
           <Property Name="DIACHI" Type="nvarchar" MaxLength="50" />
@@ -71,21 +71,21 @@
           <Key>
             <PropertyRef Name="MALOAINV" />
           </Key>
-          <Property Name="MALOAINV" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MALOAINV" Type="nvarchar" MaxLength="50" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="TENLOAINV" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="LOAISANPHAM">
           <Key>
             <PropertyRef Name="MALOAISP" />
           </Key>
-          <Property Name="MALOAISP" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MALOAISP" Type="nvarchar" MaxLength="50" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="TENLOAISP" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="NGUYENLIEU">
           <Key>
             <PropertyRef Name="MANL" />
           </Key>
-          <Property Name="MANL" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MANL" Type="nvarchar" MaxLength="50" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="TENNL" Type="nvarchar" MaxLength="50" />
           <Property Name="GIANHAP" Type="int" />
           <Property Name="GIAXUAT" Type="int" />
@@ -95,11 +95,12 @@
           <Key>
             <PropertyRef Name="MANCC" />
           </Key>
-          <Property Name="MANCC" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MANCC" Type="nvarchar" MaxLength="50" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="TENNCC" Type="nvarchar" MaxLength="50" />
           <Property Name="DIACHINCC" Type="nvarchar" MaxLength="50" />
           <Property Name="SDTNCC" Type="nvarchar" MaxLength="50" />
           <Property Name="EMAILNCC" Type="nvarchar" MaxLength="50" />
+          <Property Name="NGAYHOPTAC" Type="date" />
         </EntityType>
         <EntityType Name="NHANVIEN">
           <Key>
@@ -109,7 +110,7 @@
           <Property Name="NGAYSINH" Type="date" />
           <Property Name="SDT" Type="nvarchar" MaxLength="50" />
           <Property Name="MALOAINV" Type="nvarchar" MaxLength="50" />
-          <Property Name="MANV" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MANV" Type="nvarchar" MaxLength="50" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="EMAIL" Type="nvarchar" MaxLength="50" />
           <Property Name="LUONG" Type="int" />
         </EntityType>
@@ -117,7 +118,7 @@
           <Key>
             <PropertyRef Name="MAPN" />
           </Key>
-          <Property Name="MAPN" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="MAPN" Type="nvarchar" MaxLength="5" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="MANCC" Type="nvarchar" MaxLength="50" />
           <Property Name="NGAYNHAP" Type="datetime" />
         </EntityType>
@@ -125,7 +126,7 @@
           <Key>
             <PropertyRef Name="MASP" />
           </Key>
-          <Property Name="MASP" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MASP" Type="nvarchar" MaxLength="50" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="TENSP" Type="nvarchar" MaxLength="50" />
           <Property Name="MALOAISP" Type="nvarchar" MaxLength="50" />
           <Property Name="GIABAN" Type="int" />
@@ -393,7 +394,8 @@
             <End Role="SANPHAM" EntitySet="SANPHAM" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TRASUAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -401,7 +403,7 @@
           <Key>
             <PropertyRef Name="MACTHD" />
           </Key>
-          <Property Name="MACTHD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MACTHD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MASP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="SOLUONG" Type="Int32" />
           <Property Name="DONGIA" Type="Int32" />
@@ -417,7 +419,7 @@
             <PropertyRef Name="MACTNL" />
           </Key>
           <Property Name="MANL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MACTNL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MACTNL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="SOLUONG" Type="Int32" />
           <Property Name="GIABAN" Type="Int32" />
           <Property Name="MADVT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -430,7 +432,7 @@
           <Key>
             <PropertyRef Name="MACTPN" />
           </Key>
-          <Property Name="MACTPN" Type="String" MaxLength="7" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MACTPN" Type="String" MaxLength="7" FixedLength="false" Unicode="true" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MAPN" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
           <Property Name="MANL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="DINHLUONG" Type="Int32" />
@@ -454,7 +456,7 @@
           <Key>
             <PropertyRef Name="MAHD" />
           </Key>
-          <Property Name="MAHD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MAHD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MAKH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="MANV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="NGAYLAP" Type="DateTime" Precision="0" />
@@ -467,7 +469,7 @@
           <Key>
             <PropertyRef Name="MAKH" />
           </Key>
-          <Property Name="MAKH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MAKH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TENKH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="SDT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="DIACHI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -478,7 +480,7 @@
           <Key>
             <PropertyRef Name="MALOAINV" />
           </Key>
-          <Property Name="MALOAINV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MALOAINV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TENLOAINV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="NHANVIENs" Relationship="Self.FK_NHANVIEN_LOAINHANVIEN" FromRole="LOAINHANVIEN" ToRole="NHANVIEN" />
         </EntityType>
@@ -486,7 +488,7 @@
           <Key>
             <PropertyRef Name="MALOAISP" />
           </Key>
-          <Property Name="MALOAISP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MALOAISP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TENLOAISP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="SANPHAMs" Relationship="Self.FK_SANPHAM_LOAISANPHAM" FromRole="LOAISANPHAM" ToRole="SANPHAM" />
         </EntityType>
@@ -494,7 +496,7 @@
           <Key>
             <PropertyRef Name="MANL" />
           </Key>
-          <Property Name="MANL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MANL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TENNL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="GIANHAP" Type="Int32" />
           <Property Name="GIAXUAT" Type="Int32" />
@@ -507,7 +509,7 @@
           <Key>
             <PropertyRef Name="MANCC" />
           </Key>
-          <Property Name="MANCC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MANCC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TENNCC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="DIACHINCC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="SDTNCC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -524,7 +526,7 @@
           <Property Name="NGAYSINH" Type="DateTime" Precision="0" />
           <Property Name="SDT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="MALOAINV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MANV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MANV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="LUONG" Type="Int32" />
           <NavigationProperty Name="HOADONs" Relationship="Self.FK_HOADON_NHANVIEN" FromRole="NHANVIEN" ToRole="HOADON" />
@@ -534,7 +536,7 @@
           <Key>
             <PropertyRef Name="MAPN" />
           </Key>
-          <Property Name="MAPN" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MAPN" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MANCC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="NGAYNHAP" Type="DateTime" Precision="3" />
           <NavigationProperty Name="CHITIETPHIEUNHAPs" Relationship="Self.FK__CHITIETPHI__MAPN__4B422AD5" FromRole="PHIEUNHAP" ToRole="CHITIETPHIEUNHAP" />
@@ -544,7 +546,7 @@
           <Key>
             <PropertyRef Name="MASP" />
           </Key>
-          <Property Name="MASP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MASP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TENSP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="MALOAISP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="GIABAN" Type="Int32" />
@@ -740,7 +742,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="TRASUAEntities3" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="TRASUAEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CHITIETHOADONs" EntityType="Self.CHITIETHOADON" />
           <EntitySet Name="CHITIETNGUYENLIEUx" EntityType="Self.CHITIETNGUYENLIEU" />
           <EntitySet Name="CHITIETPHIEUNHAPs" EntityType="Self.CHITIETPHIEUNHAP" />
@@ -821,7 +823,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="TRASUAModelStoreContainer" CdmEntityContainer="TRASUAEntities3">
+        <EntityContainerMapping StorageEntityContainer="TRASUAModelStoreContainer" CdmEntityContainer="TRASUAEntities1">
           <EntitySetMapping Name="CHITIETHOADONs">
             <EntityTypeMapping TypeName="TRASUAModel.CHITIETHOADON">
               <MappingFragment StoreEntitySet="CHITIETHOADON">
@@ -925,6 +927,7 @@
                 <ScalarProperty Name="DIACHINCC" ColumnName="DIACHINCC" />
                 <ScalarProperty Name="SDTNCC" ColumnName="SDTNCC" />
                 <ScalarProperty Name="EMAILNCC" ColumnName="EMAILNCC" />
+                <ScalarProperty Name="NGAYHOPTAC" ColumnName="NGAYHOPTAC" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

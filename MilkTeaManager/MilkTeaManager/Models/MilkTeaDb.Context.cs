@@ -13,10 +13,10 @@ namespace MilkTeaManager.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class TRASUAEntities3 : DbContext
+    public partial class TRASUAEntities1 : DbContext
     {
-        public TRASUAEntities3()
-            : base("name=TRASUAEntities3")
+        public TRASUAEntities1()
+            : base("name=TRASUAEntities1")
         {
         }
     

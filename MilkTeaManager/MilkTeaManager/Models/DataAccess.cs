@@ -23,12 +23,12 @@ namespace MilkTeaManager.Models
 	public class DataAccess
 	{
 
-		public static TRASUAEntities3 GetEntities1()
+		public static TRASUAEntities1 GetEntities1()
 		{
-			return new TRASUAEntities3();
+			return new TRASUAEntities1();
 		}
 
-        public static TRASUAEntities3 db = GetEntities1();
+        public static TRASUAEntities1 db = GetEntities1();
 
 
 		#region Get_Object_By_Id
