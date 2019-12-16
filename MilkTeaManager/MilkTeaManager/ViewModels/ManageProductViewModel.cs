@@ -13,25 +13,19 @@ namespace MilkTeaManager.ViewModels
     {
         private ObservableCollection<SANPHAM> _sanphams;
         private ObservableCollection<LOAISANPHAM> _loaisps;
-<<<<<<< HEAD
         private ObservableCollection<CHITIETNGUYENLIEU> _ctnls;
-=======
         public ObservableCollection<string> _msp { get; set; }
->>>>>>> 9fb626847e6efe4f278439f429660f54cbfbc7a2
 
         private SANPHAM _ssanpham;
         private LOAISANPHAM _sloaisp;
         private int _ketquatimthay;
-<<<<<<< HEAD
         private int soluong;
         private string _tensp;
         private string _tenlsp;
         private string _masp;
-=======
         private string _text;
 
         public ICommand SearchClick { get; set; }
->>>>>>> 9fb626847e6efe4f278439f429660f54cbfbc7a2
 
         public string MaSP
         {
@@ -114,19 +108,20 @@ namespace MilkTeaManager.ViewModels
                 OnPropertyChanged();
             }
         }
-<<<<<<< HEAD
         public ObservableCollection<CHITIETNGUYENLIEU> CTNLs
         {
             get { return _ctnls; }
-            set { _ctnls = value;
-=======
+            set
+            {
+                _ctnls = value;
+            }
+        }
         public string Text
         {
             get => _text;
             set
             {
                 _text = value;
->>>>>>> 9fb626847e6efe4f278439f429660f54cbfbc7a2
                 OnPropertyChanged();
             }
         }
@@ -134,11 +129,9 @@ namespace MilkTeaManager.ViewModels
         {
            
             LoaiSPs = new ObservableCollection<LOAISANPHAM>(DataAccess.GetLoaisanphams());
-<<<<<<< HEAD
             SanPhams = new ObservableCollection<SANPHAM>(DataAccess.GetSanphams());
             SoLuong = SanPhams.Count();
             KQTT = SoLuong;
-=======
             _msp = new ObservableCollection<string>(DataAccess.GetTenSP());
 
             SearchClick = new RelayCommand<object>((p) =>
@@ -154,7 +147,6 @@ namespace MilkTeaManager.ViewModels
                 //else
                     //LoaiSPs = new ObservableCollection<LOAISANPHAM>(DataAccess.(Text));
             });
->>>>>>> 9fb626847e6efe4f278439f429660f54cbfbc7a2
         }
     }
 }
