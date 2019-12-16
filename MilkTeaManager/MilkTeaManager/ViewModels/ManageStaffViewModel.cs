@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using MilkTeaManager.Models;
 
 namespace MilkTeaManager.ViewModels
@@ -11,6 +12,7 @@ namespace MilkTeaManager.ViewModels
     class ManageStaffViewModel : BaseVM
     {
         private ObservableCollection<NHANVIEN> _nhanviens;
+        public ObservableCollection<string> _mnv { get; set; }
 
         private DateTime _nsinh;
         private string _sdt;
@@ -19,6 +21,9 @@ namespace MilkTeaManager.ViewModels
         private string _luong;
         private string _chucvu;
         private NHANVIEN _snhanvien;
+        private string _text;
+
+        public ICommand SearchClick { get; set; }
 
         public DateTime NgaySinh
         {
@@ -94,12 +99,35 @@ namespace MilkTeaManager.ViewModels
             }
         }
 
+        public string Text
+        {
+            get => _text;
+            set
+            {
+                _text = value;
+                OnPropertyChanged();
+            }
+        }
 
 
         public ManageStaffViewModel()
         {
             NhanViens = new ObservableCollection<NHANVIEN>(DataAccess.GetNhanviens());
+            _mnv = new ObservableCollection<string>(DataAccess.GetTenNV());
 
+            SearchClick = new RelayCommand<object>((p) =>
+            {
+                return true;
+
+            }, (p) =>
+            {
+                if (Text == "")
+                {
+                    NhanViens = new ObservableCollection<NHANVIEN>(DataAccess.GetNhanviens());
+                }
+                else
+                    NhanViens = new ObservableCollection<NHANVIEN>(DataAccess.FilterNhanvienByTenNV(Text));
+            });
 
         }
     }

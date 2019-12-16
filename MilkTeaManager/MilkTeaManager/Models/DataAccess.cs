@@ -651,7 +651,23 @@ namespace MilkTeaManager.Models
 			}
 		}
 
-		public static List<KHACHHANG> FilterKhachhangByTenKH(string tenKh)
+        public static List<NHACUNGCAP> FilterNhaCungCapByTenNCC(string tenNCC)
+        {
+
+            {
+                try
+                {
+                    var matches = from m in db.NHACUNGCAPs where m.TENNCC.ToLower().Contains(tenNCC.ToLower()) select m;
+                    return matches.ToList();
+                }
+                catch (DataException)
+                {
+                    return new List<NHACUNGCAP>();
+                }
+            }
+        }
+
+        public static List<KHACHHANG> FilterKhachhangByTenKH(string tenKh)
 		{
 			 
 			{
