@@ -456,6 +456,17 @@ namespace MilkTeaManager.Models
 
         }
 
+        public static List<string> GetTenSP()
+        {
+
+
+            var result = from productlist in db.SANPHAMs
+                         select productlist.TENSP;
+
+            return result.ToList();
+
+        }
+
         #endregion
 
         #region Add_Or_Update  //Không chắc xài được
