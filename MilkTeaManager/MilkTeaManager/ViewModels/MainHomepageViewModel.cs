@@ -12,11 +12,15 @@ namespace MilkTeaManager.ViewModels
 {
     public class MainHomepageViewModel : BaseVM
     {
+
+        private string _hKey;
         public ICommand LoadKhachHangPageCommand { get; set; }
         public ICommand LoadedWindowsCommnad { get; set; }
+        public string HKey { get => _hKey; set => _hKey = value; }
+
         public MainHomepageViewModel()
         {
-            
+
             LoadKhachHangPageCommand = new RelayCommand<object>((p) =>
             {
 
@@ -30,10 +34,26 @@ namespace MilkTeaManager.ViewModels
                 return true;
             }, (p) =>
             {
+                if (p == null)
+                    return;
                 p.Hide();
                 LoginWindows loginWindow = new LoginWindows();
                 loginWindow.ShowDialog();
-                p.Show();
+
+                if (loginWindow.DataContext == null)
+                    return;
+                var loginVM = loginWindow.DataContext as LoginWindowsViewModel;
+
+                if (loginVM.IsLogin)
+                {
+                    HKey = loginVM.Key;
+                    p.Show();
+                }
+                else
+                {
+                    p.Close();
+                }
+
             });
         }
     }
