@@ -423,34 +423,34 @@ namespace MilkTeaManager.Models
             }
         }
 
-        public static List<string> GetMaKh()
+        public static List<string> GetTenKH()
         {
 
 
             var result = from productlist in db.KHACHHANGs
-                         select productlist.MAKH;
+                         select productlist.TENKH;
 
             return result.ToList();
 
         }
 
-        public static List<string> GetMaNV()
+        public static List<string> GetTenNV()
         {
 
 
             var result = from productlist in db.NHANVIENs
-                         select productlist.MANV;
+                         select productlist.HOTEN;
 
             return result.ToList();
 
         }
 
-        public static List<string> GetMaNCC()
+        public static List<string> GetTenNCC()
         {
 
 
             var result = from productlist in db.NHACUNGCAPs
-                         select productlist.MANCC;
+                         select productlist.TENNCC;
 
             return result.ToList();
 

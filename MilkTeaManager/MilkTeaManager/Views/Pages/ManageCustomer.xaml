@@ -72,7 +72,9 @@
                                               FontSize="20"
                                               Width="350"
                                               Background="White"
-                                              behaviors:AutoCompleteBehavior.AutoCompleteItemsSource="{Binding _mhk}"/>
+                                              Text="{Binding Text}"
+                                              behaviors:AutoCompleteBehavior.AutoCompleteItemsSource="{Binding _mhk}"
+                                              behaviors:AutoCompleteBehavior.AutoCompleteStringComparison="InvariantCultureIgnoreCase"/>
                 <Grid>
                     <Label Width="50" Height="50" Background="#669BBF"/>
                     <Image  Margin="5"
@@ -86,7 +88,9 @@
                         Width="50"
                         ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
                         Background="Transparent"
+                        Command="{Binding SearchClick}"
                         >
+                        <materialDesign:PackIcon Kind="AccountSearch"></materialDesign:PackIcon>
 
                     </Button>
                 </Grid>

@@ -79,6 +79,7 @@
                           Background="White"
                                               Width="250"
                           behaviors:AutoCompleteBehavior.AutoCompleteItemsSource="{Binding _mnv}"
+                          behaviors:AutoCompleteBehavior.AutoCompleteStringComparison="InvariantCultureIgnoreCase"
                           />
                 <Grid>
                     <Label Width="50" Height="50" Background="#669BBF"/>

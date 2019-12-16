@@ -74,7 +74,8 @@
                                               FontSize="20"
                           Background="White"
                                               Width="350"
-                          behaviors:AutoCompleteBehavior.AutoCompleteItemsSource="{Binding _manc}"/>
+                          behaviors:AutoCompleteBehavior.AutoCompleteItemsSource="{Binding _manc}"
+                          behaviors:AutoCompleteBehavior.AutoCompleteStringComparison="InvariantCultureIgnoreCase"/>
                 <Grid>
                     <Label Width="50" Height="50" Background="#669BBF"/>
                     <Image  Margin="5"
