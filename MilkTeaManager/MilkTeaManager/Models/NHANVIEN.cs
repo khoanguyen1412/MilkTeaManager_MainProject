@@ -25,6 +25,8 @@ namespace MilkTeaManager.Models
         public string SDT { get; set; }
         public string MALOAINV { get; set; }
         public string MANV { get; set; }
+        public string EMAIL { get; set; }
+        public Nullable<int> LUONG { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HOADON> HOADONs { get; set; }

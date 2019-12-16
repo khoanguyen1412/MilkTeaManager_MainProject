@@ -88,6 +88,9 @@
     <Compile Include="Models\CHITIETNGUYENLIEU.cs">
       <DependentUpon>MilkTeaDb.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CHITIETPHIEUNHAP.cs">
+      <DependentUpon>MilkTeaDb.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DataAccess.cs" />
     <Compile Include="Models\DONVITINH.cs">
       <DependentUpon>MilkTeaDb.tt</DependentUpon>
@@ -130,6 +133,9 @@
     </Compile>
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\PersonModel.cs" />
+    <Compile Include="Models\PHIEUNHAP.cs">
+      <DependentUpon>MilkTeaDb.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\SANPHAM.cs">
       <DependentUpon>MilkTeaDb.tt</DependentUpon>
     </Compile>

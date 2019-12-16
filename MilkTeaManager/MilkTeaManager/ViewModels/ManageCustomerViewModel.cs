@@ -12,7 +12,7 @@ namespace MilkTeaManager.ViewModels
     class ManageCustomerViewModel : BaseVM
     {
         private ObservableCollection<KHACHHANG> _khachhangs;
-        public ObservableCollection<string> _mhk { get; set; }
+
 
         private string _makh;
         private string _sdt;
@@ -93,7 +93,7 @@ namespace MilkTeaManager.ViewModels
         public ManageCustomerViewModel()
         {
             KhachHangs = new ObservableCollection<KHACHHANG>(DataAccess.GetKhachhangs());
-            _mhk = new ObservableCollection<string>(DataAccess.GetMaKh());
+
             GetDatabaseCommand = new RelayCommand<object>((p) =>
             {
                

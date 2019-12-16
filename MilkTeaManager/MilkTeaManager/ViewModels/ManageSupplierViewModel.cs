@@ -11,7 +11,7 @@ namespace MilkTeaManager.ViewModels
     class ManageSupplierViewModel : BaseVM
     {
         private ObservableCollection<NHACUNGCAP> _nhacungcaps;
-        public ObservableCollection<string> _manc { get; set; }
+
 
         private string _sdt;
         private string _diachi;
@@ -93,7 +93,7 @@ namespace MilkTeaManager.ViewModels
         public ManageSupplierViewModel()
         {
             NhaCungCaps = new ObservableCollection<NHACUNGCAP>(DataAccess.GetNhacungcaps());
-            _manc = new ObservableCollection<string>(DataAccess.GetMaNCC());
+
         }
     }
 }

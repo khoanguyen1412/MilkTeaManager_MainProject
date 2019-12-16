@@ -18,6 +18,7 @@ namespace MilkTeaManager.Models
         public NGUYENLIEU()
         {
             this.CHITIETNGUYENLIEUx = new HashSet<CHITIETNGUYENLIEU>();
+            this.CHITIETPHIEUNHAPs = new HashSet<CHITIETPHIEUNHAP>();
         }
     
         public string MANL { get; set; }
@@ -28,6 +29,8 @@ namespace MilkTeaManager.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CHITIETNGUYENLIEU> CHITIETNGUYENLIEUx { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CHITIETPHIEUNHAP> CHITIETPHIEUNHAPs { get; set; }
         public virtual NHACUNGCAP NHACUNGCAP { get; set; }
     }
 }

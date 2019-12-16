@@ -24,6 +24,7 @@ namespace MilkTeaManager.Models
         public string MAKH { get; set; }
         public string MANV { get; set; }
         public Nullable<System.DateTime> NGAYLAP { get; set; }
+        public Nullable<int> TONGTIEN { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CHITIETHOADON> CHITIETHOADONs { get; set; }

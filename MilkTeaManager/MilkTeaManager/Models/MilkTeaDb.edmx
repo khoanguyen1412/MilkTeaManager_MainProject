@@ -4,12 +4,12 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="TRASUAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="TRASUAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CHITIETHOADON">
           <Key>
             <PropertyRef Name="MACTHD" />
           </Key>
-          <Property Name="MACTHD" Type="nvarchar" MaxLength="50" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MACTHD" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="MASP" Type="nvarchar" MaxLength="50" />
           <Property Name="SOLUONG" Type="int" />
           <Property Name="DONGIA" Type="int" />
@@ -22,11 +22,23 @@
             <PropertyRef Name="MACTNL" />
           </Key>
           <Property Name="MANL" Type="nvarchar" MaxLength="50" />
-          <Property Name="MACTNL" Type="nvarchar" MaxLength="50" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MACTNL" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="SOLUONG" Type="int" />
           <Property Name="GIABAN" Type="int" />
           <Property Name="MADVT" Type="nvarchar" MaxLength="50" />
           <Property Name="MASP" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CHITIETPHIEUNHAP">
+          <Key>
+            <PropertyRef Name="MACTPN" />
+          </Key>
+          <Property Name="MACTPN" Type="nvarchar" MaxLength="7" Nullable="false" />
+          <Property Name="MAPN" Type="nvarchar" MaxLength="5" />
+          <Property Name="MANL" Type="nvarchar" MaxLength="50" />
+          <Property Name="DINHLUONG" Type="int" />
+          <Property Name="MADVT" Type="nvarchar" MaxLength="50" />
+          <Property Name="DONGIA" Type="int" />
+          <Property Name="TONGTIEN" Type="int" StoreGeneratedPattern="Computed" />
         </EntityType>
         <EntityType Name="DONVITINH">
           <Key>
@@ -39,16 +51,17 @@
           <Key>
             <PropertyRef Name="MAHD" />
           </Key>
-          <Property Name="MAHD" Type="nvarchar" MaxLength="50" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MAHD" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="MAKH" Type="nvarchar" MaxLength="50" />
           <Property Name="MANV" Type="nvarchar" MaxLength="50" />
           <Property Name="NGAYLAP" Type="smalldatetime" />
+          <Property Name="TONGTIEN" Type="int" />
         </EntityType>
         <EntityType Name="KHACHHANG">
           <Key>
             <PropertyRef Name="MAKH" />
           </Key>
-          <Property Name="MAKH" Type="nvarchar" MaxLength="50" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MAKH" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="TENKH" Type="nvarchar" MaxLength="50" />
           <Property Name="SDT" Type="nvarchar" MaxLength="50" />
           <Property Name="DIACHI" Type="nvarchar" MaxLength="50" />
@@ -58,21 +71,21 @@
           <Key>
             <PropertyRef Name="MALOAINV" />
           </Key>
-          <Property Name="MALOAINV" Type="nvarchar" MaxLength="50" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MALOAINV" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="TENLOAINV" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="LOAISANPHAM">
           <Key>
             <PropertyRef Name="MALOAISP" />
           </Key>
-          <Property Name="MALOAISP" Type="nvarchar" MaxLength="50" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MALOAISP" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="TENLOAISP" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="NGUYENLIEU">
           <Key>
             <PropertyRef Name="MANL" />
           </Key>
-          <Property Name="MANL" Type="nvarchar" MaxLength="50" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MANL" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="TENNL" Type="nvarchar" MaxLength="50" />
           <Property Name="GIANHAP" Type="int" />
           <Property Name="GIAXUAT" Type="int" />
@@ -82,10 +95,11 @@
           <Key>
             <PropertyRef Name="MANCC" />
           </Key>
-          <Property Name="MANCC" Type="nvarchar" MaxLength="50" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MANCC" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="TENNCC" Type="nvarchar" MaxLength="50" />
           <Property Name="DIACHINCC" Type="nvarchar" MaxLength="50" />
           <Property Name="SDTNCC" Type="nvarchar" MaxLength="50" />
+          <Property Name="EMAILNCC" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="NHANVIEN">
           <Key>
@@ -95,13 +109,23 @@
           <Property Name="NGAYSINH" Type="date" />
           <Property Name="SDT" Type="nvarchar" MaxLength="50" />
           <Property Name="MALOAINV" Type="nvarchar" MaxLength="50" />
-          <Property Name="MANV" Type="nvarchar" MaxLength="50" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MANV" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="EMAIL" Type="nvarchar" MaxLength="50" />
+          <Property Name="LUONG" Type="int" />
+        </EntityType>
+        <EntityType Name="PHIEUNHAP">
+          <Key>
+            <PropertyRef Name="MAPN" />
+          </Key>
+          <Property Name="MAPN" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="MANCC" Type="nvarchar" MaxLength="50" />
+          <Property Name="NGAYNHAP" Type="datetime" />
         </EntityType>
         <EntityType Name="SANPHAM">
           <Key>
             <PropertyRef Name="MASP" />
           </Key>
-          <Property Name="MASP" Type="nvarchar" MaxLength="50" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MASP" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="TENSP" Type="nvarchar" MaxLength="50" />
           <Property Name="MALOAISP" Type="nvarchar" MaxLength="50" />
           <Property Name="GIABAN" Type="int" />
@@ -122,6 +146,54 @@
             </Principal>
             <Dependent Role="CHITIETNGUYENLIEU">
               <PropertyRef Name="MANL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CHITIETPH__MADVT__4D2A7347">
+          <End Role="DONVITINH" Type="Self.DONVITINH" Multiplicity="0..1" />
+          <End Role="CHITIETPHIEUNHAP" Type="Self.CHITIETPHIEUNHAP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DONVITINH">
+              <PropertyRef Name="madvt" />
+            </Principal>
+            <Dependent Role="CHITIETPHIEUNHAP">
+              <PropertyRef Name="MADVT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CHITIETPHI__MANL__4C364F0E">
+          <End Role="NGUYENLIEU" Type="Self.NGUYENLIEU" Multiplicity="0..1" />
+          <End Role="CHITIETPHIEUNHAP" Type="Self.CHITIETPHIEUNHAP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NGUYENLIEU">
+              <PropertyRef Name="MANL" />
+            </Principal>
+            <Dependent Role="CHITIETPHIEUNHAP">
+              <PropertyRef Name="MANL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CHITIETPHI__MAPN__4B422AD5">
+          <End Role="PHIEUNHAP" Type="Self.PHIEUNHAP" Multiplicity="0..1" />
+          <End Role="CHITIETPHIEUNHAP" Type="Self.CHITIETPHIEUNHAP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PHIEUNHAP">
+              <PropertyRef Name="MAPN" />
+            </Principal>
+            <Dependent Role="CHITIETPHIEUNHAP">
+              <PropertyRef Name="MAPN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PHIEUNHAP__MANCC__41B8C09B">
+          <End Role="NHACUNGCAP" Type="Self.NHACUNGCAP" Multiplicity="0..1" />
+          <End Role="PHIEUNHAP" Type="Self.PHIEUNHAP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHACUNGCAP">
+              <PropertyRef Name="MANCC" />
+            </Principal>
+            <Dependent Role="PHIEUNHAP">
+              <PropertyRef Name="MANCC" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -248,6 +320,7 @@
         <EntityContainer Name="TRASUAModelStoreContainer">
           <EntitySet Name="CHITIETHOADON" EntityType="Self.CHITIETHOADON" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CHITIETNGUYENLIEU" EntityType="Self.CHITIETNGUYENLIEU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CHITIETPHIEUNHAP" EntityType="Self.CHITIETPHIEUNHAP" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DONVITINH" EntityType="Self.DONVITINH" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HOADON" EntityType="Self.HOADON" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="KHACHHANG" EntityType="Self.KHACHHANG" Schema="dbo" store:Type="Tables" />
@@ -256,11 +329,28 @@
           <EntitySet Name="NGUYENLIEU" EntityType="Self.NGUYENLIEU" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NHACUNGCAP" EntityType="Self.NHACUNGCAP" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NHANVIEN" EntityType="Self.NHANVIEN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PHIEUNHAP" EntityType="Self.PHIEUNHAP" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SANPHAM" EntityType="Self.SANPHAM" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SIZE" EntityType="Self.SIZE" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__CHITIETNGU__MANL__6D0D32F4" Association="Self.FK__CHITIETNGU__MANL__6D0D32F4">
             <End Role="NGUYENLIEU" EntitySet="NGUYENLIEU" />
             <End Role="CHITIETNGUYENLIEU" EntitySet="CHITIETNGUYENLIEU" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CHITIETPH__MADVT__4D2A7347" Association="Self.FK__CHITIETPH__MADVT__4D2A7347">
+            <End Role="DONVITINH" EntitySet="DONVITINH" />
+            <End Role="CHITIETPHIEUNHAP" EntitySet="CHITIETPHIEUNHAP" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CHITIETPHI__MANL__4C364F0E" Association="Self.FK__CHITIETPHI__MANL__4C364F0E">
+            <End Role="NGUYENLIEU" EntitySet="NGUYENLIEU" />
+            <End Role="CHITIETPHIEUNHAP" EntitySet="CHITIETPHIEUNHAP" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CHITIETPHI__MAPN__4B422AD5" Association="Self.FK__CHITIETPHI__MAPN__4B422AD5">
+            <End Role="PHIEUNHAP" EntitySet="PHIEUNHAP" />
+            <End Role="CHITIETPHIEUNHAP" EntitySet="CHITIETPHIEUNHAP" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PHIEUNHAP__MANCC__41B8C09B" Association="Self.FK__PHIEUNHAP__MANCC__41B8C09B">
+            <End Role="NHACUNGCAP" EntitySet="NHACUNGCAP" />
+            <End Role="PHIEUNHAP" EntitySet="PHIEUNHAP" />
           </AssociationSet>
           <AssociationSet Name="FK_CHITIETHOADON_HOADON" Association="Self.FK_CHITIETHOADON_HOADON">
             <End Role="HOADON" EntitySet="HOADON" />
@@ -303,7 +393,8 @@
             <End Role="SANPHAM" EntitySet="SANPHAM" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TRASUAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -311,7 +402,7 @@
           <Key>
             <PropertyRef Name="MACTHD" />
           </Key>
-          <Property Name="MACTHD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MACTHD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="MASP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="SOLUONG" Type="Int32" />
           <Property Name="DONGIA" Type="Int32" />
@@ -327,7 +418,7 @@
             <PropertyRef Name="MACTNL" />
           </Key>
           <Property Name="MANL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MACTNL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MACTNL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="SOLUONG" Type="Int32" />
           <Property Name="GIABAN" Type="Int32" />
           <Property Name="MADVT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -336,6 +427,21 @@
           <NavigationProperty Name="DONVITINH" Relationship="Self.FK_CHITIETNGUYENLIEU_DONVITINH" FromRole="CHITIETNGUYENLIEU" ToRole="DONVITINH" />
           <NavigationProperty Name="SANPHAM" Relationship="Self.FK_CHITIETNGUYENLIEU_SANPHAM" FromRole="CHITIETNGUYENLIEU" ToRole="SANPHAM" />
         </EntityType>
+        <EntityType Name="CHITIETPHIEUNHAP">
+          <Key>
+            <PropertyRef Name="MACTPN" />
+          </Key>
+          <Property Name="MACTPN" Type="String" MaxLength="7" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MAPN" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="MANL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DINHLUONG" Type="Int32" />
+          <Property Name="MADVT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DONGIA" Type="Int32" />
+          <Property Name="TONGTIEN" Type="Int32" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="DONVITINH" Relationship="Self.FK__CHITIETPH__MADVT__4D2A7347" FromRole="CHITIETPHIEUNHAP" ToRole="DONVITINH" />
+          <NavigationProperty Name="NGUYENLIEU" Relationship="Self.FK__CHITIETPHI__MANL__4C364F0E" FromRole="CHITIETPHIEUNHAP" ToRole="NGUYENLIEU" />
+          <NavigationProperty Name="PHIEUNHAP" Relationship="Self.FK__CHITIETPHI__MAPN__4B422AD5" FromRole="CHITIETPHIEUNHAP" ToRole="PHIEUNHAP" />
+        </EntityType>
         <EntityType Name="DONVITINH">
           <Key>
             <PropertyRef Name="madvt" />
@@ -343,15 +449,17 @@
           <Property Name="madvt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="tendvt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="CHITIETNGUYENLIEUx" Relationship="Self.FK_CHITIETNGUYENLIEU_DONVITINH" FromRole="DONVITINH" ToRole="CHITIETNGUYENLIEU" />
+          <NavigationProperty Name="CHITIETPHIEUNHAPs" Relationship="Self.FK__CHITIETPH__MADVT__4D2A7347" FromRole="DONVITINH" ToRole="CHITIETPHIEUNHAP" />
         </EntityType>
         <EntityType Name="HOADON">
           <Key>
             <PropertyRef Name="MAHD" />
           </Key>
-          <Property Name="MAHD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MAHD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="MAKH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="MANV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="NGAYLAP" Type="DateTime" Precision="0" />
+          <Property Name="TONGTIEN" Type="Int32" />
           <NavigationProperty Name="CHITIETHOADONs" Relationship="Self.FK_CHITIETHOADON_HOADON" FromRole="HOADON" ToRole="CHITIETHOADON" />
           <NavigationProperty Name="KHACHHANG" Relationship="Self.FK_HOADON_KHACHHANG" FromRole="HOADON" ToRole="KHACHHANG" />
           <NavigationProperty Name="NHANVIEN" Relationship="Self.FK_HOADON_NHANVIEN" FromRole="HOADON" ToRole="NHANVIEN" />
@@ -360,7 +468,7 @@
           <Key>
             <PropertyRef Name="MAKH" />
           </Key>
-          <Property Name="MAKH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MAKH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="TENKH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="SDT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="DIACHI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -371,7 +479,7 @@
           <Key>
             <PropertyRef Name="MALOAINV" />
           </Key>
-          <Property Name="MALOAINV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MALOAINV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="TENLOAINV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="NHANVIENs" Relationship="Self.FK_NHANVIEN_LOAINHANVIEN" FromRole="LOAINHANVIEN" ToRole="NHANVIEN" />
         </EntityType>
@@ -379,7 +487,7 @@
           <Key>
             <PropertyRef Name="MALOAISP" />
           </Key>
-          <Property Name="MALOAISP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MALOAISP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="TENLOAISP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="SANPHAMs" Relationship="Self.FK_SANPHAM_LOAISANPHAM" FromRole="LOAISANPHAM" ToRole="SANPHAM" />
         </EntityType>
@@ -387,23 +495,26 @@
           <Key>
             <PropertyRef Name="MANL" />
           </Key>
-          <Property Name="MANL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MANL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="TENNL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="GIANHAP" Type="Int32" />
           <Property Name="GIAXUAT" Type="Int32" />
-          <Property Name="MANCC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="None" />
+          <Property Name="MANCC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="CHITIETNGUYENLIEUx" Relationship="Self.FK__CHITIETNGU__MANL__6D0D32F4" FromRole="NGUYENLIEU" ToRole="CHITIETNGUYENLIEU" />
+          <NavigationProperty Name="CHITIETPHIEUNHAPs" Relationship="Self.FK__CHITIETPHI__MANL__4C364F0E" FromRole="NGUYENLIEU" ToRole="CHITIETPHIEUNHAP" />
           <NavigationProperty Name="NHACUNGCAP" Relationship="Self.fk_mancc_nl" FromRole="NGUYENLIEU" ToRole="NHACUNGCAP" />
         </EntityType>
         <EntityType Name="NHACUNGCAP">
           <Key>
             <PropertyRef Name="MANCC" />
           </Key>
-          <Property Name="MANCC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MANCC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="TENNCC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="DIACHINCC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="SDTNCC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EMAILNCC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="NGUYENLIEUx" Relationship="Self.fk_mancc_nl" FromRole="NHACUNGCAP" ToRole="NGUYENLIEU" />
+          <NavigationProperty Name="PHIEUNHAPs" Relationship="Self.FK__PHIEUNHAP__MANCC__41B8C09B" FromRole="NHACUNGCAP" ToRole="PHIEUNHAP" />
         </EntityType>
         <EntityType Name="NHANVIEN">
           <Key>
@@ -413,15 +524,27 @@
           <Property Name="NGAYSINH" Type="DateTime" Precision="0" />
           <Property Name="SDT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="MALOAINV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MANV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MANV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LUONG" Type="Int32" />
           <NavigationProperty Name="HOADONs" Relationship="Self.FK_HOADON_NHANVIEN" FromRole="NHANVIEN" ToRole="HOADON" />
           <NavigationProperty Name="LOAINHANVIEN" Relationship="Self.FK_NHANVIEN_LOAINHANVIEN" FromRole="NHANVIEN" ToRole="LOAINHANVIEN" />
+        </EntityType>
+        <EntityType Name="PHIEUNHAP">
+          <Key>
+            <PropertyRef Name="MAPN" />
+          </Key>
+          <Property Name="MAPN" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MANCC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NGAYNHAP" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="CHITIETPHIEUNHAPs" Relationship="Self.FK__CHITIETPHI__MAPN__4B422AD5" FromRole="PHIEUNHAP" ToRole="CHITIETPHIEUNHAP" />
+          <NavigationProperty Name="NHACUNGCAP" Relationship="Self.FK__PHIEUNHAP__MANCC__41B8C09B" FromRole="PHIEUNHAP" ToRole="NHACUNGCAP" />
         </EntityType>
         <EntityType Name="SANPHAM">
           <Key>
             <PropertyRef Name="MASP" />
           </Key>
-          <Property Name="MASP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MASP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="TENSP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="MALOAISP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="GIABAN" Type="Int32" />
@@ -509,6 +632,42 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__CHITIETPH__MADVT__4D2A7347">
+          <End Role="DONVITINH" Type="Self.DONVITINH" Multiplicity="0..1" />
+          <End Role="CHITIETPHIEUNHAP" Type="Self.CHITIETPHIEUNHAP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DONVITINH">
+              <PropertyRef Name="madvt" />
+            </Principal>
+            <Dependent Role="CHITIETPHIEUNHAP">
+              <PropertyRef Name="MADVT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CHITIETPHI__MANL__4C364F0E">
+          <End Role="NGUYENLIEU" Type="Self.NGUYENLIEU" Multiplicity="0..1" />
+          <End Role="CHITIETPHIEUNHAP" Type="Self.CHITIETPHIEUNHAP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NGUYENLIEU">
+              <PropertyRef Name="MANL" />
+            </Principal>
+            <Dependent Role="CHITIETPHIEUNHAP">
+              <PropertyRef Name="MANL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CHITIETPHI__MAPN__4B422AD5">
+          <End Role="PHIEUNHAP" Type="Self.PHIEUNHAP" Multiplicity="0..1" />
+          <End Role="CHITIETPHIEUNHAP" Type="Self.CHITIETPHIEUNHAP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PHIEUNHAP">
+              <PropertyRef Name="MAPN" />
+            </Principal>
+            <Dependent Role="CHITIETPHIEUNHAP">
+              <PropertyRef Name="MAPN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_HOADON_KHACHHANG">
           <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1" />
           <End Role="HOADON" Type="Self.HOADON" Multiplicity="*" />
@@ -569,9 +728,22 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="TRASUAEntities" annotation:LazyLoadingEnabled="true">
+        <Association Name="FK__PHIEUNHAP__MANCC__41B8C09B">
+          <End Role="NHACUNGCAP" Type="Self.NHACUNGCAP" Multiplicity="0..1" />
+          <End Role="PHIEUNHAP" Type="Self.PHIEUNHAP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHACUNGCAP">
+              <PropertyRef Name="MANCC" />
+            </Principal>
+            <Dependent Role="PHIEUNHAP">
+              <PropertyRef Name="MANCC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TRASUAEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CHITIETHOADONs" EntityType="Self.CHITIETHOADON" />
           <EntitySet Name="CHITIETNGUYENLIEUx" EntityType="Self.CHITIETNGUYENLIEU" />
+          <EntitySet Name="CHITIETPHIEUNHAPs" EntityType="Self.CHITIETPHIEUNHAP" />
           <EntitySet Name="DONVITINHs" EntityType="Self.DONVITINH" />
           <EntitySet Name="HOADONs" EntityType="Self.HOADON" />
           <EntitySet Name="KHACHHANGs" EntityType="Self.KHACHHANG" />
@@ -580,6 +752,7 @@
           <EntitySet Name="NGUYENLIEUx" EntityType="Self.NGUYENLIEU" />
           <EntitySet Name="NHACUNGCAPs" EntityType="Self.NHACUNGCAP" />
           <EntitySet Name="NHANVIENs" EntityType="Self.NHANVIEN" />
+          <EntitySet Name="PHIEUNHAPs" EntityType="Self.PHIEUNHAP" />
           <EntitySet Name="SANPHAMs" EntityType="Self.SANPHAM" />
           <EntitySet Name="SIZEs" EntityType="Self.SIZE" />
           <AssociationSet Name="FK_CHITIETHOADON_HOADON" Association="Self.FK_CHITIETHOADON_HOADON">
@@ -606,6 +779,18 @@
             <End Role="SANPHAM" EntitySet="SANPHAMs" />
             <End Role="CHITIETNGUYENLIEU" EntitySet="CHITIETNGUYENLIEUx" />
           </AssociationSet>
+          <AssociationSet Name="FK__CHITIETPH__MADVT__4D2A7347" Association="Self.FK__CHITIETPH__MADVT__4D2A7347">
+            <End Role="DONVITINH" EntitySet="DONVITINHs" />
+            <End Role="CHITIETPHIEUNHAP" EntitySet="CHITIETPHIEUNHAPs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CHITIETPHI__MANL__4C364F0E" Association="Self.FK__CHITIETPHI__MANL__4C364F0E">
+            <End Role="NGUYENLIEU" EntitySet="NGUYENLIEUx" />
+            <End Role="CHITIETPHIEUNHAP" EntitySet="CHITIETPHIEUNHAPs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CHITIETPHI__MAPN__4B422AD5" Association="Self.FK__CHITIETPHI__MAPN__4B422AD5">
+            <End Role="PHIEUNHAP" EntitySet="PHIEUNHAPs" />
+            <End Role="CHITIETPHIEUNHAP" EntitySet="CHITIETPHIEUNHAPs" />
+          </AssociationSet>
           <AssociationSet Name="FK_HOADON_KHACHHANG" Association="Self.FK_HOADON_KHACHHANG">
             <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
             <End Role="HOADON" EntitySet="HOADONs" />
@@ -626,13 +811,17 @@
             <End Role="NHACUNGCAP" EntitySet="NHACUNGCAPs" />
             <End Role="NGUYENLIEU" EntitySet="NGUYENLIEUx" />
           </AssociationSet>
+          <AssociationSet Name="FK__PHIEUNHAP__MANCC__41B8C09B" Association="Self.FK__PHIEUNHAP__MANCC__41B8C09B">
+            <End Role="NHACUNGCAP" EntitySet="NHACUNGCAPs" />
+            <End Role="PHIEUNHAP" EntitySet="PHIEUNHAPs" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="TRASUAModelStoreContainer" CdmEntityContainer="TRASUAEntities">
+        <EntityContainerMapping StorageEntityContainer="TRASUAModelStoreContainer" CdmEntityContainer="TRASUAEntities2">
           <EntitySetMapping Name="CHITIETHOADONs">
             <EntityTypeMapping TypeName="TRASUAModel.CHITIETHOADON">
               <MappingFragment StoreEntitySet="CHITIETHOADON">
@@ -658,6 +847,19 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="CHITIETPHIEUNHAPs">
+            <EntityTypeMapping TypeName="TRASUAModel.CHITIETPHIEUNHAP">
+              <MappingFragment StoreEntitySet="CHITIETPHIEUNHAP">
+                <ScalarProperty Name="MACTPN" ColumnName="MACTPN" />
+                <ScalarProperty Name="MAPN" ColumnName="MAPN" />
+                <ScalarProperty Name="MANL" ColumnName="MANL" />
+                <ScalarProperty Name="DINHLUONG" ColumnName="DINHLUONG" />
+                <ScalarProperty Name="MADVT" ColumnName="MADVT" />
+                <ScalarProperty Name="DONGIA" ColumnName="DONGIA" />
+                <ScalarProperty Name="TONGTIEN" ColumnName="TONGTIEN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="DONVITINHs">
             <EntityTypeMapping TypeName="TRASUAModel.DONVITINH">
               <MappingFragment StoreEntitySet="DONVITINH">
@@ -673,6 +875,7 @@
                 <ScalarProperty Name="MAKH" ColumnName="MAKH" />
                 <ScalarProperty Name="MANV" ColumnName="MANV" />
                 <ScalarProperty Name="NGAYLAP" ColumnName="NGAYLAP" />
+                <ScalarProperty Name="TONGTIEN" ColumnName="TONGTIEN" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -721,6 +924,7 @@
                 <ScalarProperty Name="TENNCC" ColumnName="TENNCC" />
                 <ScalarProperty Name="DIACHINCC" ColumnName="DIACHINCC" />
                 <ScalarProperty Name="SDTNCC" ColumnName="SDTNCC" />
+                <ScalarProperty Name="EMAILNCC" ColumnName="EMAILNCC" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -732,6 +936,17 @@
                 <ScalarProperty Name="SDT" ColumnName="SDT" />
                 <ScalarProperty Name="MALOAINV" ColumnName="MALOAINV" />
                 <ScalarProperty Name="MANV" ColumnName="MANV" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="LUONG" ColumnName="LUONG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PHIEUNHAPs">
+            <EntityTypeMapping TypeName="TRASUAModel.PHIEUNHAP">
+              <MappingFragment StoreEntitySet="PHIEUNHAP">
+                <ScalarProperty Name="MAPN" ColumnName="MAPN" />
+                <ScalarProperty Name="MANCC" ColumnName="MANCC" />
+                <ScalarProperty Name="NGAYNHAP" ColumnName="NGAYNHAP" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

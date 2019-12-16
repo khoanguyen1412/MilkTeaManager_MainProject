@@ -12,24 +12,20 @@ namespace MilkTeaManager.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class NHACUNGCAP
+    public partial class PHIEUNHAP
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public NHACUNGCAP()
+        public PHIEUNHAP()
         {
-            this.NGUYENLIEUx = new HashSet<NGUYENLIEU>();
-            this.PHIEUNHAPs = new HashSet<PHIEUNHAP>();
+            this.CHITIETPHIEUNHAPs = new HashSet<CHITIETPHIEUNHAP>();
         }
     
+        public string MAPN { get; set; }
         public string MANCC { get; set; }
-        public string TENNCC { get; set; }
-        public string DIACHINCC { get; set; }
-        public string SDTNCC { get; set; }
-        public string EMAILNCC { get; set; }
+        public Nullable<System.DateTime> NGAYNHAP { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<NGUYENLIEU> NGUYENLIEUx { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PHIEUNHAP> PHIEUNHAPs { get; set; }
+        public virtual ICollection<CHITIETPHIEUNHAP> CHITIETPHIEUNHAPs { get; set; }
+        public virtual NHACUNGCAP NHACUNGCAP { get; set; }
     }
 }
