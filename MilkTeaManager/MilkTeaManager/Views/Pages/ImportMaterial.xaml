@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:behaviors="clr-namespace:WPFTextBoxAutoComplete;assembly=WPFTextBoxAutoComplete"
       xmlns:local="clr-namespace:MilkTeaManager.Views.Pages"
       xmlns:cv="clr-namespace:MilkTeaManager.Converters"
       DataContext="{StaticResource ImportMaterialVM}"
@@ -65,28 +66,7 @@
                         Panel.ZIndex="99">
                 <Grid>
                     <StackPanel Orientation="Horizontal">
-                        <customControls:SearchTextBox  Grid.Column="0" Margin="3 0 0 0"
-                                              HorizontalAlignment="Right"
-                                              VerticalContentAlignment="Bottom"
-                                              FontSize="40"
-                                              Width="350"
-                                                       Height="50"/>
-                        <Grid>
-                            <Label HorizontalAlignment="Center" Width="50" Height="50" Background="#669BBF">
-                                <Image  HorizontalAlignment="Center"  Width="40" Height="40" Source="C:\Users\User\Source\Repos\MilkTeaManager\MilkTeaManager\Views\Images\SearchIcon.png"/>
-                            </Label>
-
-                            <Button 
-                        HorizontalAlignment="Left"
-                        Style="{StaticResource MaterialDesignRaisedDarkButton}"
-                        Height="50"
-                        Width="50"
-                        ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
-                        Background="Transparent"
-                        >
-
-                            </Button>
-                        </Grid>
+                        <Grid/>
 
                     </StackPanel>
                 </Grid>

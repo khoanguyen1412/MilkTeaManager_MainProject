@@ -4,6 +4,7 @@
             xmlns:cv="clr-namespace:MilkTeaManager.Converters"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:behaviors="clr-namespace:WPFTextBoxAutoComplete;assembly=WPFTextBoxAutoComplete"
       xmlns:local="clr-namespace:MilkTeaManager.Views.Pages"
       DataContext="{StaticResource ListImportBillVM}"
       mc:Ignorable="d" 
@@ -78,14 +79,18 @@
                                ScrollViewer.VerticalScrollBarVisibility="Auto">
                         <Grid>
                             <StackPanel Orientation="Horizontal">
-                                <customControls:SearchTextBox  Grid.Column="0" Margin="3 0 0 0"
+                                <TextBox  Grid.Column="0" Margin="3 0 0 0"
                                               HorizontalAlignment="Right"
                                               VerticalContentAlignment="Bottom"
-                                              FontSize="30"
+                                              FontSize="20"
                                               Width="220"
                                                        Height="40"
                                                                BorderThickness="1"
-                                                               BorderBrush="Black"/>
+                                                               BorderBrush="Black"
+                                          Text="{Binding Text}"
+                                          Background="White"
+                                           behaviors:AutoCompleteBehavior.AutoCompleteItemsSource="{Binding _mpn}"
+                                              behaviors:AutoCompleteBehavior.AutoCompleteStringComparison="InvariantCultureIgnoreCase"/>
                                 <Grid>
                                     <Label HorizontalAlignment="Center" Width="40" Height="40" Background="#669BBF">
                                         <Image  HorizontalAlignment="Center"  Width="30" Height="30" Source="C:\Users\User\Source\Repos\MilkTeaManager\MilkTeaManager\Views\Images\SearchIcon.png"/>
@@ -93,12 +98,16 @@
 
                                     <Button 
                                         HorizontalAlignment="Left"
+                                        
                                         Style="{StaticResource MaterialDesignRaisedDarkButton}"
                                         Height="40"
-                                        Width="40"
+                                        Width="50"
                                         ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
                                         Background="Transparent"
+                                        Command="{Binding SearchClick}"
                                         >
+                                        <materialDesign:PackIcon Kind="AccountSearch"></materialDesign:PackIcon>
+
 
                                     </Button>
                                 </Grid>

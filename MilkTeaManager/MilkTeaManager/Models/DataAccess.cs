@@ -534,6 +534,17 @@ namespace MilkTeaManager.Models
             return result.ToList();
 
         }
+
+        public static List<string> GetMaPN()
+        {
+
+
+            var result = from productlist in db.PHIEUNHAPs
+                         select productlist.MAPN;
+
+            return result.ToList();
+
+        }
         #endregion
 
         #region Add_Or_Update  //Không chắc xài được
@@ -845,7 +856,22 @@ namespace MilkTeaManager.Models
                 }
             }
         }
+        public static List<PHIEUNHAP> FilterPhieuNhapByMaPN(string maPN)
+        {
 
+            {
+                try
+                {
+                    var matches = from m in db.PHIEUNHAPs where m.MAPN.ToLower().Contains(maPN.ToLower()) select m;
+                    return matches.ToList();
+                }
+                catch (DataException)
+                {
+                    return new List<PHIEUNHAP>();
+                }
+            }
+        }
+        
 
         #endregion
         #region insert

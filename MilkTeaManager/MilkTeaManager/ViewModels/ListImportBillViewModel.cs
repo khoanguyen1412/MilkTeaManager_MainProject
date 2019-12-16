@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using MilkTeaManager.Models;
+using System.Windows.Input;
 
 namespace MilkTeaManager.ViewModels
 {
@@ -13,10 +14,15 @@ namespace MilkTeaManager.ViewModels
     {
         private ObservableCollection<PHIEUNHAP> _phieunhaps;
         private ObservableCollection<CHITIETPHIEUNHAP> _ctpns;
+        public ObservableCollection<string> _mpn { get; set; }
+
         private PHIEUNHAP _sphieunhap;
         private DateTime _ngaylappn;
         private int _tongtienpn;
         private string _mapn;
+        private string _text;
+
+        public ICommand SearchClick { get; set; }
 
         public string MaPN
         {
@@ -40,6 +46,17 @@ namespace MilkTeaManager.ViewModels
                 OnPropertyChanged();
             }
         }
+
+        public string Text
+        {
+            get => _text;
+            set
+            {
+                _text = value;
+                OnPropertyChanged();
+            }
+        }
+
         public ObservableCollection<PHIEUNHAP> PhieuNhaps
         {
             get { return _phieunhaps; }
@@ -68,6 +85,20 @@ namespace MilkTeaManager.ViewModels
         public ListImportBillViewModel()
         {
             PhieuNhaps = new ObservableCollection<PHIEUNHAP>(DataAccess.GetPhieuNhaps());
+            _mpn = new ObservableCollection<string>(DataAccess.GetMaPN());
+            SearchClick = new RelayCommand<object>((p) =>
+            {
+                return true;
+
+            }, (p) =>
+            {
+                if (Text == "")
+                {
+                    PhieuNhaps = new ObservableCollection<PHIEUNHAP>(DataAccess.GetPhieuNhaps());
+                }
+                else
+                    PhieuNhaps = new ObservableCollection<PHIEUNHAP>(DataAccess.FilterPhieuNhapByMaPN(Text));
+            });
         }
     }
 }
