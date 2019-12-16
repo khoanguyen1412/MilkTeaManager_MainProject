@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:viewmodel="clr-namespace:MilkTeaManager.ViewModels"
                     xmlns:viewmodelDialog="clr-namespace:MilkTeaManager.ViewModels.Dialog"
-                    <!--xmlns:local="clr-namespace:MilkTeaManager.ResourceVM">-->
+                    xmlns:local="clr-namespace:MilkTeaManager.ResourceVM">
     <viewmodel:SellProductViewModel x:Key="SellProductVM"></viewmodel:SellProductViewModel>
     <viewmodel:ManageCustomerViewModel x:Key="ManageCustomerVM"></viewmodel:ManageCustomerViewModel>
     <viewmodel:ManageImportMaterialViewModel x:Key="ManageImportVM"></viewmodel:ManageImportMaterialViewModel>

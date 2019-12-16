@@ -100,7 +100,6 @@
           <Property Name="DIACHINCC" Type="nvarchar" MaxLength="50" />
           <Property Name="SDTNCC" Type="nvarchar" MaxLength="50" />
           <Property Name="EMAILNCC" Type="nvarchar" MaxLength="50" />
-          <Property Name="NGAYHOPTAC" Type="date" />
         </EntityType>
         <EntityType Name="NHANVIEN">
           <Key>
@@ -926,7 +925,6 @@
                 <ScalarProperty Name="DIACHINCC" ColumnName="DIACHINCC" />
                 <ScalarProperty Name="SDTNCC" ColumnName="SDTNCC" />
                 <ScalarProperty Name="EMAILNCC" ColumnName="EMAILNCC" />
-                <ScalarProperty Name="NGAYHOPTAC" ColumnName="NGAYHOPTAC" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
