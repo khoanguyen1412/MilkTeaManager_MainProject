@@ -103,9 +103,10 @@
                             Margin="30 5 10 5"
                             Width="150"
                             FontSize="15"
-                            materialDesign:HintAssist.Hint="Loại sản phẩm"
-
-                            
+                            materialDesign:HintAssist.Hint="Loại nhân viên"
+                            DisplayMemberPath="TENLOAINV"
+                            ItemsSource="{Binding Path=LoaiNVs}"  
+                                          SelectedItem="{Binding Path=SLoaiNV, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}"
                             />
             </StackPanel>
             <Grid Grid.Row="1">
@@ -130,7 +131,7 @@
                 <Label  Grid.Column="2"                                    
                                    Content="Số lượng"/>
                 <Label  Grid.Column="3"
-                                   Content="{Binding DanhSachSanPhamVM.Items.Count, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                   Content="{Binding SoLuong}"/>
             </Grid>
             <!--Bảng danh sách khách hàng-->
             <materialDesign:Card Grid.Row="2" 
@@ -180,13 +181,7 @@
                                                 CellStyle="{StaticResource CenteredDataGridCell}"
                                                 />
 
-                        <DataGridTextColumn Width="130"
-                                                Header="Email"
-                                                TextBlock.TextAlignment="Right"
-                                                IsReadOnly="True"
-                                            Binding="{Binding EMAIL}"
-                                                HeaderStyle="{StaticResource RightDataGridHeader}"
-                                                CellStyle="{StaticResource RightDataGridCell}"/>
+                       
                         <DataGridTextColumn Width="100"
                                                 Header="Chức vụ"
                                                 TextBlock.TextAlignment="Right"
@@ -261,8 +256,7 @@
                                     <RowDefinition/>
                                     <RowDefinition/>
                                     <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
+                     
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="auto"/>
@@ -271,33 +265,26 @@
                                 <Label Grid.Row="0" Grid.Column="0"
                                    FontSize="15"
                                        Content="Tên" Margin="15,10,0,10"/>
+                               
                                 <Label Grid.Row="1" Grid.Column="0" FontSize="15"
-                                       Content="SĐT" Margin="15,10,0,10"/>
+                                       Content="SDT" Margin="15,10,0,10"/>
                                 <Label Grid.Row="2" Grid.Column="0" FontSize="15"
-                                       Content="Địa chỉ" Margin="15,10,0,10"/>
-                                <Label Grid.Row="3" Grid.Column="0" FontSize="15"
                                        Content="Email" Margin="15,10,0,10"/>
-                                <Label Grid.Row="4" Grid.Column="0" FontSize="15"
+                                <Label Grid.Row="3" Grid.Column="0" FontSize="15"
                                        Content="Chức vụ" Margin="15,10,0,10"/>
-                                <Label Grid.Row="5" Grid.Column="0" FontSize="15"
-                                       Content="Lương" Margin="15,10,0,10"/>
-                                
-                                
+
+
+
                                 <TextBlock Grid.Row="0" Grid.Column="1" FontSize="15"
                                        
                                           Text="{Binding TenNV, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
                                 <TextBlock Grid.Row="1" Grid.Column="1" FontSize="15"
-                                           Margin="0,10,10,10"
                                             Text="{Binding SDT, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
                                 <TextBlock Grid.Row="2" Grid.Column="1" FontSize="15"
-                                            Text="{Binding DiaChi, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
-                                <TextBlock Grid.Row="3" Grid.Column="1" FontSize="15"
                                             Text="{Binding Email, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
-                                <TextBlock Grid.Row="4" Grid.Column="1" FontSize="15"
+                                <TextBlock Grid.Row="3" Grid.Column="1" FontSize="15"
                                             Text="{Binding ChucVu, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
-                                <TextBlock Grid.Row="5" Grid.Column="1" FontSize="15"
-                                            Text="{Binding Luong, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
-
+                                
                             </Grid>
                             <Grid Margin="10 30 10 15">
                                 <Grid.ColumnDefinitions>
@@ -347,7 +334,7 @@
                                        Style="{StaticResource MediumLabelStyle}"
                                        Content="Mã Nhân viên: "/>
                             <Label Margin="10"
-                                       Content="{Binding Content.SelectedItem.Model.MaKH, ElementName=PART_CustomerList, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                                       Content="{Binding MaNV}"
                                        HorizontalContentAlignment="Right"/>
                         </DockPanel>
 

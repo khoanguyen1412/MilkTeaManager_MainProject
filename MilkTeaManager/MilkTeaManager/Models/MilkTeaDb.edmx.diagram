@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4eac3a475ef94e7c9aab8cc4b1607bd8" Name="Diagram1" ZoomLevel="82">
+      <Diagram DiagramId="881c4191af054dd3a8d83c280d75d78c" Name="Diagram1">
         <EntityTypeShape EntityType="TRASUAModel.CHITIETHOADON" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="TRASUAModel.CHITIETNGUYENLIEU" Width="1.5" PointX="8.25" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="TRASUAModel.CHITIETPHIEUNHAP" Width="1.5" PointX="8.25" PointY="9.125" IsExpanded="true" />
@@ -14,7 +14,7 @@
         <EntityTypeShape EntityType="TRASUAModel.LOAINHANVIEN" Width="1.5" PointX="1.5" PointY="15.125" IsExpanded="true" />
         <EntityTypeShape EntityType="TRASUAModel.LOAISANPHAM" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
         <EntityTypeShape EntityType="TRASUAModel.NGUYENLIEU" Width="1.5" PointX="6" PointY="14.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="TRASUAModel.NHACUNGCAP" Width="1.5" PointX="3.75" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRASUAModel.NHACUNGCAP" Width="1.5" PointX="3.75" PointY="14.25" IsExpanded="true" />
         <EntityTypeShape EntityType="TRASUAModel.NHANVIEN" Width="1.5" PointX="0.75" PointY="11.5" IsExpanded="true" />
         <EntityTypeShape EntityType="TRASUAModel.PHIEUNHAP" Width="1.5" PointX="6" PointY="18.625" IsExpanded="true" />
         <EntityTypeShape EntityType="TRASUAModel.SANPHAM" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />

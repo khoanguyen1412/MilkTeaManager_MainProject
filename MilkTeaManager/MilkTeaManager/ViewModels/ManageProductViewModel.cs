@@ -12,11 +12,44 @@ namespace MilkTeaManager.ViewModels
     {
         private ObservableCollection<SANPHAM> _sanphams;
         private ObservableCollection<LOAISANPHAM> _loaisps;
+        private ObservableCollection<CHITIETNGUYENLIEU> _ctnls;
 
         private SANPHAM _ssanpham;
         private LOAISANPHAM _sloaisp;
         private int _ketquatimthay;
+        private int soluong;
+        private string _tensp;
+        private string _tenlsp;
+        private string _masp;
 
+        public string MaSP
+        {
+            get { return _masp; }
+            set { _masp = value;
+                OnPropertyChanged();
+            }
+        }
+        public string TenSP
+        {
+            get { return _tensp; }
+            set { _tensp = value;
+                OnPropertyChanged();
+            }
+        }
+        public string TenLoaiSP
+        {
+            get { return _tenlsp; }
+            set { _tenlsp = value;
+                OnPropertyChanged();
+            }
+        }
+        public int SoLuong
+        {
+            get { return soluong; }
+            set { soluong = value;
+                OnPropertyChanged();
+            }
+        }
         public int KQTT
         {
             get { return _ketquatimthay; }
@@ -31,6 +64,14 @@ namespace MilkTeaManager.ViewModels
             {
                 _ssanpham = value;
                 OnPropertyChanged();
+                CTNLs = new ObservableCollection<CHITIETNGUYENLIEU>(DataAccess.GetChitietnguyenlieusByMaSp(SSanPham.MASP));
+                foreach (var item in CTNLs)
+                {
+                    item.MACTNL = DataAccess.TenNl(item.MANL);
+                }
+                TenLoaiSP = SSanPham.LOAISANPHAM.TENLOAISP;
+                TenSP = SSanPham.TENSP;
+                MaSP = SSanPham.MASP;
             }
         }
         public LOAISANPHAM SLoaiSP
@@ -62,10 +103,20 @@ namespace MilkTeaManager.ViewModels
                 OnPropertyChanged();
             }
         }
+        public ObservableCollection<CHITIETNGUYENLIEU> CTNLs
+        {
+            get { return _ctnls; }
+            set { _ctnls = value;
+                OnPropertyChanged();
+            }
+        }
         public ManageProductViewModel()
         {
            
             LoaiSPs = new ObservableCollection<LOAISANPHAM>(DataAccess.GetLoaisanphams());
+            SanPhams = new ObservableCollection<SANPHAM>(DataAccess.GetSanphams());
+            SoLuong = SanPhams.Count();
+            KQTT = SoLuong;
         }
     }
 }

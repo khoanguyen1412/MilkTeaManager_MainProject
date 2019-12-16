@@ -23,12 +23,12 @@ namespace MilkTeaManager.Models
 	public class DataAccess
 	{
 
-		public static TRASUAEntities2 GetEntities1()
+		public static TRASUAEntities3 GetEntities1()
 		{
-			return new TRASUAEntities2();
+			return new TRASUAEntities3();
 		}
 
-        public static TRASUAEntities2 db = GetEntities1();
+        public static TRASUAEntities3 db = GetEntities1();
 
 
 		#region Get_Object_By_Id
@@ -270,8 +270,25 @@ namespace MilkTeaManager.Models
 				}
 			}
 		}
+        public static string TenNl(string maNl)
+        {
+            return db.NGUYENLIEUx.Where(x => x.MANL == maNl).ToList().ElementAt(0).TENNL;
+        }
+        public static List<NHANVIEN> GetNHANVIENByMALOAINV(string manv)
+        {
 
-		public static List<DONVITINH> GetDonvitinhs()
+            {
+                try
+                {
+                    return db.NHANVIENs.Where(x => x.MALOAINV == manv).ToList();
+                }
+                catch (DataException)
+                {
+                    return new List<NHANVIEN>();
+                }
+            }
+        }
+        public static List<DONVITINH> GetDonvitinhs()
 		{
 			 
 			{

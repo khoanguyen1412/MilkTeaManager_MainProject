@@ -256,7 +256,7 @@
                                                 HeaderStyle="{StaticResource RightDataGridHeader}"
                                                 CellStyle="{StaticResource RightDataGridCell}"
                                                 EditingElementStyle="{StaticResource CustomEditingTextColumnElementStyle}"
-                                                IsReadOnly="False"
+                                                IsReadOnly="True"
                                                      Binding="{Binding SANPHAM.GIABAN}"/>
                                 <DataGridTextColumn Width="80"
                                                 Header="Số lượng"

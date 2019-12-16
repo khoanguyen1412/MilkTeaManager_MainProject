@@ -11,14 +11,55 @@ namespace MilkTeaManager.ViewModels
     class ManageStaffViewModel : BaseVM
     {
         private ObservableCollection<NHANVIEN> _nhanviens;
-
+        private ObservableCollection<LOAINHANVIEN> _loainhanviens;
+        private LOAINHANVIEN _sloainv;
+        private int _ketquatimthay;
+        private int soluong;
         private DateTime _nsinh;
         private string _sdt;
-        private string _diachi;
+        private string _email;
         private string _tennv;
         private string _luong;
         private string _chucvu;
         private NHANVIEN _snhanvien;
+        
+        private string _manv;
+
+        public LOAINHANVIEN SLoaiNV
+        {
+            get { return _sloainv; }
+            set
+            {
+                _sloainv = value;
+                OnPropertyChanged();
+                NhanViens = new ObservableCollection<NHANVIEN>(DataAccess.GetNHANVIENByMALOAINV(SLoaiNV.MALOAINV));
+                KQTT = NhanViens.Count();
+            }
+        }
+        public int SoLuong
+        {
+            get { return soluong; }
+            set
+            {
+                soluong = value;
+                OnPropertyChanged();
+            }
+        }
+        public int KQTT
+        {
+            get { return _ketquatimthay; }
+            set
+            {
+                _ketquatimthay = value;
+                OnPropertyChanged();
+            }
+        }
+        public string MaNV
+        {
+            get { return _manv; }
+            set { _manv = value;
+            OnPropertyChanged();}
+        }
 
         public DateTime NgaySinh
         {
@@ -57,12 +98,12 @@ namespace MilkTeaManager.ViewModels
                 OnPropertyChanged();
             }
         }
-        public string DiaChi
+        public string Email
         {
-            get { return _diachi; }
+            get { return _email; }
             set
             {
-                _diachi = value;
+                _email = value;
                 OnPropertyChanged();
             }
         }
@@ -80,10 +121,18 @@ namespace MilkTeaManager.ViewModels
                     SDT = SNhanVien.SDT;
                     ChucVu = SNhanVien.LOAINHANVIEN.TENLOAINV;
                     NgaySinh =(DateTime) SNhanVien.NGAYSINH;
+                    MaNV = SNhanVien.MANV;
+                    Email = SNhanVien.EMAIL;
                 }
             }
         }
-
+        public  ObservableCollection<LOAINHANVIEN> LoaiNVs
+        {
+            get { return _loainhanviens; }
+            set { _loainhanviens = value;
+                OnPropertyChanged();
+            }
+        }
         public ObservableCollection<NHANVIEN> NhanViens
         {
             get { return _nhanviens; }
@@ -99,8 +148,9 @@ namespace MilkTeaManager.ViewModels
         public ManageStaffViewModel()
         {
             NhanViens = new ObservableCollection<NHANVIEN>(DataAccess.GetNhanviens());
-
-
+            LoaiNVs = new ObservableCollection<LOAINHANVIEN>(DataAccess.GetLoainhanviens());
+            SoLuong = NhanViens.Count();
+            KQTT = SoLuong;
         }
     }
 }

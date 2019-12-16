@@ -67,6 +67,8 @@ namespace MilkTeaManager.ViewModels
                     DiaChi = SNhaCungCap.DIACHINCC;
                     SDT = SNhaCungCap.SDTNCC;
                     MaNCC = SNhaCungCap.MANCC;
+                    Email = SNhaCungCap.EMAILNCC;
+                    Date = (DateTime)SNhaCungCap.NGAYHOPTAC;
                 }
             }
         }
