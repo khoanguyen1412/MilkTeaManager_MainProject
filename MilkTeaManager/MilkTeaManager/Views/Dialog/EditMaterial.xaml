@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:MilkTeaManager.Views.Dialog"
         mc:Ignorable="d"
         DataContext="{StaticResource EditMaterialVM}"
@@ -68,49 +69,51 @@
                                 <RowDefinition/>
                                 <RowDefinition/>
 
-
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
-                                <ColumnDefinition Width="300"/>
+                                <ColumnDefinition Width="180"/>
+                                <ColumnDefinition />
                             </Grid.ColumnDefinitions>
                             <Label Grid.Row="0" Grid.Column="0"
                                    Style="{StaticResource CustomDefinedLabelStyle}"
                                    Content="Tên nguyên liệu"/>
+
                             <Label Grid.Row="1" Grid.Column="0"
                                    Style="{StaticResource CustomDefinedLabelStyle}"
-                                   Content="Giá nhập"/>
+                                   Content="Số lượng"/>
+
                             <Label Grid.Row="2" Grid.Column="0"
                                    Style="{StaticResource CustomDefinedLabelStyle}"
-                                   Content="Giá bán"/>
+                                   Content="Đơn giá"/>
                             <Label Grid.Row="3" Grid.Column="0"
                                    Style="{StaticResource CustomDefinedLabelStyle}"
-                                   Content="Nhà cung cấp"/>
-
-
-
-                            <TextBox Grid.Row="0" Grid.Column="1"
-                                     Style="{StaticResource CustomTextBoxStyle}"
-                                     Text="{Binding STenNL}"
-                                     />
+                                   Content="Đơn vị tính"/>
+                            <TextBlock 
+                                      Grid.Column="1"
+                                      HorizontalAlignment="Stretch"
+                                          Margin="10"                               
+                                      Height="30"
+                                
+                                      />
                             <TextBox Grid.Row="1" Grid.Column="1"
                                      Style="{StaticResource CustomTextBoxStyle}"
-                                     Text="{Binding SGiaNhap}"
-                                     />
+                                     Text="{Binding SSoLuong}"
+                                    />
                             <TextBox Grid.Row="2" Grid.Column="1"
                                      Style="{StaticResource CustomTextBoxStyle}"
-                                     Text="{Binding SGiaBan}"
-                                     />
-                            <ComboBox x:Name="PART_Combobox"
-                                      Grid.Row="3" Grid.Column="1"
+                                     Text="{Binding DonGia}"
+                                    />
+                            <ComboBox 
+                                Grid.Row="3"
+                                      Grid.Column="1"
                                       HorizontalAlignment="Stretch"
-                                      Margin="10"                                    
+                                          Margin="10"                               
                                       Height="30"
-                                      Text="Tên nhà cung cấp"
+                                        materialDesign:HintAssist.Hint="Đơn vị tính"
+                                DisplayMemberPath="tendvt"
+                                ItemsSource="{Binding Path=DVTs}"  
+                                      SelectedItem="{Binding Path=SDVT, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}"
                                       />
-
-
-
                         </Grid>
                     </StackPanel>
                 </Grid>
