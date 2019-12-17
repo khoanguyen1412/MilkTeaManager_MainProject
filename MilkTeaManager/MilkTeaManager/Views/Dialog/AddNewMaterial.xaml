@@ -108,6 +108,8 @@
                                       Margin="10"                                    
                                       Height="30"
                                       Text="Tên nhà cung cấp"
+                                      ItemsSource="{Binding NhaCC}"  
+                                      SelectedItem="{Binding SNhaCC}"
                                       />
                           
                           
@@ -124,7 +126,8 @@
                             Click="add_click"
                             Margin="0 20"
                             Style="{StaticResource UIProjectAcceptButtonStyle}"
-                            Content="Thêm"/>
+                            Content="Thêm"
+                            Command="{Binding SaveCommand}"/>
                     <Button Grid.Column="1"
                             Click="exit_click"
                             Margin="0 20"

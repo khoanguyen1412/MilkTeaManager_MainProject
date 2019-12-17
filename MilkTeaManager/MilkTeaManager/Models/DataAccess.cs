@@ -188,8 +188,23 @@ namespace MilkTeaManager.Models
 				}
 			}
 		}
+        public static NHACUNGCAP GetNhacungcapByTenNCC(string tenNcc)
+        {
 
-		public HOADON GetHoadonByMaHD(string maHd)
+            {
+                try
+                {
+                    var result = db.NHACUNGCAPs.Where(x => x.TENNCC == tenNcc).ToList();
+                    return result.ElementAt(0);
+                }
+                catch (DataException)
+                {
+                    return new NHACUNGCAP();
+                }
+            }
+        }
+
+        public HOADON GetHoadonByMaHD(string maHd)
 		{
 			 
 			{
