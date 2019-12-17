@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MilkTeaManager.Views.Dialog"
         mc:Ignorable="d"
+        DataContext="{StaticResource EditCustomerVM}"
         Title="EditCustomer"
         ResizeMode="NoResize"
          Height="550" Width="500"
@@ -89,15 +90,19 @@
                                    Content="Email"/>
                             <TextBox Grid.Row="0" Grid.Column="1"
                                      Style="{StaticResource CustomTextBoxStyle}"
+                                     Text="{Binding STenKH}"
                                      />
                             <TextBox Grid.Row="1" Grid.Column="1"
                                      Style="{StaticResource CustomTextBoxStyle}"
+                                     Text="{Binding SSDT}"
                                      />
                             <TextBox Grid.Row="2" Grid.Column="1"
                                      Style="{StaticResource CustomTextBoxStyle}"
+                                     Text="{Binding SDiaChi}"
                                      />
                             <TextBox Grid.Row="4" Grid.Column="1"
                                      Style="{StaticResource CustomTextBoxStyle}"
+                                     Text="{Binding SEmail}"
                                      />
                         </Grid>
                     </StackPanel>

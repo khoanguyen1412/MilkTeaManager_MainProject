@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MilkTeaManager.Views.Dialog"
         mc:Ignorable="d"
+        DataContext="{StaticResource EditSupplierVM}"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Title="EditSupplier" 
         ResizeMode="NoResize"
@@ -95,15 +96,19 @@
                                    Content="Ngày hợp tác"/>
                             <TextBox Grid.Row="0" Grid.Column="1"
                                      Style="{StaticResource CustomTextBoxStyle}"
+                                     Text="{Binding STenNCC}"
                                      />
                             <TextBox Grid.Row="1" Grid.Column="1"
                                      Style="{StaticResource CustomTextBoxStyle}"
+                                     Text="{Binding SSDT}"
                                      />
                             <TextBox Grid.Row="2" Grid.Column="1"
                                      Style="{StaticResource CustomTextBoxStyle}"
+                                     Text="{Binding SDiaChi}"
                                      />
                             <TextBox Grid.Row="4" Grid.Column="1"
                                      Style="{StaticResource CustomTextBoxStyle}"
+                                     Text="{Binding SEmail}"
                                      />
                             <DatePicker Grid.Row="5" Grid.Column="1" Margin="10"
                                  x:Name="FutureDatePicker"

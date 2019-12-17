@@ -21,4 +21,16 @@
     <viewmodelDialog:ExpenditureFormViewModel x:Key="ExpenditureFormVM"></viewmodelDialog:ExpenditureFormViewModel>
     <viewmodelDialog:MaterialReportViewModel x:Key="MaterialFormVM"></viewmodelDialog:MaterialReportViewModel>
     <viewmodel:ExpenditureStatisticViewModel x:Key="ExpenStatisticVM"></viewmodel:ExpenditureStatisticViewModel>
+
+    <viewmodelDialog:AddMaterialViewModel x:Key="AddMaterialVM"></viewmodelDialog:AddMaterialViewModel>
+    <viewmodelDialog:AddNewMaterialViewModel x:Key="AddNewMaterialVM"></viewmodelDialog:AddNewMaterialViewModel>
+    <viewmodelDialog:AddProductViewModel x:Key="AddProductVM"></viewmodelDialog:AddProductViewModel>
+    <viewmodelDialog:AddStaffViewModel x:Key="AddStaffVM"></viewmodelDialog:AddStaffViewModel>
+    <viewmodelDialog:AddSupplierViewModel x:Key="AddSupplierVM"></viewmodelDialog:AddSupplierViewModel>
+    <viewmodelDialog:EditCustomerViewModel x:Key="EditCustomerVM"></viewmodelDialog:EditCustomerViewModel>
+    <viewmodelDialog:EditImportBillViewModel x:Key="EditImportBillVM"></viewmodelDialog:EditImportBillViewModel>
+    <viewmodelDialog:EditMaterialViewModel x:Key="EditMaterialVM"></viewmodelDialog:EditMaterialViewModel>
+    <viewmodelDialog:EditProductViewModel x:Key="EditProductVM"></viewmodelDialog:EditProductViewModel>
+    <viewmodelDialog:EditStaffViewModel x:Key="EditStaff"></viewmodelDialog:EditStaffViewModel>
+    <viewmodelDialog:EditSupplierViewModel x:Key="EditSupplierVM"></viewmodelDialog:EditSupplierViewModel>
 </ResourceDictionary> 

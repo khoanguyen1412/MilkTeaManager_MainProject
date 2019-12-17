@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MilkTeaManager.Views.Dialog"
         mc:Ignorable="d"
+        DataContext="{StaticResource EditImportBillVM}"
         Title="EditImportBill"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
@@ -92,16 +93,16 @@
 
                             <TextBox Grid.Row="0" Grid.Column="1"
                                      Style="{StaticResource CustomTextBoxStyle}"
-                                     Text="{Binding Data.TenSP, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                     Text="{Binding STenNL}"/>
                             <TextBox Grid.Row="1" Grid.Column="1"
                                      Style="{StaticResource CustomTextBoxStyle}"
-                                     Text="{Binding Data.TenSP, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                     Text="{Binding SGiaNhap}"/>
                             <TextBox Grid.Row="2" Grid.Column="1"
                                      Style="{StaticResource CustomTextBoxStyle}"
-                                     Text="{Binding Data.TenSP, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                     Text="{Binding SGiaBan}"/>
                             <TextBox Grid.Row="3" Grid.Column="1"
                                      Style="{StaticResource CustomTextBoxStyle}"
-                                     Text="{Binding Data.TenSP, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                     Text="{Binding SSoLuong}"/>
                             <ComboBox 
                                       Grid.Row="4" Grid.Column="1"
                                       HorizontalAlignment="Stretch"

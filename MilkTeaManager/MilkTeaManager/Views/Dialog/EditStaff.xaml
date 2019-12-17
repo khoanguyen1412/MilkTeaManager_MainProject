@@ -97,7 +97,10 @@
                                    Content="Ngày sinh"/>
                             <Label Grid.Row="6" Grid.Column="0"
                                    Style="{StaticResource CustomDefinedLabelStyle}"
-                                   Content="Quyền"/>
+                                   Content="Chức vụ"/>
+                            <Label Grid.Row="7" Grid.Column="0"
+                                   Style="{StaticResource CustomDefinedLabelStyle}"
+                                   Content="Trạng thái"/>
 
                             <TextBox Grid.Row="0" Grid.Column="1"
                                      Style="{StaticResource CustomTextBoxStyle}"
@@ -113,7 +116,14 @@
                                       HorizontalAlignment="Stretch"
                                       Margin="10"                                    
                                       Height="30"
-                                      DisplayMemberPath="TenKhuVuc"
+                                      DisplayMemberPath=""
+                                      />
+                            <ComboBox x:Name="TT_Combobox"
+                                      Grid.Row="7" Grid.Column="1"
+                                      HorizontalAlignment="Stretch"
+                                      Margin="10"                                    
+                                      Height="30"
+                                      DisplayMemberPath=""
                                       />
                             <DatePicker Grid.Row="5" Grid.Column="1" Margin="10"
                                  x:Name="FutureDatePicker"
@@ -133,23 +143,24 @@
                             <TextBox Grid.Row="3" Grid.Column="1"
                                      Style="{StaticResource CustomTextBoxStyle}"
                                      />
-                            
+
 
                         </Grid>
                     </StackPanel>
                 </Grid>
                 <Grid Grid.Row="3">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
+                        <ColumnDefinition Width="38*"/>
+                        <ColumnDefinition Width="187*"/>
+                        <ColumnDefinition Width="225*"/>
                     </Grid.ColumnDefinitions>
-                    <Button Grid.Column="0"
-                            Margin="0 20"
+                    <Button Grid.Column="1"
+                            Margin="24.052,20,62.8,19.6"
                             Click="update_click"
                             Style="{StaticResource UIProjectAcceptButtonStyle}"
                             Content="Cập nhật"/>
-                    <Button Grid.Column="1"
-                            Margin="0 20"
+                    <Button Grid.Column="2"
+                            Margin="62.2,20,62.6,19.6"
                             Click="exit_click"
                             Style="{StaticResource UIProjectCancelButtonStyle}"
                             Content="Hủy"/>

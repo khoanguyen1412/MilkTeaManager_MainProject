@@ -98,11 +98,8 @@
                             <Label Grid.Row="6" Grid.Column="0"
                                    Style="{StaticResource CustomDefinedLabelStyle}"
                                    Content="Ngày sinh"/>
-                            <Label Grid.Row="7" Grid.Column="0"
-                                   Style="{StaticResource CustomDefinedLabelStyle}"
-                                   Content="Ngày vào làm"/>
-                            
-                            
+
+
                             <TextBox Grid.Row="0" Grid.Column="1"
                                      Style="{StaticResource CustomTextBoxStyle}"
                                      />
@@ -131,17 +128,6 @@
                                     FontSize="15"
                                     >
                                     <DatePicker.SelectedDate>
-                                    <Binding
-                                        Path="FutureValidatingDate"
-                                        UpdateSourceTrigger="PropertyChanged">
-                                    </Binding>
-                                </DatePicker.SelectedDate>
-                            </DatePicker>
-                            <DatePicker Grid.Row="7" Grid.Column="1" Margin="10"
-                                    materialDesign:HintAssist.Hint=" Chọn ngày"
-                                    FontSize="15"
-                                    >
-                                <DatePicker.SelectedDate>
                                     <Binding
                                         Path="FutureValidatingDate"
                                         UpdateSourceTrigger="PropertyChanged">

@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MilkTeaManager.Views.Dialog"
         mc:Ignorable="d"
+        DataContext="{StaticResource EditMaterialVM}"
         Title="EditMaterial" ResizeMode="NoResize"
          Height="550" Width="500"
         WindowStartupLocation="CenterScreen">
@@ -90,12 +91,15 @@
 
                             <TextBox Grid.Row="0" Grid.Column="1"
                                      Style="{StaticResource CustomTextBoxStyle}"
+                                     Text="{Binding STenNL}"
                                      />
                             <TextBox Grid.Row="1" Grid.Column="1"
                                      Style="{StaticResource CustomTextBoxStyle}"
+                                     Text="{Binding SGiaNhap}"
                                      />
                             <TextBox Grid.Row="2" Grid.Column="1"
                                      Style="{StaticResource CustomTextBoxStyle}"
+                                     Text="{Binding SGiaBan}"
                                      />
                             <ComboBox x:Name="PART_Combobox"
                                       Grid.Row="3" Grid.Column="1"

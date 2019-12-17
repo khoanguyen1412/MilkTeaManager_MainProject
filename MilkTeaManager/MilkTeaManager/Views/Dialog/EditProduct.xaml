@@ -6,6 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:MilkTeaManager.Views.Dialog"
         mc:Ignorable="d"
+        DataContext="{StaticResource EditProductVM}"
         ResizeMode="CanResize"
         Title="EditProduct" Height="650" Width="500"
         WindowStartupLocation="CenterScreen">
@@ -81,7 +82,7 @@
                                    Content="Size"/>
                             <TextBox Grid.Row="0" Grid.Column="1"
                                      Style="{StaticResource CustomTextBoxStyle}"
-                                     Text="{Binding Data.TenSP, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                     Text="{Binding STenSP}"/>
                             <ComboBox x:Name="CbbLoaiSanPham"
                                       Grid.Row="1" Grid.Column="1"
                                       HorizontalAlignment="Stretch"

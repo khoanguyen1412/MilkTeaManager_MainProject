@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:MilkTeaManager.Views.Dialog"
+        DataContext="{StaticResource AddProductVM}"
         mc:Ignorable="d"
         Title="AddProduct" Height="700" Width="530"
         ResizeMode="CanResize"
@@ -87,13 +88,13 @@
                             
                             <TextBox Grid.Row="0" Grid.Column="1"
                                      Style="{StaticResource CustomTextBoxStyle}"
-                                     Text="{Binding Data.TenSP, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                     Text="{Binding STenSP}"/>
                             <ComboBox x:Name="CbbLoaiSanPham"
                                       Grid.Row="1" Grid.Column="1"
                                       HorizontalAlignment="Stretch"
                                       Margin="10"                                    
                                       Height="30"
-                                      ItemsSource="{Binding AdditionData[0], Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                                     
                                       DisplayMemberPath="TenLoaiSP"
                                       />
                             <ComboBox 

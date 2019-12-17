@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MilkTeaManager.Views.Dialog"
+        DataContext="{StaticResource AddNewMaterialVM}"
         mc:Ignorable="d"
          xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Title="AddNewMaterial" ResizeMode="NoResize"
@@ -91,12 +92,15 @@
 
                             <TextBox Grid.Row="0" Grid.Column="1"
                                      Style="{StaticResource CustomTextBoxStyle}"
+                                     Text="{Binding STenNL}"
                                      />
                             <TextBox Grid.Row="1" Grid.Column="1"
                                      Style="{StaticResource CustomTextBoxStyle}"
+                                     Text="{Binding SGiaNhap}"
                                      />
                             <TextBox Grid.Row="2" Grid.Column="1"
                                      Style="{StaticResource CustomTextBoxStyle}"
+                                     Text="{Binding SGiaBan}"
                                      />
                             <ComboBox x:Name="PART_Combobox"
                                       Grid.Row="3" Grid.Column="1"
