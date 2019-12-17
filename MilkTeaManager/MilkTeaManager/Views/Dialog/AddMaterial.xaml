@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
-        Title="AddMaterial" Height="500" Width="450">
+        Title="AddMaterial" Height="540.78" Width="450">
     <Window.Resources>
 
         <Style x:Key="CustomDefinedLabelStyle" TargetType="Label" BasedOn="{StaticResource BelowMediumLabelStyle}">
@@ -67,8 +67,7 @@
                                 <RowDefinition/>
                                 <RowDefinition/>
                                 <RowDefinition/>
-                                <RowDefinition/>
-                                <RowDefinition/>
+
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="180"/>
@@ -82,21 +81,41 @@
                                    Style="{StaticResource CustomDefinedLabelStyle}"
                                    Content="Số lượng"/>
 
-
+                            <Label Grid.Row="2" Grid.Column="0"
+                                   Style="{StaticResource CustomDefinedLabelStyle}"
+                                   Content="Đơn giá"/>
+                            <Label Grid.Row="3" Grid.Column="0"
+                                   Style="{StaticResource CustomDefinedLabelStyle}"
+                                   Content="Đơn vị tính"/>
                             <ComboBox 
                                       Grid.Column="1"
                                       HorizontalAlignment="Stretch"
                                           Margin="10"                               
                                       Height="30"
                                         materialDesign:HintAssist.Hint="Tên Nguyên liệu"
-                                ItemsSource="{Binding Path=Toppings}"  
-                                      SelectedItem="{Binding Path=STenNL, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}"
+                                DisplayMemberPath="TENNL"
+                                ItemsSource="{Binding Path=NguyenLieus}"  
+                                      SelectedItem="{Binding Path=SNguyenLieu, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}"
                                       />
                             <TextBox Grid.Row="1" Grid.Column="1"
                                      Style="{StaticResource CustomTextBoxStyle}"
                                      Text="{Binding SSoLuong}"
                                     />
-                            
+                            <TextBox Grid.Row="2" Grid.Column="1"
+                                     Style="{StaticResource CustomTextBoxStyle}"
+                                     Text="{Binding DonGia}"
+                                    />
+                            <ComboBox 
+                                Grid.Row="3"
+                                      Grid.Column="1"
+                                      HorizontalAlignment="Stretch"
+                                          Margin="10"                               
+                                      Height="30"
+                                        materialDesign:HintAssist.Hint="Đơn vị tính"
+                                DisplayMemberPath="tendvt"
+                                ItemsSource="{Binding Path=DVTs}"  
+                                      SelectedItem="{Binding Path=SDVT, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}"
+                                      />
                         </Grid>
                     </StackPanel>
                 </Grid>
@@ -113,7 +132,7 @@
                             VerticalAlignment="Bottom"
                             Style="{StaticResource UIProjectAcceptButtonStyle}"
                             Content="Thêm"
-                            IsEnabled="{Binding IsDataValid, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                            Command="{Binding SaveCommand}"
                             />
                     <Button Grid.Column="1"
                             Click="exit_click"
@@ -122,8 +141,7 @@
                             VerticalAlignment="Bottom"
                             Style="{StaticResource UIProjectCancelButtonStyle}"
                             Content="Hủy"
-                            Command="{Binding CancelCommand}"
-                            CommandParameter="{Binding ElementName=ProductAddingWnd}"/>
+                            />
                 </Grid>
             </Grid>
         </Grid>

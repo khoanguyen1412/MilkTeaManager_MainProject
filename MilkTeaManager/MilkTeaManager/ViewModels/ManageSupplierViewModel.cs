@@ -162,6 +162,7 @@ namespace MilkTeaManager.ViewModels
                 else
                     NhaCungCaps = new ObservableCollection<NHACUNGCAP>(DataAccess.FilterNhaCungCapByTenNCC(Text));
             });
+
         }
     }
 }

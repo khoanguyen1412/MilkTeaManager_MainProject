@@ -67,8 +67,7 @@
                                 <RowDefinition/>
                                 <RowDefinition/>
                                 <RowDefinition/>
-                                <RowDefinition/>
-                                <RowDefinition/>
+
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="180"/>
@@ -80,35 +79,42 @@
 
                             <Label Grid.Row="1" Grid.Column="0"
                                    Style="{StaticResource CustomDefinedLabelStyle}"
-                                   Content="Giá nhập"/>
+                                   Content="Số lượng"/>
+
                             <Label Grid.Row="2" Grid.Column="0"
                                    Style="{StaticResource CustomDefinedLabelStyle}"
-                                   Content="Giá bán"/>
+                                   Content="Đơn giá"/>
                             <Label Grid.Row="3" Grid.Column="0"
                                    Style="{StaticResource CustomDefinedLabelStyle}"
-                                   Content="Số lượng"/>
-                            <Label Grid.Row="4" Grid.Column="0"
-                                   Style="{StaticResource CustomDefinedLabelStyle}"
-                                   Content="Nhà cung cấp"/>
-
-                            <TextBox Grid.Row="0" Grid.Column="1"
-                                     Style="{StaticResource CustomTextBoxStyle}"
-                                     Text="{Binding STenNL}"/>
+                                   Content="Đơn vị tính"/>
+                            <ComboBox 
+                                      Grid.Column="1"
+                                      HorizontalAlignment="Stretch"
+                                          Margin="10"                               
+                                      Height="30"
+                           
+                                DisplayMemberPath="TENNL"
+                                ItemsSource="{Binding Path=NguyenLieus}"  
+                                      SelectedItem="{Binding Path=SNguyenLieu, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}"
+                                      />
                             <TextBox Grid.Row="1" Grid.Column="1"
                                      Style="{StaticResource CustomTextBoxStyle}"
-                                     Text="{Binding SGiaNhap}"/>
+                                     Text="{Binding SSoLuong}"
+                                    />
                             <TextBox Grid.Row="2" Grid.Column="1"
                                      Style="{StaticResource CustomTextBoxStyle}"
-                                     Text="{Binding SGiaBan}"/>
-                            <TextBox Grid.Row="3" Grid.Column="1"
-                                     Style="{StaticResource CustomTextBoxStyle}"
-                                     Text="{Binding SSoLuong}"/>
+                                     Text="{Binding DonGia}"
+                                    />
                             <ComboBox 
-                                      Grid.Row="4" Grid.Column="1"
+                                Grid.Row="3"
+                                      Grid.Column="1"
                                       HorizontalAlignment="Stretch"
-                                      Margin="10"                                    
+                                          Margin="10"                               
                                       Height="30"
-                                      DisplayMemberPath="TenKhuVuc"
+                       
+                                DisplayMemberPath="tendvt"
+                                ItemsSource="{Binding Path=DVTs}"  
+                                      SelectedItem="{Binding Path=SDVT, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}"
                                       />
                         </Grid>
                     </StackPanel>
@@ -123,10 +129,11 @@
                     <Button Grid.Column="0"
                             Margin="0 70 0 0 "
                             Click="update_click"
+                             Command="{Binding SaveCommand}"
                             VerticalAlignment="Bottom"
                             Style="{StaticResource UIProjectAcceptButtonStyle}"
                             Content="Cập nhật"
-                            IsEnabled="{Binding IsDataValid, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                            
                             />
                     <Button Grid.Column="1"
                             Panel.ZIndex="1"

@@ -29,10 +29,38 @@ namespace MilkTeaManager.Models
 		}
 
         public static TRASUAEntities1 db = GetEntities1();
+        public static void SaveCTPN(CHITIETPHIEUNHAP kh)
+        {
 
+            {
+                try
+                {
+                    db.CHITIETPHIEUNHAPs.AddOrUpdate(kh);
+                    db.SaveChanges();
+                }
+                catch (DataException)
+                {
+                    return;
+                }
+            }
+        }
+        public static void SaveLoaiPhieuNhap(PHIEUNHAP lsp)
+        {
 
-		#region Get_Object_By_Id
-		public static SANPHAM GetSanphambyMaSP(string maSp)
+            {
+                try
+                {
+                    db.PHIEUNHAPs.AddOrUpdate(lsp);
+                    db.SaveChanges();
+                }
+                catch (DataException)
+                {
+                    return;
+                }
+            }
+        }
+        #region Get_Object_By_Id
+        public static SANPHAM GetSanphambyMaSP(string maSp)
 		{
 			 
 			{

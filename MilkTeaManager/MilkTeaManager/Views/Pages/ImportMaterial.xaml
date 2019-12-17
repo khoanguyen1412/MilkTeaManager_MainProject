@@ -76,7 +76,7 @@
                         ToolTip="Thêm nguyên liệu mới"
                         Width="50"
                         Height="50"
-                        Click="addMaterial_click"
+                       Command="{Binding AddCommand}"
                         
                         >
                     <materialDesign:PackIcon Kind="CirclesAdd"
@@ -245,7 +245,7 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <Button Grid.Column="0"
-                            Click="editImportBill_click"
+                            Command="{Binding EditCommand}"
                             Style="{StaticResource MaterialDesignFloatingActionButton}"
                                         x:Name="btnEditProductInfo"
                                         ToolTip="Chỉnh sửa thông tin sản phẩm"
