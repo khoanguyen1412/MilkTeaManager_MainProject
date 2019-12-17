@@ -13,6 +13,7 @@ namespace MilkTeaManager.ViewModels.Dialog
      class OrderFormViewModel:BaseVM
     {
         private ObservableCollection<CHITIETHOADON> _cthds;
+
         private int _tongtien;
         private int _tienkhachdua;
         private int _tienthua;

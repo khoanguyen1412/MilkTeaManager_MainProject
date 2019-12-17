@@ -24,6 +24,7 @@ namespace MilkTeaManager.Views
     public partial class MainHomepageView : Window
     {
         private Boolean flag = false;
+        private Boolean flag1 = false;
         public MainHomepageView()
         {
             InitializeComponent();
@@ -143,6 +144,7 @@ namespace MilkTeaManager.Views
         }
         private void PhieuNhap_Click(object sender, RoutedEventArgs e)
         {
+            flag1 = true;
             this.PAGE_CONTENT.NavigationService.Navigate(new Uri("Views/Pages/ImportMaterial.xaml", UriKind.RelativeOrAbsolute));
         }
         private void DanhSachPhieuNhap_Click(object sender, RoutedEventArgs e)
@@ -175,7 +177,14 @@ namespace MilkTeaManager.Views
                 int index = DataAccess.db.HOADONs.Count() - 1;
                 HOADON a = DataAccess.db.HOADONs.ToList().ElementAt(index);
                 DataAccess.DeleteHoaDonByKey(a.MAHD);
-                MessageBox.Show(a.MAHD);
+
+            }
+            if (flag1)
+            {
+                int index = DataAccess.db.PHIEUNHAPs.Count() - 1;
+                PHIEUNHAP a = DataAccess.db.PHIEUNHAPs.ToList().ElementAt(index);
+                DataAccess.DeletePhieuNhapByKey(a.MAPN);
+
             }
             //int index = DataAccess.db.HOADONs.Count() - 1;
             //HOADON a = DataAccess.db.HOADONs.ToList().ElementAt(index);

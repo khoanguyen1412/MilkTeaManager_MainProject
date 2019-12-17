@@ -113,7 +113,7 @@
                         <GridView>
                             <GridViewColumn Header="STT" DisplayMemberBinding="{Binding RelativeSource={RelativeSource AncestorType=ListViewItem}, Converter={StaticResource ConverterIndexListView}}"></GridViewColumn>
                             <GridViewColumn Header="Mã hóa đơn" DisplayMemberBinding="{Binding MAHD}"></GridViewColumn>
-                            <GridViewColumn Header="Ngày lập" DisplayMemberBinding="{Binding NGAYLAP}" ></GridViewColumn>
+                            <GridViewColumn Header="Ngày lập" DisplayMemberBinding="{Binding CHITIETHOADONs.NGAYLAP}" ></GridViewColumn>
                             <GridViewColumn Header="Mã khách hàng" DisplayMemberBinding="{Binding MAKH}"></GridViewColumn>
                             <GridViewColumn Header="Tổng tiền" DisplayMemberBinding="{Binding TONGTIEN}"></GridViewColumn>
 
@@ -144,7 +144,7 @@
                             </Grid.ColumnDefinitions>
                             <StackPanel Grid.Column="0">
                                 <Label Content="Tổng thu gốc:"/>
-                                <Label Content="Tổng thu lãi"/>
+                               
                             </StackPanel>
                             <StackPanel DataContext="{StaticResource RevenueFormVM}" Grid.Column="1">
                                 <StackPanel.Resources>
@@ -152,7 +152,7 @@
                                         <Setter Property="FontWeight" Value="Bold"/>
                                     </Style>
                                 </StackPanel.Resources>
-                                <Label Content="{Binding TongThu}"/>
+                                <Label Content="{Binding TongThu}" Height="44" />
                                 
                             </StackPanel>
                         </Grid>

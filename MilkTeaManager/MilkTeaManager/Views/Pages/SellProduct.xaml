@@ -73,10 +73,10 @@
                                     Style="{StaticResource MaterialDesignTitleTextBlock}" FontSize="20" Margin="3" Text="Trà sữa"/>
 
 
-                                <ComboBox Grid.Row="1" VerticalAlignment="Top" Margin="3"
+                                <ComboBox VerticalAlignment="Top" Margin="3,25,3,0"
                                            ItemsSource="{Binding Path=SanPhams}"  
                                           SelectedItem="{Binding Path=SSanPham, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}"
-                                          DisplayMemberPath="TENSP"/>
+                                          DisplayMemberPath="TENSP" Height="32" Grid.RowSpan="2"/>
                             </Grid>
 
                         </materialDesign:Card>
@@ -153,15 +153,14 @@
                                     <ColumnDefinition Width="auto"/>
                                     <ColumnDefinition Width="auto"/>
                                 </Grid.ColumnDefinitions>
-                                <Button Grid.Column="1"
+                                <Button
                                     Style="{StaticResource MaterialDesignRaisedButton}"
                                     Width="100"
                                     ToolTip="Resource name: MaterialDesignRaisedButton"
                                     Content="Thêm"
-                                    Margin="156,0,-253,26"
-                                    Command="{Binding AddToppingCommand}"
-                                    >
-                                </Button>
+                                    
+                                    Command="{Binding AddToppingCommand}" Grid.ColumnSpan="2" Margin="0,0,2,26"
+                                    />
 
                             </Grid>
                             <Button
@@ -171,8 +170,8 @@
                                     Content="Xóa"
                                     
                                             Command="{Binding DeleteSanPhamCommand}"
-                         
-                                 Margin="157,24,10,0" Grid.Row="3"
+                                HorizontalAlignment="Right"
+                                 Grid.Row="3" Margin="0,25,0,0"
                          
                                 />
 
@@ -218,6 +217,7 @@
                             Margin="3"
                         CanUserSortColumns="True"
                         CanUserAddRows="False"
+                                  
                         CanUserResizeColumns="False"
                         CanUserResizeRows="False"
                         AutoGenerateColumns="False"
@@ -237,7 +237,7 @@
                                                 CellStyle="{StaticResource CenteredDataGridCell}"
                                                   Binding="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}, Converter={cv:RowToIndexConverter}}"
                                                 />
-                                <DataGridTextColumn Width="100"
+                                <DataGridTextColumn Width="200"
                                                 IsReadOnly="True"
                                                 Header="Tên sản phẩm"
                                                    
@@ -246,7 +246,7 @@
                                                 Binding="{Binding SANPHAM.TENSP,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                                     
                                                 />
-                                <DataGridTextColumn Width="55"
+                                <DataGridTextColumn Width="80"
                                                 CanUserSort="False"
                                                 Header="Size"                                           
                                                 IsReadOnly="True"
@@ -262,14 +262,14 @@
                                                      Binding="{Binding SANPHAM.GIABAN}"/>
                                 <DataGridTextColumn Width="80"
                                                 Header="Số lượng"
-                                                TextBlock.TextAlignment="Right"
+                                       
                                                 IsReadOnly="True"
                                                 HeaderStyle="{StaticResource RightDataGridHeader}"
                                                 CellStyle="{StaticResource RightDataGridCell}"
                                                     Binding="{Binding SOLUONG}"/>
-                                <DataGridTextColumn Width="150"
+                                <DataGridTextColumn Width="100"
                                                 Header="Thành tiền"
-                                                TextBlock.TextAlignment="Right"
+                                 
                                                 IsReadOnly="True"
                                                 CanUserSort="False"                                           
                                                 HeaderStyle="{StaticResource RightDataGridHeader}"
@@ -434,20 +434,39 @@
                     </Grid.RowDefinitions>
                     <Grid Grid.Row="0">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="1*"/>
                             <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="3*"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="40"/>
                             <RowDefinition Height="40"/>
-                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="60"/>
                         </Grid.RowDefinitions>
-                        <Label Grid.Row="0" Grid.Column="0"
-                                       Content="VAT (%)" FontSize="15"/>
                         <Label Grid.Row="1" Grid.Column="0"
-                                       Content="Chiết khấu (%)" FontSize="15"/>
-
-                        <DockPanel Grid.Row="2" Grid.ColumnSpan="2">
+                                       Content="Tiền nhận" FontSize="15"/>
+                        <TextBox Grid.Row="1" FontSize="15" Grid.Column="2"
+                                         VerticalAlignment="Center"
+                                         Margin="10 5 10 5"
+                                  PreviewTextInput="NumberValidationTextBox"
+                                         materialDesign:HintAssist.Hint=" tiền nhận"
+                                 Text="{Binding TienKhachDua, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                          />
+                        <Label Grid.Row="2" FontSize="15"
+                                           Margin="10 10 0 0"
+                                           Content="Tiền thừa:"
+                                           VerticalAlignment="Center"/>
+                        <Label Grid.Row="2" Grid.Column="1"
+                                           
+                               Height="39"
+                              
+                          
+                               HorizontalAlignment="Right"
+                                           
+                                           Style="{StaticResource MediumLabelStyle}"
+                                           FontWeight="Normal"
+                                            Content="{Binding TienThua}" 
+                                           />
+                        <DockPanel Grid.Row="0" Grid.ColumnSpan="2">
                             <Label Grid.Row="2" Grid.Column="0"
                                            DockPanel.Dock="Left"
                                            Content="Tổng tiền" FontSize="15"/>
@@ -458,20 +477,6 @@
                                             Content="{Binding TongTien}"
                                            />
                         </DockPanel>
-
-                        <TextBox Grid.Row="0" Grid.Column="1" FontSize="15"
-                                         HorizontalAlignment="Stretch"
-                                         TextAlignment="Left"
-                                         materialDesign:HintAssist.Hint="Thuế"
-                                         Margin="5"
-                                         />
-                        <TextBox Grid.Row="1" Grid.Column="1" FontSize="15"
-                                         HorizontalAlignment="Stretch"
-                                         TextAlignment="Left"
-                                         materialDesign:HintAssist.Hint="Chiết khấu"
-                                         Margin="5"
-                                    
-                                         />
 
                     </Grid>
                     <Grid Grid.Row="2">
@@ -486,29 +491,13 @@
                                 <ColumnDefinition Width="1*"/>
                             </Grid.ColumnDefinitions>
                         </Grid>
-                        <TextBox Grid.Row="0" FontSize="15"
-                                         VerticalAlignment="Center"
-                                         Margin="10 5 10 5"
-                                  PreviewTextInput="NumberValidationTextBox"
-                                         materialDesign:HintAssist.Hint="Tiền khách đưa:"
-                                 Text="{Binding TienKhachDua, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                          />
+
                         <Grid Grid.Row="1">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="1*"/>
-                                <RowDefinition Height="1*"/>
+
                             </Grid.RowDefinitions>
-                            <Label Grid.Row="0" FontSize="15"
-                                           Margin="10 10 0 0"
-                                           Content="Tiền thừa:"
-                                           VerticalAlignment="Center"/>
-                            <Label Grid.Row="1"
-                                           Margin="10"
-                                           HorizontalAlignment="Left"
-                                           Style="{StaticResource MediumLabelStyle}"
-                                           FontWeight="Normal"
-                                            Content="{Binding TienThua}"
-                                           />
+
                         </Grid>
                         <Button Grid.Row="2"
                                         x:Name="btnThanhToan"

@@ -998,6 +998,19 @@ namespace MilkTeaManager.Models
             db.CHITIETNGUYENLIEUx.Remove(cthd);
             db.SaveChanges();
         }
+        public static void DeletePhieuNhapByKey(string maHd)
+        {
+            var cthds = GetChitietPHIEUNHAPsByMaPN(maHd);
+            foreach (var cthd in cthds)
+            {
+                db.CHITIETPHIEUNHAPs.Remove(cthd);
+                db.SaveChanges();
+            }
+
+            var hoadon = db.PHIEUNHAPs.Where(x => x.MAPN == maHd).ToList().ElementAt(0);
+            db.PHIEUNHAPs.Remove(hoadon);
+            db.SaveChanges();
+        }
         public static void DeleteHoaDonByKey(string maHd)
         {
             var cthds = GetChitiethoadonsByMaHD(maHd);

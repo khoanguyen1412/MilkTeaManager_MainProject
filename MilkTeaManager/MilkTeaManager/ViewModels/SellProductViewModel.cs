@@ -242,6 +242,7 @@ namespace MilkTeaManager.ViewModels
                 DataAccess.SaveChiTietHoaDon(cthd);
                 CTHDs.Add(cthd);
                 TinhTong();
+                TienThua = TienKhachDua - TongTien;
             });
             EditSanPhamCommand = new RelayCommand<object>((p) =>
             {
@@ -251,7 +252,7 @@ namespace MilkTeaManager.ViewModels
                 if (int.Parse(SoLuong) <= 0 || int.Parse(SoLuong) > 99)
                     return false;
                 return true;
-
+                
             }, (p) =>
             {
 
@@ -261,6 +262,7 @@ namespace MilkTeaManager.ViewModels
                 SCTHD.MASIZE = cthd.MASIZE;
                 SCTHD.SOLUONG = cthd.SOLUONG;
                 TinhTong();
+                TienThua = TienKhachDua - TongTien;
             });
 
             AddToppingCommand = new RelayCommand<object>((p) =>
@@ -281,7 +283,8 @@ namespace MilkTeaManager.ViewModels
                 DataAccess.SaveChiTietHoaDon(cthd);
                 CTHDs.Add(cthd);
                 TinhTong();
-      
+                TienThua = TienKhachDua - TongTien;
+
             });
             DeleteSanPhamCommand = new RelayCommand<object>((p) =>
             {
@@ -298,6 +301,7 @@ namespace MilkTeaManager.ViewModels
                 DataAccess.DeleteChiTietHoaDon(cthd);
                 CTHDs.Remove(SCTHD);
                 TinhTong();
+                TienThua = TienKhachDua - TongTien;
             });
 
            ThanhToanCommand = new RelayCommand<object>((p) =>

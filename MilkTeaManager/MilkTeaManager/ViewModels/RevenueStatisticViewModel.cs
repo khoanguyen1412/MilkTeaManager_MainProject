@@ -5,7 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
 using MilkTeaManager.Models;
+using MilkTeaManager.Views.Dialog;
+
 namespace MilkTeaManager.ViewModels
 {
     class RevenueStatisticViewModel:BaseVM
@@ -17,6 +20,15 @@ namespace MilkTeaManager.ViewModels
         private string _soluong;
         private int _tongtien;
         private string _mahd;
+        private int _tongthu;
+        public ICommand PrintCommand { get; set; }
+        public int TongThu
+        {
+            get { return _tongthu; }
+            set { _tongthu = value;
+                OnPropertyChanged();
+            }
+        }
 
         public string MaHD
         {
@@ -78,6 +90,7 @@ namespace MilkTeaManager.ViewModels
             {
                 _cthds = value;
                 OnPropertyChanged();
+               
             }
         }
         public ObservableCollection<HOADON> HoaDons
@@ -87,12 +100,30 @@ namespace MilkTeaManager.ViewModels
             {
                 _hoadons = value;
                 OnPropertyChanged();
+                TongThu = 0;
+                
             }
         }
         public RevenueStatisticViewModel()
         {
-           
+            TongThu = 0;
             HoaDons = new ObservableCollection<HOADON>(DataAccess.GetHoadons());
+            foreach (var item in HoaDons)
+            {
+                TongThu += (int)item.TONGTIEN;
+            }
+            PrintCommand = new RelayCommand<object>((p) =>
+            {
+
+                if (HoaDons == null)
+                    return false;
+                return true;
+
+            }, (p) =>
+            {
+                RevenueForm wd = new RevenueForm();
+                wd.ShowDialog();
+            });
         }
     }
 }

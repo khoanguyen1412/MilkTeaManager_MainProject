@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using MilkTeaManager.Models;
+using MilkTeaManager.Views.Pages;
+
 namespace MilkTeaManager.ViewModels.Dialog
 {
     class RevenueFormViewModel:BaseVM
@@ -64,14 +66,12 @@ namespace MilkTeaManager.ViewModels.Dialog
         }
         public RevenueFormViewModel()
         {
-            NgayLap = DateTime.Now;
-            HoaDons = new ObservableCollection<HOADON>(DataAccess.GetHoadons());
-            var tongthu = 0;
-            foreach (var item in HoaDons)
-            {
-                tongthu +=(int) item.TONGTIEN;
-            }
-            TongThu = tongthu;
+            RevenueStatistic wd = new RevenueStatistic();
+            var data = wd.DataContext as RevenueStatisticViewModel;
+            NgayLap = (DateTime)data.HoaDons.ElementAt(0).NGAYLAP;
+            NguoiLap = data.HoaDons.ElementAt(0).NHANVIEN.HOTEN;
+            HoaDons = data.HoaDons;
+            TongThu = data.TongThu;
         }
     }
 }

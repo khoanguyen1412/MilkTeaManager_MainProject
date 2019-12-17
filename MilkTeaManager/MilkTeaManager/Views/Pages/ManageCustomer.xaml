@@ -125,7 +125,7 @@
                                                 HeaderStyle="{StaticResource CenteredDataGridHeader}"
                                                 CellStyle="{StaticResource CenteredDataGridCell}"
                                             Binding="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}, Converter={cv:RowToIndexConverter}}"/>
-                        <DataGridTextColumn Width="80"
+                        <DataGridTextColumn Width="150"
                                                 IsReadOnly="True"
                                                 Header="Mã KH"
                                                 HeaderStyle="{StaticResource CenteredDataGridHeader}"
@@ -241,14 +241,7 @@
                     <Separator DockPanel.Dock="Bottom"
                                    Margin="5 10 10 15"
                                    Background="LightGray"/>
-                    <Image DockPanel.Dock="Left"
-                               Grid.ColumnSpan="2"
-                               HorizontalAlignment="Left"
-                               VerticalAlignment="Center"
-                               Source="C:\Users\User\Source\Repos\MilkTeaManager\MilkTeaManager\Views\Images\customeravatar.jpg"
-                               Margin="10 0 20 10"
-                               Width="80"
-                               Height="80"/>
+                    
                     <StackPanel DockPanel.Dock="Right">
                         <TextBlock DockPanel.Dock="Right"
                                        VerticalAlignment="Center"

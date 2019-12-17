@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using MilkTeaManager.Models;
+using MilkTeaManager.Views.Pages;
+
 namespace MilkTeaManager.ViewModels.Dialog
 {
     class ExpenditureFormViewModel : BaseVM
@@ -72,14 +74,12 @@ namespace MilkTeaManager.ViewModels.Dialog
         }
         public ExpenditureFormViewModel()
         {
+            ExpenditureStatistic wd = new ExpenditureStatistic();
+            var data = wd.DataContext as ExpenditureStatisticViewModel;
             NgayLap = DateTime.Now;
-            PhieuNhaps = new ObservableCollection<PHIEUNHAP>(DataAccess.GetPhieuNhaps());
-            var tongthu = 0;
-            foreach (var item in PhieuNhaps)
-            {
-                
-            }
-            TongThu = tongthu;
+            NguoiLap = data.PhieuNhaps.ElementAt(0).NHANVIEN.HOTEN;
+            PhieuNhaps = data.PhieuNhaps;
+            TongThu = data.TongChi;
         }
     }
 }

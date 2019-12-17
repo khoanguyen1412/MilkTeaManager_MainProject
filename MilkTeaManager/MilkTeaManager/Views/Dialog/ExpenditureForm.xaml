@@ -112,7 +112,7 @@
                         <GridView>
                             <GridViewColumn Header="STT" DisplayMemberBinding="{Binding RelativeSource={RelativeSource AncestorType=ListViewItem}, Converter={StaticResource ConverterIndexListView}}"></GridViewColumn>
                             <GridViewColumn Header="Mã Phiếu chi" DisplayMemberBinding="{Binding MAPN}" Width="120"></GridViewColumn>
-                            <GridViewColumn Header="Ngày lập" DisplayMemberBinding="{Binding NGAYLAP}"></GridViewColumn>
+                            <GridViewColumn Header="Ngày lập" DisplayMemberBinding="{Binding NGAYNHAP}"></GridViewColumn>
                             <GridViewColumn Header="Tên nha cung cấp" DisplayMemberBinding="{Binding NHACUNGCAP.TENNCC}" ></GridViewColumn>
                             <GridViewColumn Header="Tổng tiền" DisplayMemberBinding="{Binding TONGTIEN}" ></GridViewColumn>
 
@@ -142,7 +142,7 @@
                                 <ColumnDefinition Width="auto"/>
                             </Grid.ColumnDefinitions>
                             <StackPanel Grid.Column="0">
-                                <Label Content="Số lượng:"/>
+                              
                                 <Label Content="Tổng chi"/>
                             </StackPanel>
                             <StackPanel Grid.Column="1">
@@ -151,7 +151,7 @@
                                         <Setter Property="FontWeight" Value="Bold"/>
                                     </Style>
                                 </StackPanel.Resources>
-                                <Label Content="{Binding SoLuong}"/>
+                               
                                 <Label Content="{Binding TongThu}"/>
 
                             </StackPanel>
