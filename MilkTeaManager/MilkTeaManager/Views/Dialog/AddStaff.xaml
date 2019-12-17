@@ -3,9 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:System="clr-namespace:System;assembly=mscorlib"
+
         xmlns:local="clr-namespace:MilkTeaManager.Views.Dialog"
+        DataContext="{StaticResource AddStaffVM}"
          xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
+        
         Title="AddStaff" ResizeMode="NoResize"
          Height="750" Width="500"
         WindowStartupLocation="CenterScreen">
@@ -61,7 +65,7 @@
                         <Label Style="{StaticResource MediumLabelStyle}"
                                Content="Thông tin chung"
                                HorizontalAlignment="Left"/>
-                        <Grid>
+                        <Grid DataContext="{StaticResource AddStaffVM}">
                             <Grid.RowDefinitions>
                                 <RowDefinition/>
                                 <RowDefinition/>
@@ -94,7 +98,10 @@
                                    Content="Lương"/>
                             <Label Grid.Row="5" Grid.Column="0"
                                    Style="{StaticResource CustomDefinedLabelStyle}"
-                                   Content="Quyền"/>
+                                   Content="Chức vụ"/>
+                            <Label Grid.Row="6" Grid.Column="0"
+                                   Style="{StaticResource CustomDefinedLabelStyle}"
+                                   Content="Ngày sinh"/>
                             <Label Grid.Row="6" Grid.Column="0"
                                    Style="{StaticResource CustomDefinedLabelStyle}"
                                    Content="Ngày sinh"/>
@@ -102,37 +109,43 @@
 
                             <TextBox Grid.Row="0" Grid.Column="1"
                                      Style="{StaticResource CustomTextBoxStyle}"
+                                     Text="{Binding STenNV}"
                                      />
                             <TextBox Grid.Row="1" Grid.Column="1"
                                      Style="{StaticResource CustomTextBoxStyle}"
+                                     Text="{Binding SSDT}"
                                      />
                             <TextBox Grid.Row="2" Grid.Column="1"
                                      Style="{StaticResource CustomTextBoxStyle}"
+                                     Text="{Binding SDiaChi}"
                                      />
                             <ComboBox x:Name="PART_Combobox"
                                       Grid.Row="5" Grid.Column="1"
                                       HorizontalAlignment="Stretch"
                                       Margin="10"                                    
                                       Height="30"
-                                      DisplayMemberPath="TenKhuVuc"
+                                      DisplayMemberPath=""
+                                       ItemsSource="{Binding ChucVu}"  
+                                      SelectedItem="{Binding SChucVu}"
                                       />
                             <TextBox x:Name="textBoxX" Grid.Row="4" Grid.Column="1"
                                      Style="{StaticResource CustomTextBoxStyle}"
+                                     Text="{Binding SLuong}"
                                      />
                             <TextBox Grid.Row="3" Grid.Column="1"
                                      Style="{StaticResource CustomTextBoxStyle}"
+                                     Text="{Binding SEmail}"
                                      />
                             <DatePicker Grid.Row="6" Grid.Column="1" Margin="10"
                                  x:Name="FutureDatePicker"
                                     materialDesign:HintAssist.Hint=" Chọn ngày"
                                     FontSize="15"
-                                    >
-                                    <DatePicker.SelectedDate>
-                                    <Binding
-                                        Path="FutureValidatingDate"
-                                        UpdateSourceTrigger="PropertyChanged">
-                                    </Binding>
-                                </DatePicker.SelectedDate>
+                                        SelectedDate="{Binding Path=SNgaySinh,
+                                Mode=TwoWay,
+                                TargetNullValue={x:Static System:DateTime.Now}}"
+                                    
+                                        >
+
                             </DatePicker>
                         </Grid>
                     </StackPanel>
@@ -143,10 +156,12 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <Button Grid.Column="0"
+                            Command="{Binding SaveCommand}"
                             Click="save_click"
                             Margin="0 20"
                             Style="{StaticResource UIProjectAcceptButtonStyle}"
-                            Content="Lưu"/>
+                            Content="Lưu"
+                           />
                     <Button Grid.Column="1"
                             Click="exit_click"
                             Margin="0 20"

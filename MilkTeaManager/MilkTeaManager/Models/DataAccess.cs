@@ -112,7 +112,24 @@ namespace MilkTeaManager.Models
 			}
 		}
 
-		public static KHACHHANG GetKhachhangbyMaKH(string maKh)
+        public static string GetLoainhanvienbyTenLoaiNV(string tenLnv)
+        {
+
+            {
+                try
+                {
+                    var result = db.LOAINHANVIENs.Where(x => x.TENLOAINV == tenLnv).ToList();
+                    return result.ElementAt(0).MALOAINV;
+                }
+                catch (DataException)
+                {
+                    return null;
+                }
+            }
+        }
+
+
+        public static KHACHHANG GetKhachhangbyMaKH(string maKh)
 		{
 			 
 			{
@@ -568,6 +585,17 @@ namespace MilkTeaManager.Models
 
             var result = from productlist in db.PHIEUNHAPs
                          select productlist.MAPN;
+
+            return result.ToList();
+
+        }
+
+        public static List<string> GetTenLoaiNV()
+        {
+
+
+            var result = from productlist in db.LOAINHANVIENs
+                         select productlist.TENLOAINV;
 
             return result.ToList();
 
