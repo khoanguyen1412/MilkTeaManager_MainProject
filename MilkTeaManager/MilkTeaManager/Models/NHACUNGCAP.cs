@@ -27,6 +27,8 @@ namespace MilkTeaManager.Models
         public string SDTNCC { get; set; }
         public string EMAILNCC { get; set; }
         public Nullable<System.DateTime> NGAYHOPTAC { get; set; }
+        public Nullable<int> TT { get; set; }
+        public string TINHTRANG { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<NGUYENLIEU> NGUYENLIEUx { get; set; }

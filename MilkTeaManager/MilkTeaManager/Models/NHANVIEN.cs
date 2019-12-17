@@ -18,6 +18,7 @@ namespace MilkTeaManager.Models
         public NHANVIEN()
         {
             this.HOADONs = new HashSet<HOADON>();
+            this.PHIEUNHAPs = new HashSet<PHIEUNHAP>();
         }
     
         public string HOTEN { get; set; }
@@ -27,9 +28,13 @@ namespace MilkTeaManager.Models
         public string MANV { get; set; }
         public string EMAIL { get; set; }
         public Nullable<int> LUONG { get; set; }
+        public Nullable<int> TT { get; set; }
+        public string TINHTRANG { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HOADON> HOADONs { get; set; }
         public virtual LOAINHANVIEN LOAINHANVIEN { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PHIEUNHAP> PHIEUNHAPs { get; set; }
     }
 }

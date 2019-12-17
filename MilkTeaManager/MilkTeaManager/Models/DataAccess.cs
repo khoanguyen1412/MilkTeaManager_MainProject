@@ -23,12 +23,12 @@ namespace MilkTeaManager.Models
 	public class DataAccess
 	{
 
-		public static TRASUAEntities1 GetEntities1()
+		public static TRASUAEntities GetEntities1()
 		{
-			return new TRASUAEntities1();
+			return new TRASUAEntities();
 		}
 
-        public static TRASUAEntities1 db = GetEntities1();
+        public static TRASUAEntities db = GetEntities1();
 
 
 		#region Get_Object_By_Id
@@ -291,7 +291,6 @@ namespace MilkTeaManager.Models
                 }
                 catch (DataException)
                 {
-
                     return new List<NGUYENLIEU>();
                 }
             }
@@ -321,6 +320,20 @@ namespace MilkTeaManager.Models
                 try
                 {
                     return db.NHANVIENs.Where(x => x.MALOAINV == manv).ToList();
+                }
+                catch (DataException)
+                {
+                    return new List<NHANVIEN>();
+                }
+            }
+        }
+        public static List<NHANVIEN> GetNHANVIENByTT(int tt)
+        {
+
+            {
+                try
+                {
+                    return db.NHANVIENs.Where(x => (int)x.TT == tt).ToList();
                 }
                 catch (DataException)
                 {
@@ -433,8 +446,22 @@ namespace MilkTeaManager.Models
 				}
 			}
 		}
+        public static List<NHACUNGCAP> GetNhacungcapsByTT(int tt)
+        {
 
-		public static List<NHANVIEN> GetNhanviens()
+            {
+                try
+                {
+                    return db.NHACUNGCAPs.Where(x => (int)x.TT == tt).ToList();
+                }
+                catch (DataException)
+                {
+                    return new List<NHACUNGCAP>();
+                }
+            }
+        }
+
+        public static List<NHANVIEN> GetNhanviens()
 		{
 			 
 			{

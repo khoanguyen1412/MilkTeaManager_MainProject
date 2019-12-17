@@ -108,7 +108,7 @@
             <StackPanel  DataContext="{StaticResource RevenueFormVM}" Orientation="Vertical">
 
 
-                <ListView >
+                <ListView ItemsSource="{Binding HoaDons}">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="STT" DisplayMemberBinding="{Binding RelativeSource={RelativeSource AncestorType=ListViewItem}, Converter={StaticResource ConverterIndexListView}}"></GridViewColumn>
@@ -146,13 +146,13 @@
                                 <Label Content="Tổng thu gốc:"/>
                                 <Label Content="Tổng thu lãi"/>
                             </StackPanel>
-                            <StackPanel Grid.Column="1">
+                            <StackPanel DataContext="{StaticResource RevenueFormVM}" Grid.Column="1">
                                 <StackPanel.Resources>
                                     <Style TargetType="{x:Type Label}" BasedOn="{StaticResource ValueLabelStyle}">
                                         <Setter Property="FontWeight" Value="Bold"/>
                                     </Style>
                                 </StackPanel.Resources>
-                                <Label Content="{Binding TongSoLuongTonKho}"/>
+                                <Label Content="{Binding TongThu}"/>
                                 
                             </StackPanel>
                         </Grid>

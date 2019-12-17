@@ -13,8 +13,16 @@ namespace MilkTeaManager.ViewModels.Dialog
         private DateTime _ngaylap;
         private DateTime _tungay;
         private DateTime _denngay;
+        private int _tongthu;
         private ObservableCollection<HOADON> _hoadons;
 
+        public int TongThu
+        {
+            get { return _tongthu; }
+            set { _tongthu = value;
+                OnPropertyChanged();
+            }
+        }
         public string NguoiLap
         {
             get { return _nguoilap; }
@@ -58,6 +66,12 @@ namespace MilkTeaManager.ViewModels.Dialog
         {
             NgayLap = DateTime.Now;
             HoaDons = new ObservableCollection<HOADON>(DataAccess.GetHoadons());
+            var tongthu = 0;
+            foreach (var item in HoaDons)
+            {
+                tongthu +=(int) item.TONGTIEN;
+            }
+            TongThu = tongthu;
         }
     }
 }

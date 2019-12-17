@@ -26,6 +26,7 @@ namespace MilkTeaManager.Models
         public Nullable<int> GIANHAP { get; set; }
         public Nullable<int> GIAXUAT { get; set; }
         public string MANCC { get; set; }
+        public Nullable<int> TT { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CHITIETNGUYENLIEU> CHITIETNGUYENLIEUx { get; set; }

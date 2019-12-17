@@ -8,6 +8,7 @@
         Title="ExpenditureForm"
          ResizeMode="NoResize"
          Height="800" Width="600"
+        DataContext="{StaticResource ExpenditureFormVM}"
         WindowStartupLocation="CenterScreen">
     <FlowDocument Background="White" 
                   PageHeight="850"
@@ -38,7 +39,7 @@
                    FontWeight="Bold">Bảng thống kê chi</Paragraph>
         <Section Name="ExpenditureInfo">
             <BlockUIContainer>
-                <Grid>
+                <Grid         DataContext="{StaticResource ExpenditureFormVM}">
                     <Grid.RowDefinitions>
                         <RowDefinition />
                         <RowDefinition />
@@ -58,19 +59,19 @@
                            Style="{StaticResource MediumLabelStyle}"
                            FontWeight="Bold"
                            HorizontalAlignment="Left"
-                           Content="{Binding NguoiLapBaoCao}"/>
+                           Content="{Binding NguoiLap }"/>
                     <Label Grid.Column="1" Grid.Row="1"
                            Style="{StaticResource MediumLabelStyle}"
                            FontWeight="Bold"
                            HorizontalAlignment="Left"
-                           Content="{Binding ThoiGianBaoCao}"/>
+                           Content="{Binding NgayLap}"/>
                 </Grid>
             </BlockUIContainer>
         </Section>
         <Paragraph TextAlignment="Center">==========================================</Paragraph>
         <Section Name="TimeInfo">
             <BlockUIContainer>
-                <Grid>
+                <Grid         DataContext="{StaticResource ExpenditureFormVM}">
 
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
@@ -103,17 +104,17 @@
             </BlockUIContainer>
         </Section>
         <BlockUIContainer>
-            <StackPanel Orientation="Vertical">
+            <StackPanel         DataContext="{StaticResource ExpenditureFormVM}" Orientation="Vertical">
 
 
-                <ListView >
+                <ListView ItemsSource="{Binding PhieuNhaps}">
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="STT"></GridViewColumn>
-                            <GridViewColumn Header="Mã Phiếu chi" Width="120"></GridViewColumn>
-                            <GridViewColumn Header="Ngày lập" ></GridViewColumn>
-                            <GridViewColumn Header="Mã phiếu nhập" ></GridViewColumn>
-                            <GridViewColumn Header="Tổng tiền" ></GridViewColumn>
+                            <GridViewColumn Header="STT" DisplayMemberBinding="{Binding RelativeSource={RelativeSource AncestorType=ListViewItem}, Converter={StaticResource ConverterIndexListView}}"></GridViewColumn>
+                            <GridViewColumn Header="Mã Phiếu chi" DisplayMemberBinding="{Binding MAPN}" Width="120"></GridViewColumn>
+                            <GridViewColumn Header="Ngày lập" DisplayMemberBinding="{Binding NGAYLAP}"></GridViewColumn>
+                            <GridViewColumn Header="Tên nha cung cấp" DisplayMemberBinding="{Binding NHACUNGCAP.TENNCC}" ></GridViewColumn>
+                            <GridViewColumn Header="Tổng tiền" DisplayMemberBinding="{Binding TONGTIEN}" ></GridViewColumn>
 
                         </GridView>
                     </ListView.View>
@@ -135,7 +136,7 @@
                         </Style>
                     </StackPanel.Resources>
                     <Border>
-                        <Grid>
+                        <Grid DataContext="{StaticResource ExpenditureFormVM}">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
                                 <ColumnDefinition Width="auto"/>
@@ -150,7 +151,8 @@
                                         <Setter Property="FontWeight" Value="Bold"/>
                                     </Style>
                                 </StackPanel.Resources>
-                                <Label Content="{Binding TongSoLuongTonKho}"/>
+                                <Label Content="{Binding SoLuong}"/>
+                                <Label Content="{Binding TongThu}"/>
 
                             </StackPanel>
                         </Grid>

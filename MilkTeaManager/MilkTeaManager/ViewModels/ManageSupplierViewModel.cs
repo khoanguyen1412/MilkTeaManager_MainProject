@@ -9,6 +9,7 @@ using MilkTeaManager.Models;
 
 namespace MilkTeaManager.ViewModels
 {
+
     class ManageSupplierViewModel : BaseVM
     {
         private ObservableCollection<NHACUNGCAP> _nhacungcaps;
@@ -23,7 +24,31 @@ namespace MilkTeaManager.ViewModels
         private NHACUNGCAP _snhacungcap;
         private string _text;
 
+        public ObservableCollection<TRANGTHAI> _tts;
+        public TRANGTHAI _strangthai;
+
+        public ObservableCollection<TRANGTHAI> TTs
+        {
+            get { return _tts; }
+            set
+            {
+                _tts = value;
+                OnPropertyChanged();
+            }
+        }
+        public TRANGTHAI STrangThai
+        {
+            get { return _strangthai; }
+            set
+            {
+                _strangthai = value;
+                OnPropertyChanged();
+                NhaCungCaps = new ObservableCollection<NHACUNGCAP>(DataAccess.GetNhacungcapsByTT(STrangThai.MATT));
+                
+            }
+        }
         public ICommand SearchClick { get; set; }
+
 
         public string MaNCC
         {
@@ -109,9 +134,21 @@ namespace MilkTeaManager.ViewModels
 
         public ManageSupplierViewModel()
         {
+            TTs = new ObservableCollection<TRANGTHAI>();
+            TRANGTHAI tt1 = new TRANGTHAI("Hợp tác", 1);
+            TTs.Add(tt1);
+            TRANGTHAI tt2 = new TRANGTHAI("Dừng hợp tác", 0);
+            TTs.Add(tt2);
+
             NhaCungCaps = new ObservableCollection<NHACUNGCAP>(DataAccess.GetNhacungcaps());
             _mncc = new ObservableCollection<string>(DataAccess.GetTenNCC());
-
+            foreach (var item in NhaCungCaps)
+            {
+                if (item.TT == 1)
+                    item.TINHTRANG = "Hợp tác";
+                else
+                    item.TINHTRANG = "Dừng hợp tác";
+            }
             SearchClick = new RelayCommand<object>((p) =>
             {
                 return true;

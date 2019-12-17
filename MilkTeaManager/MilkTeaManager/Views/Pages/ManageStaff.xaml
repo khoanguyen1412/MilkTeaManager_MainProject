@@ -111,6 +111,17 @@
                             ItemsSource="{Binding Path=LoaiNVs}"  
                                           SelectedItem="{Binding Path=SLoaiNV, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}"
                             />
+                <ComboBox VerticalAlignment="Stretch"
+                          ItemsSource="{Binding Path=TTs}"  
+                            SelectedItem="{Binding Path=STrangThai, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}"
+                          DisplayMemberPath="TENTT"
+                            Margin="30 5 10 5"
+                            Width="150"
+                            FontSize="15"
+                            materialDesign:HintAssist.Hint="Trạng thái"
+
+                            
+                            />
             </StackPanel>
             <Grid Grid.Row="1">
                 <Grid.Resources>
@@ -199,7 +210,13 @@
                                             Binding="{Binding LUONG}"
                                                 HeaderStyle="{StaticResource CenteredDataGridHeader}"
                                                 CellStyle="{StaticResource RightDataGridCell}"/>
-                        
+                        <DataGridTextColumn Width="120"
+                                                Header="Trạng thái"
+                                                TextBlock.TextAlignment="Center"
+                                                IsReadOnly="True"
+                                            Binding="{Binding TINHTRANG}"
+                                                HeaderStyle="{StaticResource CenteredDataGridHeader}"
+                                                CellStyle="{StaticResource RightDataGridCell}"/> 
                     </DataGrid.Columns>
                 </DataGrid>
             </materialDesign:Card>

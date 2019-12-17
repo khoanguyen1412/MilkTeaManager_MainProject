@@ -9,11 +9,12 @@ using MilkTeaManager.Models;
 
 namespace MilkTeaManager.ViewModels
 {
+   
     class ManageCustomerViewModel : BaseVM
     {
         private ObservableCollection<KHACHHANG> _khachhangs;
         public ObservableCollection<string> _mhk { get; set; }
-
+     
 
 
         private string _makh;
@@ -26,7 +27,7 @@ namespace MilkTeaManager.ViewModels
 
         public ICommand GetDatabaseCommand { get; set; }
         public ICommand SearchClick { get; set; }
-
+       
         public string MaKH
         {
             get { return _makh; }
@@ -108,7 +109,6 @@ namespace MilkTeaManager.ViewModels
         public ManageCustomerViewModel()
         {
             KhachHangs = new ObservableCollection<KHACHHANG>(DataAccess.GetKhachhangs());
-
             GetDatabaseCommand = new RelayCommand<object>((p) =>
             {
                

@@ -9,6 +9,16 @@ using MilkTeaManager.Models;
 
 namespace MilkTeaManager.ViewModels
 {
+    public class TRANGTHAI
+    {
+        public string TENTT { get; set; }
+        public int MATT { get; set; }
+        public TRANGTHAI(string a, int i)
+        {
+            TENTT = a;
+            MATT = i;
+        }
+    }
     class ManageStaffViewModel : BaseVM
     {
         private ObservableCollection<NHANVIEN> _nhanviens;
@@ -26,7 +36,29 @@ namespace MilkTeaManager.ViewModels
         private NHANVIEN _snhanvien;
         
         private string _manv;
+        public ObservableCollection<TRANGTHAI> _tts;
+        public TRANGTHAI _strangthai;
 
+        public ObservableCollection<TRANGTHAI> TTs
+        {
+            get { return _tts; }
+            set
+            {
+                _tts = value;
+                OnPropertyChanged();
+            }
+        }
+        public TRANGTHAI STrangThai
+        {
+            get { return _strangthai; }
+            set
+            {
+                _strangthai = value;
+                OnPropertyChanged();
+                NhanViens = new ObservableCollection<NHANVIEN>(DataAccess.GetNHANVIENByTT(STrangThai.MATT));
+                KQTT = NhanViens.Count();
+            }
+        }
         public LOAINHANVIEN SLoaiNV
         {
             get { return _sloainv; }
@@ -161,8 +193,22 @@ namespace MilkTeaManager.ViewModels
 
         public ManageStaffViewModel()
         {
+            TTs = new ObservableCollection<TRANGTHAI>();
+            TRANGTHAI tt1 = new TRANGTHAI("Nghĩ việc", 0);
+            TTs.Add(tt1);
+            TRANGTHAI tt2 = new TRANGTHAI("Đang làm việc", 1);
+            TTs.Add(tt2);
+          
+
             NhanViens = new ObservableCollection<NHANVIEN>(DataAccess.GetNhanviens());
             LoaiNVs = new ObservableCollection<LOAINHANVIEN>(DataAccess.GetLoainhanviens());
+            foreach (var item in NhanViens)
+            {
+                if (item.TT == 1)
+                    item.TINHTRANG = "Đang làm việc";
+                else
+                    item.TINHTRANG = "Nghĩ việc";
+            }
             SoLuong = NhanViens.Count();
             KQTT = SoLuong;
             _mnv = new ObservableCollection<string>(DataAccess.GetTenNV());

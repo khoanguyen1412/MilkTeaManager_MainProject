@@ -90,6 +90,7 @@
           <Property Name="GIANHAP" Type="int" />
           <Property Name="GIAXUAT" Type="int" />
           <Property Name="MANCC" Type="nvarchar" MaxLength="50" />
+          <Property Name="TT" Type="int" />
         </EntityType>
         <EntityType Name="NHACUNGCAP">
           <Key>
@@ -101,6 +102,8 @@
           <Property Name="SDTNCC" Type="nvarchar" MaxLength="50" />
           <Property Name="EMAILNCC" Type="nvarchar" MaxLength="50" />
           <Property Name="NGAYHOPTAC" Type="date" />
+          <Property Name="TT" Type="int" />
+          <Property Name="TINHTRANG" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="NHANVIEN">
           <Key>
@@ -113,6 +116,8 @@
           <Property Name="MANV" Type="nvarchar" MaxLength="50" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="EMAIL" Type="nvarchar" MaxLength="50" />
           <Property Name="LUONG" Type="int" />
+          <Property Name="TT" Type="int" />
+          <Property Name="TINHTRANG" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="PHIEUNHAP">
           <Key>
@@ -121,6 +126,8 @@
           <Property Name="MAPN" Type="nvarchar" MaxLength="5" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="MANCC" Type="nvarchar" MaxLength="50" />
           <Property Name="NGAYNHAP" Type="datetime" />
+          <Property Name="TONGTIEN" Type="int" />
+          <Property Name="MANV" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="SANPHAM">
           <Key>
@@ -306,6 +313,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_PHIEUNHAP_NHANVIEN">
+          <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="0..1" />
+          <End Role="PHIEUNHAP" Type="Self.PHIEUNHAP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHANVIEN">
+              <PropertyRef Name="MANV" />
+            </Principal>
+            <Dependent Role="PHIEUNHAP">
+              <PropertyRef Name="MANV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_SANPHAM_LOAISANPHAM">
           <End Role="LOAISANPHAM" Type="Self.LOAISANPHAM" Multiplicity="0..1" />
           <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="*" />
@@ -388,6 +407,10 @@
           <AssociationSet Name="FK_NHANVIEN_LOAINHANVIEN" Association="Self.FK_NHANVIEN_LOAINHANVIEN">
             <End Role="LOAINHANVIEN" EntitySet="LOAINHANVIEN" />
             <End Role="NHANVIEN" EntitySet="NHANVIEN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PHIEUNHAP_NHANVIEN" Association="Self.FK_PHIEUNHAP_NHANVIEN">
+            <End Role="NHANVIEN" EntitySet="NHANVIEN" />
+            <End Role="PHIEUNHAP" EntitySet="PHIEUNHAP" />
           </AssociationSet>
           <AssociationSet Name="FK_SANPHAM_LOAISANPHAM" Association="Self.FK_SANPHAM_LOAISANPHAM">
             <End Role="LOAISANPHAM" EntitySet="LOAISANPHAM" />
@@ -500,6 +523,7 @@
           <Property Name="GIANHAP" Type="Int32" />
           <Property Name="GIAXUAT" Type="Int32" />
           <Property Name="MANCC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TT" Type="Int32" />
           <NavigationProperty Name="CHITIETNGUYENLIEUx" Relationship="Self.FK__CHITIETNGU__MANL__6D0D32F4" FromRole="NGUYENLIEU" ToRole="CHITIETNGUYENLIEU" />
           <NavigationProperty Name="CHITIETPHIEUNHAPs" Relationship="Self.FK__CHITIETPHI__MANL__4C364F0E" FromRole="NGUYENLIEU" ToRole="CHITIETPHIEUNHAP" />
           <NavigationProperty Name="NHACUNGCAP" Relationship="Self.fk_mancc_nl" FromRole="NGUYENLIEU" ToRole="NHACUNGCAP" />
@@ -514,8 +538,10 @@
           <Property Name="SDTNCC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="EMAILNCC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="NGAYHOPTAC" Type="DateTime" Precision="0" />
+          <Property Name="TT" Type="Int32" />
           <NavigationProperty Name="NGUYENLIEUx" Relationship="Self.fk_mancc_nl" FromRole="NHACUNGCAP" ToRole="NGUYENLIEU" />
           <NavigationProperty Name="PHIEUNHAPs" Relationship="Self.FK__PHIEUNHAP__MANCC__41B8C09B" FromRole="NHACUNGCAP" ToRole="PHIEUNHAP" />
+          <Property Name="TINHTRANG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="NHANVIEN">
           <Key>
@@ -528,8 +554,11 @@
           <Property Name="MANV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="LUONG" Type="Int32" />
+          <Property Name="TT" Type="Int32" />
           <NavigationProperty Name="HOADONs" Relationship="Self.FK_HOADON_NHANVIEN" FromRole="NHANVIEN" ToRole="HOADON" />
           <NavigationProperty Name="LOAINHANVIEN" Relationship="Self.FK_NHANVIEN_LOAINHANVIEN" FromRole="NHANVIEN" ToRole="LOAINHANVIEN" />
+          <NavigationProperty Name="PHIEUNHAPs" Relationship="TRASUAModel.FK_PHIEUNHAP_NHANVIEN" FromRole="NHANVIEN" ToRole="PHIEUNHAP" />
+          <Property Name="TINHTRANG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="PHIEUNHAP">
           <Key>
@@ -538,8 +567,11 @@
           <Property Name="MAPN" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MANCC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="NGAYNHAP" Type="DateTime" Precision="3" />
+          <Property Name="TONGTIEN" Type="Int32" />
           <NavigationProperty Name="CHITIETPHIEUNHAPs" Relationship="Self.FK__CHITIETPHI__MAPN__4B422AD5" FromRole="PHIEUNHAP" ToRole="CHITIETPHIEUNHAP" />
           <NavigationProperty Name="NHACUNGCAP" Relationship="Self.FK__PHIEUNHAP__MANCC__41B8C09B" FromRole="PHIEUNHAP" ToRole="NHACUNGCAP" />
+          <Property Name="MANV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="NHANVIEN" Relationship="TRASUAModel.FK_PHIEUNHAP_NHANVIEN" FromRole="PHIEUNHAP" ToRole="NHANVIEN" />
         </EntityType>
         <EntityType Name="SANPHAM">
           <Key>
@@ -741,7 +773,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="TRASUAEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="TRASUAEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CHITIETHOADONs" EntityType="Self.CHITIETHOADON" />
           <EntitySet Name="CHITIETNGUYENLIEUx" EntityType="Self.CHITIETNGUYENLIEU" />
           <EntitySet Name="CHITIETPHIEUNHAPs" EntityType="Self.CHITIETPHIEUNHAP" />
@@ -816,13 +848,29 @@
             <End Role="NHACUNGCAP" EntitySet="NHACUNGCAPs" />
             <End Role="PHIEUNHAP" EntitySet="PHIEUNHAPs" />
           </AssociationSet>
+          <AssociationSet Name="FK_PHIEUNHAP_NHANVIEN" Association="TRASUAModel.FK_PHIEUNHAP_NHANVIEN">
+            <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+            <End Role="PHIEUNHAP" EntitySet="PHIEUNHAPs" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_PHIEUNHAP_NHANVIEN">
+          <End Type="TRASUAModel.NHANVIEN" Role="NHANVIEN" Multiplicity="0..1" />
+          <End Type="TRASUAModel.PHIEUNHAP" Role="PHIEUNHAP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHANVIEN">
+              <PropertyRef Name="MANV" />
+            </Principal>
+            <Dependent Role="PHIEUNHAP">
+              <PropertyRef Name="MANV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="TRASUAModelStoreContainer" CdmEntityContainer="TRASUAEntities1">
+        <EntityContainerMapping StorageEntityContainer="TRASUAModelStoreContainer" CdmEntityContainer="TRASUAEntities">
           <EntitySetMapping Name="CHITIETHOADONs">
             <EntityTypeMapping TypeName="TRASUAModel.CHITIETHOADON">
               <MappingFragment StoreEntitySet="CHITIETHOADON">
@@ -915,24 +963,28 @@
                 <ScalarProperty Name="GIANHAP" ColumnName="GIANHAP" />
                 <ScalarProperty Name="GIAXUAT" ColumnName="GIAXUAT" />
                 <ScalarProperty Name="MANCC" ColumnName="MANCC" />
+                <ScalarProperty Name="TT" ColumnName="TT" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="NHACUNGCAPs">
             <EntityTypeMapping TypeName="TRASUAModel.NHACUNGCAP">
               <MappingFragment StoreEntitySet="NHACUNGCAP">
+                <ScalarProperty Name="TINHTRANG" ColumnName="TINHTRANG" />
                 <ScalarProperty Name="MANCC" ColumnName="MANCC" />
                 <ScalarProperty Name="TENNCC" ColumnName="TENNCC" />
                 <ScalarProperty Name="DIACHINCC" ColumnName="DIACHINCC" />
                 <ScalarProperty Name="SDTNCC" ColumnName="SDTNCC" />
                 <ScalarProperty Name="EMAILNCC" ColumnName="EMAILNCC" />
                 <ScalarProperty Name="NGAYHOPTAC" ColumnName="NGAYHOPTAC" />
+                <ScalarProperty Name="TT" ColumnName="TT" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="NHANVIENs">
             <EntityTypeMapping TypeName="TRASUAModel.NHANVIEN">
               <MappingFragment StoreEntitySet="NHANVIEN">
+                <ScalarProperty Name="TINHTRANG" ColumnName="TINHTRANG" />
                 <ScalarProperty Name="HOTEN" ColumnName="HOTEN" />
                 <ScalarProperty Name="NGAYSINH" ColumnName="NGAYSINH" />
                 <ScalarProperty Name="SDT" ColumnName="SDT" />
@@ -940,15 +992,18 @@
                 <ScalarProperty Name="MANV" ColumnName="MANV" />
                 <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
                 <ScalarProperty Name="LUONG" ColumnName="LUONG" />
+                <ScalarProperty Name="TT" ColumnName="TT" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PHIEUNHAPs">
             <EntityTypeMapping TypeName="TRASUAModel.PHIEUNHAP">
               <MappingFragment StoreEntitySet="PHIEUNHAP">
+                <ScalarProperty Name="MANV" ColumnName="MANV" />
                 <ScalarProperty Name="MAPN" ColumnName="MAPN" />
                 <ScalarProperty Name="MANCC" ColumnName="MANCC" />
                 <ScalarProperty Name="NGAYNHAP" ColumnName="NGAYNHAP" />
+                <ScalarProperty Name="TONGTIEN" ColumnName="TONGTIEN" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

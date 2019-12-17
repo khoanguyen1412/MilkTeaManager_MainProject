@@ -77,6 +77,7 @@
                           Text="{Binding Text}"
                           behaviors:AutoCompleteBehavior.AutoCompleteItemsSource="{Binding _mncc}"
                           behaviors:AutoCompleteBehavior.AutoCompleteStringComparison="InvariantCultureIgnoreCase"/>
+               
                 <Grid>
                     <Label Width="50" Height="50" Background="#669BBF"/>
                     <Image  Margin="5"
@@ -94,8 +95,19 @@
                         >
                         <materialDesign:PackIcon Kind="AccountSearch"></materialDesign:PackIcon>
                     </Button>
+                    
                 </Grid>
+                <ComboBox VerticalAlignment="Stretch"
+                          ItemsSource="{Binding Path=TTs}"  
+                            SelectedItem="{Binding Path=STrangThai, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}"
+                          DisplayMemberPath="TENTT"
+                            Margin="30 5 10 5"
+                            Width="150"
+                            FontSize="15"
+                            materialDesign:HintAssist.Hint="Trạng thái"
 
+                            
+                            />
             </StackPanel>
 
             <!--Bảng danh sách khách hàng-->
@@ -118,14 +130,14 @@
                         HorizontalAlignment="Stretch">
                     
                     <DataGrid.Columns>
-                        <DataGridTextColumn Width="60"
+                        <DataGridTextColumn Width="20"
                                                 Header="STT"
                                                 IsReadOnly="True"
                                                 CanUserSort="False"
                                                  Binding="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}, Converter={cv:RowToIndexConverter}}"
                                                 HeaderStyle="{StaticResource CenteredDataGridHeader}"
                                                 CellStyle="{StaticResource CenteredDataGridCell}"/>
-                        <DataGridTextColumn Width="150"
+                        <DataGridTextColumn Width="60"
                                                 IsReadOnly="True"
                                                 Header="Mã NCC"
                                                 HeaderStyle="{StaticResource CenteredDataGridHeader}"
@@ -139,7 +151,7 @@
                                                 Binding="{Binding TENNCC}"
                                                 HeaderStyle="{StaticResource CenteredDataGridHeader}"
                                                 CellStyle="{StaticResource CenteredDataGridCell}"/>
-                        <DataGridTextColumn Width="200"
+                        <DataGridTextColumn Width="150"
                                                 CanUserSort="False"
                                                 Header="Địa chỉ"
                                                 TextBlock.TextAlignment="Left"
@@ -147,21 +159,21 @@
                                                 Binding="{Binding DIACHINCC}"
                                                 HeaderStyle="{StaticResource CenteredDataGridHeader}"
                                                 CellStyle="{StaticResource CenteredDataGridCell}"/>
-                        <DataGridTextColumn Width="100"
+                        <DataGridTextColumn Width="60"
                                                 Header="Ngày hợp tác"
                                                 HeaderStyle="{StaticResource CenteredDataGridHeader}"
                                                 CellStyle="{StaticResource CenteredDataGridCell}"
                                             Binding="{Binding NGAYHOPTAC,  StringFormat={}{0:dd/MM/yyyy}}"
                                                 EditingElementStyle="{StaticResource CustomEditingTextColumnElementStyle}"
                                                 IsReadOnly="True"/>
-                        <!--<DataGridTextColumn Width="120"
-                                                Header="Email"
+                       <DataGridTextColumn Width="100"
+                                                Header="Trạng thái"
                                                 TextBlock.TextAlignment="Right"
                                                 IsReadOnly="True"
-                                            Binding="{Binding EMAILNCC}"
+                                            Binding="{Binding TINHTRANG}"
                                                 HeaderStyle="{StaticResource CenteredDataGridHeader}"
                                                 CellStyle="{StaticResource CenteredDataGridCell}"/>
-                        <DataGridTextColumn Width="150"
+                        <!-- <DataGridTextColumn Width="150"
                                                 Header="Ngày hợp tác"
                                                 TextBlock.TextAlignment="Center"
                                                 IsReadOnly="True"

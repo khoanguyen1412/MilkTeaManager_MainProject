@@ -75,6 +75,7 @@
                                               Text="{Binding Text}"
                                               behaviors:AutoCompleteBehavior.AutoCompleteItemsSource="{Binding _mhk}"
                                               behaviors:AutoCompleteBehavior.AutoCompleteStringComparison="InvariantCultureIgnoreCase"/>
+               
                 <Grid>
                     <Label Width="50" Height="50" Background="#669BBF"/>
                     <Image  Margin="5"

@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        DataContext="{StaticResource MaterialFormVM}"
         xmlns:local="clr-namespace:MilkTeaManager.Views.Dialog"
         mc:Ignorable="d"
         Title="MaterialReport"         ResizeMode="NoResize"
@@ -37,7 +38,7 @@
                    FontWeight="Bold">Bảng báo cáo nguyên liệu</Paragraph>
         <Section Name="MaterialInfo">
             <BlockUIContainer>
-                <Grid>
+                <Grid DataContext="{StaticResource MaterialFormVM}">
                     <Grid.RowDefinitions>
                         <RowDefinition />
                         <RowDefinition />
@@ -57,30 +58,30 @@
                            Style="{StaticResource MediumLabelStyle}"
                            FontWeight="Bold"
                            HorizontalAlignment="Left"
-                           Content="{Binding NguoiLapBaoCao}"/>
+                           Content="{Binding NguoiLap }"/>
                     <Label Grid.Column="1" Grid.Row="1"
                            Style="{StaticResource MediumLabelStyle}"
                            FontWeight="Bold"
                            HorizontalAlignment="Left"
-                           Content="{Binding ThoiGianBaoCao}"/>
+                           Content="{Binding NgayLap}"/>
                 </Grid>
             </BlockUIContainer>
         </Section>
         <Paragraph TextAlignment="Center">==========================================</Paragraph>
 
         <BlockUIContainer>
-            <StackPanel Orientation="Vertical">
+            <StackPanel DataContext="{StaticResource MaterialFormVM}" Orientation="Vertical">
 
 
-                <ListView >
+                <ListView ItemsSource="{Binding NguyenLieus}" >
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="STT"></GridViewColumn>
-                            <GridViewColumn Header="Tên &#x0a;nguyên liệu"></GridViewColumn>
-                            <GridViewColumn Header="Loại &#x0a;nguyên liệu" Width="100" ></GridViewColumn>
-                            <GridViewColumn Header="Số lượng &#x0a;đang có" Width="100"></GridViewColumn>
-                            <GridViewColumn Header="NCC" Width="80"></GridViewColumn>
-                            <GridViewColumn Header="Giá bán" Width="100" ></GridViewColumn>
+                            <GridViewColumn Header="STT" DisplayMemberBinding="{Binding RelativeSource={RelativeSource AncestorType=ListViewItem}, Converter={StaticResource ConverterIndexListView}}"></GridViewColumn>
+                            <GridViewColumn Header="Tên &#x0a;nguyên liệu" DisplayMemberBinding="{Binding TENNL}"></GridViewColumn>
+                            
+                            <GridViewColumn Header="Số lượng &#x0a;đang có" DisplayMemberBinding="{Binding SOLUONG}" Width="100"></GridViewColumn>
+                            <GridViewColumn Header="NCC" Width="80" DisplayMemberBinding="{Binding NHACUNGCAP.TENNCC}"></GridViewColumn>
+                            <GridViewColumn Header="Giá bán" Width="100" DisplayMemberBinding="{Binding GIAXUAT}"></GridViewColumn>
                         </GridView>
                     </ListView.View>
                 </ListView>
@@ -101,7 +102,7 @@
                         </Style>
                     </StackPanel.Resources>
                     <Border>
-                        <Grid>
+                        <Grid DataContext="{StaticResource MaterialFormVM}">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
                                 <ColumnDefinition Width="auto"/>

@@ -18,4 +18,7 @@
     <viewmodel:ManageMaterialViewModel x:Key="ManageMaterialVM"></viewmodel:ManageMaterialViewModel>
     <viewmodel:ListImportBillViewModel x:Key="ListImportBillVM"></viewmodel:ListImportBillViewModel>
     <viewmodelDialog:RevenueFormViewModel x:Key="RevenueFormVM"></viewmodelDialog:RevenueFormViewModel>
+    <viewmodelDialog:ExpenditureFormViewModel x:Key="ExpenditureFormVM"></viewmodelDialog:ExpenditureFormViewModel>
+    <viewmodelDialog:MaterialReportViewModel x:Key="MaterialFormVM"></viewmodelDialog:MaterialReportViewModel>
+    <viewmodel:ExpenditureStatisticViewModel x:Key="ExpenStatisticVM"></viewmodel:ExpenditureStatisticViewModel>
 </ResourceDictionary> 
