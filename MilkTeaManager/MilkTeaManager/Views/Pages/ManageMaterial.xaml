@@ -144,7 +144,7 @@ DataContext="{StaticResource ManageMaterialVM}"
                                      >
                 <DataGrid 
                          ItemsSource="{Binding Path=NguyenLieus}"
-                        SelectedItem="{Binding Path=SNguyenLieu, Mode=OneWayToSource}"
+                        SelectedItem="{Binding Path=SNguyenLieu}"
                         CanUserSortColumns="True"
                         CanUserAddRows="False"
                         CanUserResizeColumns="False"

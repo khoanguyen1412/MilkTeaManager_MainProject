@@ -92,31 +92,31 @@ namespace MilkTeaManager.ViewModels.Dialog
             ManageMaterial wd = new ManageMaterial();
             var dc = wd.DataContext as ManageMaterialViewModel;
             STenNL = dc.TenNL;
-            //SGiaNhap = dc.SNguyenLieu.GIANHAP.ToString();
-            //SGiaBan = dc.SNguyenLieu.GIAXUAT.ToString();
-            //SNhaCC = dc.TenNCC;
-            //NhaCC = dc.NCCs;
-            //NguyenLieus = dc.NguyenLieus;
-            //DVTs = new ObservableCollection<DONVITINH>(DataAccess.GetDonvitinhs());
-            //UpdateCommand = new RelayCommand<object>((p) =>
-            //{
-            //    if (string.IsNullOrEmpty(STenNL) || string.IsNullOrEmpty(SNhaCC) || string.IsNullOrEmpty(SGiaBan) || string.IsNullOrEmpty(SGiaNhap))
-            //    {
-            //        return false;
-            //    }
-            //    return true;
+            SGiaNhap = dc.SNguyenLieu.GIANHAP.ToString();
+            SGiaBan = dc.SNguyenLieu.GIAXUAT.ToString();
+            SNhaCC = dc.TenNCC;
+            NhaCC = dc.NCCs;
+            NguyenLieus = dc.NguyenLieus;
+            DVTs = new ObservableCollection<DONVITINH>(DataAccess.GetDonvitinhs());
+            UpdateCommand = new RelayCommand<object>((p) =>
+            {
+                if (string.IsNullOrEmpty(STenNL) || string.IsNullOrEmpty(SNhaCC) || string.IsNullOrEmpty(SGiaBan) || string.IsNullOrEmpty(SGiaNhap))
+                {
+                    return false;
+                }
+                return true;
 
-            //}, (p) =>
-            //{
+            }, (p) =>
+            {
 
-            //    NguyenLieu = new NGUYENLIEU() { TENNL = STenNL, GIANHAP = Int32.Parse(SGiaNhap), GIAXUAT = Int32.Parse(SGiaBan), MANCC = DataAccess.GetNhacungcapByTenNCC(SNhaCC).MANCC,MANL=dc.MaNL };
-            //    DataAccess.SaveNguyenLieu(NguyenLieu);
-            //    ManageMaterial NguyenLieuWindow = new ManageMaterial();
-            //    if (NguyenLieuWindow.DataContext == null)
-            //        return;
-            //    var MMaterialVM = NguyenLieuWindow.DataContext as ManageMaterialViewModel;
-            //    MMaterialVM.NguyenLieus = new ObservableCollection<NGUYENLIEU>(DataAccess.GetNguyenlieus());
-            //});
+                NguyenLieu = new NGUYENLIEU() { TENNL = STenNL, GIANHAP = Int32.Parse(SGiaNhap), GIAXUAT = Int32.Parse(SGiaBan), MANCC = DataAccess.GetNhacungcapByTenNCC(SNhaCC).MANCC, MANL = dc.MaNL };
+                DataAccess.SaveNguyenLieu(NguyenLieu);
+                ManageMaterial NguyenLieuWindow = new ManageMaterial();
+                if (NguyenLieuWindow.DataContext == null)
+                    return;
+                var MMaterialVM = NguyenLieuWindow.DataContext as ManageMaterialViewModel;
+                MMaterialVM.NguyenLieus = new ObservableCollection<NGUYENLIEU>(DataAccess.GetNguyenlieus());
+            });
 
 
         }

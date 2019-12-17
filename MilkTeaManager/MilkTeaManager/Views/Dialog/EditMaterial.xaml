@@ -110,7 +110,7 @@
                                       Margin="10"                                    
                                       Height="30"
                                       Text="Tên nhà cung cấp"
-                                      DisplayMemberPath="tendvt"
+                                      DisplayMemberPath="TENNCC"
                                       ItemsSource="{Binding NhaCC}"  
                                       SelectedItem="{Binding SNhaCC}"
                                       />
@@ -129,17 +129,17 @@
                     </Grid.ColumnDefinitions>
                     <Button Grid.Column="0"
                             Click="save_click"
-                            Margin="0 70 0 0 "
+                            Margin="62,0,62.8,10.2"
                             VerticalAlignment="Bottom"
                             Style="{StaticResource UIProjectAcceptButtonStyle}"
-                            Content="Thêm"
-                            Command="{Binding UpdateCommand}"
+                            Content="Sửa"
+                            Command="{Binding UpdateCommand}" Height="38"
                             />
                     <Button Grid.Column="1"
                             Click="exit_click"
                             Panel.ZIndex="1"
-                            Margin="0 70 0 0 "
-                            VerticalAlignment="Bottom"
+                            Margin="60.2,59,64.6,10.2"
+                            VerticalAlignment="Stretch"
                             Style="{StaticResource UIProjectCancelButtonStyle}"
                             Content="Hủy"
                             />
