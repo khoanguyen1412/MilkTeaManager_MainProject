@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using MilkTeaManager.Models;
+using MilkTeaManager.ViewModels.Dialog;
+using MilkTeaManager.Views.Dialog;
 
 namespace MilkTeaManager.ViewModels
 {
@@ -27,7 +29,8 @@ namespace MilkTeaManager.ViewModels
 
         public ICommand GetDatabaseCommand { get; set; }
         public ICommand SearchClick { get; set; }
-       
+       public ICommand LoadKhachHangCommand { get; set; }
+        public ICommand EditCommand { get; set; }
         public string MaKH
         {
             get { return _makh; }
@@ -134,6 +137,24 @@ namespace MilkTeaManager.ViewModels
                 }
                 else
                 KhachHangs = new ObservableCollection<KHACHHANG>(DataAccess.FilterKhachhangByTenKH(Text));
+            });
+            LoadKhachHangCommand = new RelayCommand<object>((p) => { return true; }, (p) => {
+                AddCustomer wd = new AddCustomer();
+                wd.ShowDialog();
+                var addVM = wd.DataContext as AddCustomerViewModel;
+                if (addVM.KhachHang != null)
+                {
+                    KhachHangs = new ObservableCollection<KHACHHANG>(DataAccess.GetKhachhangs());
+                }
+            });
+            EditCommand = new RelayCommand<object>((p) => { return true; }, (p) => {
+               EditCustomer wd = new EditCustomer();
+                wd.ShowDialog();
+                var addVM = wd.DataContext as EditCustomerViewModel;
+                if (addVM.KhachHang != null)
+                {
+                    KhachHangs = new ObservableCollection<KHACHHANG>(DataAccess.GetKhachhangs());
+                }
             });
         }
     }

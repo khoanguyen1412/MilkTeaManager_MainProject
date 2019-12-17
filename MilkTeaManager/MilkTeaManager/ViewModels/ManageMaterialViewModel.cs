@@ -55,17 +55,7 @@ namespace MilkTeaManager.ViewModels
                 OnPropertyChanged();
             }
         }
-        public NGUYENLIEU SNguyenLieu
-        {
-            get { return _snguyenlieu; }
-            set { _snguyenlieu = value;
-                OnPropertyChanged();
-                MaNL = SNguyenLieu.MANL;
-                TenNL = SNguyenLieu.TENNL;
-                MaNCC = SNguyenLieu.MANCC;
-                TenNCC = SNguyenLieu.NHACUNGCAP.TENNCC;
-            }
-        }
+       
         public NHACUNGCAP SNCC
         {
             get { return _sncc; }
@@ -100,6 +90,19 @@ namespace MilkTeaManager.ViewModels
             get { return _nccs; }
             set { _nccs = value;
                 OnPropertyChanged();
+            }
+        }
+        public NGUYENLIEU SNguyenLieu
+        {
+            get { return _snguyenlieu; }
+            set
+            {
+                _snguyenlieu = value;
+                OnPropertyChanged();
+                MaNL = SNguyenLieu.MANL;
+                TenNL = SNguyenLieu.TENNL;
+                MaNCC = SNguyenLieu.MANCC;
+                TenNCC = SNguyenLieu.NHACUNGCAP.TENNCC;
             }
         }
         public ObservableCollection<NGUYENLIEU> NguyenLieus

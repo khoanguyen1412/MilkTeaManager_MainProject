@@ -115,6 +115,7 @@
                     <Button Grid.Column="0"
                             Click="update_click"
                             Margin="0 20"
+                            Command="{Binding SaveCommand}"
                             Style="{StaticResource UIProjectAcceptButtonStyle}"
                             Content="Cập nhật"/>
                     <Button Grid.Column="1"

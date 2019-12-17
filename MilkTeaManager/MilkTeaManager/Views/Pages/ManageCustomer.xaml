@@ -37,6 +37,7 @@
 
             <Button
                 Grid.Column="1"
+                Command="{Binding LoadKhachHangCommand}"
                 Style="{StaticResource MaterialDesignFloatingActionDarkButton}"
                 HorizontalAlignment="Right"
                 ToolTip="Thêm khách hàng mới"
@@ -218,7 +219,7 @@
                                 Grid.Column="0"
                                   Style="{StaticResource MaterialDesignFloatingActionDarkButton}"
                                   ToolTip="MaterialDesignFloatingActionDarkButton"
-                                Click="editCustomer_click">
+                                Command="{Binding EditCommand}">
                                 <materialDesign:PackIcon Kind="Edit"
                                                              
                                                              Height="24"

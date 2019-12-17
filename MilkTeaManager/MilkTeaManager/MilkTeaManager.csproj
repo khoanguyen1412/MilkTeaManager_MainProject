@@ -15,6 +15,21 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -84,62 +99,62 @@
     <Compile Include="Converters\IndexConverterListView.cs" />
     <Compile Include="Converters\RowToIndexConverter.cs" />
     <Compile Include="Models\CHITIETHOADON.cs">
-      <DependentUpon>MilkTeaDb.tt</DependentUpon>
+      <DependentUpon>DbMilkTea.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CHITIETNGUYENLIEU.cs">
-      <DependentUpon>MilkTeaDb.tt</DependentUpon>
+      <DependentUpon>DbMilkTea.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CHITIETPHIEUNHAP.cs">
-      <DependentUpon>MilkTeaDb.tt</DependentUpon>
+      <DependentUpon>DbMilkTea.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DataAccess.cs" />
+    <Compile Include="Models\DbMilkTea.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbMilkTea.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DbMilkTea.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbMilkTea.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DbMilkTea.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbMilkTea.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\DONVITINH.cs">
-      <DependentUpon>MilkTeaDb.tt</DependentUpon>
+      <DependentUpon>DbMilkTea.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\HOADON.cs">
-      <DependentUpon>MilkTeaDb.tt</DependentUpon>
+      <DependentUpon>DbMilkTea.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\KHACHHANG.cs">
-      <DependentUpon>MilkTeaDb.tt</DependentUpon>
+      <DependentUpon>DbMilkTea.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LOAINHANVIEN.cs">
-      <DependentUpon>MilkTeaDb.tt</DependentUpon>
+      <DependentUpon>DbMilkTea.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LOAISANPHAM.cs">
-      <DependentUpon>MilkTeaDb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MilkTeaDb.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MilkTeaDb.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MilkTeaDb.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MilkTeaDb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MilkTeaDb.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MilkTeaDb.edmx</DependentUpon>
+      <DependentUpon>DbMilkTea.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NGUYENLIEU.cs">
-      <DependentUpon>MilkTeaDb.tt</DependentUpon>
+      <DependentUpon>DbMilkTea.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NHACUNGCAP.cs">
-      <DependentUpon>MilkTeaDb.tt</DependentUpon>
+      <DependentUpon>DbMilkTea.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NHANVIEN.cs">
-      <DependentUpon>MilkTeaDb.tt</DependentUpon>
+      <DependentUpon>DbMilkTea.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PHIEUNHAP.cs">
-      <DependentUpon>MilkTeaDb.tt</DependentUpon>
+      <DependentUpon>DbMilkTea.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SANPHAM.cs">
-      <DependentUpon>MilkTeaDb.tt</DependentUpon>
+      <DependentUpon>DbMilkTea.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SIZE.cs">
-      <DependentUpon>MilkTeaDb.tt</DependentUpon>
+      <DependentUpon>DbMilkTea.tt</DependentUpon>
     </Compile>
     <Compile Include="Rules\OnlyDigitsValidationRule.cs" />
     <Compile Include="ViewModels\DelegateCommand.cs" />
@@ -575,22 +590,22 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Models\MilkTeaDb.edmx">
+    <EntityDeploy Include="Models\DbMilkTea.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MilkTeaDb.Designer.cs</LastGenOutput>
+      <LastGenOutput>DbMilkTea.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Models\MilkTeaDb.Context.tt">
+    <None Include="Models\DbMilkTea.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MilkTeaDb.edmx</DependentUpon>
-      <LastGenOutput>MilkTeaDb.Context.cs</LastGenOutput>
+      <DependentUpon>DbMilkTea.edmx</DependentUpon>
+      <LastGenOutput>DbMilkTea.Context.cs</LastGenOutput>
     </None>
-    <None Include="Models\MilkTeaDb.edmx.diagram">
-      <DependentUpon>MilkTeaDb.edmx</DependentUpon>
+    <None Include="Models\DbMilkTea.edmx.diagram">
+      <DependentUpon>DbMilkTea.edmx</DependentUpon>
     </None>
-    <None Include="Models\MilkTeaDb.tt">
+    <None Include="Models\DbMilkTea.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MilkTeaDb.edmx</DependentUpon>
-      <LastGenOutput>MilkTeaDb.cs</LastGenOutput>
+      <DependentUpon>DbMilkTea.edmx</DependentUpon>
+      <LastGenOutput>DbMilkTea.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -678,6 +693,27 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Views\Images\inventory.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TRASUA.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TRASUA_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>TRASUA.mdf</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

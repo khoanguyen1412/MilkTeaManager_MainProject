@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MilkTeaManager.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,8 +20,10 @@ namespace MilkTeaManager.Views.Dialog
     /// </summary>
     public partial class AddProduct : Window
     {
+        Boolean flag;
         public AddProduct()
         {
+            flag = false;
             InitializeComponent();
         }
         private void save_click(object sender, RoutedEventArgs e)
@@ -30,7 +33,19 @@ namespace MilkTeaManager.Views.Dialog
 
         private void exit_click(object sender, RoutedEventArgs e)
         {
+            flag = true;
             this.Close();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+          
+         if(flag)
+            {
+                int index = DataAccess.db.SANPHAMs.Count() - 1;
+                SANPHAM a = DataAccess.db.SANPHAMs.ToList().ElementAt(index);
+                DataAccess.DeleteSanPhamByKey(a.MASP);
+            }
         }
     }
 }

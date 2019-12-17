@@ -28,8 +28,7 @@ namespace MilkTeaManager.Views.Pages
 
         private void addCustomer_click(object sender, RoutedEventArgs e)
         {
-            AddCustomer x = new AddCustomer();
-            x.ShowDialog();
+
         }
 
         private void editCustomer_click(object sender, RoutedEventArgs e)

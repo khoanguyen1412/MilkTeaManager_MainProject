@@ -175,6 +175,7 @@ namespace MilkTeaManager.Views
                 int index = DataAccess.db.HOADONs.Count() - 1;
                 HOADON a = DataAccess.db.HOADONs.ToList().ElementAt(index);
                 DataAccess.DeleteHoaDonByKey(a.MAHD);
+                MessageBox.Show(a.MAHD);
             }
             //int index = DataAccess.db.HOADONs.Count() - 1;
             //HOADON a = DataAccess.db.HOADONs.ToList().ElementAt(index);

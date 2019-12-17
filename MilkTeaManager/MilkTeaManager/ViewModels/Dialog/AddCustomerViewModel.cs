@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using MilkTeaManager.Models;
+using MilkTeaManager.Views.Pages;
+
 namespace MilkTeaManager.ViewModels.Dialog
 {
     class AddCustomerViewModel:BaseVM

@@ -23,12 +23,12 @@ namespace MilkTeaManager.Models
 	public class DataAccess
 	{
 
-		public static TRASUAEntities GetEntities1()
+		public static TRASUAEntities1 GetEntities1()
 		{
-			return new TRASUAEntities();
+			return new TRASUAEntities1();
 		}
 
-        public static TRASUAEntities db = GetEntities1();
+        public static TRASUAEntities1 db = GetEntities1();
 
 
 		#region Get_Object_By_Id
@@ -922,6 +922,11 @@ namespace MilkTeaManager.Models
             db.CHITIETHOADONs.Remove(cthd);
             db.SaveChanges();
         }
+        public static void DeleteChiTieNguyenLieu(CHITIETNGUYENLIEU cthd)
+        {
+            db.CHITIETNGUYENLIEUx.Remove(cthd);
+            db.SaveChanges();
+        }
         public static void DeleteHoaDonByKey(string maHd)
         {
             var cthds = GetChitiethoadonsByMaHD(maHd);
@@ -933,6 +938,19 @@ namespace MilkTeaManager.Models
 
             var hoadon = db.HOADONs.Where(x => x.MAHD == maHd).ToList().ElementAt(0);
             db.HOADONs.Remove(hoadon);
+            db.SaveChanges();
+        }
+        public static void DeleteSanPhamByKey(string ma)
+        {
+            var cthds = GetChitietnguyenlieusByMaSp(ma);
+            foreach (var cthd in cthds)
+            {
+                db.CHITIETNGUYENLIEUx.Remove(cthd);
+                db.SaveChanges();
+            }
+
+            var hoadon = db.SANPHAMs.Where(x => x.MASP == ma).ToList().ElementAt(0);
+            db.SANPHAMs.Remove(hoadon);
             db.SaveChanges();
         }
     }
