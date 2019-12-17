@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:System="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:MilkTeaManager.Views.Dialog"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         DataContext="{StaticResource AddSupplierVM}"
@@ -114,13 +115,11 @@
                                  x:Name="FutureDatePicker"
                                     materialDesign:HintAssist.Hint=" Chọn ngày"
                                     FontSize="15"
+                                SelectedDate="{Binding Path=SNgayHopTac,
+                                Mode=TwoWay,
+                                TargetNullValue={x:Static System:DateTime.Now}}"
                                     >
-                                <DatePicker.SelectedDate>
-                                    <Binding
-                                        Path="FutureValidatingDate"
-                                        UpdateSourceTrigger="PropertyChanged">
-                                    </Binding>
-                                </DatePicker.SelectedDate>
+                             
                             </DatePicker>
                         </Grid>
                     </StackPanel>
@@ -134,9 +133,6 @@
                         <ColumnDefinition Width="180"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0"
-                                   Style="{StaticResource CustomDefinedLabelStyle}"
-                                   Content="Danh sách nguyên liệu"/>
 
                     <Grid Grid.Column="1">
                         <Grid.RowDefinitions>
@@ -149,81 +145,14 @@
                                 <ColumnDefinition Width="8*"/>
                                 <ColumnDefinition Width="3*"/>
                             </Grid.ColumnDefinitions>
-                            <ComboBox 
-                                      Grid.Column="0"
-                                      HorizontalAlignment="Stretch"
-                                      Margin="3"                                    
-                                      Height="30"
-                                        materialDesign:HintAssist.Hint="Nguyên liệu"
-                                      />
 
 
                         </Grid>
                         <Grid Grid.Row="1">
 
-                            <StackPanel Orientation="Horizontal">
-                                <Button Grid.Column="1" Margin="2"
-                                    Style="{StaticResource MaterialDesignRaisedDarkButton}"
-                                    Width="80"
-                                    Content="Thêm"
-                                    ToolTip="Resource name: MaterialDesignRaisedLightDarkButton">
-
-
-                                </Button>
-                                <Button Grid.Column="1" Margin="2"
-                                    Style="{StaticResource MaterialDesignRaisedDarkButton}"
-                                    Background="Red"
-                                    Content="Xóa"
-                                    Width="80"
-                                    ToolTip="Resource name: MaterialDesignRaisedLightDarkButton">
-
-                                </Button>
-                            </StackPanel>
+                            <StackPanel Orientation="Horizontal"/>
 
                         </Grid>
-                        <DataGrid 
-                                Margin="3"
-                                Grid.Row="2"
-                                CanUserSortColumns="True"
-                                CanUserAddRows="False"
-                                CanUserResizeColumns="False"
-                                CanUserResizeRows="False"
-                                AutoGenerateColumns="False"
-                                materialDesign:DataGridAssist.CellPadding="8"
-                                materialDesign:DataGridAssist.ColumnHeaderPadding="8"
-                                SelectionUnit="FullRow" Panel.ZIndex="-1" >
-                            <DataGrid.Columns>
-                                <DataGridTextColumn 
-                                                    TextBlock.TextAlignment="Right"
-                                                    Header="Danh sách Nguyên liệu"
-                                                    IsReadOnly="True"
-                                                    CanUserSort="False"
-                                                    HeaderStyle="{StaticResource CenteredDataGridHeader}"
-                                                    CellStyle="{StaticResource CenteredDataGridCell}"/>
-
-                                <DataGridTemplateColumn Width="30"
-                                                        HeaderStyle="{StaticResource CenteredDataGridHeader}"
-                                                        CellStyle="{StaticResource ButtonDataGridCellStyle}">
-                                    <DataGridTemplateColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <Button Style="{StaticResource UIProjectIconButtonStyle}"
-                                                        ToolTip="Xóa sản phẩm khỏi đơn hàng"
-                                                        VerticalAlignment="Center"
-                                                        HorizontalAlignment="Center"
-                                                        Background="Transparent"
-                                                        Foreground="Black"
-                                                        Width="30"
-                                                        Height="30"
-                                                        >
-                                                <materialDesign:PackIcon Kind="RemoveCircle"
-                                                                             Height="auto"
-                                                                             Width="auto"/>
-                                            </Button>
-                                        </DataTemplate>
-                                    </DataGridTemplateColumn.CellTemplate>
-                                </DataGridTemplateColumn>
-                            </DataGrid.Columns>
-                        </DataGrid>
                     </Grid>
                 </Grid>
                 <Grid Grid.Row="5">
@@ -235,7 +164,8 @@
                             Margin="0 20"
                             Click="save_click"
                             Style="{StaticResource UIProjectAcceptButtonStyle}"
-                            Content="Lưu"/>
+                            Content="Lưu"
+                            Command="{Binding SaveCommand}"/>
                     <Button Grid.Column="1"
                             Margin="0 20"
                             Click="exit_click"

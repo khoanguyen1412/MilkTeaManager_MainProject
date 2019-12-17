@@ -137,7 +137,7 @@
                                                  Binding="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}, Converter={cv:RowToIndexConverter}}"
                                                 HeaderStyle="{StaticResource CenteredDataGridHeader}"
                                                 CellStyle="{StaticResource CenteredDataGridCell}"/>
-                        <DataGridTextColumn Width="60"
+                        <DataGridTextColumn Width="80"
                                                 IsReadOnly="True"
                                                 Header="Mã NCC"
                                                 HeaderStyle="{StaticResource CenteredDataGridHeader}"
@@ -159,7 +159,7 @@
                                                 Binding="{Binding DIACHINCC}"
                                                 HeaderStyle="{StaticResource CenteredDataGridHeader}"
                                                 CellStyle="{StaticResource CenteredDataGridCell}"/>
-                        <DataGridTextColumn Width="60"
+                        <DataGridTextColumn Width="100"
                                                 Header="Ngày hợp tác"
                                                 HeaderStyle="{StaticResource CenteredDataGridHeader}"
                                                 CellStyle="{StaticResource CenteredDataGridCell}"
