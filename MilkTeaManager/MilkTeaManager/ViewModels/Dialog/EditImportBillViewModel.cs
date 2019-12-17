@@ -103,9 +103,9 @@ namespace MilkTeaManager.ViewModels.Dialog
 
             DonGia = 0;
             NguyenLieus = new ObservableCollection<NGUYENLIEU>(DataAccess.GetNguyenlieus());
-            DVTs = new ObservableCollection<DONVITINH>(DataAccess.GetDonvitinhs());
             ImportMaterial wd = new ImportMaterial();
             var dc = wd.DataContext as ImportMaterialViewModel;
+            STenNL = dc.nl.TENNL;
             DonGia = dc.dongia;
             SSoLuong =  dc.soluong.ToString();
             SDVT = dc.dvt;

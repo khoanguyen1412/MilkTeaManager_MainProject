@@ -87,15 +87,13 @@
                             <Label Grid.Row="3" Grid.Column="0"
                                    Style="{StaticResource CustomDefinedLabelStyle}"
                                    Content="Đơn vị tính"/>
-                            <ComboBox 
+                            <TextBlock 
                                       Grid.Column="1"
                                       HorizontalAlignment="Stretch"
                                           Margin="10"                               
                                       Height="30"
-                           
-                                DisplayMemberPath="TENNL"
-                                ItemsSource="{Binding Path=NguyenLieus}"  
-                                      SelectedItem="{Binding Path=SNguyenLieu, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}"
+                            Text="{Binding STenNL}"
+                  
                                       />
                             <TextBox Grid.Row="1" Grid.Column="1"
                                      Style="{StaticResource CustomTextBoxStyle}"
