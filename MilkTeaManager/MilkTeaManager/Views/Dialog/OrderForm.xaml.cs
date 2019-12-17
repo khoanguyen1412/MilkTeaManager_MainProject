@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MilkTeaManager.ViewModels.Dialog;
 
 namespace MilkTeaManager.Views.Dialog
 {
@@ -21,6 +22,7 @@ namespace MilkTeaManager.Views.Dialog
     {
         public OrderForm()
         {
+            this.DataContext = new OrderFormViewModel();
             InitializeComponent();
         }
     }

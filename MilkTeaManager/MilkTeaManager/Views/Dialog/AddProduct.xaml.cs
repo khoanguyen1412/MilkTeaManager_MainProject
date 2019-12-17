@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MilkTeaManager.ViewModels.Dialog;
 
 namespace MilkTeaManager.Views.Dialog
 {
@@ -23,6 +24,7 @@ namespace MilkTeaManager.Views.Dialog
         Boolean flag;
         public AddProduct()
         {
+            this.DataContext = new AddProductViewModel();
             flag = false;
             InitializeComponent();
         }

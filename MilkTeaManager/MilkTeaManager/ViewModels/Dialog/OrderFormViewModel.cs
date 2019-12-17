@@ -104,6 +104,7 @@ namespace MilkTeaManager.ViewModels.Dialog
             TongTien = data.TongTien;
             TienKhachDua = data.TienKhachDua;
             TienThua = data.TienThua;
+            MessageBox.Show(TongTien.ToString());
         }
     }
 }

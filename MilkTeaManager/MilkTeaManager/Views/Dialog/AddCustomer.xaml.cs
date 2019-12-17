@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MilkTeaManager.ViewModels.Dialog;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,7 @@ namespace MilkTeaManager.Views.Dialog
         public AddCustomer()
         {
             InitializeComponent();
+            this.DataContext = new AddCustomerViewModel();
         }
 
         private void save_click(object sender, RoutedEventArgs e)

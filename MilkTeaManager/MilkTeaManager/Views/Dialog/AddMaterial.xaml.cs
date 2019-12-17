@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MilkTeaManager.ViewModels.Dialog;
 
 namespace MilkTeaManager.Views.Dialog
 {
@@ -22,6 +23,7 @@ namespace MilkTeaManager.Views.Dialog
         public AddMaterial()
         {
             InitializeComponent();
+            this.DataContext = new AddMaterialViewModel();
         }
 
         private void save_click(object sender, RoutedEventArgs e)

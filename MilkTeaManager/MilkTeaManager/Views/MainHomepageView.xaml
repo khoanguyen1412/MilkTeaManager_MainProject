@@ -152,12 +152,7 @@
                             <RadioButton Style="{StaticResource SubMenuTabRadioButtonStyle}"
                                              Content="{StaticResource TAB_Chi}"
                                              Click="ThongKeChi_Click" />
-                            <RadioButton Style="{StaticResource SubMenuTabRadioButtonStyle}"
-                                             Content="{StaticResource TAB_BCNguyenLieu}"
-                                             Click="BCNguyenLieu_Click"/>
-                            <RadioButton Style="{StaticResource SubMenuTabRadioButtonStyle}"
-                                             Content="{StaticResource TAB_BCTonKho}"
-                                             Click="BCTonKho_Click" />
+                           
                         </StackPanel>
                     </Expander>
 

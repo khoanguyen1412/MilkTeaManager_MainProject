@@ -65,8 +65,6 @@ namespace MilkTeaManager.ViewModels.Dialog
         public ICommand SaveCommand { get; set; }
         public AddCustomerViewModel()
         {
-           
-
             SaveCommand = new RelayCommand<object>((p) =>
             {
                 if (string.IsNullOrEmpty(STenKH) || string.IsNullOrEmpty(SSDT))

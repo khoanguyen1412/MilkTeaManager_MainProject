@@ -160,7 +160,7 @@
                                             <Setter Property="FontWeight" Value="Bold"/>
                                         </Style>
                                     </StackPanel.Resources>
-                                <Label Content="{Binding TongTien}"/>
+                                <Label Content="{Binding TongTien,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
                             </StackPanel>
                             </Grid>
                         </Border>
@@ -180,8 +180,8 @@
                                             <Setter Property="FontWeight" Value="Bold"/>
                                         </Style>
                                     </StackPanel.Resources>
-                                <Label Content="{Binding TienKhachDua}"/>
-                                <Label Content="{Binding TienThua}" />
+                                <Label Content="{Binding TienKhachDua, UpdateSourceTrigger=PropertyChanged}"/>
+                                <Label Content="{Binding TienThua, UpdateSourceTrigger=PropertyChanged}" />
                             </StackPanel>
                             </Grid>
                         </Border>

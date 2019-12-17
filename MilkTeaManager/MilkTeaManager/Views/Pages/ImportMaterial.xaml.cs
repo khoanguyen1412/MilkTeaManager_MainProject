@@ -34,8 +34,7 @@ namespace MilkTeaManager.Views.Pages
 
         private void editImportBill_click(object sender, RoutedEventArgs e)
         {
-            EditImportBill x = new EditImportBill();
-            x.ShowDialog();
+            
         }
 
         private void addSupplier_click(object sender, RoutedEventArgs e)

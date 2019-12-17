@@ -102,6 +102,7 @@ namespace MilkTeaManager.ViewModels.Dialog
         {
 
             DonGia = 0;
+            DVTs = new ObservableCollection<DONVITINH>(DataAccess.GetDonvitinhs());
             NguyenLieus = new ObservableCollection<NGUYENLIEU>(DataAccess.GetNguyenlieus());
             ImportMaterial wd = new ImportMaterial();
             var dc = wd.DataContext as ImportMaterialViewModel;
@@ -112,16 +113,14 @@ namespace MilkTeaManager.ViewModels.Dialog
             DonGia = dc.dongia;
             SaveCommand = new RelayCommand<object>((p) =>
             {
-                if (SDVT == null || SNguyenLieu == null || string.IsNullOrEmpty(SSoLuong))
+                if (SDVT == null || string.IsNullOrEmpty(SSoLuong))
                     return false;
 
                 return true;
 
             }, (p) =>
             {
-
-                CTPN = new CHITIETPHIEUNHAP() { MADVT = SDVT.madvt, DINHLUONG = int.Parse(SSoLuong), DONGIA = DonGia, MANL = SNguyenLieu.MANL, MAPN = dc.mapn , MACTPN = dc.mactpn};
-                DataAccess.SaveCTPN(CTPN);
+                MessageBox.Show(dc.mactpn);
             });
         }
     }

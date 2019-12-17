@@ -10,6 +10,8 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using MilkTeaManager.ViewModels.Dialog;
+
 using System.Windows.Shapes;
 
 namespace MilkTeaManager.Views.Dialog
@@ -21,6 +23,7 @@ namespace MilkTeaManager.Views.Dialog
     {
         public MaterialReport()
         {
+            this.DataContext = new MaterialReportViewModel();
             InitializeComponent();
         }
     }
