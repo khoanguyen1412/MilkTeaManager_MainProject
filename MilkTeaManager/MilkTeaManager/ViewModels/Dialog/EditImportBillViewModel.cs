@@ -120,7 +120,9 @@ namespace MilkTeaManager.ViewModels.Dialog
 
             }, (p) =>
             {
-                MessageBox.Show(dc.mactpn);
+
+                var a = new CHITIETPHIEUNHAP() { MADVT = SDVT.madvt, DINHLUONG = int.Parse(SSoLuong), DONGIA = DonGia, MANL = SNguyenLieu.MANL, MAPN = dc.mapn , MACTPN = dc.mactpn};
+                DataAccess.SaveCTPN(a);
             });
         }
     }
