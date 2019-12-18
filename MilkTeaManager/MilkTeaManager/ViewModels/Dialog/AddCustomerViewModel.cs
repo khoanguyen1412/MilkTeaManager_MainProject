@@ -65,6 +65,7 @@ namespace MilkTeaManager.ViewModels.Dialog
         public ICommand SaveCommand { get; set; }
         public AddCustomerViewModel()
         {
+            KhachHang = null;
             SaveCommand = new RelayCommand<object>((p) =>
             {
                 if (string.IsNullOrEmpty(STenKH) || string.IsNullOrEmpty(SSDT))
@@ -77,7 +78,7 @@ namespace MilkTeaManager.ViewModels.Dialog
 
               KhachHang = new KHACHHANG() { TENKH =STenKH, DIACHI = SDiaChi, SDT = SSDT, EMAIL = SEmail };
               DataAccess.SaveKhachHang(KhachHang);
-                KhachHang = null;
+               
             });
         }
     }

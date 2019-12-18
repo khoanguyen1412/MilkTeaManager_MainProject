@@ -1,0 +1,4 @@
+
+--- Huong dan cai dat ----
+- Chay file setup.exe va lam theo huong dan.
+- Luu y: Khong cai dat vao o dia chua he dieu hanh (Li do: cai dat vao o dia chua he dieu hanh thi co so du lieu la read-only)
