@@ -34,8 +34,8 @@ namespace MilkTeaManager.ViewModels
 
         public ICommand AddCommand { get; set; }
         public ICommand EditCommand { get; set; }
-        public ICommand XoaCTPNCommand { get; set; }
-        public ICommand LuuPhieuNhapCommand { get; set; }
+        public ICommand DeleteCommand  { get; set; }
+        public ICommand SaveCommand { get; set; }
         public ICommand ThemNCC { get; set; }
         public ObservableCollection<CHITIETPHIEUNHAP> CTPNs
         {
@@ -56,7 +56,14 @@ namespace MilkTeaManager.ViewModels
             get { return _sctpn; }
             set { _sctpn = value;
                 OnPropertyChanged();
-                dvt = SCTPN.DONVITINH;
+                try
+                {
+                    dvt = SCTPN.DONVITINH;
+                }
+                catch
+                {
+                    dvt = null;
+                }
                 dongia = (int)SCTPN.DONGIA;
                 soluong = (int) SCTPN.DINHLUONG;
                 nl = SCTPN.NGUYENLIEU;
@@ -126,7 +133,7 @@ namespace MilkTeaManager.ViewModels
             EditCommand = new RelayCommand<object>((p) => {
                 if (SCTPN == null)
                     return false;
-                return true;
+                return false;
             }, (p) => {
                 EditImportBill wd = new EditImportBill();
                 wd.ShowDialog();
@@ -134,6 +141,30 @@ namespace MilkTeaManager.ViewModels
                 if (dc.CTPN != null)
                     CTPNs = new ObservableCollection<CHITIETPHIEUNHAP>(DataAccess.GetChitietPHIEUNHAPsByMaPN(_phieunhap.MAPN));
                 SoLuong = CTPNs.Count();
+            });
+           DeleteCommand = new RelayCommand<object>((p) => {
+               if (SCTPN == null || CTPNs.Count() < 2)
+                   return false;
+               return true; }, (p) => {
+
+
+                   DataAccess.DeletePhieuNhapByKey(SCTPN.MAPN);
+                   CTPNs.Remove(SCTPN);
+               });
+            SaveCommand = new RelayCommand<object>((p) => {
+                if (CTPNs.Count() < 1)
+                    return false;
+                return true;
+            }, (p) => {
+
+                _phieunhap.TONGTIEN = TienHang;
+                _phieunhap.NGAYNHAP = DateTime.Now;
+                _phieunhap.MANCC = "NCC001";
+                DataAccess.SavePhieuNhap(_phieunhap);
+                _phieunhap = null;
+                CTPNs.Clear();
+                CTPNs = new ObservableCollection<CHITIETPHIEUNHAP>();
+                TienHang = 0;
             });
         }
     }

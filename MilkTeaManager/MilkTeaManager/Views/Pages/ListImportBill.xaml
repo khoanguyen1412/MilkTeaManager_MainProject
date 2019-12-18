@@ -335,59 +335,10 @@
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        <StackPanel Grid.Row="0" Orientation="Horizontal">
-                            <Label Content="Chỉnh sửa phiếu nhập:"
-                                   FontSize="15"
-                                Margin="10 10 0 10"
-                                FontWeight="Bold"
-                               VerticalContentAlignment="Center"/>
-                            <Button 
-                                Click="editImportBill_click"
-                            Style="{StaticResource MaterialDesignFloatingActionButton}"
-                                        x:Name="btnEditProductInfo"
-                                        ToolTip="Chỉnh sửa thông tin phiếu nhập"
-                                    Width="50"
-                                    Height="50" Margin="20 0 0 0">
-                                <materialDesign:PackIcon Kind="TableEdit"
-                                                             Height="30"
-                                                             Width="30"/>
-                            </Button>
-                            <Button 
-                            Style="{StaticResource MaterialDesignFloatingActionButton}"
-                                    x:Name="btnDeleteProduct"
-                                    ToolTip="Xóa phiếu khỏi danh sách"
-                                    Background="Red"
-                                    Width="50"
-                                    Height="50"
-                            Margin="30 0 0 0">
-                                <materialDesign:PackIcon Kind="DeleteForever" 
-                                                         Width="30"
-                                                         Height="30"
-                                                         />
-                            </Button>
-                        </StackPanel>
+                        <StackPanel Grid.Row="0" Orientation="Horizontal"/>
                         <Grid Grid.Column="1" HorizontalAlignment="Stretch">
                             <StackPanel Orientation="Horizontal"
-                                        HorizontalAlignment="Right">
-                                <Label Content="Lưu lại:"
-                                
-                                FontWeight="Bold"
-                               FontSize="20"
-                               VerticalContentAlignment="Bottom"
-                               />
-                                <Button
-                            Margin="5 10 0 0"
-                            Style="{StaticResource MaterialDesignRaisedDarkButton}"
-                            Width="70"
-                            Height="40"
-                            ToolTip="Resource name: MaterialDesignRaisedLightDarkButton">
-                                    <materialDesign:PackIcon Kind="ContentSave"
-                                                     Width="35"
-                                                     Height="35"/>
-
-
-                                </Button>
-                            </StackPanel>
+                                        HorizontalAlignment="Right"/>
                         </Grid>
                     </Grid>
 

@@ -22,8 +22,8 @@ namespace MilkTeaManager.Views.Dialog
     {
         public AddStaff()
         {
-            this.DataContext = new AddStaffViewModel();
             InitializeComponent();
+            this.DataContext = new AddStaffViewModel();
         }
 
         private void save_click(object sender, RoutedEventArgs e)

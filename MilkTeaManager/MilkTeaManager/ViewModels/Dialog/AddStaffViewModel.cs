@@ -114,6 +114,7 @@ namespace MilkTeaManager.ViewModels.Dialog
                     return;
                 var MStafVM = ManageStaffWindow.DataContext as ManageStaffViewModel;
                 MStafVM.NhanViens = new ObservableCollection<NHANVIEN>(DataAccess.GetNhanviens());
+                NhanVien = null;
             });
         }
     }

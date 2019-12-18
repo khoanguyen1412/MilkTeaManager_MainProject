@@ -32,6 +32,7 @@ namespace MilkTeaManager.ViewModels
             }
         }
         public ICommand SearchClick { get; set; }
+        public ICommand ReloadCommand { get; set; }
         public int TongChi
         {
             get { return _tongchi; }
@@ -92,6 +93,9 @@ namespace MilkTeaManager.ViewModels
             {
                 _phieunhaps = value;
                 OnPropertyChanged();
+                int tong = 0;
+        
+                TongChi = tong;
             }
         }
 
@@ -111,13 +115,17 @@ namespace MilkTeaManager.ViewModels
         public ExpenditureStatisticViewModel()
         {
             PhieuNhaps = new ObservableCollection<PHIEUNHAP>(DataAccess.GetPhieuNhaps());
+            PhieuNhaps.RemoveAt(PhieuNhaps.Count() - 1);
             _mpn = new ObservableCollection<string>(DataAccess.GetMaPN());
             SoLuong = PhieuNhaps.Count();
             int tong = 0;
-            foreach (var item in PhieuNhaps)
+            if (PhieuNhaps != null)
             {
-                TenNV = item.NHANVIEN.HOTEN;
-                tong += (int)item.TONGTIEN;
+                foreach (var item in PhieuNhaps)
+                {
+                    TenNV = item.NHANVIEN.HOTEN;
+                    tong += (int)item.TONGTIEN;
+                }
             }
             TongChi = tong;
             SearchClick = new RelayCommand<object>((p) =>
@@ -132,6 +140,17 @@ namespace MilkTeaManager.ViewModels
                 }
                 else
                     PhieuNhaps = new ObservableCollection<PHIEUNHAP>(DataAccess.FilterPhieuNhapByMaPN(Text));
+            });
+            ReloadCommand = new RelayCommand<object>((p) =>
+            {
+
+
+                return true;
+
+            }, (p) =>
+            {
+                PhieuNhaps = new ObservableCollection<PHIEUNHAP>(DataAccess.GetPhieuNhaps());
+                PhieuNhaps.RemoveAt(PhieuNhaps.Count() - 1);
             });
         }
     }

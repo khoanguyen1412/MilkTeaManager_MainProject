@@ -10,6 +10,7 @@ namespace MilkTeaManager.ViewModels.Dialog
 {
     class AddProductViewModel : BaseVM
     {
+        public SANPHAM sp;
         private string _sTenSP;
         private int _giaban;
         private string _sNL;
@@ -21,7 +22,7 @@ namespace MilkTeaManager.ViewModels.Dialog
         private ObservableCollection<NGUYENLIEU> _nguyenlieus;
         private NGUYENLIEU _snguyenlieu;
         private ObservableCollection<CHITIETNGUYENLIEU> _ctnls;
-        
+
         public ICommand AddNLCommand { get; set; }
         public ICommand DeleteCTNLCommand { get; set; }
         public ICommand SaveSPCommand { get; set; }
@@ -37,14 +38,18 @@ namespace MilkTeaManager.ViewModels.Dialog
         public int DinhLuong
         {
             get { return _dinhluong; }
-            set { _dinhluong = value;
+            set
+            {
+                _dinhluong = value;
                 OnPropertyChanged();
             }
         }
         public CHITIETNGUYENLIEU SCTNL
         {
             get { return _sctnl; }
-            set { _sctnl = value;
+            set
+            {
+                _sctnl = value;
                 OnPropertyChanged();
                 CTNLs.Add(SCTNL);
             }
@@ -56,7 +61,7 @@ namespace MilkTeaManager.ViewModels.Dialog
             {
                 _snguyenlieu = value;
                 OnPropertyChanged();
-          
+
             }
         }
         public ObservableCollection<NGUYENLIEU> NguyenLieus
@@ -71,7 +76,9 @@ namespace MilkTeaManager.ViewModels.Dialog
         public int GiaBan
         {
             get { return _giaban; }
-            set { _giaban = value;
+            set
+            {
+                _giaban = value;
                 OnPropertyChanged();
             }
         }
@@ -91,7 +98,7 @@ namespace MilkTeaManager.ViewModels.Dialog
             {
                 _sloaisp = value;
                 OnPropertyChanged();
-                
+
             }
         }
         public string STenSP
@@ -111,28 +118,32 @@ namespace MilkTeaManager.ViewModels.Dialog
                 OnPropertyChanged();
             }
         }
-        public AddProductViewModel() {
+        public AddProductViewModel()
+        {
+   
+            _sanpham = null;
             _sanpham = new SANPHAM();
             DinhLuong = 1;
             DataAccess.SaveSanPham(_sanpham);
             LoaiSPs = new ObservableCollection<LOAISANPHAM>(DataAccess.GetLoaisanphams());
-            
+
             NguyenLieus = new ObservableCollection<NGUYENLIEU>(DataAccess.GetNguyenlieus());
             AddNLCommand = new RelayCommand<object>((p) =>
             {
-                if (SNguyenLieu == null )
+                if (SNguyenLieu == null)
                     return false;
                 return true;
 
             }, (p) =>
             {
 
-                var ctnl = new CHITIETNGUYENLIEU() { MANL = SNguyenLieu.MANL, GIABAN=0, MASP = _sanpham.MASP, MADVT="DVT002",SOLUONG=DinhLuong };
+                var ctnl = new CHITIETNGUYENLIEU() { MANL = SNguyenLieu.MANL, GIABAN = 0, MASP = _sanpham.MASP, MADVT = "DVT002", SOLUONG = DinhLuong };
                 DataAccess.SaveChiTietNguyenLieu(ctnl);
-                if(CTNLs == null)
-                    CTNLs = new ObservableCollection<CHITIETNGUYENLIEU>(){ ctnl };
+                if (CTNLs == null)
+                    CTNLs = new ObservableCollection<CHITIETNGUYENLIEU>() { ctnl };
                 else
-                CTNLs.Add(ctnl);
+                    CTNLs.Add(ctnl);
+                ctnl = null;
             });
             DeleteCTNLCommand = new RelayCommand<object>((p) =>
             {
@@ -148,11 +159,12 @@ namespace MilkTeaManager.ViewModels.Dialog
 
                 DataAccess.DeleteChiTieNguyenLieu(cthd);
                 CTNLs.Remove(SCTNL);
-                
+                cthd = null;
+
             });
             SaveSPCommand = new RelayCommand<object>((p) =>
             {
-                if ( string.IsNullOrEmpty(STenSP)|| SLoaiSP == null || string.IsNullOrEmpty(GiaBan.ToString()))
+                if (string.IsNullOrEmpty(STenSP) || SLoaiSP == null || string.IsNullOrEmpty(GiaBan.ToString()))
                     return false;
 
                 return true;
@@ -162,7 +174,11 @@ namespace MilkTeaManager.ViewModels.Dialog
                 _sanpham.TENSP = STenSP;
                 _sanpham.GIABAN = GiaBan;
                 _sanpham.MALOAISP = SLoaiSP.MALOAISP;
+                sp = new SANPHAM();
+               
                 DataAccess.SaveSanPham(_sanpham);
+                _sanpham = null;
+                sp = null;
             });
         }
     }

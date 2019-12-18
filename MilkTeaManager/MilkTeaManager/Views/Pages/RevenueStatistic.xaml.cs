@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MilkTeaManager.ViewModels;
 using MilkTeaManager.Views.Dialog;
 namespace MilkTeaManager.Views.Pages
 {
@@ -23,11 +24,11 @@ namespace MilkTeaManager.Views.Pages
         public RevenueStatistic()
         {
             InitializeComponent();
+            this.DataContext = new RevenueStatisticViewModel();
         }
         private void print_click(object sender, RoutedEventArgs e)
         {
-            RevenueForm x = new RevenueForm();
-            x.ShowDialog();
+         
         }
     }
 }

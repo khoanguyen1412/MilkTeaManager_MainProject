@@ -22,6 +22,7 @@ namespace MilkTeaManager.ViewModels
         private string _mahd;
         private int _tongthu;
         public ICommand PrintCommand { get; set; }
+        public ICommand ReloadCommand { get; set; }
         public int TongThu
         {
             get { return _tongthu; }
@@ -108,10 +109,12 @@ namespace MilkTeaManager.ViewModels
         {
             TongThu = 0;
             HoaDons = new ObservableCollection<HOADON>(DataAccess.GetHoadons());
-            foreach (var item in HoaDons)
-            {
-                TongThu += (int)item.TONGTIEN;
-            }
+            HoaDons.Remove(HoaDons.ElementAt(HoaDons.Count() - 1));
+
+                foreach (var item in HoaDons)
+                {
+                    TongThu += (int)item.TONGTIEN;
+                }
             PrintCommand = new RelayCommand<object>((p) =>
             {
 
@@ -123,6 +126,17 @@ namespace MilkTeaManager.ViewModels
             {
                 RevenueForm wd = new RevenueForm();
                 wd.ShowDialog();
+            });
+            ReloadCommand = new RelayCommand<object>((p) =>
+            {
+
+                
+                return true;
+
+            }, (p) =>
+            {
+                HoaDons = new ObservableCollection<HOADON>(DataAccess.GetHoadons());
+                 HoaDons.Remove(HoaDons.ElementAt(HoaDons.Count() - 1));
             });
         }
     }

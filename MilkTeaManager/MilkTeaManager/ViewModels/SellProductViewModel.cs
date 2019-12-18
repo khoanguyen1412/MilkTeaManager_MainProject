@@ -21,8 +21,8 @@ namespace MilkTeaManager.ViewModels
         private ObservableCollection<SIZE> _sizes;
         private ObservableCollection<CHITIETHOADON> _cthds;
         private HOADON _hoadon;
+        public string mahd;
 
-       
         private string _sdiachi;
         private string _ssdt;
         private string _stenkh;
@@ -38,7 +38,9 @@ namespace MilkTeaManager.ViewModels
         public int TienThua
         {
             get { return _tienthua; }
-            set { _tienthua = value;
+            set
+            {
+                _tienthua = value;
                 OnPropertyChanged();
             }
         }
@@ -247,12 +249,12 @@ namespace MilkTeaManager.ViewModels
             EditSanPhamCommand = new RelayCommand<object>((p) =>
             {
 
-                if (SSanPham == null || SSize == null || SCTHD == null || SCTHD.SANPHAM.MALOAISP =="LSP001")
+                if (SSanPham == null || SSize == null || SCTHD == null || SCTHD.SANPHAM.MALOAISP == "LSP001")
                     return false;
                 if (int.Parse(SoLuong) <= 0 || int.Parse(SoLuong) > 99)
                     return false;
                 return true;
-                
+
             }, (p) =>
             {
 
@@ -263,6 +265,7 @@ namespace MilkTeaManager.ViewModels
                 SCTHD.SOLUONG = cthd.SOLUONG;
                 TinhTong();
                 TienThua = TienKhachDua - TongTien;
+                CTHDs = new ObservableCollection<CHITIETHOADON>(DataAccess.GetChitiethoadonsByMaHD(_hoadon.MAHD));
             });
 
             AddToppingCommand = new RelayCommand<object>((p) =>
@@ -281,7 +284,7 @@ namespace MilkTeaManager.ViewModels
                 //CTHDs.Add(cthd);
                 var cthd = new CHITIETHOADON() { MASP = STopping.MASP, MASIZE = 1, DONGIA = STopping.GIABAN, SOLUONG = 1, MAHD = _hoadon.MAHD };
                 DataAccess.SaveChiTietHoaDon(cthd);
-                CTHDs.Add(cthd);
+                CTHDs = new ObservableCollection<CHITIETHOADON>(DataAccess.GetChitiethoadonsByMaHD(_hoadon.MAHD));
                 TinhTong();
                 TienThua = TienKhachDua - TongTien;
 
@@ -304,7 +307,7 @@ namespace MilkTeaManager.ViewModels
                 TienThua = TienKhachDua - TongTien;
             });
 
-           ThanhToanCommand = new RelayCommand<object>((p) =>
+            ThanhToanCommand = new RelayCommand<object>((p) =>
             {
 
                 if (TongTien == 0 || TienKhachDua < TongTien)
@@ -313,6 +316,7 @@ namespace MilkTeaManager.ViewModels
 
             }, (p) =>
             {
+                mahd = _hoadon.MAHD;
                 _hoadon.TONGTIEN = TongTien;
                 DataAccess.SaveHoaDon(_hoadon);
                 OrderForm orderWD = new OrderForm();
@@ -320,14 +324,13 @@ namespace MilkTeaManager.ViewModels
                 //addVM2.TongTien = _tongtien;
                 orderWD.Show();
                 //reset page
-                //_hoadon = new HOADON { MANV = "NV001", NGAYLAP = DateTime.Now };
-                //DataAccess.SaveHoaDon(_hoadon);
-                //TongTien = 0;
-                //TienKhachDua = 0;
-                //TienThua = 0;
-                //CTHDs.Clear();
-                //SCTHD = new CHITIETHOADON();
-
+                _hoadon = new HOADON { MANV = "NV001", NGAYLAP = DateTime.Now };
+                DataAccess.SaveHoaDon(_hoadon);
+                TongTien = 0;
+                TienKhachDua = 0;
+                TienThua = 0;
+                CTHDs.Clear();
+                CTHDs = new ObservableCollection<CHITIETHOADON>();
             });
             LoadKhachHangCommand = new RelayCommand<object>((p) => { return true; }, (p) => {
                 AddCustomer wd = new AddCustomer();

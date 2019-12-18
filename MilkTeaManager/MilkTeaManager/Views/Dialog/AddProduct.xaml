@@ -100,7 +100,7 @@
                                       />
                             <TextBox Grid.Row="3" Grid.Column="1"
                                      Style="{StaticResource CustomTextBoxStyle}"
-                                     Text="{Binding GiaBan}"/>
+                                     Text="{Binding GiaBan}" PreviewTextInput="TextBox_PreviewTextInput"/>
 
 
 
@@ -149,7 +149,7 @@
                         </Grid>
                         <TextBox Grid.Row="1" Grid.Column="1"
                                     materialDesign:HintAssist.Hint="Định lượng"
-                                     Text="{Binding DinhLuong}"/>
+                                     Text="{Binding DinhLuong}" PreviewTextInput="TextBox_PreviewTextInput_1"/>
                         <Grid Grid.Row="2">
 
                             <StackPanel Orientation="Horizontal">

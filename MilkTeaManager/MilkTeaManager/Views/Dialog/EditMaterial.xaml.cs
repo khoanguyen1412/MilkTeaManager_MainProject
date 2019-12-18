@@ -22,8 +22,8 @@ namespace MilkTeaManager.Views.Dialog
     {
         public EditMaterial()
         {
-            this.DataContext = new EditMaterialViewModel();
             InitializeComponent();
+            this.DataContext = new EditMaterialViewModel();
         }
 
         private void save_click(object sender, RoutedEventArgs e)

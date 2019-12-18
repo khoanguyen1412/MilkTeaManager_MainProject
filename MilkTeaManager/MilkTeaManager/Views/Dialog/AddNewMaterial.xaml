@@ -96,11 +96,11 @@
                                      />
                             <TextBox Grid.Row="1" Grid.Column="1"
                                      Style="{StaticResource CustomTextBoxStyle}"
-                                     Text="{Binding SGiaNhap}"
+                                     Text="{Binding SGiaNhap}" PreviewTextInput="TextBox_PreviewTextInput"
                                      />
                             <TextBox Grid.Row="2" Grid.Column="1"
                                      Style="{StaticResource CustomTextBoxStyle}"
-                                     Text="{Binding SGiaBan}"
+                                     Text="{Binding SGiaBan}" PreviewTextInput="TextBox_PreviewTextInput_1"
                                      />
                             <ComboBox x:Name="PART_Combobox"
                                       Grid.Row="3" Grid.Column="1"

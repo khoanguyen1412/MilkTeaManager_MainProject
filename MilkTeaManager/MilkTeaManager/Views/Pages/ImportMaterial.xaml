@@ -114,7 +114,7 @@
                                           Binding="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}, Converter={cv:RowToIndexConverter}}"
                                                 HeaderStyle="{StaticResource CenteredDataGridHeader}"
                                                 CellStyle="{StaticResource CenteredDataGridCell}"/>
-                    <DataGridTextColumn Width="70"
+                    <DataGridTextColumn Width="100"
                                                 IsReadOnly="True"
                                                 Header="Mã CTPN"
                                         Binding="{Binding MACTPN}"
@@ -260,6 +260,7 @@
                                     x:Name="btnDeleteProduct"
                                     ToolTip="Xóa sản phẩm khỏi cửa hàng"
                                     Background="Red"
+                            Command="{Binding DeleteCommand}"
                                     Width="50"
                                     Height="50">
                         <materialDesign:PackIcon Kind="DeleteForever" 
@@ -346,6 +347,7 @@
                 <Button x:Name="btnThemPhieuMua"
                         Height="auto"
                         Margin="5 30 5 30"
+                        Command="{Binding SaveCommand}"
                         Style="{StaticResource UIProjectDarkButtonStyle}"
                         Content="Lưu"/>
             </materialDesign:Card>

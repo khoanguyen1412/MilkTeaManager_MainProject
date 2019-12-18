@@ -23,8 +23,8 @@ namespace MilkTeaManager.Views.Dialog
     {
         public MaterialReport()
         {
-            this.DataContext = new MaterialReportViewModel();
             InitializeComponent();
+            this.DataContext = new MaterialReportViewModel();
         }
     }
 }

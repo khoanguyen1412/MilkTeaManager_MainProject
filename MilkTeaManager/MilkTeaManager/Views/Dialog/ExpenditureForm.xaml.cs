@@ -22,8 +22,8 @@ namespace MilkTeaManager.Views.Dialog
     {
         public ExpenditureForm()
         {
-            this.DataContext = new ExpenditureFormViewModel();
             InitializeComponent();
+            this.DataContext = new ExpenditureFormViewModel();
         }
     }
 }

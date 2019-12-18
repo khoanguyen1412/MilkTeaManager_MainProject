@@ -128,16 +128,21 @@
                                              Click="NhanVien_Click"
                                              
                                              />
-                            <RadioButton Style="{StaticResource SubMenuTabRadioButtonStyle}"
+                            <StackPanel DataContext="{Binding RevenueStatisticVM}">
+                                <RadioButton Style="{StaticResource SubMenuTabRadioButtonStyle}"
                                              Content="{StaticResource TAB_PhieuNhap}"
                                              Click="PhieuNhap_Click"
-                                            
+                                            Command="{Binding ReloadCommand}"
                                              />
-                            <RadioButton Style="{StaticResource SubMenuTabRadioButtonStyle}"
+                            </StackPanel>
+                            <StackPanel DataContext="{Binding ExpenStatisticVM}">
+                                <RadioButton Style="{StaticResource SubMenuTabRadioButtonStyle}"
                                              Content="{StaticResource TAB_DSPhieuNhap}"
                                              Click="DanhSachPhieuNhap_Click"
-                                            
+                                            Command="{Binding ReloadCommand}"
                                              />
+
+                            </StackPanel>
                         </StackPanel>
                     </Expander>
                     <Expander Style="{StaticResource UIProjectMenuExpanderStyle}"

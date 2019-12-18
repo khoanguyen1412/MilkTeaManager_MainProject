@@ -23,8 +23,8 @@ namespace MilkTeaManager.Views.Dialog
     {
         public InventoryReportForm()
         {
-            this.DataContext = new InventoryReportFormViewModel();
             InitializeComponent();
+            this.DataContext = new InventoryReportFormViewModel();
         }
     }
 }

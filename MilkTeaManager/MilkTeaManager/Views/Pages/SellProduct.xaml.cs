@@ -25,6 +25,7 @@ namespace MilkTeaManager.Views.Pages
         public SellProduct()
         {
             InitializeComponent();
+
         }
         //addCustomer_click
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)

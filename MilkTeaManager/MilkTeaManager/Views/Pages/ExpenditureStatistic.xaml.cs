@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MilkTeaManager.ViewModels;
 using MilkTeaManager.Views.Dialog;
 namespace MilkTeaManager.Views.Pages
 {
@@ -23,6 +24,7 @@ namespace MilkTeaManager.Views.Pages
         public ExpenditureStatistic()
         {
             InitializeComponent();
+            this.DataContext = new ExpenditureStatisticViewModel();
         }
 
         private void print_click(object sender, RoutedEventArgs e)

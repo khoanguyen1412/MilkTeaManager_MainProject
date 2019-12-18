@@ -85,6 +85,7 @@ namespace MilkTeaManager.ViewModels
         public ListImportBillViewModel()
         {
             PhieuNhaps = new ObservableCollection<PHIEUNHAP>(DataAccess.GetPhieuNhaps());
+            PhieuNhaps.RemoveAt(PhieuNhaps.Count() - 1);
             _mpn = new ObservableCollection<string>(DataAccess.GetMaPN());
             SearchClick = new RelayCommand<object>((p) =>
             {

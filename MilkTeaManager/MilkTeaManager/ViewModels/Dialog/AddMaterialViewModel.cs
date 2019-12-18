@@ -119,6 +119,7 @@ namespace MilkTeaManager.ViewModels.Dialog
 
                 CTPN = new CHITIETPHIEUNHAP() { MADVT = SDVT.madvt, DINHLUONG = int.Parse(SSoLuong), DONGIA = DonGia, MANL = SNguyenLieu.MANL , MAPN = dc._phieunhap.MAPN, TONGTIEN=int.Parse(SSoLuong)*DonGia};
                 DataAccess.SaveCTPN(CTPN);
+               
             });
         }
     }

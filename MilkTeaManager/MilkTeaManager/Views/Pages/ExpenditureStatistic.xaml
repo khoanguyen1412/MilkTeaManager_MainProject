@@ -124,7 +124,7 @@ DataContext="{StaticResource ExpenStatisticVM}"
                                                 CanUserSort="False"
                                                 Header="Ngày lập"                                           
                                                 IsReadOnly="True"
-                                            Binding="{Binding NGAYNHAP}"
+                                            Binding="{Binding NGAYNHAP, StringFormat={}{0:dd/MM/yyyy}}"
                                                 HeaderStyle="{StaticResource CenteredDataGridHeader}"
                                                 CellStyle="{StaticResource CenteredDataGridCell}"/>
                         <DataGridTextColumn Width="150"

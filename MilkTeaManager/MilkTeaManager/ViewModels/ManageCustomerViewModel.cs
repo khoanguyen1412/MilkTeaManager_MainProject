@@ -142,10 +142,9 @@ namespace MilkTeaManager.ViewModels
                 AddCustomer wd = new AddCustomer();
                 wd.ShowDialog();
                 var addVM = wd.DataContext as AddCustomerViewModel;
-                if (addVM.KhachHang != null)
-                {
+
                     KhachHangs = new ObservableCollection<KHACHHANG>(DataAccess.GetKhachhangs());
-                }
+      
             });
             EditCommand = new RelayCommand<object>((p) => { return true; }, (p) => {
                EditCustomer wd = new EditCustomer();

@@ -10,7 +10,7 @@ using MilkTeaManager.Views.Pages;
 
 namespace MilkTeaManager.ViewModels.Dialog
 {
-     class OrderFormViewModel:BaseVM
+    class OrderFormViewModel : BaseVM
     {
         private ObservableCollection<CHITIETHOADON> _cthds;
 
@@ -24,28 +24,36 @@ namespace MilkTeaManager.ViewModels.Dialog
         public string TenKH
         {
             get { return _tenkh; }
-            set { _tenkh = value;
+            set
+            {
+                _tenkh = value;
                 OnPropertyChanged();
             }
         }
         public string MaHD
         {
             get { return _mahd; }
-            set { _mahd = value;
+            set
+            {
+                _mahd = value;
                 OnPropertyChanged();
             }
         }
         public string MaNV
         {
             get { return _manv; }
-            set { _manv = value;
+            set
+            {
+                _manv = value;
                 OnPropertyChanged();
             }
         }
         public DateTime NgayBan
         {
             get { return _ngayban; }
-            set { _ngayban = value;
+            set
+            {
+                _ngayban = value;
                 OnPropertyChanged();
             }
         }
@@ -92,19 +100,20 @@ namespace MilkTeaManager.ViewModels.Dialog
         {
             SellProduct wd = new SellProduct();
             var data = wd.DataContext as SellProductViewModel;
-            NgayBan = (DateTime)data.CTHDs.ElementAt(0).HOADON.NGAYLAP;
-            MaHD = data.CTHDs.ElementAt(0).MAHD;
-            MaNV = data.CTHDs.ElementAt(0).HOADON.MANV;
+            
+            CTHDs = new ObservableCollection<CHITIETHOADON>(DataAccess.GetChitiethoadonsByMaHD(data.mahd));
+            NgayBan = DateTime.Now;
+            MaHD =  CTHDs.ElementAt(0).MAHD;
+            MaNV =  CTHDs.ElementAt(0).HOADON.MANV;
             if (string.IsNullOrEmpty(data.STenKH))
                 TenKH = "Khách";
             else
                 TenKH = data.STenKH;
-            CTHDs = data.CTHDs;
+           
 
             TongTien = data.TongTien;
             TienKhachDua = data.TienKhachDua;
             TienThua = data.TienThua;
-            MessageBox.Show(TongTien.ToString());
         }
     }
 }

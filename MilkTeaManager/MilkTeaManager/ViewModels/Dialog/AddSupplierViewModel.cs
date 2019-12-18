@@ -99,6 +99,7 @@ namespace MilkTeaManager.ViewModels.Dialog
                     return;
                 var MSupVM = ManageSupplierWindow.DataContext as ManageSupplierViewModel;
                 MSupVM.NhaCungCaps = new ObservableCollection<NHACUNGCAP>(DataAccess.GetNhacungcaps());
+                NhaCungCap = null;
             });
         }
     }

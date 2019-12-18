@@ -45,7 +45,7 @@
                     Margin="10"
                                     x:Name="btnAddProduct"
                                     ToolTip="Thêm sản phẩm mới"
-                                    Click="addProduct_click"
+                                    Command="{Binding AddSPCommand}"
                                     Width="50"
                                     Height="50">
                 <materialDesign:PackIcon Kind="Add"
@@ -354,7 +354,7 @@
                               VerticalAlignment="Top">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
-                                    <ColumnDefinition/>
+                                    
                           
                                 </Grid.ColumnDefinitions>
                                 <Grid.Resources>
@@ -362,17 +362,6 @@
                                         <Setter Property="Margin" Value="5"/>
                                     </Style>
                                 </Grid.Resources>
-                                
-                                <Button Grid.Column="0"
-                                        x:Name="btnEditProductInfo"
-                                        ToolTip="Chỉnh sửa thông tin sản phẩm"
-                                    Click="editProduct_click"
-                                    Width="50"
-                                    Height="50">
-                                    <materialDesign:PackIcon Kind="TableEdit"
-                                                             Height="auto"
-                                                             Width="auto"/>
-                                </Button>
                                 <Button Grid.Column="1"
                                     x:Name="btnDeleteProduct"
                                     ToolTip="Xóa sản phẩm khỏi cửa hàng"

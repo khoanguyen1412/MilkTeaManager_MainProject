@@ -22,8 +22,8 @@ namespace MilkTeaManager.Views.Dialog
     {
         public OrderForm()
         {
-            this.DataContext = new OrderFormViewModel();
             InitializeComponent();
+            this.DataContext = new OrderFormViewModel();
         }
     }
 }

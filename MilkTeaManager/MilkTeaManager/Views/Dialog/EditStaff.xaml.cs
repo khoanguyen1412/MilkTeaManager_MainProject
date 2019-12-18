@@ -23,8 +23,8 @@ namespace MilkTeaManager.Views.Dialog
     {
         public EditStaff()
         {
-            this.DataContext = new EditStaffViewModel();
             InitializeComponent();
+            this.DataContext = new EditStaffViewModel();
         }
 
         private void update_click(object sender, RoutedEventArgs e)

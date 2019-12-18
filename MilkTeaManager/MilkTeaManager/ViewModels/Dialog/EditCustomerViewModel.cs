@@ -85,6 +85,7 @@ namespace MilkTeaManager.ViewModels.Dialog
 
                 KhachHang = new KHACHHANG() { TENKH = STenKH, DIACHI = SDiaChi, SDT = SSDT, EMAIL = SEmail , MAKH = data.MaKH};
                 DataAccess.SaveKhachHang(KhachHang);
+
             });
         }
     }

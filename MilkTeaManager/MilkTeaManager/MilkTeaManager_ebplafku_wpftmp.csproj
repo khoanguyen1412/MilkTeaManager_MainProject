@@ -1,0 +1,477 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{711BD467-45AF-4CA7-B9FD-5B9810B5E7E7}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>MilkTeaManager</RootNamespace>
+    <AssemblyName>MilkTeaManager</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Converters\IndexConverterListView.cs" />
+    <Compile Include="Converters\RowToIndexConverter.cs" />
+    <Compile Include="Models\CHITIETHOADON.cs">
+      <DependentUpon>DbMilkTea.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CHITIETNGUYENLIEU.cs">
+      <DependentUpon>DbMilkTea.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CHITIETPHIEUNHAP.cs">
+      <DependentUpon>DbMilkTea.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataAccess.cs" />
+    <Compile Include="Models\DbMilkTea.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbMilkTea.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DbMilkTea.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbMilkTea.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DbMilkTea.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbMilkTea.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DONVITINH.cs">
+      <DependentUpon>DbMilkTea.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HOADON.cs">
+      <DependentUpon>DbMilkTea.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\KHACHHANG.cs">
+      <DependentUpon>DbMilkTea.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LOAINHANVIEN.cs">
+      <DependentUpon>DbMilkTea.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LOAISANPHAM.cs">
+      <DependentUpon>DbMilkTea.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NGUYENLIEU.cs">
+      <DependentUpon>DbMilkTea.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NHACUNGCAP.cs">
+      <DependentUpon>DbMilkTea.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NHANVIEN.cs">
+      <DependentUpon>DbMilkTea.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PHIEUNHAP.cs">
+      <DependentUpon>DbMilkTea.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SANPHAM.cs">
+      <DependentUpon>DbMilkTea.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SIZE.cs">
+      <DependentUpon>DbMilkTea.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Rules\OnlyDigitsValidationRule.cs" />
+    <Compile Include="ViewModels\DelegateCommand.cs" />
+    <Compile Include="ViewModels\Dialog\AddCustomerViewModel.cs" />
+    <Compile Include="ViewModels\BaseVM.cs" />
+    <Compile Include="ViewModels\Dialog\AddMaterialViewModel.cs" />
+    <Compile Include="ViewModels\Dialog\AddNewMaterialViewModel.cs" />
+    <Compile Include="ViewModels\Dialog\AddProductViewModel.cs" />
+    <Compile Include="ViewModels\Dialog\AddStaffViewModel.cs" />
+    <Compile Include="ViewModels\Dialog\AddSupplierViewModel.cs" />
+    <Compile Include="ViewModels\Dialog\EditCustomerViewModel.cs" />
+    <Compile Include="ViewModels\Dialog\EditImportBillViewModel.cs" />
+    <Compile Include="ViewModels\Dialog\EditMaterialViewModel.cs" />
+    <Compile Include="ViewModels\Dialog\EditProductViewModel.cs" />
+    <Compile Include="ViewModels\Dialog\EditStaffViewModel.cs" />
+    <Compile Include="ViewModels\Dialog\EditSupplierViewModel.cs" />
+    <Compile Include="ViewModels\Dialog\ExpenditureFormViewModel.cs" />
+    <Compile Include="ViewModels\Dialog\InventoryReportFormViewModel.cs" />
+    <Compile Include="ViewModels\Dialog\MaterialReportViewModel.cs" />
+    <Compile Include="ViewModels\Dialog\OrderFormViewModel.cs" />
+    <Compile Include="ViewModels\Dialog\RevenueFormViewModel.cs" />
+    <Compile Include="ViewModels\ExpenditureStatisticViewModel.cs" />
+    <Compile Include="ViewModels\ImportMaterialViewModel.cs" />
+    <Compile Include="ViewModels\LayoutViewModels\ContentViewModel.cs" />
+    <Compile Include="ViewModels\ListImportBillViewModel.cs" />
+    <Compile Include="ViewModels\LoginWindowsViewModel.cs" />
+    <Compile Include="ViewModels\MainHomepageViewModel.cs" />
+    <Compile Include="ViewModels\ManageCustomerViewModel.cs" />
+    <Compile Include="ViewModels\ManageMaterialViewModel.cs" />
+    <Compile Include="ViewModels\ManageProductViewModel.cs" />
+    <Compile Include="ViewModels\ManageStaffViewModel.cs" />
+    <Compile Include="ViewModels\ManageSupplierViewModel.cs" />
+    <Compile Include="ViewModels\MaterialReportViewModel.cs" />
+    <Compile Include="ViewModels\RevenueStatisticViewModel.cs" />
+    <Compile Include="ViewModels\SellProductViewModel.cs" />
+    <Compile Include="ViewModels\ShellViewModel.cs" />
+    <Compile Include="Views\CustomControls\InfoCardLabel.xaml.cs">
+      <DependentUpon>InfoCardLabel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CustomControls\SearchTextBox.xaml.cs">
+      <DependentUpon>SearchTextBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialog\AddCustomer.xaml.cs">
+      <DependentUpon>AddCustomer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialog\AddMaterial.xaml.cs">
+      <DependentUpon>AddMaterial.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialog\AddNewMaterial.xaml.cs">
+      <DependentUpon>AddNewMaterial.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialog\AddProduct.xaml.cs">
+      <DependentUpon>AddProduct.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialog\AddStaff.xaml.cs">
+      <DependentUpon>AddStaff.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialog\AddSupplier.xaml.cs">
+      <DependentUpon>AddSupplier.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialog\EditCustomer.xaml.cs">
+      <DependentUpon>EditCustomer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialog\EditImportBill.xaml.cs">
+      <DependentUpon>EditImportBill.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialog\EditMaterial.xaml.cs">
+      <DependentUpon>EditMaterial.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialog\EditProduct.xaml.cs">
+      <DependentUpon>EditProduct.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialog\EditStaff.xaml.cs">
+      <DependentUpon>EditStaff.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialog\EditSupplier.xaml.cs">
+      <DependentUpon>EditSupplier.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialog\ExpenditureForm.xaml.cs">
+      <DependentUpon>ExpenditureForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialog\InventoryReportForm.xaml.cs">
+      <DependentUpon>InventoryReportForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialog\MaterialReport.xaml.cs">
+      <DependentUpon>MaterialReport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialog\OrderForm.xaml.cs">
+      <DependentUpon>OrderForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialog\RevenueForm.xaml.cs">
+      <DependentUpon>RevenueForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoginWindows.xaml.cs">
+      <DependentUpon>LoginWindows.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainHomepage.xaml.cs">
+      <DependentUpon>MainHomepage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainHomepageView.xaml.cs">
+      <DependentUpon>MainHomepageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ManageFunction\ImportMaterial.xaml.cs">
+      <DependentUpon>ImportMaterial.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ManageFunction\ListImportBill.xaml.cs">
+      <DependentUpon>ListImportBill.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ManageFunction\ManageCustomer.xaml.cs">
+      <DependentUpon>ManageCustomer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ManageFunction\ManageProduct.xaml.cs">
+      <DependentUpon>ManageProduct.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ManageFunction\ManageStaff.xaml.cs">
+      <DependentUpon>ManageStaff.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ManageFunction\ManageSupplier.xaml.cs">
+      <DependentUpon>ManageSupplier.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\ExpenditureStatistic.xaml.cs">
+      <DependentUpon>ExpenditureStatistic.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\ImportMaterial.xaml.cs">
+      <DependentUpon>ImportMaterial.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\InventoryReport.xaml.cs">
+      <DependentUpon>InventoryReport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\ListImportBill.xaml.cs">
+      <DependentUpon>ListImportBill.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\ManageCustomer.xaml.cs">
+      <DependentUpon>ManageCustomer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\ManageMaterial.xaml.cs">
+      <DependentUpon>ManageMaterial.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\ManageProduct.xaml.cs">
+      <DependentUpon>ManageProduct.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\ManageStaff.xaml.cs">
+      <DependentUpon>ManageStaff.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\ManageSupplier.xaml.cs">
+      <DependentUpon>ManageSupplier.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\MaterialReport.xaml.cs">
+      <DependentUpon>MaterialReport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\RevenueStatistic.xaml.cs">
+      <DependentUpon>RevenueStatistic.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\SellProduct.xaml.cs">
+      <DependentUpon>SellProduct.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SellProduct.xaml.cs">
+      <DependentUpon>SellProduct.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SellProductView.xaml.cs">
+      <DependentUpon>SellProductView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ShellView.xaml.cs">
+      <DependentUpon>ShellView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EntityDeploy Include="Models\DbMilkTea.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DbMilkTea.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\DbMilkTea.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DbMilkTea.edmx</DependentUpon>
+      <LastGenOutput>DbMilkTea.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Models\DbMilkTea.edmx.diagram">
+      <DependentUpon>DbMilkTea.edmx</DependentUpon>
+    </None>
+    <None Include="Models\DbMilkTea.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DbMilkTea.edmx</DependentUpon>
+      <LastGenOutput>DbMilkTea.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BaseMVVM_Service\BaseMVVM_Service.csproj">
+      <Project>{7e11786a-f16c-4af2-a654-33e0b0ef43c6}</Project>
+      <Name>BaseMVVM_Service</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TRASUA.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TRASUA_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>TRASUA.mdf</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <ReferencePath Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\BaseMVVM_Service\bin\Debug\BaseMVVM_Service.exe" />
+    <ReferencePath Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\packages\Dragablz.0.0.3.203\lib\net45\Dragablz.dll" />
+    <ReferencePath Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll" />
+    <ReferencePath Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll" />
+    <ReferencePath Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\packages\MaterialDesignColors.1.2.0\lib\net45\MaterialDesignColors.dll" />
+    <ReferencePath Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\packages\MaterialDesignThemes.2.6.0\lib\net45\MaterialDesignThemes.Wpf.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Microsoft.CSharp.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\mscorlib.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\PresentationCore.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\PresentationFramework.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.ComponentModel.DataAnnotations.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Core.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Data.DataSetExtensions.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Data.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Net.Http.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Runtime.Serialization.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Security.dll" />
+    <ReferencePath Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\packages\Caliburn.Micro.3.2.0\lib\net45\System.Windows.Interactivity.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Xaml.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Xml.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Xml.Linq.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\WindowsBase.dll" />
+    <ReferencePath Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\packages\WPFTextBoxAutoComplete.1.0.5\lib\net40\WPFTextBoxAutoComplete.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\obj\Release\Views\CustomControls\InfoCardLabel.g.cs" />
+    <Compile Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\obj\Release\Views\CustomControls\SearchTextBox.g.cs" />
+    <Compile Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\obj\Release\Views\Dialog\AddCustomer.g.cs" />
+    <Compile Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\obj\Release\Views\Dialog\AddMaterial.g.cs" />
+    <Compile Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\obj\Release\Views\Dialog\AddNewMaterial.g.cs" />
+    <Compile Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\obj\Release\Views\Dialog\AddProduct.g.cs" />
+    <Compile Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\obj\Release\Views\Dialog\AddStaff.g.cs" />
+    <Compile Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\obj\Release\Views\Dialog\AddSupplier.g.cs" />
+    <Compile Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\obj\Release\Views\Dialog\EditCustomer.g.cs" />
+    <Compile Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\obj\Release\Views\Dialog\EditImportBill.g.cs" />
+    <Compile Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\obj\Release\Views\Dialog\EditMaterial.g.cs" />
+    <Compile Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\obj\Release\Views\Dialog\EditProduct.g.cs" />
+    <Compile Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\obj\Release\Views\Dialog\EditStaff.g.cs" />
+    <Compile Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\obj\Release\Views\Dialog\EditSupplier.g.cs" />
+    <Compile Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\obj\Release\Views\Dialog\ExpenditureForm.g.cs" />
+    <Compile Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\obj\Release\Views\Dialog\InventoryReportForm.g.cs" />
+    <Compile Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\obj\Release\Views\Dialog\MaterialReport.g.cs" />
+    <Compile Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\obj\Release\Views\Dialog\OrderForm.g.cs" />
+    <Compile Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\obj\Release\Views\Dialog\RevenueForm.g.cs" />
+    <Compile Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\obj\Release\Views\LoginWindows.g.cs" />
+    <Compile Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\obj\Release\Views\MainHomepage.g.cs" />
+    <Compile Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\obj\Release\Views\MainHomepageView.g.cs" />
+    <Compile Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\obj\Release\Views\ManageFunction\ImportMaterial.g.cs" />
+    <Compile Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\obj\Release\Views\ManageFunction\ListImportBill.g.cs" />
+    <Compile Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\obj\Release\Views\ManageFunction\ManageCustomer.g.cs" />
+    <Compile Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\obj\Release\Views\ManageFunction\ManageProduct.g.cs" />
+    <Compile Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\obj\Release\Views\ManageFunction\ManageStaff.g.cs" />
+    <Compile Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\obj\Release\Views\ManageFunction\ManageSupplier.g.cs" />
+    <Compile Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\obj\Release\Views\Pages\ExpenditureStatistic.g.cs" />
+    <Compile Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\obj\Release\Views\Pages\HomePage.g.cs" />
+    <Compile Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\obj\Release\Views\Pages\ImportMaterial.g.cs" />
+    <Compile Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\obj\Release\Views\Pages\InventoryReport.g.cs" />
+    <Compile Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\obj\Release\Views\Pages\ListImportBill.g.cs" />
+    <Compile Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\obj\Release\Views\Pages\ManageCustomer.g.cs" />
+    <Compile Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\obj\Release\Views\Pages\ManageMaterial.g.cs" />
+    <Compile Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\obj\Release\Views\Pages\ManageProduct.g.cs" />
+    <Compile Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\obj\Release\Views\Pages\ManageStaff.g.cs" />
+    <Compile Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\obj\Release\Views\Pages\ManageSupplier.g.cs" />
+    <Compile Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\obj\Release\Views\Pages\MaterialReport.g.cs" />
+    <Compile Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\obj\Release\Views\Pages\RevenueStatistic.g.cs" />
+    <Compile Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\obj\Release\Views\Pages\SellProduct.g.cs" />
+    <Compile Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\obj\Release\Views\SellProduct.g.cs" />
+    <Compile Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\obj\Release\Views\SellProductView.g.cs" />
+    <Compile Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\obj\Release\Views\ShellView.g.cs" />
+    <Compile Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\obj\Release\App.g.cs" />
+    <Compile Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\obj\Release\MilkTeaManager_Content.g.cs" />
+    <Compile Include="C:\Users\Admin\Documents\GitHub\MilkTeaManager_MainProject\MilkTeaManager\MilkTeaManager\obj\Release\GeneratedInternalTypeHelper.g.cs" />
+  </ItemGroup>
+</Project>

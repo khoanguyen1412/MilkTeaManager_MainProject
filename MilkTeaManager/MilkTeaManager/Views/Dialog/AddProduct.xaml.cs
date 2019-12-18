@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MilkTeaManager.ViewModels.Dialog;
+using System.Text.RegularExpressions;
 
 namespace MilkTeaManager.Views.Dialog
 {
@@ -24,9 +25,9 @@ namespace MilkTeaManager.Views.Dialog
         Boolean flag;
         public AddProduct()
         {
+            InitializeComponent();
             this.DataContext = new AddProductViewModel();
             flag = false;
-            InitializeComponent();
         }
         private void save_click(object sender, RoutedEventArgs e)
         {
@@ -48,6 +49,18 @@ namespace MilkTeaManager.Views.Dialog
                 SANPHAM a = DataAccess.db.SANPHAMs.ToList().ElementAt(index);
                 DataAccess.DeleteSanPhamByKey(a.MASP);
             }
+        }
+
+        private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void TextBox_PreviewTextInput_1(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }

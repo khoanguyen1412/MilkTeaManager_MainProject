@@ -99,11 +99,11 @@
                                       />
                             <TextBox Grid.Row="1" Grid.Column="1"
                                      Style="{StaticResource CustomTextBoxStyle}"
-                                     Text="{Binding SSoLuong}"
+                                     Text="{Binding SSoLuong}" PreviewTextInput="TextBox_PreviewTextInput"
                                     />
                             <TextBox Grid.Row="2" Grid.Column="1"
                                      Style="{StaticResource CustomTextBoxStyle}"
-                                     Text="{Binding DonGia}"
+                                     Text="{Binding DonGia}" PreviewTextInput="TextBox_PreviewTextInput_1"
                                     />
                             <ComboBox 
                                 Grid.Row="3"

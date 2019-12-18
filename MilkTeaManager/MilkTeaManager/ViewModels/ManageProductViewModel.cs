@@ -6,10 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using MilkTeaManager.Models;
+using MilkTeaManager.ViewModels.Dialog;
+using MilkTeaManager.Views.Dialog;
 
 namespace MilkTeaManager.ViewModels
 {
-    class ManageProductViewModel:BaseVM
+    class ManageProductViewModel : BaseVM
     {
         private ObservableCollection<SANPHAM> _sanphams;
         private ObservableCollection<LOAISANPHAM> _loaisps;
@@ -26,7 +28,7 @@ namespace MilkTeaManager.ViewModels
         private string _text;
 
         public ICommand SearchClick { get; set; }
-
+        public ICommand AddSPCommand { get; set; }
         public string MaSP
         {
             get { return _masp; }
@@ -69,7 +71,7 @@ namespace MilkTeaManager.ViewModels
             {
                 _ssanpham = value;
                 OnPropertyChanged();
-                CTNLs = new ObservableCollection<CHITIETNGUYENLIEU>(DataAccess.GetChitietnguyenlieusByMaSp(SSanPham.MASP));
+                CTNLs = new ObservableCollection<CHITIETNGUYENLIEU>(DataAccess.GetChitietnguyenlieusByMaSp(SSanPham.MASP).ToList());
                 foreach (var item in CTNLs)
                 {
                     item.MACTNL = DataAccess.TenNl(item.MANL);
@@ -114,6 +116,7 @@ namespace MilkTeaManager.ViewModels
             set
             {
                 _ctnls = value;
+                OnPropertyChanged();
             }
         }
         public string Text
@@ -146,6 +149,21 @@ namespace MilkTeaManager.ViewModels
                 }
                 else
                     SanPhams = new ObservableCollection<SANPHAM>(DataAccess.FilterSanPhamByTenSP(Text));
+            });
+            AddSPCommand = new RelayCommand<object>((p) =>
+            {
+                if (SSanPham != null)
+                    return false;
+                return true;
+
+            }, (p) =>
+            {
+                AddProduct wd = new AddProduct();
+                wd.ShowDialog();
+                var addVM = wd.DataContext as AddProductViewModel;
+
+                    SanPhams = new ObservableCollection<SANPHAM>(DataAccess.GetSanphams());
+
             });
         }
     }

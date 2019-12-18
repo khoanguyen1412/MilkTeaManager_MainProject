@@ -16,6 +16,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using MilkTeaManager.Models;
+using MilkTeaManager.ViewModels;
+
 namespace MilkTeaManager.Views
 {
     /// <summary>
@@ -29,7 +31,7 @@ namespace MilkTeaManager.Views
         {
             InitializeComponent();
             this.Loaded += Home_Click;
-
+     
         }
 
 
@@ -118,7 +120,9 @@ namespace MilkTeaManager.Views
         }
         private void BanHang_Click(object sender, RoutedEventArgs e)
         {
+            this.PAGE_CONTENT.NavigationService.Navigate(new Uri("Views/Pages/RevenueStatistic.xaml", UriKind.RelativeOrAbsolute));
             flag = true;
+
             this.PAGE_CONTENT.NavigationService.Navigate(new Uri("Views/Pages/SellProduct.xaml", UriKind.RelativeOrAbsolute));
         }
         private void SanPham_Click(object sender, RoutedEventArgs e)

@@ -22,8 +22,8 @@ namespace MilkTeaManager.Views.Dialog
     {
         public EditImportBill()
         {
-            this.DataContext = new EditImportBillViewModel();
             InitializeComponent();
+            this.DataContext = new EditImportBillViewModel();
         }
 
         private void update_click(object sender, RoutedEventArgs e)

@@ -116,6 +116,7 @@ namespace MilkTeaManager.ViewModels.Dialog
                     return;
                 var MMaterialVM = NguyenLieuWindow.DataContext as ManageMaterialViewModel;
                 MMaterialVM.NguyenLieus = new ObservableCollection<NGUYENLIEU>(DataAccess.GetNguyenlieus());
+           
             });
 
 

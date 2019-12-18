@@ -22,8 +22,9 @@ namespace MilkTeaManager.Views.Dialog
     {
         public RevenueForm()
         {
-            this.DataContext = new RevenueFormViewModel();
             InitializeComponent();
+            this.DataContext = new RevenueFormViewModel();
+            
         }
     }
 }

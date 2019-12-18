@@ -705,8 +705,22 @@ namespace MilkTeaManager.Models
 				}
 			}
 		}
+        public static void SavePhieuNhap(PHIEUNHAP pn)
+        {
 
-		public static void SaveKhachHang(KHACHHANG kh)
+            {
+                try
+                {
+                    db.PHIEUNHAPs.AddOrUpdate(pn);
+                    db.SaveChanges();
+                }
+                catch (DataException)
+                {
+                    return;
+                }
+            }
+        }
+        public static void SaveKhachHang(KHACHHANG kh)
 		{
 			 
 			{
